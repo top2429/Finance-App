@@ -10,8 +10,7 @@ class MainButton extends StatefulWidget {
       required this.text,
       required this.onpressed,
       this.disabled = false,
-      this.lightBlue = false
-      });
+      this.lightBlue = false});
 
   @override
   State<MainButton> createState() => _MainButtonState();
@@ -29,8 +28,12 @@ class _MainButtonState extends State<MainButton> {
         child: Container(
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
-                color: widget.disabled ? theme.disabledColor : widget.lightBlue?Color(0x4B5EFC): theme.primaryColor),
-            width: 343,     
+                color: widget.disabled
+                    ? theme.disabledColor
+                    : widget.lightBlue
+                        ? Color(0x4B5EFC)
+                        : theme.primaryColor),
+            width: 343,
             height: 45,
             child: Center(
                 child: Text(
