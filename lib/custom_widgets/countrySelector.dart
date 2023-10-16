@@ -10,7 +10,6 @@ class CountryWidget extends StatefulWidget {
 class _CountryWidgetState extends State<CountryWidget> {
   String _selectedVal = 'assets/images/england.png';
 
-  String _selectedValEmpty = 'assets/images/england.png';
 
   _CountryWidgetState() {
     _selectedVal = 'assets/images/england.png';
