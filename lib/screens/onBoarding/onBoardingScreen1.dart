@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:tai/screens/onBoarding/onBoardingScreen2.dart';
 
-class OnBoarding extends StatefulWidget {
-  const OnBoarding({super.key});
+class OnBoarding1 extends StatefulWidget {
+  const OnBoarding1({super.key});
 
   @override
-  State<OnBoarding> createState() => _OnBoardingState();
+  State<OnBoarding1> createState() => _OnBoarding1State();
 }
 
-class _OnBoardingState extends State<OnBoarding> {
+class _OnBoarding1State extends State<OnBoarding1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,9 +35,7 @@ class _OnBoardingState extends State<OnBoarding> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Image.asset(
-                          height: 440,
-                          width: 170,
-                          "assets/images/girl_1.png"),
+                          height: 440, width: 170, "assets/images/girl_1.png"),
                       Padding(
                         padding: const EdgeInsets.only(right: 20),
                         child: Image.asset(
@@ -48,16 +47,26 @@ class _OnBoardingState extends State<OnBoarding> {
                     ],
                   ),
                   Padding(
-                padding: const EdgeInsets.only(left: 30, right: 30),
+                    padding: const EdgeInsets.only(left: 30, right: 30),
                     child: Column(
                       children: [
-                        SizedBox(height: 15,),
-                        Column(
-                          children: [
-                            Text("data"),
-                            Text("data"),
-                            Text("data"),
-                          ],
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("Manage your finances", style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text("Forget everything you know bout the", style: TextStyle(color: Colors.grey),),
+                              Text(
+                                  "chaotic world of finance. We make it easy.", style: TextStyle(color: Colors.grey),),
+                            ],
+                          ),
                         ),
                         SizedBox(
                           height: 30,
@@ -82,7 +91,7 @@ class _OnBoardingState extends State<OnBoarding> {
                               ],
                             ),
                             FloatingActionButton(
-                              shape: CircleBorder(),
+                                shape: CircleBorder(),
                                 // materialTapTargetSize:
                                 //     MaterialTapTargetSize.shrinkWrap,
                                 clipBehavior: Clip.none,
@@ -91,13 +100,19 @@ class _OnBoardingState extends State<OnBoarding> {
                                   Icons.arrow_forward_outlined,
                                   size: 25,
                                 ),
-                                onPressed: () {})
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> OnBoarding2()
+
+                                  ));
+                                })
                           ],
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(height: 30,)
+                  SizedBox(
+                    height: 30,
+                  )
                 ],
               ))
         ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tai/screens/onBoarding/chooseLanguage.dart';
 import 'package:tai/test_page.dart';
 import 'package:tai/utils/custom_theme.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
             debugShowCheckedModeBanner: false,
 
-      home: TestWidget(),
+      home: ChooseLocation(),
     );
   }
 }
