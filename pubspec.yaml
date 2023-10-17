@@ -16,7 +16,9 @@ dependencies:
   google_fonts: ^4.0.4
   dropdown_search: ^5.0.6     #not used
   country_picker: ^2.0.21     # not used
+  flutter_otp_text_field: ^1.1.1
 
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -11,4 +11,10 @@ class Constants {
 
   static Color navBarIconColorlight = const Color.fromARGB(255, 107, 99, 99);
   static Color navBarIconColordark = const Color.fromARGB(255, 255, 255, 255);
+  static Color fillColorForTextFieldOnDarkBackground =
+      const Color.fromARGB(255, 80, 80, 80);
+  static Color butonColorOnDarkbackground =
+      const Color.fromARGB(255, 7, 14, 39);
+
+  static Color callToActionBLue = const Color(0xFF466AE7);
 }

@@ -36,7 +36,7 @@ class _OnBoarding1State extends State<OnBoarding3> {
                       Image.asset(
                           height: 440, width: 250, "assets/images/girl_3.png"),
                       Padding(
-                        padding: const EdgeInsets.only(right: 20),
+                        padding: const EdgeInsets.only(right: 5),
                         child: Image.asset(
                           "assets/images/sittingGuy_3.png",
                           height: 120,
