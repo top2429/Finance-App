@@ -3,14 +3,14 @@ import 'package:tai/custom_widgets/countrySelector.dart';
 import 'package:tai/custom_widgets/mainButton.dart';
 import 'package:tai/screens/onBoarding/onBoardingScreen1.dart';
 
-class ChooseLocation extends StatefulWidget {
-  const ChooseLocation({super.key});
+class ChooseLanguage extends StatefulWidget {
+  const ChooseLanguage({super.key});
 
   @override
-  State<ChooseLocation> createState() => _ChooseLocationState();
+  State<ChooseLanguage> createState() => _ChooseLanguageState();
 }
 
-class _ChooseLocationState extends State<ChooseLocation> {
+class _ChooseLanguageState extends State<ChooseLanguage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

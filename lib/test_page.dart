@@ -30,7 +30,16 @@ class _TestWidgetState extends State<TestWidget> {
               SizedBox(
                 height: 100,
               ),
-              CountryWidget()
+              CountryWidget(),
+
+              SizedBox(
+                height: 50,
+              ),
+              Row(
+                children: [
+                  Icon(Icons.home)
+                ],
+              )
             ],
           ),
         ),

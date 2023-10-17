@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:tai/screens/onBoarding/onBoardingScreen2.dart';
 
 class OnBoarding1 extends StatefulWidget {
@@ -76,15 +77,15 @@ class _OnBoarding1State extends State<OnBoarding1> {
                           children: [
                             Row(
                               children: [
-                                Image.asset("assets/images/bigRect.png"),
+                                SvgPicture.asset("assets/images/bigRect.svg"),
                                 SizedBox(
                                   width: 5,
                                 ),
-                                Image.asset("assets/images/smallRect.png"),
+                                SvgPicture.asset("assets/images/smallRect.svg"),
                                 SizedBox(
                                   width: 5,
                                 ),
-                                Image.asset("assets/images/smallRect.png"),
+                                SvgPicture.asset("assets/images/smallRect.svg"),
                                 SizedBox(
                                   width: 5,
                                 ),

@@ -104,7 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                             borderRadius:
                                                 BorderRadius.circular(10)),
                                         width: 110,
-                                        height: 66,
+                                        height: 56,
                                       ),
                                       SizedBox(
                                         width: 10,

@@ -17,4 +17,6 @@ class Constants {
       const Color.fromARGB(255, 7, 14, 39);
 
   static Color callToActionBLue = const Color(0xFF466AE7);
+
+  static Color inactiveNavBarIconColor = Color(0xFFA9A8AA);
 }

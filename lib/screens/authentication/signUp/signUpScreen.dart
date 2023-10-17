@@ -71,6 +71,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             color: Color.fromARGB(255, 80, 80, 80),
                             borderRadius: BorderRadius.circular(10)),
                         width: 110,
+                        height: 56,
                       ),
                       SizedBox(
                         width: 10,
@@ -123,7 +124,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 10,),
+                    SizedBox(height: 14,),
                     MainButton(lightBlue: true,text: "Sign Up", onpressed: (){
                       Navigator.push(context,
                         MaterialPageRoute(builder: (context) => OTPinputScreen()));
