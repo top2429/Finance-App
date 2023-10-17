@@ -19,4 +19,8 @@ class Constants {
   static Color callToActionBLue = const Color(0xFF466AE7);
 
   static Color inactiveNavBarIconColor = Color(0xFFA9A8AA);
+
+  static Color bottomNavBarColor = Color.fromARGB(255, 240, 240, 240);
+
+  
 }
