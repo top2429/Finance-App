@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tai/screens/authentication/OTPinputPage.dart';
-import 'package:tai/screens/authentication/signUpScreen.dart';
+import 'package:tai/screens/authentication/login/loginScreen.dart';
+import 'package:tai/screens/authentication/signUp/OTPinputPage.dart';
+import 'package:tai/screens/authentication/signUp/signUpScreen.dart';
 import 'package:tai/screens/onBoarding/chooseLanguage.dart';
 import 'package:tai/utils/custom_theme.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
             debugShowCheckedModeBanner: false,
 
-      home: OTPinputScreen(),
+      home: LoginScreen(),
     );
   }
 }

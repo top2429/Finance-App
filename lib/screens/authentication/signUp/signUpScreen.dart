@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tai/custom_widgets/mainButton.dart';
 import 'package:tai/custom_widgets/textField.dart';
-import 'package:tai/screens/authentication/OTPinputPage.dart';
+import 'package:tai/screens/authentication/signUp/OTPinputPage.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});

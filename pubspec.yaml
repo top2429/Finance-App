@@ -17,6 +17,7 @@ dependencies:
   dropdown_search: ^5.0.6     #not used
   country_picker: ^2.0.21     # not used
   flutter_otp_text_field: ^1.1.1
+  buttons_tabbar: ^1.3.8
 
   
 dev_dependencies:
