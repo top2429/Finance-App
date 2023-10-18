@@ -22,5 +22,7 @@ class Constants {
 
   static Color bottomNavBarColor = Color.fromARGB(255, 240, 240, 240);
 
+  static Color homePageBigCardColor = Color(0xFF262329) ;
+
   
 }

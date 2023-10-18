@@ -12,12 +12,12 @@ class IconCircle extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.blue,
+          color: Color(0xFF3B363F),
           shape: BoxShape.circle,
         ),
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: SvgPicture.asset(image),
+          padding: const EdgeInsets.all(10),
+          child: SvgPicture.asset(image,height: 39,width: 39,),
         ),
       ),
     );
