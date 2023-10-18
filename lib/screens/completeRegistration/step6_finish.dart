@@ -43,7 +43,7 @@ class _Step4State extends State<Step6> {
               height: 50,
             ),
             Text(
-              "Wait a minute",
+              "Wait a minute.",
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
             SizedBox(
@@ -57,7 +57,7 @@ class _Step4State extends State<Step6> {
               height: 60,
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 70,right: 70),
+              padding: const EdgeInsets.only(left: 70, right: 70),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -79,8 +79,8 @@ class _Step4State extends State<Step6> {
                     height: 15,
                   ),
                   Row(
-                                      // mainAxisAlignment: MainAxisAlignment.center,
-            
+                    // mainAxisAlignment: MainAxisAlignment.center,
+
                     children: [
                       Image.asset(
                         "assets/images/check-mark.png",
@@ -90,15 +90,15 @@ class _Step4State extends State<Step6> {
                       SizedBox(
                         width: 10,
                       ),
-                      Text(" Documents approved"),
+                      Text("Documents approved"),
                     ],
                   ),
                   SizedBox(
                     height: 15,
                   ),
                   Row(
-                                      // mainAxisAlignment: MainAxisAlignment.center,
-            
+                    // mainAxisAlignment: MainAxisAlignment.center,
+
                     children: [
                       Image.asset(
                         "assets/images/check-mark.png",
