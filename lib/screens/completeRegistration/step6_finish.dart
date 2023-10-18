@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tai/custom_widgets/mainButton.dart';
 import 'package:tai/screens/completeRegistration/step5_confirmSelfie.dart';
+import 'package:tai/screens/keyboard/keyboard.dart';
 
 class Step6 extends StatefulWidget {
   const Step6({super.key});
@@ -118,8 +119,8 @@ class _Step4State extends State<Step6> {
             MainButton(
                 text: "Finish verification",
                 onpressed: () {
-                  // Navigator.push(context,
-                  //           MaterialPageRoute(builder: (context) => Step5()));
+                  Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => KeyBoard()));
                 })
           ],
         ),

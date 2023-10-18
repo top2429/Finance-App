@@ -267,6 +267,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.4.0"
+  pin_plus_keyboard:
+    dependency: "direct main"
+    description:
+      name: pin_plus_keyboard
+      sha256: ca71cad44f1f467f05458a32ae0ba1013c28db9310af2c51b568975c86827e4b
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.6"
   platform:
     dependency: transitive
     description:
