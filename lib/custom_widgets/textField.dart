@@ -28,11 +28,10 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      
-      style: TextStyle(color: widget.textcolor,fontSize: 17),
+      style: TextStyle(color: widget.textcolor, fontSize: 17),
       controller: widget.controller,
       decoration: InputDecoration(
-          contentPadding: EdgeInsets.only(top: 15,bottom: 15,left: 13),
+          contentPadding: EdgeInsets.only(top: 15, bottom: 15, left: 13),
           filled: true,
           fillColor: widget.backgroundColor,
           errorText:
@@ -42,14 +41,13 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
               borderSide: BorderSide(color: widget.borderSideColor)),
-         
           label: Text(widget.label),
           labelStyle: TextStyle(color: widget.labelColor)
           //hintText: 'username',
 
           ),
       keyboardType: TextInputType.name,
-      
+
       //  keyboardType: TextInputType.name,
     );
   }
