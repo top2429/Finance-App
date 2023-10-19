@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:tai/screens/authentication/signUp/signUpScreen.dart';
 
 class OnBoarding3 extends StatefulWidget {
   const OnBoarding3({super.key});
@@ -102,7 +103,8 @@ class _OnBoarding1State extends State<OnBoarding3> {
                                 ),
                                 onPressed: () {
                                   
-
+                                  Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => SignUpScreen()));
                              
                                 })
                           ],

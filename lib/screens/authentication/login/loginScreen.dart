@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tai/custom_widgets/mainButton.dart';
 import 'package:tai/custom_widgets/textField.dart';
 import 'package:tai/screens/authentication/signUp/OTPinputPage.dart';
+import 'package:tai/screens/authentication/signUp/enterPasscode_keyboard.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -71,7 +72,6 @@ class _LoginScreenState extends State<LoginScreen> {
                             child: Center(
                                 child: Text(
                               "Phone Number",
-                              
                             )),
                           )),
                           Tab(
@@ -139,7 +139,13 @@ class _LoginScreenState extends State<LoginScreen> {
                                   MainButton(
                                       lightBlue: true,
                                       text: "Continue",
-                                      onpressed: () {})
+                                      onpressed: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    EnterCode()));
+                                      })
                                 ],
                               ),
                             ),
@@ -176,7 +182,13 @@ class _LoginScreenState extends State<LoginScreen> {
                                   MainButton(
                                       lightBlue: true,
                                       text: "Continue",
-                                      onpressed: () {})
+                                      onpressed: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    EnterCode()));
+                                      })
                                 ],
                               ),
                             ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tai/custom_widgets/iconInCircle.dart';
+import 'package:tai/screens/completeRegistration/step1_personal.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -24,8 +25,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     Column(
                       children: [
-                        CircleAvatar(
-                          radius: 24,
+                        InkWell(
+                          onTap: (){
+                            Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Step1()));
+                          },
+                          child: CircleAvatar(
+                            radius: 24,
+                          ),
                         ),
                         SizedBox(
                           height: 8,
@@ -308,7 +315,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ListView.builder(
                   shrinkWrap: true,
                   primary: false,
-                  itemCount: 4,
+                  itemCount: 6,
                   itemBuilder: (_,index){
                     return Padding(
                       padding: const EdgeInsets.only(bottom: 10),
