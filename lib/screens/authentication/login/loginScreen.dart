@@ -16,6 +16,12 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController email = TextEditingController();
   final TextEditingController mobileNumber = TextEditingController();
 
+  //  global key for the form on this screen
+  final _formKeyNumber = GlobalKey<FormState>();
+
+  //  global key for the form on this screen
+  final _formKeyEmail = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -96,6 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     height: 5,
                                   ),
                                   Row(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Container(
                                         decoration: BoxDecoration(
@@ -110,15 +117,17 @@ class _LoginScreenState extends State<LoginScreen> {
                                         width: 10,
                                       ),
                                       Expanded(
-                                        child: TextFieldWidget(
-                                          controller: mobileNumber,
-                                          controllerExist: "",
-                                          label: "Mobile Number",
-                                          labelColor: Colors.white,
-                                          backgroundColor:
-                                              Color.fromARGB(255, 80, 80, 80),
-                                          borderSideColor: Colors.transparent,
-                                          keyBoardType: TextInputType.number,
+                                        child: Form(
+                                          key: _formKeyNumber,
+                                          child: TextFieldWidget(
+                                            controller: mobileNumber,
+                                            label: "Mobile Number",
+                                            labelColor: Colors.white,
+                                            backgroundColor:
+                                                Color.fromARGB(255, 80, 80, 80),
+                                            borderSideColor: Colors.transparent,
+                                            keyBoardType: TextInputType.number,
+                                          ),
                                         ),
                                       )
                                     ],
@@ -140,11 +149,23 @@ class _LoginScreenState extends State<LoginScreen> {
                                       lightBlue: true,
                                       text: "Continue",
                                       onpressed: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    EnterCode()));
+                                        if (_formKeyNumber.currentState!
+                                            .validate()) {
+                                          // If the form is valid, display a snackbar. In the real world,
+                                          // you'd often call a server or save the information in a database.
+
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            const SnackBar(
+                                                content:
+                                                    Text('Processing Data')),
+                                          );
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      EnterCode()));
+                                        }
                                       })
                                 ],
                               ),
@@ -156,15 +177,17 @@ class _LoginScreenState extends State<LoginScreen> {
                                   SizedBox(
                                     height: 5,
                                   ),
-                                  TextFieldWidget(
-                                    controller: email,
-                                    controllerExist: "",
-                                    label: "Email",
-                                    labelColor: Colors.white,
-                                    backgroundColor:
-                                        Color.fromARGB(255, 80, 80, 80),
-                                    borderSideColor: Colors.transparent,
-                                    keyBoardType: TextInputType.emailAddress,
+                                  Form(
+                                    key: _formKeyEmail,
+                                    child: TextFieldWidget(
+                                      controller: email,
+                                      label: "Email",
+                                      labelColor: Colors.white,
+                                      backgroundColor:
+                                          Color.fromARGB(255, 80, 80, 80),
+                                      borderSideColor: Colors.transparent,
+                                      keyBoardType: TextInputType.emailAddress,
+                                    ),
                                   ),
                                   SizedBox(
                                     height: 15,
@@ -183,11 +206,23 @@ class _LoginScreenState extends State<LoginScreen> {
                                       lightBlue: true,
                                       text: "Continue",
                                       onpressed: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    EnterCode()));
+                                        if (_formKeyEmail.currentState!
+                                            .validate()) {
+                                          // If the form is valid, display a snackbar. In the real world,
+                                          // you'd often call a server or save the information in a database.
+
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            const SnackBar(
+                                                content:
+                                                    Text('Processing Data')),
+                                          );
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      EnterCode()));
+                                        }
                                       })
                                 ],
                               ),

@@ -12,12 +12,16 @@ class Step1 extends StatefulWidget {
 }
 
 class _Step1State extends State<Step1> {
+  // text controllers  for the fields on the form
   final TextEditingController firstName = TextEditingController();
   final TextEditingController lastName = TextEditingController();
   final TextEditingController dateOfBirth = TextEditingController();
   final TextEditingController gender = TextEditingController();
   final TextEditingController email = TextEditingController();
   final TextEditingController phone = TextEditingController();
+
+  //  global key for the form on this screen
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -64,65 +68,78 @@ class _Step1State extends State<Step1> {
                     SizedBox(
                       height: 70,
                     ),
-                    TextFieldWidget(
-                        keyBoardType: TextInputType.name,
-                        textcolor: Colors.black,
-                        controller: firstName,
-                        controllerExist: "",
-                        label: "First Name"),
-                    SizedBox(
-                      height: 20,
+                    Form(
+                      key: _formKey,
+                      child: Column(
+                        children: [
+                          TextFieldWidget(
+                              keyBoardType: TextInputType.name,
+                              textcolor: Colors.black,
+                              controller: firstName,
+                              label: "First Name"),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          TextFieldWidget(
+                              keyBoardType: TextInputType.name,
+                              textcolor: Colors.black,
+                              controller: lastName,
+                              label: "Last name"),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          TextFieldWidget(
+                              keyBoardType: TextInputType.datetime,
+                              textcolor: Colors.black,
+                              controller:
+                                  dateOfBirth, // add a hint text for the date format
+                              label: "Date of Birth"),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          TextFieldWidget(
+                              keyBoardType: TextInputType.name,
+                              textcolor: Colors.black,
+                              controller: gender,
+                              label: "Gender"),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          TextFieldWidget(
+                              keyBoardType: TextInputType.emailAddress,
+                              textcolor: Colors.black,
+                              controller: email,
+                              label: "Email"),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          TextFieldWidget(
+                              keyBoardType: TextInputType.number,
+                              textcolor: Colors.black,
+                              controller: phone,
+                              label: "Phone Number"),
+                          SizedBox(
+                            height: 70,
+                          ),
+                        ],
+                      ),
                     ),
-                    TextFieldWidget(
-                        keyBoardType: TextInputType.name,
-                        textcolor: Colors.black,
-                        controller: lastName,
-                        controllerExist: "",
-                        label: "Last name"),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    TextFieldWidget(
-                        keyBoardType: TextInputType.datetime,
-                        textcolor: Colors.black,
-                        controller:
-                            dateOfBirth, // add a hint text for the date format
-                        controllerExist: "",
-                        label: "Date of Birth"),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    TextFieldWidget(
-                        keyBoardType: TextInputType.name,
-                        textcolor: Colors.black,
-                        controller: gender,
-                        controllerExist: "",
-                        label: "Gender"),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    TextFieldWidget(
-                        keyBoardType: TextInputType.emailAddress,
-                        textcolor: Colors.black,
-                        controller: email,
-                        controllerExist: "",
-                        label: "Email"),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    TextFieldWidget(
-                        keyBoardType: TextInputType.number,
-                        textcolor: Colors.black,
-                        controller: phone,
-                        controllerExist: "",
-                        label: "Phone Number"),
-                        SizedBox(
-                      height: 70,
-                    ),
-                    MainButton(text: "Next", onpressed: () {
-                      Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Step2()));
-                    })
+                    MainButton(
+                        text: "Next",
+                        onpressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            // If the form is valid, display a snackbar. In the real world,
+                            // you'd often call a server or save the information in a database.
+                            
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(content: Text('Processing Data')),
+                            );
+
+                            Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => Step2()));
+                          }
+                          
+                        })
                   ],
                 ),
               ],

@@ -16,7 +16,10 @@ class _Step2State extends State<Step2> {
   final TextEditingController district = TextEditingController();
   final TextEditingController subCounty = TextEditingController();
   final TextEditingController village = TextEditingController();
-  
+
+  //  global key for the form on this screen
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,51 +65,65 @@ class _Step2State extends State<Step2> {
                     SizedBox(
                       height: 70,
                     ),
-                    TextFieldWidget(
-                        keyBoardType: TextInputType.name,
-                        textcolor: Colors.black,
-                        controller: occupation,
-                        controllerExist: "",
-                        label: "Occupation"),
-                    SizedBox(
-                      height: 20,
+                    Form(
+                      key: _formKey,
+                      child: Column(
+                        children: [
+                          TextFieldWidget(
+                              keyBoardType: TextInputType.name,
+                              textcolor: Colors.black,
+                              controller: occupation,
+                              label: "Occupation"),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          TextFieldWidget(
+                              keyBoardType: TextInputType.name,
+                              textcolor: Colors.black,
+                              controller: district,
+                              label: "District"),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          TextFieldWidget(
+                              keyBoardType: TextInputType.name,
+                              textcolor: Colors.black,
+                              controller:
+                                  subCounty, // add a hint text for the date format
+                              label: "Subcounty"),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          TextFieldWidget(
+                              keyBoardType: TextInputType.name,
+                              textcolor: Colors.black,
+                              controller: village,
+                              label: "Village"),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          SizedBox(
+                            height: 70,
+                          ),
+                        ],
+                      ),
                     ),
-                    TextFieldWidget(
-                        keyBoardType: TextInputType.name,
-                        textcolor: Colors.black,
-                        controller: district,
-                        controllerExist: "",
-                        label: "District"),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    TextFieldWidget(
-                        keyBoardType: TextInputType.name,
-                        textcolor: Colors.black,
-                        controller:
-                            subCounty, // add a hint text for the date format
-                        controllerExist: "",
-                        label: "Subcounty"),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    TextFieldWidget(
-                        keyBoardType: TextInputType.name,
-                        textcolor: Colors.black,
-                        controller: village,
-                        controllerExist: "",
-                        label: "Village"),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    
-                        SizedBox(
-                      height: 70,
-                    ),
-                    MainButton(text: "Next", onpressed: () {
-                       Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Step3()));
-                    })
+                    MainButton(
+                        text: "Next",
+                        onpressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            // If the form is valid, display a snackbar. In the real world,
+                            // you'd often call a server or save the information in a database.
+
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(content: Text('Processing Data')),
+                            );
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Step3()));
+                          }
+                        })
                   ],
                 ),
               ],
