@@ -10,6 +10,7 @@ import 'package:tai/screens/completeRegistration/step4_takeSelfie.dart';
 import 'package:tai/screens/completeRegistration/step5_confirmSelfie.dart';
 import 'package:tai/screens/completeRegistration/step6_finish.dart';
 import 'package:tai/screens/keyboard/keyboard.dart';
+import 'package:tai/screens/myProfile/profileScreen.dart';
 import 'package:tai/screens/onBoarding/chooseLanguage.dart';
 import 'package:tai/utils/custom_theme.dart';
 
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
             debugShowCheckedModeBanner: false,
 
-      home: ChooseLanguage(),
+      home: ProfileScreen(),
     );
   }
 }
