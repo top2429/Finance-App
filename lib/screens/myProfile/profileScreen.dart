@@ -61,45 +61,48 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   height: 10,
                 ),
                 Spacer(),
-                Form(
-                    child: Column(
-                  children: [
-                    TextFieldWidgetIcon(
-                      onChanged: (value) {
-                        setState(() {});
-                      },
-                      enabled: false,
-                      hasICon: false,
-                      controller: username,
-                      label: "Username",
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    TextFieldWidgetIcon(
-                      onChanged: (value) {},
-                      enabled: false,
-                      hasICon: false,
-                      controller: email,
-                      label: "Email",
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    TextFieldWidgetIcon(
-                      onChanged: (value) {},
-                      enabled: false,
-                      hasICon: false,
-                      controller: phoneNumber,
-                      label: "Mobile Number",
-                      borderSideColor: Colors.transparent,
-                      keyBoardType: TextInputType.number,
-                    ),
-                  ],
-                )),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  child: Form(
+                      child: Column(
+                    children: [
+                      TextFieldWidgetIcon(
+                        onChanged: (value) {
+                          setState(() {});
+                        },
+                        enabled: false,
+                        hasICon: false,
+                        controller: username,
+                        label: "Username",
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      TextFieldWidgetIcon(
+                        onChanged: (value) {},
+                        enabled: false,
+                        hasICon: false,
+                        controller: email,
+                        label: "Email",
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      TextFieldWidgetIcon(
+                        onChanged: (value) {},
+                        enabled: false,
+                        hasICon: false,
+                        controller: phoneNumber,
+                        label: "Mobile Number",
+                        borderSideColor: Colors.transparent,
+                        keyBoardType: TextInputType.number,
+                      ),
+                    ],
+                  )),
+                ),
                 SizedBox(height: 110,),
               MainButton(text: "Logout", onpressed: (){
 

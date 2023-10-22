@@ -42,65 +42,115 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 200,
+                    height: 30,
                   ),
-                  Form(
-                      key: _formKey,
-                      child: Column(
-                        children: [
-                          TextFieldWidgetIcon(
-                            onChanged: (value){
+                  CircleAvatar(
+                    radius: 50,
+                    child: InkWell(
+                        onTap: () {
+                          showModalBottomSheet(
+                              enableDrag: true,
+                              context: context,
+                              builder: (BuildContext context) {
+                                return Padding(
+                                  padding: const EdgeInsets.all(13),
+                                  child: Column(children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 8, bottom: 14, left: 5),
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            "Select Avatar",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                    Expanded(
+                                        child: GridView.builder(
+                                      itemBuilder: (context, index) {
+                                        return CircleAvatar();
+                                      },
+                                      itemCount: 20,
+                                      gridDelegate:
+                                          const SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 5,
+                                        crossAxisSpacing: 10,
+                                        mainAxisSpacing: 14,
+                                        childAspectRatio: (1.0),
+                                      ),
+                                    ))
+                                  ]),
+                                );
+                              });
                         },
-                            enabled: true,
-                            hasICon: true,
-                            controller: username,
-                            label: "Username *",
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          TextFieldWidgetIcon(
-                            onChanged: (value){
-                        },
-                            enabled: true,
-                            hasICon: true,
-                            controller: email,
-                            label: "Email",
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          IntrinsicHeight(
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(10)),
-                                  width: 110,
-                                  height: 56,
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Expanded(
-                                  child: TextFieldWidgetIcon(
-                                    onChanged: (value){
-                        },
-                                    enabled: true,
-                                    hasICon: true,
-                                    controller: phoneNumber,
-                                    label: "Mobile Number",
-                                    borderSideColor: Colors.transparent,
-                                    keyBoardType: TextInputType.number,
-                                  ),
-                                )
-                              ],
+                        child: Icon(
+                          Icons.add,
+                          size: 40,
+                        )),
+                  ),
+                  SizedBox(
+                    height: 60,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: Form(
+                        key: _formKey,
+                        child: Column(
+                          children: [
+                            TextFieldWidgetIcon(
+                              onChanged: (value) {},
+                              enabled: true,
+                              hasICon: true,
+                              controller: username,
+                              label: "Username *",
                             ),
-                          ),
-                        ],
-                      )),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            TextFieldWidgetIcon(
+                              onChanged: (value) {},
+                              enabled: true,
+                              hasICon: true,
+                              controller: email,
+                              label: "Email",
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            IntrinsicHeight(
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(10)),
+                                    width: 110,
+                                    height: 56,
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Expanded(
+                                    child: TextFieldWidgetIcon(
+                                      onChanged: (value) {},
+                                      enabled: true,
+                                      hasICon: true,
+                                      controller: phoneNumber,
+                                      label: "Mobile Number",
+                                      borderSideColor: Colors.transparent,
+                                      keyBoardType: TextInputType.number,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        )),
+                  ),
                   SizedBox(
                     height: 140,
                   ),
