@@ -5,12 +5,14 @@ class MainButton extends StatefulWidget {
   final VoidCallback onpressed;
   final bool disabled;
   final bool lightBlue;
+  final bool red;
   const MainButton(
       {super.key,
       required this.text,
       required this.onpressed,
       this.disabled = false,
-      this.lightBlue = false});
+      this.lightBlue = false,
+      this.red = false});
 
   @override
   State<MainButton> createState() => _MainButtonState();
@@ -32,7 +34,7 @@ class _MainButtonState extends State<MainButton> {
                     ? theme.disabledColor
                     : widget.lightBlue
                         ? Color.fromARGB(255, 7, 14, 39)
-                        : theme.primaryColor),
+                        : widget.red?const Color.fromARGB(255, 252, 82, 70): theme.primaryColor),
             width: 343,
             height: 45,
             child: Center(

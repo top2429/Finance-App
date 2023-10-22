@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:tai/custom_widgets/mainButton.dart';
 import 'package:tai/custom_widgets/textField_icon.dart';
 import 'package:tai/screens/myProfile/editProfile.dart';
 
@@ -49,54 +50,67 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         body: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 200,
-                  ),
-                  Form(
-                      child: Column(
-                    children: [
-                      TextFieldWidgetIcon(
-                        onChanged: (value) {
-                          setState(() {});
-                        },
-                        enabled: false,
-                        hasICon: false,
-                        controller: username,
-                        label: "Username",
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      TextFieldWidgetIcon(
-                        onChanged: (value) {},
-                        enabled: false,
-                        hasICon: false,
-                        controller: email,
-                        label: "Email",
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      TextFieldWidgetIcon(
-                        onChanged: (value) {},
-                        enabled: false,
-                        hasICon: false,
-                        controller: phoneNumber,
-                        label: "Mobile Number",
-                        borderSideColor: Colors.transparent,
-                        keyBoardType: TextInputType.number,
-                      ),
-                    ],
-                  ))
-                ],
-              ),
+            padding: const EdgeInsets.only(left: 20, right: 20,bottom: 70),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 30,
+                ),
+                CircleAvatar(radius: 50,),
+                SizedBox(
+                  height: 10,
+                ),
+                Spacer(),
+                Form(
+                    child: Column(
+                  children: [
+                    TextFieldWidgetIcon(
+                      onChanged: (value) {
+                        setState(() {});
+                      },
+                      enabled: false,
+                      hasICon: false,
+                      controller: username,
+                      label: "Username",
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    TextFieldWidgetIcon(
+                      onChanged: (value) {},
+                      enabled: false,
+                      hasICon: false,
+                      controller: email,
+                      label: "Email",
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    TextFieldWidgetIcon(
+                      onChanged: (value) {},
+                      enabled: false,
+                      hasICon: false,
+                      controller: phoneNumber,
+                      label: "Mobile Number",
+                      borderSideColor: Colors.transparent,
+                      keyBoardType: TextInputType.number,
+                    ),
+                  ],
+                )),
+                SizedBox(height: 110,),
+              MainButton(text: "Logout", onpressed: (){
+
+              }),
+              SizedBox(height: 30,),
+              MainButton(
+                red: true,
+                text: "Delete account", onpressed: (){
+
+              }),
+              ],
             ),
           ),
         ));
