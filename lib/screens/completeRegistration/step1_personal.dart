@@ -73,6 +73,9 @@ class _Step1State extends State<Step1> {
                       child: Column(
                         children: [
                           TextFieldWidget(
+                            onChanged: (p0) {
+                              
+                            },
                               keyBoardType: TextInputType.name,
                               textcolor: Colors.black,
                               controller: firstName,
@@ -81,6 +84,9 @@ class _Step1State extends State<Step1> {
                             height: 20,
                           ),
                           TextFieldWidget(
+                            onChanged: (p0) {
+                              
+                            },
                               keyBoardType: TextInputType.name,
                               textcolor: Colors.black,
                               controller: lastName,
@@ -89,6 +95,9 @@ class _Step1State extends State<Step1> {
                             height: 20,
                           ),
                           TextFieldWidget(
+                            onChanged: (p0) {
+                              
+                            },
                               keyBoardType: TextInputType.datetime,
                               textcolor: Colors.black,
                               controller:
@@ -98,6 +107,9 @@ class _Step1State extends State<Step1> {
                             height: 20,
                           ),
                           TextFieldWidget(
+                            onChanged: (p0) {
+                              
+                            },
                               keyBoardType: TextInputType.name,
                               textcolor: Colors.black,
                               controller: gender,
@@ -106,6 +118,9 @@ class _Step1State extends State<Step1> {
                             height: 20,
                           ),
                           TextFieldWidget(
+                            onChanged: (p0) {
+                              
+                            },
                               keyBoardType: TextInputType.emailAddress,
                               textcolor: Colors.black,
                               controller: email,
@@ -114,6 +129,9 @@ class _Step1State extends State<Step1> {
                             height: 20,
                           ),
                           TextFieldWidget(
+                            onChanged: (p0) {
+                              
+                            },
                               keyBoardType: TextInputType.number,
                               textcolor: Colors.black,
                               controller: phone,

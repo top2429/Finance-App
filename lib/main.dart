@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
             debugShowCheckedModeBanner: false,
 
-      home: ProfileScreen(),
+      home: SignUpScreen(),
     );
   }
 }

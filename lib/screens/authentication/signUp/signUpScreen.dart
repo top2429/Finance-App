@@ -17,6 +17,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   //  global key for the form on this screen
   final _formKey = GlobalKey<FormState>();
 
+  bool buttonIsDisabled = true;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -33,7 +35,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         body: Padding(
           padding: const EdgeInsets.only(left: 20, right: 20),
           child: Padding(
-            padding: const EdgeInsets.only(bottom: 40),
+            padding: const EdgeInsets.only(bottom: 36),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -59,6 +61,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   child: Column(
                     children: [
                       TextFieldWidget(
+                        onChanged: (p0) {
+                          if (_formKey.currentState!.validate()) {
+                            // If the form is valid, display a snackbar. In the real world,
+                            // you'd often call a server or save the information in a database.
+                            setState(() {
+                              buttonIsDisabled = false;
+                            });
+                          }else{
+                            setState(() {
+                              buttonIsDisabled = true;
+                            });
+                          }
+                        },
                         controller: email,
                         label: "Email",
                         labelColor: Colors.white,
@@ -85,6 +100,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ),
                             Expanded(
                               child: TextFieldWidget(
+                                onChanged: (p0) {
+                                  if (_formKey.currentState!.validate()) {
+                            // If the form is valid, display a snackbar. In the real world,
+                            // you'd often call a server or save the information in a database.
+
+                            setState(() {
+                              buttonIsDisabled = false;
+                            });
+                          }else{
+                            setState(() {
+                              buttonIsDisabled = true;
+                            });
+                          }
+                                },
                                 controller: mobileNumber,
                                 label: "Mobile Number",
                                 labelColor: Colors.white,
@@ -138,6 +167,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       height: 14,
                     ),
                     MainButton(
+                      disabled: buttonIsDisabled,
                         lightBlue: true,
                         text: "Sign Up",
                         onpressed: () {

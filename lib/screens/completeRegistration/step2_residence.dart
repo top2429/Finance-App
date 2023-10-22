@@ -70,6 +70,9 @@ class _Step2State extends State<Step2> {
                       child: Column(
                         children: [
                           TextFieldWidget(
+                            onChanged: (p0) {
+                              
+                            },
                               keyBoardType: TextInputType.name,
                               textcolor: Colors.black,
                               controller: occupation,
@@ -78,6 +81,9 @@ class _Step2State extends State<Step2> {
                             height: 20,
                           ),
                           TextFieldWidget(
+                            onChanged: (p0) {
+                              
+                            },
                               keyBoardType: TextInputType.name,
                               textcolor: Colors.black,
                               controller: district,
@@ -86,6 +92,9 @@ class _Step2State extends State<Step2> {
                             height: 20,
                           ),
                           TextFieldWidget(
+                            onChanged: (p0) {
+                              
+                            },
                               keyBoardType: TextInputType.name,
                               textcolor: Colors.black,
                               controller:
@@ -95,6 +104,9 @@ class _Step2State extends State<Step2> {
                             height: 20,
                           ),
                           TextFieldWidget(
+                            onChanged: (p0) {
+                              
+                            },
                               keyBoardType: TextInputType.name,
                               textcolor: Colors.black,
                               controller: village,

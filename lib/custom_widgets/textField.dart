@@ -8,6 +8,8 @@ class TextFieldWidget extends StatefulWidget {
   final Color labelColor;
   final TextInputType keyBoardType;
   final Color backgroundColor;
+    final void Function(String) onChanged;
+
   TextFieldWidget(
       {super.key,
       required this.controller,
@@ -16,7 +18,9 @@ class TextFieldWidget extends StatefulWidget {
       required this.label,
       this.labelColor = Colors.black,
       this.keyBoardType = TextInputType.name,
-      this.backgroundColor = Colors.white});
+      this.backgroundColor = Colors.white,
+            required this.onChanged
+});
 
   @override
   State<TextFieldWidget> createState() => _TextFieldWidgetState();
@@ -30,14 +34,14 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
         // this will  handle the checks when the field is submitted 
         // but before the button to proceed is pressed
       },
-      onChanged: (value){
-        // this is used for search functionality where it returns 
+
+      // this is used for search functionality where it returns 
         // some of the results depending on the values that are 
         // already in the field
-      },
+      onChanged: widget.onChanged,
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'Please enter some text';
+          return '';
         }
         return null;
       },

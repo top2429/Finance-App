@@ -120,6 +120,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                         child: Form(
                                           key: _formKeyNumber,
                                           child: TextFieldWidget(
+                                            onChanged: (p0) {
+                                              
+                                            },
                                             controller: mobileNumber,
                                             label: "Mobile Number",
                                             labelColor: Colors.white,
@@ -180,6 +183,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                   Form(
                                     key: _formKeyEmail,
                                     child: TextFieldWidget(
+                                      onChanged: (p0) {
+                                        
+                                      },
                                       controller: email,
                                       label: "Email",
                                       labelColor: Colors.white,
