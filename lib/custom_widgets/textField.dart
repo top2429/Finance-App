@@ -30,6 +30,11 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
         // this will  handle the checks when the field is submitted 
         // but before the button to proceed is pressed
       },
+      onChanged: (value){
+        // this is used for search functionality where it returns 
+        // some of the results depending on the values that are 
+        // already in the field
+      },
       validator: (value) {
         if (value == null || value.isEmpty) {
           return 'Please enter some text';
