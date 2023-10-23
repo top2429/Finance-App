@@ -22,7 +22,7 @@ class _CountryWidgetState extends State<CountryWidget> {
   ];
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 120,
       height: 60,
       child: DropdownButtonFormField(
@@ -35,15 +35,15 @@ class _CountryWidgetState extends State<CountryWidget> {
             _selectedVal = val as String;
           });
         },
-        icon: Padding(
-          padding: const EdgeInsets.only(bottom: 12),
-          child: const Icon(
+        icon: const Padding(
+          padding: EdgeInsets.only(bottom: 12),
+          child: Icon(
             size: 27,
             Icons.keyboard_arrow_down,
             color: Color.fromARGB(255, 3, 3, 3),
           ),
         ),
-        dropdownColor: Color.fromARGB(255, 252, 252, 252),
+        dropdownColor: const Color.fromARGB(255, 252, 252, 252),
         decoration: InputDecoration(
             // errorText: _selectedValEmpty.isEmpty ? null : _selectedValEmpty,
             focusedBorder: const OutlineInputBorder(

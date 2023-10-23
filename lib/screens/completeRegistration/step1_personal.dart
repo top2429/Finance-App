@@ -27,7 +27,7 @@ class _Step1State extends State<Step1> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: Color.fromARGB(255, 240, 240, 240),
+      backgroundColor: const Color.fromARGB(255, 240, 240, 240),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -39,33 +39,33 @@ class _Step1State extends State<Step1> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       "Add Personal Details",
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SvgPicture.asset("assets/images/darkLine.svg"),
-                        SizedBox(
+                        const SizedBox(
                           width: 5,
                         ),
                         SvgPicture.asset("assets/images/lightLine.svg"),
-                        SizedBox(
+                        const SizedBox(
                           width: 5,
                         ),
                         SvgPicture.asset("assets/images/lightLine.svg"),
-                        SizedBox(
+                        const SizedBox(
                           width: 5,
                         ),
                         SvgPicture.asset("assets/images/lightLine.svg"),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 70,
                     ),
                     Form(
@@ -80,7 +80,7 @@ class _Step1State extends State<Step1> {
                               textcolor: Colors.black,
                               controller: firstName,
                               label: "First Name"),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           TextFieldWidget(
@@ -91,7 +91,7 @@ class _Step1State extends State<Step1> {
                               textcolor: Colors.black,
                               controller: lastName,
                               label: "Last name"),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           TextFieldWidget(
@@ -103,7 +103,7 @@ class _Step1State extends State<Step1> {
                               controller:
                                   dateOfBirth, // add a hint text for the date format
                               label: "Date of Birth"),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           TextFieldWidget(
@@ -114,7 +114,7 @@ class _Step1State extends State<Step1> {
                               textcolor: Colors.black,
                               controller: gender,
                               label: "Gender"),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           TextFieldWidget(
@@ -125,7 +125,7 @@ class _Step1State extends State<Step1> {
                               textcolor: Colors.black,
                               controller: email,
                               label: "Email"),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           TextFieldWidget(
@@ -136,7 +136,7 @@ class _Step1State extends State<Step1> {
                               textcolor: Colors.black,
                               controller: phone,
                               label: "Phone Number"),
-                          SizedBox(
+                          const SizedBox(
                             height: 70,
                           ),
                         ],
@@ -154,7 +154,7 @@ class _Step1State extends State<Step1> {
                             );
 
                             Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => Step2()));
+                              MaterialPageRoute(builder: (context) => const Step2()));
                           }
                           
                         })

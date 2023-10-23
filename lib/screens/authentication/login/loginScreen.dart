@@ -2,7 +2,6 @@ import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:tai/custom_widgets/mainButton.dart';
 import 'package:tai/custom_widgets/textField.dart';
-import 'package:tai/screens/authentication/signUp/OTPinputPage.dart';
 import 'package:tai/screens/authentication/signUp/enterPasscode_keyboard.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -26,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xFF000000),
+        backgroundColor: const Color(0xFF000000),
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.black,
@@ -40,14 +39,14 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 "Log in to tai",
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 25,
                     color: Colors.white),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               Expanded(
@@ -59,21 +58,21 @@ class _LoginScreenState extends State<LoginScreen> {
                         // Customize the appearance and behavior of the tab bar
                         backgroundColor: Colors.white,
                         unselectedBackgroundColor:
-                            Color.fromARGB(255, 80, 80, 80),
+                            const Color.fromARGB(255, 80, 80, 80),
                         borderWidth: 1,
                         borderColor: Colors.black,
-                        labelStyle: TextStyle(
+                        labelStyle: const TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
                         ),
-                        unselectedLabelStyle: TextStyle(
+                        unselectedLabelStyle: const TextStyle(
                           color: Colors.grey,
                           fontWeight: FontWeight.bold,
                         ),
                         // Add your tabs here
-                        tabs: [
+                        tabs: const [
                           Tab(
-                              child: Container(
+                              child: SizedBox(
                             width: 150,
                             child: Center(
                                 child: Text(
@@ -81,13 +80,13 @@ class _LoginScreenState extends State<LoginScreen> {
                             )),
                           )),
                           Tab(
-                              child: Container(
+                              child: SizedBox(
                             width: 150,
                             child: Center(child: Text("Email")),
                           )),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 60,
                       ),
                       Expanded(
@@ -98,7 +97,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 5,
                                   ),
                                   Row(
@@ -107,13 +106,13 @@ class _LoginScreenState extends State<LoginScreen> {
                                       Container(
                                         decoration: BoxDecoration(
                                             color:
-                                                Color.fromARGB(255, 80, 80, 80),
+                                                const Color.fromARGB(255, 80, 80, 80),
                                             borderRadius:
                                                 BorderRadius.circular(10)),
                                         width: 110,
                                         height: 56,
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         width: 10,
                                       ),
                                       Expanded(
@@ -127,7 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                             label: "Mobile Number",
                                             labelColor: Colors.white,
                                             backgroundColor:
-                                                Color.fromARGB(255, 80, 80, 80),
+                                                const Color.fromARGB(255, 80, 80, 80),
                                             borderSideColor: Colors.transparent,
                                             keyBoardType: TextInputType.number,
                                           ),
@@ -135,10 +134,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                       )
                                     ],
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 15,
                                   ),
-                                  Align(
+                                  const Align(
                                     alignment: Alignment.centerLeft,
                                     child: Text(
                                       " Lost access to my phone number",
@@ -147,7 +146,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                           color: Color(0xFF466AE7)),
                                     ),
                                   ),
-                                  Spacer(),
+                                  const Spacer(),
                                   MainButton(
                                       lightBlue: true,
                                       text: "Continue",
@@ -167,7 +166,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      EnterCode()));
+                                                      const EnterCode()));
                                         }
                                       })
                                 ],
@@ -177,7 +176,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               padding: const EdgeInsets.only(bottom: 30),
                               child: Column(
                                 children: [
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 5,
                                   ),
                                   Form(
@@ -190,15 +189,15 @@ class _LoginScreenState extends State<LoginScreen> {
                                       label: "Email",
                                       labelColor: Colors.white,
                                       backgroundColor:
-                                          Color.fromARGB(255, 80, 80, 80),
+                                          const Color.fromARGB(255, 80, 80, 80),
                                       borderSideColor: Colors.transparent,
                                       keyBoardType: TextInputType.emailAddress,
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 15,
                                   ),
-                                  Align(
+                                  const Align(
                                     alignment: Alignment.centerLeft,
                                     child: Text(
                                       " Lost access to my email",
@@ -207,7 +206,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                           color: Color(0xFF466AE7)),
                                     ),
                                   ),
-                                  Spacer(),
+                                  const Spacer(),
                                   MainButton(
                                       lightBlue: true,
                                       text: "Continue",
@@ -227,7 +226,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      EnterCode()));
+                                                      const EnterCode()));
                                         }
                                       })
                                 ],

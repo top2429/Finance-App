@@ -14,11 +14,11 @@ class _Step4State extends State<Step4> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
-        leading: Icon(Icons.arrow_back),
-        actions: [
+        iconTheme: const IconThemeData(color: Colors.black),
+        leading: const Icon(Icons.arrow_back),
+        actions: const [
           Padding(
-            padding: const EdgeInsets.only(right: 15),
+            padding: EdgeInsets.only(right: 15),
             child: Text(
               "Continue later",
               style: TextStyle(
@@ -35,32 +35,32 @@ class _Step4State extends State<Step4> {
           children: [
             Container(
               decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 240, 240, 240),
+                  color: const Color.fromARGB(255, 240, 240, 240),
                   borderRadius: BorderRadiusDirectional.circular(16)),
               height: 200,
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
-            Text(
+            const Text(
               "Take a selfie",
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
 
-            Text(
+            const Text(
               "We use your selfie to compare with",
               style: TextStyle(),
             ),
             // SizedBox(height: 10,),
 
-            Text("your identification card"),
-            Spacer(),
+            const Text("your identification card"),
+            const Spacer(),
             MainButton(text: "Continue", onpressed: (){
               Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Step5()));
+                        MaterialPageRoute(builder: (context) => const Step5()));
             })
           ],
         ),

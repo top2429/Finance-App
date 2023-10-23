@@ -22,13 +22,13 @@ class _EnterCode2State extends State<EnterCode> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text("Enter Passcode", style: TextStyle(color: Colors.white,fontSize: 23),),
+            const Text("Enter Passcode", style: TextStyle(color: Colors.white,fontSize: 23),),
             PinPlusKeyBoardPackage(
               keyboardFontSize: 25,
               inputBorderColor: Colors.grey,
-              backButton: Icon(Icons.cancel,color: Colors.white,),
-              doneButton: Icon(Icons.done,color: Color(0xFF466AE7),size: 30,),
-              inputTextColor: Color(0xFF466AE7),
+              backButton: const Icon(Icons.cancel,color: Colors.white,),
+              doneButton: const Icon(Icons.done,color: Color(0xFF466AE7),size: 30,),
+              inputTextColor: const Color(0xFF466AE7),
               btnTextColor: Colors.white,
               inputType: InputType.dash,
               inputHasBorder: false,
@@ -38,9 +38,9 @@ class _EnterCode2State extends State<EnterCode> {
               pinInputController: pinInputController,
               onSubmit: () {
                 /// ignore: avoid_print
-                print("Text is : " + pinInputController.text);
+                print("Text is : ${pinInputController.text}");
                 Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => NavBar()));
+                        MaterialPageRoute(builder: (context) => const NavBar()));
               },
               keyboardFontFamily: 'Ubuntu',
             ),

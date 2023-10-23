@@ -18,7 +18,7 @@ class _OnBoarding1State extends State<OnBoarding1> {
           Column(
             children: [
               Expanded(flex: 2, child: Image.asset("assets/images/Frame.png")),
-              SizedBox(
+              const SizedBox(
                 height: 150,
               ),
               Expanded(flex: 1, child: Image.asset("assets/images/Frame.png")),
@@ -51,10 +51,10 @@ class _OnBoarding1State extends State<OnBoarding1> {
                     padding: const EdgeInsets.only(left: 30, right: 30),
                     child: Column(
                       children: [
-                        SizedBox(
+                        const SizedBox(
                           height: 15,
                         ),
-                        Align(
+                        const Align(
                           alignment: Alignment.centerLeft,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,7 +69,7 @@ class _OnBoarding1State extends State<OnBoarding1> {
                             ],
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         Row(
@@ -78,21 +78,21 @@ class _OnBoarding1State extends State<OnBoarding1> {
                             Row(
                               children: [
                                 SvgPicture.asset("assets/images/bigRect.svg"),
-                                SizedBox(
+                                const SizedBox(
                                   width: 5,
                                 ),
                                 SvgPicture.asset("assets/images/smallRect.svg"),
-                                SizedBox(
+                                const SizedBox(
                                   width: 5,
                                 ),
                                 SvgPicture.asset("assets/images/smallRect.svg"),
-                                SizedBox(
+                                const SizedBox(
                                   width: 5,
                                 ),
                               ],
                             ),
                             FloatingActionButton(
-                                shape: CircleBorder(),
+                                shape: const CircleBorder(),
                                 // materialTapTargetSize:
                                 //     MaterialTapTargetSize.shrinkWrap,
                                 clipBehavior: Clip.none,
@@ -102,7 +102,7 @@ class _OnBoarding1State extends State<OnBoarding1> {
                                   size: 25,
                                 ),
                                 onPressed: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> OnBoarding2()
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const OnBoarding2()
 
                                   ));
                                 })
@@ -111,7 +111,7 @@ class _OnBoarding1State extends State<OnBoarding1> {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   )
                 ],

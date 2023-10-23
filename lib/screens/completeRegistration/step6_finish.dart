@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tai/custom_widgets/mainButton.dart';
-import 'package:tai/screens/completeRegistration/step5_confirmSelfie.dart';
 import 'package:tai/screens/completeRegistration/step7_createPassCode_keyboard.dart';
-import 'package:tai/screens/keyboard/keyboard.dart';
 
 class Step6 extends StatefulWidget {
   const Step6({super.key});
@@ -16,9 +14,9 @@ class _Step4State extends State<Step6> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
-        leading: Icon(Icons.arrow_back),
-        actions: [
+        iconTheme: const IconThemeData(color: Colors.black),
+        leading: const Icon(Icons.arrow_back),
+        actions: const [
           // Padding(
           //   padding: const EdgeInsets.only(right: 15),
           //   child: Text(
@@ -37,25 +35,25 @@ class _Step4State extends State<Step6> {
           children: [
             Container(
               decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 240, 240, 240),
+                  color: const Color.fromARGB(255, 240, 240, 240),
                   borderRadius: BorderRadiusDirectional.circular(16)),
               height: 200,
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
-            Text(
+            const Text(
               "Wait a minute.",
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Text(
+            const Text(
               "Analysing your profile verification",
               style: TextStyle(),
             ),
-            SizedBox(
+            const SizedBox(
               height: 60,
             ),
             Padding(
@@ -71,13 +69,13 @@ class _Step4State extends State<Step6> {
                         height: 30,
                         width: 30,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
-                      Text("Documents uploaded"),
+                      const Text("Documents uploaded"),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   Row(
@@ -89,13 +87,13 @@ class _Step4State extends State<Step6> {
                         height: 30,
                         width: 30,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
-                      Text("Documents approved"),
+                      const Text("Documents approved"),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   Row(
@@ -107,21 +105,21 @@ class _Step4State extends State<Step6> {
                         height: 30,
                         width: 30,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
-                      Text("Selfie approved"),
+                      const Text("Selfie approved"),
                     ],
                   ),
                 ],
               ),
             ),
-            Spacer(),
+            const Spacer(),
             MainButton(
                 text: "Finish verification",
                 onpressed: () {
                   Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => CreatePasscode()));
+                            MaterialPageRoute(builder: (context) => const CreatePasscode()));
                 })
           ],
         ),

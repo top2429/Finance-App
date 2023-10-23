@@ -2,17 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tai/custom_widgets/mainButton.dart';
 import 'package:tai/custom_widgets/textField.dart';
-import 'package:tai/screens/homeCardLinks/Request/customRequest/confirmDetails.dart';
+import 'package:tai/screens/homeCardLinks/Request/splitBills/selectPeople.dart';
 
-class EnterAmount extends StatefulWidget {
-  const EnterAmount({super.key});
+class SelectBillAmount extends StatefulWidget {
+  const SelectBillAmount({super.key});
 
   @override
-  State<EnterAmount> createState() => _EnterAmountState();
+  State<SelectBillAmount> createState() => _SelectBillAmountState();
 }
 
-class _EnterAmountState extends State<EnterAmount> {
+class _SelectBillAmountState extends State<SelectBillAmount> {
   final TextEditingController amount = TextEditingController();
+    final TextEditingController purposeOfPayment = TextEditingController();
+
 
   final _formKey = GlobalKey<FormState>();
 
@@ -22,7 +24,7 @@ class _EnterAmountState extends State<EnterAmount> {
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
-          "New Request",
+          "Split",
           style: TextStyle(fontSize: 20),
         ),
         elevation: 0,
@@ -44,7 +46,11 @@ class _EnterAmountState extends State<EnterAmount> {
                 const SizedBox(
                   width: 5,
                 ),
-                SvgPicture.asset("assets/images/darkLine.svg"),
+                SvgPicture.asset("assets/images/lightLine.svg"),
+                const SizedBox(
+                  width: 5,
+                ),
+                SvgPicture.asset("assets/images/lightLine.svg"),
                 const SizedBox(
                   width: 5,
                 ),
@@ -55,7 +61,7 @@ class _EnterAmountState extends State<EnterAmount> {
               height: 40,
             ),
             const Text(
-              "How much do you request",
+              "Select bill",
               style: TextStyle(fontSize: 20),
             ),
             const SizedBox(
@@ -75,7 +81,15 @@ class _EnterAmountState extends State<EnterAmount> {
                       ),
                     ),
                     const SizedBox(height: 20,),
-                    
+                    Card(
+                      elevation: 2,
+                      child: TextFieldWidget(
+                        controller: purposeOfPayment,
+                        label: "Purpose of payment",
+                        onChanged: (value) {},
+                        backgroundColor: const Color.fromARGB(255, 240, 240, 240),
+                      ),
+                    ),
                   ],
                 )),
                 const Spacer(),
@@ -83,7 +97,7 @@ class _EnterAmountState extends State<EnterAmount> {
                   Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const ConfirmDetails()));
+                                    builder: (context) => const SelectPeople()));
                 })
           ],
         ),

@@ -23,7 +23,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xFF000000),
+        backgroundColor: const Color(0xFF000000),
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.black,
@@ -39,21 +39,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   "Let's get started!",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 25,
                       color: Colors.white),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 7,
                 ),
-                Text(
+                const Text(
                   "Enter your phone number, We will send you a code.",
                   style: TextStyle(fontSize: 10, color: Colors.white),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 Form(
@@ -77,11 +77,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         controller: email,
                         label: "Email",
                         labelColor: Colors.white,
-                        backgroundColor: Color.fromARGB(255, 80, 80, 80),
+                        backgroundColor: const Color.fromARGB(255, 80, 80, 80),
                         borderSideColor: Colors.transparent,
                         keyBoardType: TextInputType.emailAddress,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       IntrinsicHeight(
@@ -90,12 +90,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           children: [
                             Container(
                               decoration: BoxDecoration(
-                                  color: Color.fromARGB(255, 80, 80, 80),
+                                  color: const Color.fromARGB(255, 80, 80, 80),
                                   borderRadius: BorderRadius.circular(10)),
                               width: 110,
                               height: 56,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10,
                             ),
                             Expanded(
@@ -118,7 +118,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 label: "Mobile Number",
                                 labelColor: Colors.white,
                                 backgroundColor:
-                                    Color.fromARGB(255, 80, 80, 80),
+                                    const Color.fromARGB(255, 80, 80, 80),
                                 borderSideColor: Colors.transparent,
                                 keyBoardType: TextInputType.number,
                               ),
@@ -129,16 +129,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ],
                   ),
                 ),
-                SizedBox(height: 10),
-                Text(
+                const SizedBox(height: 10),
+                const Text(
                   "Already have an account? Log in",
                   style: TextStyle(fontSize: 12, color: Color(0xFF466AE7)),
                 ),
-                Spacer(),
+                const Spacer(),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
@@ -163,7 +163,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 14,
                     ),
                     MainButton(
@@ -181,7 +181,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => OTPinputScreen ()));
+                                    builder: (context) => const OTPinputScreen ()));
                           }
                         })
                   ],

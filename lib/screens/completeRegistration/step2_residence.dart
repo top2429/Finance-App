@@ -24,7 +24,7 @@ class _Step2State extends State<Step2> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: Color.fromARGB(255, 240, 240, 240),
+      backgroundColor: const Color.fromARGB(255, 240, 240, 240),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -36,33 +36,33 @@ class _Step2State extends State<Step2> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       "Other Details",
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SvgPicture.asset("assets/images/darkLine.svg"),
-                        SizedBox(
+                        const SizedBox(
                           width: 5,
                         ),
                         SvgPicture.asset("assets/images/darkLine.svg"),
-                        SizedBox(
+                        const SizedBox(
                           width: 5,
                         ),
                         SvgPicture.asset("assets/images/lightLine.svg"),
-                        SizedBox(
+                        const SizedBox(
                           width: 5,
                         ),
                         SvgPicture.asset("assets/images/lightLine.svg"),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 70,
                     ),
                     Form(
@@ -77,7 +77,7 @@ class _Step2State extends State<Step2> {
                               textcolor: Colors.black,
                               controller: occupation,
                               label: "Occupation"),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           TextFieldWidget(
@@ -88,7 +88,7 @@ class _Step2State extends State<Step2> {
                               textcolor: Colors.black,
                               controller: district,
                               label: "District"),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           TextFieldWidget(
@@ -100,7 +100,7 @@ class _Step2State extends State<Step2> {
                               controller:
                                   subCounty, // add a hint text for the date format
                               label: "Subcounty"),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           TextFieldWidget(
@@ -111,10 +111,10 @@ class _Step2State extends State<Step2> {
                               textcolor: Colors.black,
                               controller: village,
                               label: "Village"),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 70,
                           ),
                         ],
@@ -133,7 +133,7 @@ class _Step2State extends State<Step2> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Step3()));
+                                    builder: (context) => const Step3()));
                           }
                         })
                   ],

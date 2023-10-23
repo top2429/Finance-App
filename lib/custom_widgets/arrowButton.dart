@@ -21,7 +21,7 @@ class ArrowButton extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(24),
-            color: Color.fromARGB(255, 240, 240, 240)),
+            color: const Color.fromARGB(255, 240, 240, 240)),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
           child: Row(
@@ -33,15 +33,15 @@ class ArrowButton extends StatelessWidget {
                     padding: const EdgeInsets.all(12),
                     child: SvgPicture.asset("assets/images/$image"),
                   )),
-              SizedBox(
+              const SizedBox(
                 width: 20,
               ),
               Text(
                 label,
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
               ),
-              Spacer(),
-              Icon(Icons.arrow_forward)
+              const Spacer(),
+              const Icon(Icons.arrow_forward)
             ],
           ),
         ),

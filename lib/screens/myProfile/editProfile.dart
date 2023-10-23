@@ -24,7 +24,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text(
+          title: const Text(
             "Edit Profile",
             style: TextStyle(fontSize: 20),
           ),
@@ -41,7 +41,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   CircleAvatar(
@@ -55,8 +55,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                 return Padding(
                                   padding: const EdgeInsets.all(13),
                                   child: Column(children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(
+                                    const Padding(
+                                      padding: EdgeInsets.only(
                                           top: 8, bottom: 14, left: 5),
                                       child: Row(
                                         children: [
@@ -71,7 +71,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                     Expanded(
                                         child: GridView.builder(
                                       itemBuilder: (context, index) {
-                                        return CircleAvatar();
+                                        return const CircleAvatar();
                                       },
                                       itemCount: 20,
                                       gridDelegate:
@@ -86,12 +86,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                 );
                               });
                         },
-                        child: Icon(
+                        child: const Icon(
                           Icons.add,
                           size: 40,
                         )),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 60,
                   ),
                   Padding(
@@ -107,7 +107,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               controller: username,
                               label: "Username *",
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 20,
                             ),
                             TextFieldWidgetIcon(
@@ -117,7 +117,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               controller: email,
                               label: "Email",
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 20,
                             ),
                             IntrinsicHeight(
@@ -131,7 +131,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                     width: 110,
                                     height: 56,
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 10,
                                   ),
                                   Expanded(
@@ -151,7 +151,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           ],
                         )),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 140,
                   ),
                   MainButton(

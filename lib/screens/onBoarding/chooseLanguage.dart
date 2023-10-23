@@ -19,7 +19,7 @@ class _ChooseLanguageState extends State<ChooseLanguage> {
           Column(
             children: [
               Expanded(flex: 2, child: Image.asset("assets/images/Frame.png")),
-              SizedBox(
+              const SizedBox(
                 height: 150,
               ),
               Expanded(flex: 1, child: Image.asset("assets/images/Frame.png")),
@@ -30,7 +30,7 @@ class _ChooseLanguageState extends State<ChooseLanguage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
+                const SizedBox(
                     width: 300,
                     child: Column(
                       children: [
@@ -46,15 +46,15 @@ class _ChooseLanguageState extends State<ChooseLanguage> {
                         ),
                       ],
                     )),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
-                CountryWidget(),
-                SizedBox(
+                const CountryWidget(),
+                const SizedBox(
                   height: 100,
                 ),
                 MainButton(text: "Proceed", onpressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> OnBoarding1()
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const OnBoarding1()
 
                                   ));
                 })

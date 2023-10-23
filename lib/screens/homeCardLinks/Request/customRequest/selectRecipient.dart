@@ -22,7 +22,7 @@ class _SelectRecipientState extends State<SelectRecipient> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(
+        title: const Text(
           "New Request",
           style: TextStyle(fontSize: 20),
         ),
@@ -42,24 +42,24 @@ class _SelectRecipientState extends State<SelectRecipient> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SvgPicture.asset("assets/images/darkLine.svg"),
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
                 SvgPicture.asset("assets/images/lightLine.svg"),
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
                 SvgPicture.asset("assets/images/lightLine.svg"),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
-            Text(
+            const Text(
               "Select a recipient",
               style: TextStyle(fontSize: 20),
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             Form(
@@ -72,27 +72,27 @@ class _SelectRecipientState extends State<SelectRecipient> {
                         controller: recipientName,
                         label: "Recipient's name",
                         onChanged: (value) {},
-                        backgroundColor: Color.fromARGB(255, 240, 240, 240),
+                        backgroundColor: const Color.fromARGB(255, 240, 240, 240),
                       ),
                     ),
-                    SizedBox(height: 20,),
+                    const SizedBox(height: 20,),
                     Card(
                       elevation: 2,
                       child: TextFieldWidget(
                         controller: reason,
                         label: "Reason",
                         onChanged: (value) {},
-                        backgroundColor: Color.fromARGB(255, 240, 240, 240),
+                        backgroundColor: const Color.fromARGB(255, 240, 240, 240),
                       ),
                     ),
                   ],
                 )),
-                Spacer(),
+                const Spacer(),
                 MainButton(text: "Continue", onpressed: (){
                   Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => EnterAmount()));
+                                    builder: (context) => const EnterAmount()));
                 })
           ],
         ),

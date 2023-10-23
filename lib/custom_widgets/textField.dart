@@ -10,7 +10,7 @@ class TextFieldWidget extends StatefulWidget {
   final Color backgroundColor;
     final void Function(String) onChanged;
 
-  TextFieldWidget(
+  const TextFieldWidget(
       {super.key,
       required this.controller,
       this.textcolor = Colors.white,
@@ -48,7 +48,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
       style: TextStyle(color: widget.textcolor, fontSize: 17),
       controller: widget.controller,
       decoration: InputDecoration(
-          contentPadding: EdgeInsets.only(top: 15, bottom: 15, left: 13),
+          contentPadding: const EdgeInsets.only(top: 15, bottom: 15, left: 13),
           filled: true,
           fillColor: widget.backgroundColor,
           // errorText:

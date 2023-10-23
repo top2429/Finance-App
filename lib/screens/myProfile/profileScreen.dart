@@ -31,13 +31,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => EditProfileScreen()));
+                            builder: (context) => const EditProfileScreen()));
                   },
                   child: SvgPicture.asset("assets/images/edit.svg")),
             )
           ],
           centerTitle: true,
-          title: Text(
+          title: const Text(
             "My Profile",
             style: TextStyle(fontSize: 20),
           ),
@@ -53,14 +53,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
             padding: const EdgeInsets.only(left: 20, right: 20,bottom: 70),
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
-                CircleAvatar(radius: 50,),
-                SizedBox(
+                const CircleAvatar(radius: 50,),
+                const SizedBox(
                   height: 10,
                 ),
-                Spacer(),
+                const Spacer(),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: Form(
@@ -75,7 +75,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         controller: username,
                         label: "Username",
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       TextFieldWidgetIcon(
@@ -85,10 +85,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         controller: email,
                         label: "Email",
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       TextFieldWidgetIcon(
@@ -103,11 +103,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ],
                   )),
                 ),
-                SizedBox(height: 110,),
+                const SizedBox(height: 110,),
               MainButton(text: "Logout", onpressed: (){
 
               }),
-              SizedBox(height: 30,),
+              const SizedBox(height: 30,),
               MainButton(
                 red: true,
                 text: "Delete account", onpressed: (){

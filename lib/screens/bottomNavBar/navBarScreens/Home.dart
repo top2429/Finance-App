@@ -28,20 +28,20 @@ class _HomeScreenState extends State<HomeScreen> {
                         InkWell(
                           onTap: (){
                             Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Step1()));
+                        MaterialPageRoute(builder: (context) => const Step1()));
                           },
-                          child: CircleAvatar(
+                          child: const CircleAvatar(
                             radius: 24,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 8,
                         ),
-                        Text("Hi user")
+                        const Text("Hi user")
                       ],
                     ),
-                    Spacer(),
-                    Row(
+                    const Spacer(),
+                    const Row(
                       children: [
                         Icon(
                           Icons.notifications_outlined,
@@ -57,12 +57,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 Container(
                     decoration: BoxDecoration(
-                      color: Color(0xFF262329),
+                      color: const Color(0xFF262329),
                       borderRadius: BorderRadius.circular(40),
                     ),
                     child: Padding(
@@ -70,14 +70,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
+                          const Text(
                             "Available balance",
                             style: TextStyle(fontSize: 14, color: Colors.white),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 1,
                           ),
-                          Row(
+                          const Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
@@ -97,13 +97,13 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ],
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 1,
                           ),
-                          Text("ACC No. ****5678",
+                          const Text("ACC No. ****5678",
                               style:
                                   TextStyle(fontSize: 14, color: Colors.white)),
-                          SizedBox(
+                          const SizedBox(
                             height: 25,
                           ),
                           Row(
@@ -115,10 +115,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                     image: "assets/images/sendTo.svg",
                                     onTap: () {},
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 4,
                                   ),
-                                  Text(
+                                  const Text(
                                     "Send to",
                                     style: TextStyle(
                                         fontSize: 12, color: Colors.white),
@@ -131,10 +131,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                     image: "assets/images/request.svg",
                                     onTap: () {},
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 4,
                                   ),
-                                  Text(
+                                  const Text(
                                     "Request",
                                     style: TextStyle(
                                         fontSize: 12, color: Colors.white),
@@ -147,10 +147,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                     image: "assets/images/deposit.svg",
                                     onTap: () {},
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 4,
                                   ),
-                                  Text(
+                                  const Text(
                                     "Deposit",
                                     style: TextStyle(
                                         fontSize: 12, color: Colors.white),
@@ -163,10 +163,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                     image: "assets/images/loans.svg",
                                     onTap: () {},
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 4,
                                   ),
-                                  Text(
+                                  const Text(
                                     "Loans",
                                     style: TextStyle(
                                         fontSize: 12, color: Colors.white),
@@ -178,24 +178,24 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                     )),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
-                Align(
+                const Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
                       "Quick Links",
                       style: TextStyle(
                           fontSize: 15,
-                          color: const Color.fromARGB(255, 136, 136, 136)),
+                          color: Color.fromARGB(255, 136, 136, 136)),
                     )),
-                SizedBox(
+                const SizedBox(
                   height: 13,
                 ),
                 Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: Color(0xFFFDFF96)),
+                      color: const Color(0xFFFDFF96)),
                   child: Padding(
                     padding: const EdgeInsets.only(top: 14, bottom: 14),
                     child: IntrinsicHeight(
@@ -207,10 +207,10 @@ class _HomeScreenState extends State<HomeScreen> {
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 SvgPicture.asset("assets/images/add.svg"),
-                                SizedBox(
+                                const SizedBox(
                                   height: 4,
                                 ),
-                                Text(
+                                const Text(
                                   "add a/c",
                                   style:
                                       TextStyle(fontSize: 11, color: Colors.black),
@@ -223,10 +223,10 @@ class _HomeScreenState extends State<HomeScreen> {
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 SvgPicture.asset("assets/images/savingGoals.svg"),
-                                SizedBox(
+                                const SizedBox(
                                   height: 4,
                                 ),
-                                Text(
+                                const Text(
                                   "Saving Goals",
                                   style:
                                       TextStyle(fontSize: 11, color: Colors.black),
@@ -239,10 +239,10 @@ class _HomeScreenState extends State<HomeScreen> {
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 SvgPicture.asset("assets/images/groupSaving.svg"),
-                                SizedBox(
+                                const SizedBox(
                                   height: 4,
                                 ),
-                                Text(
+                                const Text(
                                   "Group Saving",
                                   style:
                                       TextStyle(fontSize: 11, color: Colors.black),
@@ -255,10 +255,10 @@ class _HomeScreenState extends State<HomeScreen> {
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 SvgPicture.asset("assets/images/cards.svg"),
-                                SizedBox(
+                                const SizedBox(
                                   height: 4,
                                 ),
-                                Text(
+                                const Text(
                                   "Cards",
                                   style:
                                       TextStyle(fontSize: 11, color: Colors.black),
@@ -273,10 +273,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   SvgPicture.asset("assets/images/more.svg"),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 4,
                                   ),
-                                  Text(
+                                  const Text(
                                     "More",
                                     style:
                                         TextStyle(fontSize: 11, color: Colors.black),
@@ -290,9 +290,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: 20,),
+                const SizedBox(height: 20,),
 
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
@@ -303,14 +303,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       "Transaction History",
                       style: TextStyle(
                           fontSize: 15,
-                          color: const Color.fromARGB(255, 136, 136, 136)),
+                          color: Color.fromARGB(255, 136, 136, 136)),
                     )
                       ],
                     ),
                     Icon(Icons.search,size: 28,)
                   ],
                 ),
-                SizedBox(height: 15,),
+                const SizedBox(height: 15,),
 
                 ListView.builder(
                   shrinkWrap: true,
@@ -321,11 +321,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: const EdgeInsets.only(bottom: 10),
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 240, 240, 240),
+                          color: const Color.fromARGB(255, 240, 240, 240),
                           borderRadius: BorderRadius.circular(24)
                         ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(12),
+                        child: const Padding(
+                          padding: EdgeInsets.all(12),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [

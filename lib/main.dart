@@ -1,21 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tai/screens/authentication/login/loginScreen.dart';
-import 'package:tai/screens/authentication/signUp/OTPinputPage.dart';
-import 'package:tai/screens/authentication/signUp/signUpScreen.dart';
-import 'package:tai/screens/bottomNavBar/navBarScreens/navBarFile.dart';
-import 'package:tai/screens/completeRegistration/step1_personal.dart';
-import 'package:tai/screens/completeRegistration/step2_residence.dart';
-import 'package:tai/screens/completeRegistration/step3_IDpic.dart';
-import 'package:tai/screens/completeRegistration/step4_takeSelfie.dart';
-import 'package:tai/screens/completeRegistration/step5_confirmSelfie.dart';
-import 'package:tai/screens/completeRegistration/step6_finish.dart';
-import 'package:tai/screens/homeCardLinks/Request/chooseMethod.dart';
-import 'package:tai/screens/homeCardLinks/Request/customRequest/confirmDetails.dart';
-import 'package:tai/screens/homeCardLinks/Request/customRequest/enterAmount.dart';
-import 'package:tai/screens/homeCardLinks/Request/customRequest/selectRecipient.dart';
-import 'package:tai/screens/keyboard/keyboard.dart';
-import 'package:tai/screens/myProfile/profileScreen.dart';
-import 'package:tai/screens/onBoarding/chooseLanguage.dart';
+import 'package:tai/customTesting/test_page.dart';
+import 'package:tai/customTesting/test_splitFriends.dart';
+import 'package:tai/screens/homeCardLinks/Request/splitBills/billDetails.dart';
 import 'package:tai/utils/custom_theme.dart';
 
 
@@ -35,7 +21,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
             debugShowCheckedModeBanner: false,
 
-      home: ConfirmDetails(),
+      home: BillDetails(),
     );
   }
 }

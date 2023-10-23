@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tai/custom_widgets/mainButton.dart';
-import 'package:tai/custom_widgets/textField.dart';
 import 'package:tai/custom_widgets/textField_icon.dart';
 
 class ConfirmDetails extends StatefulWidget {
@@ -24,7 +23,7 @@ class _ConfirmDetailsState extends State<ConfirmDetails> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(
+        title: const Text(
           "Confirm Details",
           style: TextStyle(fontSize: 20),
         ),
@@ -45,20 +44,20 @@ class _ConfirmDetailsState extends State<ConfirmDetails> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SvgPicture.asset("assets/images/darkLine.svg"),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
                   SvgPicture.asset("assets/images/darkLine.svg"),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
                   SvgPicture.asset("assets/images/darkLine.svg"),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               Padding(
@@ -74,7 +73,7 @@ class _ConfirmDetailsState extends State<ConfirmDetails> {
                           label: "Recipient's name",
                           onChanged: (value) {},
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         TextFieldWidgetIcon(
@@ -84,7 +83,7 @@ class _ConfirmDetailsState extends State<ConfirmDetails> {
                           label: "Reason",
                           onChanged: (value) {},
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         TextFieldWidgetIcon(
@@ -97,11 +96,11 @@ class _ConfirmDetailsState extends State<ConfirmDetails> {
                       ],
                     )),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 230,
               ),
               MainButton(text: "Send request", onpressed: () {}),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               )
             ],

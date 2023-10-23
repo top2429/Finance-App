@@ -11,7 +11,7 @@ class TextFieldWidgetIcon extends StatefulWidget {
   final TextInputType keyBoardType;
   final Color backgroundColor;
   final void Function(String) onChanged;
-  TextFieldWidgetIcon(
+  const TextFieldWidgetIcon(
       {super.key,
       required this.controller,
       this.textcolor = Colors.black,
@@ -45,17 +45,11 @@ class _TextFieldWidgetIconState extends State<TextFieldWidgetIcon> {
       style: TextStyle(color: widget.textcolor, fontSize: 17),
       controller: widget.controller,
       decoration: InputDecoration(
-        suffixIcon: widget.hasICon? Icon(Icons.edit, color: Colors.black,size: 19,) :null,
-          contentPadding: EdgeInsets.only(top: 15, bottom: 15, left: 0),
+        suffixIcon: widget.hasICon? const Icon(Icons.edit, color: Colors.black,size: 19,) :null,
+          contentPadding: const EdgeInsets.only(top: 15, bottom: 15, left: 0),
           filled: true,
           fillColor: widget.backgroundColor,
-          // errorText:
-          //     widget.controllerExist.isEmpty ? null : widget.controllerExist,
-          // focusedBorder: OutlineInputBorder(
-          //     borderSide: BorderSide(color: widget.borderSideColor)),
-          // border: OutlineInputBorder(
-          //     borderRadius: BorderRadius.circular(10),
-          //     borderSide: BorderSide(color: widget.borderSideColor)),
+          
           label: Text(widget.label),
           labelStyle: TextStyle(color: widget.labelColor)
           //hintText: 'username',

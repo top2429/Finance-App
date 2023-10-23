@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tai/custom_widgets/mainButton.dart';
-import 'package:tai/custom_widgets/textField.dart';
 import 'package:tai/screens/completeRegistration/step4_takeSelfie.dart';
 
 class Step3 extends StatefulWidget {
@@ -16,7 +15,7 @@ class _Step3State extends State<Step3> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: Color.fromARGB(255, 240, 240, 240),
+      backgroundColor: const Color.fromARGB(255, 240, 240, 240),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20),
@@ -27,26 +26,26 @@ class _Step3State extends State<Step3> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     "Other Details",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SvgPicture.asset("assets/images/darkLine.svg"),
-                      SizedBox(
+                      const SizedBox(
                         width: 5,
                       ),
                       SvgPicture.asset("assets/images/darkLine.svg"),
-                      SizedBox(
+                      const SizedBox(
                         width: 5,
                       ),
                       SvgPicture.asset("assets/images/darkLine.svg"),
-                      SizedBox(
+                      const SizedBox(
                         width: 5,
                       ),
                       SvgPicture.asset("assets/images/lightLine.svg"),
@@ -54,7 +53,7 @@ class _Step3State extends State<Step3> {
                   ),
                 ],
               ),
-              Expanded(
+              const Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -93,7 +92,7 @@ class _Step3State extends State<Step3> {
               ),
               MainButton(text: "Proceed", onpressed: () {
                 Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Step4()));
+                        MaterialPageRoute(builder: (context) => const Step4()));
               })
             ],
           ),

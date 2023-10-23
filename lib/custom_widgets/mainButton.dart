@@ -33,7 +33,7 @@ class _MainButtonState extends State<MainButton> {
                 color: widget.disabled
                     ? theme.disabledColor
                     : widget.lightBlue
-                        ? Color.fromARGB(255, 7, 14, 39)
+                        ? const Color.fromARGB(255, 7, 14, 39)
                         : widget.red?const Color.fromARGB(255, 252, 82, 70): theme.primaryColor),
             width: 343,
             height: 45,

@@ -21,7 +21,7 @@ class _BarIconState extends State<BarIcon> {
           width: 25,
           color: widget.active
               ? Colors.black
-              : Color(0xFFA9A8AA),
+              : const Color(0xFFA9A8AA),
         );
 
       case 'Analytics':
@@ -31,7 +31,7 @@ class _BarIconState extends State<BarIcon> {
           width: 23,
           color: widget.active
               ? Colors.black
-              : Color(0xFFA9A8AA),
+              : const Color(0xFFA9A8AA),
         );
 
       case 'Budget':
@@ -41,7 +41,7 @@ class _BarIconState extends State<BarIcon> {
           width: 23,
           color: widget.active
               ? Colors.black
-              : Color(0xFFA9A8AA),
+              : const Color(0xFFA9A8AA),
         );
 
       case 'History':
@@ -51,7 +51,7 @@ class _BarIconState extends State<BarIcon> {
           width: 25,
           color: widget.active
               ? Colors.black
-              : Color(0xFFA9A8AA),
+              : const Color(0xFFA9A8AA),
         );
       case 'Chat':
         return SvgPicture.asset(
@@ -60,7 +60,7 @@ class _BarIconState extends State<BarIcon> {
           width: 25,
           color: widget.active
               ? Colors.black
-              : Color(0xFFA9A8AA),
+              : const Color(0xFFA9A8AA),
         );
     }
 

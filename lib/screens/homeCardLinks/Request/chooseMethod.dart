@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tai/custom_widgets/arrowButton.dart';
 import 'package:tai/screens/homeCardLinks/Request/customRequest/selectRecipient.dart';
+import 'package:tai/screens/homeCardLinks/Request/splitBills/selectBillAmount.dart';
 
 class ChooseMethod extends StatefulWidget {
   const ChooseMethod({super.key});
@@ -15,7 +16,7 @@ class _ChooseMethodState extends State<ChooseMethod> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(
+        title: const Text(
           "New Request",
           style: TextStyle(fontSize: 20),
         ),
@@ -32,11 +33,11 @@ class _ChooseMethodState extends State<ChooseMethod> {
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              Text(
+              const Text(
                 "Select how to receive payment",
                 style: TextStyle(fontSize: 20),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 100,
               ),
               Column(
@@ -44,20 +45,25 @@ class _ChooseMethodState extends State<ChooseMethod> {
                   ArrowButton(
                       label: "Split bill",
                       image: "splitBill.svg",
-                      innerContainerColor: Color(0xFFFFE8A4),
-                      onTap: () {}),
-                  SizedBox(
+                      innerContainerColor: const Color(0xFFFFE8A4),
+                      onTap: () {
+                        Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const SelectBillAmount ()));
+                      }),
+                  const SizedBox(
                     height: 30,
                   ),
                   ArrowButton(
                       label: "Custom request",
                       image: "customRequest.svg",
-                      innerContainerColor: Color(0xFFC4F1CD),
+                      innerContainerColor: const Color(0xFFC4F1CD),
                       onTap: () {
                         Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => SelectRecipient ()));
+                                    builder: (context) => const SelectRecipient ()));
                       })
                 ],
               )

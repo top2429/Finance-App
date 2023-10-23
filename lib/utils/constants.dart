@@ -5,7 +5,7 @@ class Constants {
   Constants._();
 
   static TextStyle appFontlight =
-      TextStyle(fontFamily: 'Ubuntu', color: Color.fromARGB(255, 0, 0, 0));
+      const TextStyle(fontFamily: 'Ubuntu', color: Color.fromARGB(255, 0, 0, 0));
   static TextStyle appFontdark =
       GoogleFonts.roboto().copyWith(color: const Color(0xFFFFFFFF));
 
@@ -18,11 +18,11 @@ class Constants {
 
   static Color callToActionBLue = const Color(0xFF466AE7);
 
-  static Color inactiveNavBarIconColor = Color(0xFFA9A8AA);
+  static Color inactiveNavBarIconColor = const Color(0xFFA9A8AA);
 
-  static Color bottomNavBarColor = Color.fromARGB(255, 240, 240, 240);
+  static Color bottomNavBarColor = const Color.fromARGB(255, 240, 240, 240);
 
-  static Color homePageBigCardColor = Color(0xFF262329) ;
+  static Color homePageBigCardColor = const Color(0xFF262329) ;
 
   
 }

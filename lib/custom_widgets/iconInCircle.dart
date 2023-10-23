@@ -11,7 +11,7 @@ class IconCircle extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Color(0xFF3B363F),
           shape: BoxShape.circle,
         ),

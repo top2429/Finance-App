@@ -18,7 +18,7 @@ class _OTPinputScreenState extends State<OTPinputScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xFF000000),
+        backgroundColor: const Color(0xFF000000),
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.black,
@@ -34,34 +34,34 @@ class _OTPinputScreenState extends State<OTPinputScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   "Enter 6 digit code",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 25,
                       color: Colors.white),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 7,
                 ),
-                Text(
+                const Text(
                   "Enter your phone number, We will send you a code.",
                   style: TextStyle(fontSize: 10, color: Colors.white),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 //
                 OtpTextField(
-                  textStyle: TextStyle(color: Colors.white),
+                  textStyle: const TextStyle(color: Colors.white),
                   mainAxisAlignment: MainAxisAlignment.start,
                   borderWidth: 0.1,
                   filled: true,
-                  fillColor: Color.fromARGB(255, 80, 80, 80),
+                  fillColor: const Color.fromARGB(255, 80, 80, 80),
                   fieldWidth: 45,
-                  margin: EdgeInsets.only(left: 6, right: 6),
+                  margin: const EdgeInsets.only(left: 6, right: 6),
                   numberOfFields: 6,
-                  borderColor: Color(0xFF512DA8),
+                  borderColor: const Color(0xFF512DA8),
                   //set to true to show as box or false to show as dash
                   showFieldAsBox: true,
                   //runs when a code is typed in
@@ -77,14 +77,14 @@ class _OTPinputScreenState extends State<OTPinputScreen> {
                         context: context,
                         builder: (context) {
                           return AlertDialog(
-                            title: Text("Verification Code"),
+                            title: const Text("Verification Code"),
                             content: Text('Code entered is $verificationCode'),
                           );
                         });
                   }, // end onSubmit
                 ),
-                SizedBox(height: 30,),
-                Row(
+                const SizedBox(height: 30,),
+                const Row(
                       children: [
                         Text(
                           "Didn't receive SMS?",
@@ -99,8 +99,8 @@ class _OTPinputScreenState extends State<OTPinputScreen> {
                         
                       ],
                     ),
-                Spacer(),
-                SizedBox(
+                const Spacer(),
+                const SizedBox(
                   height: 10,
                 ),
                 Align(
@@ -108,7 +108,7 @@ class _OTPinputScreenState extends State<OTPinputScreen> {
                   child: MainButton(
                       lightBlue: true, text: "Continue", onpressed: () {
                         Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => LoginScreen()));
+                        MaterialPageRoute(builder: (context) => const LoginScreen()));
                   
                       }),
                 ),

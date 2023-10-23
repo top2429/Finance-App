@@ -34,7 +34,7 @@ class _NavBarState extends State<NavBar> {
     return Scaffold(
       body: pages[nowIndex],
       bottomNavigationBar: ClipRRect(
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(20),
           topRight: Radius.circular(20),
         ),
@@ -43,7 +43,7 @@ class _NavBarState extends State<NavBar> {
             // unselectedLabelStyle: theme.textTheme.displaySmall,
             // selectedLabelStyle: theme.textTheme.displaySmall,
             type: BottomNavigationBarType.fixed,
-            backgroundColor: Color.fromARGB(255, 240, 240, 240),
+            backgroundColor: const Color.fromARGB(255, 240, 240, 240),
             currentIndex: nowIndex,
             onTap: onTap,
             elevation: 0,

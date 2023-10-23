@@ -18,8 +18,8 @@ class _Step5State extends State<Step5> {
         child: Padding(
           padding: const EdgeInsets.only(bottom: 30),
           child: Column(children: [
-            Padding(
-              padding: const EdgeInsets.all(20),
+            const Padding(
+              padding: EdgeInsets.all(20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -33,14 +33,14 @@ class _Step5State extends State<Step5> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Expanded(
                 child: Container(
               color: Colors.white,
             )),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             MainButton(
@@ -48,7 +48,7 @@ class _Step5State extends State<Step5> {
                 text: "Continue with this picture",
                 onpressed: () {
                   Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Step6()));
+                        MaterialPageRoute(builder: (context) => const Step6()));
                 })
           ]),
         ),
