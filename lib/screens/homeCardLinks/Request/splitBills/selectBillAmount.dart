@@ -51,10 +51,7 @@ class _SelectBillAmountState extends State<SelectBillAmount> {
                   width: 5,
                 ),
                 SvgPicture.asset("assets/images/lightLine.svg"),
-                const SizedBox(
-                  width: 5,
-                ),
-                SvgPicture.asset("assets/images/lightLine.svg"),
+                
               ],
             ),
             const SizedBox(

@@ -49,10 +49,7 @@ class _SelecPeopleState extends State<SelectPeople> {
                     width: 5,
                   ),
                   SvgPicture.asset("assets/images/lightLine.svg"),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  SvgPicture.asset("assets/images/lightLine.svg"),
+                  
                 ],
               ),
               const SizedBox(

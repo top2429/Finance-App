@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:tai/customTesting/test_splitFriends.dart';
+import 'package:tai/custom_widgets/circleOfFriends.dart';
 import 'package:tai/custom_widgets/mainButton.dart';
+import 'package:tai/custom_widgets/splitDetailsFriendsCard.dart';
 import 'package:tai/screens/homeCardLinks/Request/splitBills/selectPeople.dart';
+import 'package:tai/screens/homeCardLinks/Request/splitBills/splitRequestedDetails.dart';
 
 class BillDetails extends StatefulWidget {
   const BillDetails({super.key});
@@ -14,7 +16,6 @@ class BillDetails extends StatefulWidget {
 class _BillDetailsState extends State<BillDetails> {
   final TextEditingController amount = TextEditingController();
   final TextEditingController purposeOfPayment = TextEditingController();
-
 
   @override
   Widget build(BuildContext context) {
@@ -33,47 +34,76 @@ class _BillDetailsState extends State<BillDetails> {
             icon: const Icon(Icons.arrow_back)),
       ),
       body: SafeArea(
-          child: Padding(
-        padding:
-            const EdgeInsets.only(left: 20, right: 20, bottom: 50, top: 20),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SvgPicture.asset("assets/images/darkLine.svg"),
-                const SizedBox(
-                  width: 5,
-                ),
-                SvgPicture.asset("assets/images/darkLine.svg"),
-                const SizedBox(
-                  width: 5,
-                ),
-                SvgPicture.asset("assets/images/darkLine.svg"),
-                const SizedBox(
-                  width: 5,
-                ),
-                SvgPicture.asset("assets/images/lightLine.svg"),
-              ],
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            const Text(
-              "Select bill with.",
-              style: TextStyle(fontSize: 20),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            CircularProfileImageList(numImages: 7),
-            MainButton(
-                text: "Continue",
-                onpressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const SelectPeople()));
-                })
-          ],
+          child: SingleChildScrollView(
+        child: Padding(
+          padding:
+              const EdgeInsets.only(left: 20, right: 20, bottom: 50, top: 20),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SvgPicture.asset("assets/images/darkLine.svg"),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  SvgPicture.asset("assets/images/darkLine.svg"),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  SvgPicture.asset("assets/images/darkLine.svg"),
+                  
+                ],
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              CircularProfileImageList(numImages: 5),
+              const SizedBox(
+                height: 10,
+              ),
+              SplitDetailsCard(label: "Jerry Syre", onTap: () {}),
+              const SizedBox(
+                height: 35,
+              ),
+              Row(
+                children: [
+                  Text(
+                    "Selected people",
+                    style: TextStyle(fontSize: 14, color: Colors.grey),
+                  ),
+                  Spacer(),
+                  Text(
+                    "devided equally (%)",
+                    style: TextStyle(fontSize: 14, color: Colors.grey),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              SplitDetailsCard(label: "Jerry Syre", onTap: () {}),
+              SizedBox(
+                height: 20,
+              ),
+              SplitDetailsCard(label: "Jerry Syre", onTap: () {}),
+              SizedBox(
+                height: 20,
+              ),
+              SplitDetailsCard(label: "Jerry Syre", onTap: () {}),
+              SizedBox(
+                height: 60,
+              ),
+              MainButton(
+                  text: "Continue",
+                  onpressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SplitRequestedDetails()));
+                  })
+            ],
+          ),
         ),
       )),
     );
