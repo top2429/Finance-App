@@ -52,7 +52,7 @@ class _TextFieldWidgetArrowDownState extends State<TextFieldWidgetArrowDown> {
       style: TextStyle(color: widget.textcolor, fontSize: 17),
       controller: widget.controller,
       decoration: InputDecoration(
-        suffixIcon: Icon(Icons.add),
+        suffixIcon: const Icon(Icons.add),
           contentPadding: const EdgeInsets.only(top: 15, bottom: 15, left: 13),
           filled: true,
           fillColor: widget.backgroundColor,

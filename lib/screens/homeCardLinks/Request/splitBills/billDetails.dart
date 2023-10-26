@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:tai/custom_widgets/circleOfFriends.dart';
 import 'package:tai/custom_widgets/mainButton.dart';
 import 'package:tai/custom_widgets/splitDetailsFriendsCard.dart';
-import 'package:tai/screens/homeCardLinks/Request/splitBills/selectPeople.dart';
 import 'package:tai/screens/homeCardLinks/Request/splitBills/splitRequestedDetails.dart';
 
 class BillDetails extends StatefulWidget {
@@ -58,7 +57,7 @@ class _BillDetailsState extends State<BillDetails> {
               const SizedBox(
                 height: 10,
               ),
-              CircularProfileImageList(numImages: 5),
+              const CircularProfileImageList(numImages: 5),
               const SizedBox(
                 height: 10,
               ),
@@ -66,7 +65,7 @@ class _BillDetailsState extends State<BillDetails> {
               const SizedBox(
                 height: 35,
               ),
-              Row(
+              const Row(
                 children: [
                   Text(
                     "Selected people",
@@ -79,19 +78,19 @@ class _BillDetailsState extends State<BillDetails> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               SplitDetailsCard(label: "Jerry Syre", onTap: () {}),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               SplitDetailsCard(label: "Jerry Syre", onTap: () {}),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               SplitDetailsCard(label: "Jerry Syre", onTap: () {}),
-              SizedBox(
+              const SizedBox(
                 height: 60,
               ),
               MainButton(

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tai/custom_widgets/mainAppBar.dart';
+import 'package:tai/custom_widgets/keyboard.dart';
 import 'package:tai/custom_widgets/mainButton.dart';
-import 'package:tai/custom_widgets/selectAccountWidget.dart';
 import 'package:tai/custom_widgets/textField.dart';
 import 'package:tai/custom_widgets/textField_arrowDown.dart';
 
@@ -46,11 +45,11 @@ class _PaymentDetailsState extends State<PaymentDetails> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   "Please enter the payment details",
                   style: TextStyle(fontSize: 18),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 TextFieldWidgetArrowDown(
@@ -60,7 +59,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                     // Accounts? _character = Accounts.account_1;
         
                     showModalBottomSheet(
-                        backgroundColor: Color.fromARGB(255, 240, 240, 240),
+                        backgroundColor: const Color.fromARGB(255, 240, 240, 240),
                         isScrollControlled: true,
                         enableDrag: true,
                         context: context,
@@ -82,11 +81,11 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                                           onTap: () {
                                             Navigator.pop(context);
                                           },
-                                          child: Icon(Icons.close)),
-                                      Expanded(
+                                          child: const Icon(Icons.close)),
+                                      const Expanded(
                                           child: Center(
                                               child: Padding(
-                                        padding: const EdgeInsets.only(right: 30),
+                                        padding: EdgeInsets.only(right: 30),
                                         child: Text(
                                           "Send from",
                                           style: TextStyle(
@@ -95,16 +94,16 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                                         ),
                                       )))
                                     ]),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 20,
                                     ),
-                                    Text(
+                                    const Text(
                                       "Please select an account",
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 20),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 30,
                                     ),
                                     Container(
@@ -118,7 +117,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Column(
+                                            const Column(
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
                                               children: [
@@ -134,8 +133,8 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                                               ],
                                             ),
                                             Radio<Accounts>(
-                                              focusColor: Color(0xFF466AE7),
-                                              activeColor: Color(0xFF466AE7),
+                                              focusColor: const Color(0xFF466AE7),
+                                              activeColor: const Color(0xFF466AE7),
                                                 value: Accounts.account_1,
                                                 groupValue: character,
                                                 onChanged: (Accounts? value) {
@@ -150,7 +149,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                                         ),
                                       ),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 20,
                                     ),
                                     Container(
@@ -164,7 +163,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Column(
+                                            const Column(
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
                                               children: [
@@ -180,9 +179,9 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                                               ],
                                             ),
                                             Radio<Accounts>(
-                                              focusColor: Color(0xFF466AE7),
+                                              focusColor: const Color(0xFF466AE7),
                                               
-                                              activeColor: Color(0xFF466AE7),
+                                              activeColor: const Color(0xFF466AE7),
                                                 value: Accounts.account_2,
                                                 groupValue: character,
                                                 onChanged: (Accounts? value) {
@@ -206,13 +205,15 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                         }));
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 TextFieldWidgetArrowDown(
                     controller: sendTo,
                     onTap: () {
                       showModalBottomSheet(
+                        backgroundColor: const Color.fromARGB(255, 240, 240, 240),
+                        enableDrag: true,
                         isScrollControlled: true,
                         context: context,
                         builder: (context) {
@@ -227,11 +228,11 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                                         onTap: () {
                                           Navigator.pop(context);
                                         },
-                                        child: Icon(Icons.close)),
-                                    Expanded(
+                                        child: const Icon(Icons.close)),
+                                    const Expanded(
                                         child: Center(
                                             child: Padding(
-                                      padding: const EdgeInsets.only(right: 30),
+                                      padding: EdgeInsets.only(right: 30),
                                       child: Text(
                                         "Send to another bank a/c",
                                         style: TextStyle(
@@ -240,19 +241,19 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                                       ),
                                     )))
                                   ]),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 20,
                                   ),
-                                  Text(
+                                  const Text(
                                     "Please select the recipient bank",
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 20),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 30,
                                   ),
-                                  Center(
+                                  const Center(
                                     child: SizedBox(
                                       child: Text(
                                           "create design for the bank details of the bank name and the account number to send to"),
@@ -266,7 +267,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                       );
                     },
                     label: "Send to"),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Form(
@@ -291,7 +292,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                             Expanded(
                               child: TextFieldWidget(
                                 backgroundColor:
-                                    Color.fromARGB(255, 240, 240, 240),
+                                    const Color.fromARGB(255, 240, 240, 240),
                                 textcolor: Colors.black,
                                 onChanged: (p0) {},
                                 controller: amount,
@@ -310,11 +311,16 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                         controller: reason,
                         textcolor: Colors.black,
                         label: "Payment reason",
-                        backgroundColor: Color.fromARGB(255, 240, 240, 240),
+                        backgroundColor: const Color.fromARGB(255, 240, 240, 240),
                         keyBoardType: TextInputType.emailAddress,
                       ),
-                      SizedBox(height: 300,),
-                      MainButton(text: "Send money", onpressed: (){})
+                      const SizedBox(height: 300,),
+                      MainButton(text: "Send money", onpressed: (){
+                        Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const KeyBoard()));
+                      })
                     ],
                   ),
                 ),

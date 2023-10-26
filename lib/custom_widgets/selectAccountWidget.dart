@@ -27,7 +27,7 @@ class _SelectAccountState extends State<SelectAccount> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Column(
+            const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text("Jerry Syre", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),),

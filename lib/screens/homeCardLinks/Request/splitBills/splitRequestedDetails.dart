@@ -33,7 +33,7 @@ class _SplitRequestedDetailsState extends State<SplitRequestedDetails> {
             Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(24),
-                  color: Color.fromARGB(255, 240, 240, 240)),
+                  color: const Color.fromARGB(255, 240, 240, 240)),
               child: Padding(
                 padding: const EdgeInsets.all(15),
                 child: Column(
@@ -41,28 +41,28 @@ class _SplitRequestedDetailsState extends State<SplitRequestedDetails> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SvgPicture.asset("assets/images/blueTick.svg"),
-                      SizedBox(
+                      const SizedBox(
                         height: 30,
                       ),
-                      Center(
+                      const Center(
                           child: Text("Split payment requested",
                               style: TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.bold))),
-                      Center(
+                      const Center(
                           child: Text(
                               "Pay for drinks   15th June 2023    15:00pm",
                               style:
                                   TextStyle(fontSize: 14, color: Colors.grey))),
-                      SizedBox(height: 40),
-                      Center(
+                      const SizedBox(height: 40),
+                      const Center(
                           child: Text("10,000 RWF",
                               style: TextStyle(
                                   fontSize: 35, fontWeight: FontWeight.bold))),
-                      Center(
+                      const Center(
                           child: Text("Divided among 4 people",
                               style:
                                   TextStyle(fontSize: 14, color: Colors.grey))),
-                      SizedBox(height: 40),
+                      const SizedBox(height: 40),
                       MainButton(text: "PAY", onpressed: (){})
                     ]),
               ),

@@ -15,7 +15,7 @@ class _MainAppBarState extends State<MainAppBar> {
         centerTitle: true,
         title: Text(
           widget.title,
-          style: TextStyle(fontSize: 20),
+          style: const TextStyle(fontSize: 20),
         ),
         elevation: 0,
         backgroundColor: Colors.white,

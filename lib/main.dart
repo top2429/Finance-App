@@ -1,10 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tai/customTesting/mockTests.dart';
-import 'package:tai/screens/homeCardLinks/Deposit/depositLocations.dart';
-import 'package:tai/screens/homeCardLinks/Request/chooseCustomOrSplit.dart';
-import 'package:tai/screens/homeCardLinks/Request/splitBills/billDetails.dart';
-import 'package:tai/screens/homeCardLinks/Request/splitBills/splitRequestedDetails.dart';
-import 'package:tai/screens/homeCardLinks/sendTo/anotherBank/paymentDetails.dart';
 import 'package:tai/screens/homeCardLinks/sendTo/sendToOptions.dart';
 import 'package:tai/utils/custom_theme.dart';
 
@@ -25,7 +19,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
             debugShowCheckedModeBanner: false,
 
-      home: PaymentDetails(),
+      home: const SendToOptions(),
     );
   }
 }

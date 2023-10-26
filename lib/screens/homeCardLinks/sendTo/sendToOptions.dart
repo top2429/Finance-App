@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tai/custom_widgets/arrowButton.dart';
+import 'package:tai/screens/homeCardLinks/sendTo/anotherBank/paymentDetails.dart';
+import 'package:tai/screens/homeCardLinks/sendTo/mobileMoneyWallet/mmdetails.dart';
 
 class SendToOptions extends StatefulWidget {
   const SendToOptions({super.key});
@@ -55,7 +57,7 @@ class _SendToOptionsState extends State<SendToOptions> {
                   ),
                   ArrowButton(
                       label: "Another I&M bank",
-                      image: "mmWallet.svg",
+                      image: "another.svg",
                       innerContainerColor: const Color(0xFFDDD4FB),
                       onTap: () {
                         // Navigator.push(
@@ -84,23 +86,24 @@ class _SendToOptionsState extends State<SendToOptions> {
                       image: "mmWallet.svg",
                       innerContainerColor: const Color(0xFFC4F1CD),
                       onTap: () {
-                        // Navigator.push(
-                        //         context,
-                        //         MaterialPageRoute(
-                        //             builder: (context) => const SelectRecipient ()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const MobileMoneyDetails()));
                       }),
-                      const SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
-                      ArrowButton(
+                  ArrowButton(
                       label: "Another Bank",
                       image: "bankTransfer.svg",
                       innerContainerColor: const Color(0xFFC4F1CD),
                       onTap: () {
-                        // Navigator.push(
-                        //         context,
-                        //         MaterialPageRoute(
-                        //             builder: (context) => const SelectRecipient ()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const PaymentDetails()));
                       }),
                 ],
               )
@@ -108,6 +111,6 @@ class _SendToOptionsState extends State<SendToOptions> {
           ),
         ),
       )),
-    );;
+    );
   }
 }

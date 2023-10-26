@@ -162,7 +162,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  DepositLocations()));
+                                                  const DepositLocations()));
                                     },
                                   ),
                                   const SizedBox(

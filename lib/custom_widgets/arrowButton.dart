@@ -6,13 +6,15 @@ class ArrowButton extends StatelessWidget {
   final String label;
   final Color innerContainerColor;
   final VoidCallback onTap;
+  final bool plusIcon;
 
   const ArrowButton(
       {super.key,
       required this.label,
       required this.image,
       required this.innerContainerColor,
-      required this.onTap});
+      required this.onTap,
+      this.plusIcon = false});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,7 @@ class ArrowButton extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(24),
-            color: const Color.fromARGB(255, 240, 240, 240)),
+            color: plusIcon?  const Color.fromARGB(255, 247, 245, 245):const Color.fromARGB(255, 240, 240, 240)),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
           child: Row(
@@ -41,7 +43,7 @@ class ArrowButton extends StatelessWidget {
                 style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
               ),
               const Spacer(),
-              const Icon(Icons.arrow_forward)
+              plusIcon?const Icon(Icons.add): const Icon(Icons.arrow_forward)
             ],
           ),
         ),

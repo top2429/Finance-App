@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class SplitDetailsCard extends StatelessWidget {
   final String label;
@@ -19,7 +18,7 @@ class SplitDetailsCard extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
           child: Row(
             children: [
-              CircleAvatar(),
+              const CircleAvatar(),
               
               const SizedBox(
                 width: 20,
@@ -29,7 +28,7 @@ class SplitDetailsCard extends StatelessWidget {
                 style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
               ),
               const Spacer(),
-              Text("10,000 RWF", style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),)
+              const Text("10,000 RWF", style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),)
             ],
           ),
         ),
