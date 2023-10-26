@@ -3,7 +3,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:tai/custom_widgets/iconInCircle.dart';
 import 'package:tai/screens/completeRegistration/step1_personal.dart';
 import 'package:tai/screens/homeCardLinks/Deposit/depositLocations.dart';
+import 'package:tai/screens/homeCardLinks/Request/chooseCustomOrSplit.dart';
 import 'package:tai/screens/homeCardLinks/sendTo/sendToOptions.dart';
+import 'package:tai/screens/myProfile/profileScreen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -32,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const Step1()));
+                                    builder: (context) => const ProfileScreen()));
                           },
                           child: const CircleAvatar(
                             radius: 24,
@@ -141,7 +143,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                 children: [
                                   IconCircle(
                                     image: "assets/images/request.svg",
-                                    onTap: () {},
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const ChooseMethod()));
+                                    },
                                   ),
                                   const SizedBox(
                                     height: 4,

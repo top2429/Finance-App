@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tai/custom_widgets/arrowButton.dart';
+import 'package:tai/screens/homeCardLinks/sendTo/Card/cardPaymentDetails.dart';
 import 'package:tai/screens/homeCardLinks/sendTo/anotherBank/paymentDetails.dart';
+import 'package:tai/screens/homeCardLinks/sendTo/anotherI&MBank/iAndMpaymentDetails.dart';
 import 'package:tai/screens/homeCardLinks/sendTo/mobileMoneyWallet/mmdetails.dart';
+import 'package:tai/screens/homeCardLinks/sendTo/ownBank/ownBankDetails.dart';
 
 class SendToOptions extends StatefulWidget {
   const SendToOptions({super.key});
@@ -47,10 +50,10 @@ class _SendToOptionsState extends State<SendToOptions> {
                       image: "own.svg",
                       innerContainerColor: const Color(0xFFFCB3C5),
                       onTap: () {
-                        // Navigator.push(
-                        //         context,
-                        //         MaterialPageRoute(
-                        //             builder: (context) => const SelectBillAmount ()));
+                        Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const OwnBankDetails ()));
                       }),
                   const SizedBox(
                     height: 30,
@@ -60,10 +63,10 @@ class _SendToOptionsState extends State<SendToOptions> {
                       image: "another.svg",
                       innerContainerColor: const Color(0xFFDDD4FB),
                       onTap: () {
-                        // Navigator.push(
-                        //         context,
-                        //         MaterialPageRoute(
-                        //             builder: (context) => const SelectBillAmount ()));
+                        Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const AnotherIandMbankDetails ()));
                       }),
                   const SizedBox(
                     height: 30,
@@ -73,10 +76,10 @@ class _SendToOptionsState extends State<SendToOptions> {
                       image: "card.svg",
                       innerContainerColor: const Color(0xFFFFE8A4),
                       onTap: () {
-                        // Navigator.push(
-                        //         context,
-                        //         MaterialPageRoute(
-                        //             builder: (context) => const SelectBillAmount ()));
+                        Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const CardPaymentDetails ()));
                       }),
                   const SizedBox(
                     height: 30,

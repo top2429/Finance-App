@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tai/screens/bottomNavBar/navBarScreens/Home.dart';
 import 'package:tai/screens/homeCardLinks/sendTo/sendToOptions.dart';
 import 'package:tai/utils/custom_theme.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
             debugShowCheckedModeBanner: false,
 
-      home: const SendToOptions(),
+      home: const HomeScreen(),
     );
   }
 }
