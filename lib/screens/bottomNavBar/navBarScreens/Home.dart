@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tai/custom_widgets/iconInCircle.dart';
 import 'package:tai/screens/completeRegistration/step1_personal.dart';
+import 'package:tai/screens/homeCardLinks/Deposit/depositLocations.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -145,7 +146,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 children: [
                                   IconCircle(
                                     image: "assets/images/deposit.svg",
-                                    onTap: () {},
+                                    onTap: () {
+                                      Navigator.push(context, MaterialPageRoute(builder: (context) => DepositLocations()));
+                                    },
                                   ),
                                   const SizedBox(
                                     height: 4,
