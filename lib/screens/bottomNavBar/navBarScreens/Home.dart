@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:tai/custom_widgets/iconInCircle.dart';
 import 'package:tai/screens/completeRegistration/step1_personal.dart';
 import 'package:tai/screens/homeCardLinks/Deposit/depositLocations.dart';
+import 'package:tai/screens/homeCardLinks/sendTo/sendToOptions.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -27,9 +28,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     Column(
                       children: [
                         InkWell(
-                          onTap: (){
-                            Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const Step1()));
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Step1()));
                           },
                           child: const CircleAvatar(
                             radius: 24,
@@ -114,12 +117,20 @@ class _HomeScreenState extends State<HomeScreen> {
                                 children: [
                                   IconCircle(
                                     image: "assets/images/sendTo.svg",
-                                    onTap: () {},
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const SendToOptions()));
+                                    },
                                   ),
                                   const SizedBox(
+                                  
                                     height: 4,
                                   ),
                                   const Text(
+                                    
                                     "Send to",
                                     style: TextStyle(
                                         fontSize: 12, color: Colors.white),
@@ -147,7 +158,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                   IconCircle(
                                     image: "assets/images/deposit.svg",
                                     onTap: () {
-                                      Navigator.push(context, MaterialPageRoute(builder: (context) => DepositLocations()));
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  DepositLocations()));
                                     },
                                   ),
                                   const SizedBox(
@@ -215,8 +230,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 const Text(
                                   "add a/c",
-                                  style:
-                                      TextStyle(fontSize: 11, color: Colors.black),
+                                  style: TextStyle(
+                                      fontSize: 11, color: Colors.black),
                                 ),
                               ],
                             ),
@@ -225,14 +240,15 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                SvgPicture.asset("assets/images/savingGoals.svg"),
+                                SvgPicture.asset(
+                                    "assets/images/savingGoals.svg"),
                                 const SizedBox(
                                   height: 4,
                                 ),
                                 const Text(
                                   "Saving Goals",
-                                  style:
-                                      TextStyle(fontSize: 11, color: Colors.black),
+                                  style: TextStyle(
+                                      fontSize: 11, color: Colors.black),
                                 ),
                               ],
                             ),
@@ -241,14 +257,15 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                SvgPicture.asset("assets/images/groupSaving.svg"),
+                                SvgPicture.asset(
+                                    "assets/images/groupSaving.svg"),
                                 const SizedBox(
                                   height: 4,
                                 ),
                                 const Text(
                                   "Group Saving",
-                                  style:
-                                      TextStyle(fontSize: 11, color: Colors.black),
+                                  style: TextStyle(
+                                      fontSize: 11, color: Colors.black),
                                 ),
                               ],
                             ),
@@ -263,8 +280,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 const Text(
                                   "Cards",
-                                  style:
-                                      TextStyle(fontSize: 11, color: Colors.black),
+                                  style: TextStyle(
+                                      fontSize: 11, color: Colors.black),
                                 ),
                               ],
                             ),
@@ -281,8 +298,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                   const Text(
                                     "More",
-                                    style:
-                                        TextStyle(fontSize: 11, color: Colors.black),
+                                    style: TextStyle(
+                                        fontSize: 11, color: Colors.black),
                                   ),
                                 ],
                               ),
@@ -293,66 +310,89 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20,),
-
+                const SizedBox(
+                  height: 20,
+                ),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.calendar_month_outlined,color: Colors.green,),
-                        SizedBox(width: 8,),
+                        Icon(
+                          Icons.calendar_month_outlined,
+                          color: Colors.green,
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
                         Text(
-                      "Transaction History",
-                      style: TextStyle(
-                          fontSize: 15,
-                          color: Color.fromARGB(255, 136, 136, 136)),
-                    )
+                          "Transaction History",
+                          style: TextStyle(
+                              fontSize: 15,
+                              color: Color.fromARGB(255, 136, 136, 136)),
+                        )
                       ],
                     ),
-                    Icon(Icons.search,size: 28,)
+                    Icon(
+                      Icons.search,
+                      size: 28,
+                    )
                   ],
                 ),
-                const SizedBox(height: 15,),
-
+                const SizedBox(
+                  height: 15,
+                ),
                 ListView.builder(
-                  shrinkWrap: true,
-                  primary: false,
-                  itemCount: 6,
-                  itemBuilder: (_,index){
-                    return Padding(
-                      padding: const EdgeInsets.only(bottom: 10),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 240, 240, 240),
-                          borderRadius: BorderRadius.circular(24)
-                        ),
-                        child: const Padding(
-                          padding: EdgeInsets.all(12),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                            Row(
+                    shrinkWrap: true,
+                    primary: false,
+                    itemCount: 6,
+                    itemBuilder: (_, index) {
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 10),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: const Color.fromARGB(255, 240, 240, 240),
+                              borderRadius: BorderRadius.circular(24)),
+                          child: const Padding(
+                            padding: EdgeInsets.all(12),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                CircleAvatar(),
-                                SizedBox(width: 14,),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                Row(
                                   children: [
-                                    Text("Sent to MUhammad Putin", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
-                                    SizedBox(height: 4,),
-                                    Text("14:30 PM")
+                                    CircleAvatar(),
+                                    SizedBox(
+                                      width: 14,
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text("Sent to MUhammad Putin",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 15)),
+                                        SizedBox(
+                                          height: 4,
+                                        ),
+                                        Text("14:30 PM")
+                                      ],
+                                    )
                                   ],
+                                ),
+                                Text(
+                                  "\$434.43",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.red,
+                                      fontSize: 16),
                                 )
                               ],
                             ),
-                            Text("\$434.43", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red, fontSize: 16),)
-                          ],),
+                          ),
                         ),
-                      ),
-                    );
-                  }
-                  )
+                      );
+                    })
               ],
             ),
           ),

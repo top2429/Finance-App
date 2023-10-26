@@ -31,7 +31,7 @@ class ArrowButton extends StatelessWidget {
                       color: innerContainerColor, shape: BoxShape.circle),
                   child: Padding(
                     padding: const EdgeInsets.all(12),
-                    child: SvgPicture.asset("assets/images/$image"),
+                    child: SvgPicture.asset("assets/images/$image",height: 19, width: 19,),
                   )),
               const SizedBox(
                 width: 20,
