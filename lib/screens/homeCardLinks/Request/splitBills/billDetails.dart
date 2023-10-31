@@ -57,7 +57,7 @@ class _BillDetailsState extends State<BillDetails> {
               const SizedBox(
                 height: 10,
               ),
-              const CircularProfileImageList(numImages: 5),
+              const CircularProfileImageList(numImages: 5, amount: "40,000 RWF",),
               const SizedBox(
                 height: 10,
               ),
