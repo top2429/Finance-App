@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tai/screens/bottomNavBar/navBarScreens/Home.dart';
-import 'package:tai/screens/homeCardLinks/Request/splitBills/billDetails.dart';
-import 'package:tai/screens/homeCardLinks/sendTo/sendToOptions.dart';
+import 'package:tai/features/bottomNavBar/presentation/navBar.dart';
+
 import 'package:tai/utils/custom_theme.dart';
 
 
@@ -21,7 +20,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
             debugShowCheckedModeBanner: false,
 
-      home: const BillDetails(),
+      home: const NavBar(),
     );
   }
 }
