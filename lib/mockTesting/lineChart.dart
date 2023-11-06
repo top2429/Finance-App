@@ -18,27 +18,25 @@ class _AnalyticsTestState extends State<AnalyticsTest> {
           width: 600,
           child: LineChart(
             LineChartData(
-              titlesData:  FlTitlesData(
-                rightTitles: AxisTitles(
-                  sideTitles: SideTitles(showTitles: false)
-                ),
-                topTitles: AxisTitles(
-                  sideTitles: SideTitles(showTitles: false)
-                ),
+              titlesData: FlTitlesData(
+                rightTitles:
+                    AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                topTitles:
+                    AxisTitles(sideTitles: SideTitles(showTitles: false)),
                 leftTitles: AxisTitles(
                     // axisNameWidget: Text("Expenditure"),
                     sideTitles: SideTitles(
-                      getTitlesWidget: leftTitleWidgets,
-                      reservedSize: 30,
-                      interval: 1,
-                      showTitles: true)),
+                        getTitlesWidget: leftTitleWidgets,
+                        reservedSize: 30,
+                        interval: 1,
+                        showTitles: true)),
                 bottomTitles: AxisTitles(
                     // axisNameWidget: Text("Months"),
                     sideTitles: SideTitles(
-                      reservedSize: 30,
-                      interval: 1,
-                      getTitlesWidget:bottomTitleWidgets,
-                      showTitles: true)),
+                        reservedSize: 30,
+                        interval: 1,
+                        getTitlesWidget: bottomTitleWidgets,
+                        showTitles: true)),
               ),
               backgroundColor: Color.fromARGB(255, 6, 42, 70),
               // read about it in the LineChartData section
@@ -107,7 +105,7 @@ class _AnalyticsTestState extends State<AnalyticsTest> {
     );
   }
 
-Widget bottomTitleWidgets(double value, TitleMeta meta) {
+  Widget bottomTitleWidgets(double value, TitleMeta meta) {
     const style = TextStyle(
       fontWeight: FontWeight.bold,
       fontSize: 16,
@@ -134,8 +132,7 @@ Widget bottomTitleWidgets(double value, TitleMeta meta) {
     );
   }
 
-
-Widget leftTitleWidgets(double value, TitleMeta meta) {
+  Widget leftTitleWidgets(double value, TitleMeta meta) {
     const style = TextStyle(
       fontWeight: FontWeight.bold,
       fontSize: 15,
@@ -157,5 +154,4 @@ Widget leftTitleWidgets(double value, TitleMeta meta) {
 
     return Text(text, style: style, textAlign: TextAlign.left);
   }
-
 }

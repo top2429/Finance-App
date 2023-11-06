@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tai/mockTesting/analyticsTesting.dart';
+import 'package:tai/mockTesting/lineChart.dart';
+import 'package:tai/mockTesting/pieChart.dart';
 
 import 'package:tai/utils/custom_theme.dart';
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
             debugShowCheckedModeBanner: false,
 
-      home: AnalyticsTest(),
+      home: PieChartTest(),
     );
   }
 }
