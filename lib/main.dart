@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:tai/features/bottomNavBar/presentation/navBar.dart';
 import 'package:tai/mockTesting/lineChart.dart';
 import 'package:tai/mockTesting/linearProgressIndicator.dart';
 import 'package:tai/mockTesting/pieChart.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
             debugShowCheckedModeBanner: false,
 
-      home: LinearProgressWidget(),
+      home: NavBar(),
     );
   }
 }

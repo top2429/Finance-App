@@ -4,6 +4,7 @@ import 'package:tai/commonWidgets/iconInCircle.dart';
 import 'package:tai/features/deposit/presentation/depositLocationsScreen.dart';
 import 'package:tai/features/profile/presentation/profileScreen.dart';
 import 'package:tai/features/request/presentation/chooseCustomOrSplitRequestScreen.dart';
+import 'package:tai/features/savingGoals/presentation/savingGoalsScreen.dart';
 import 'package:tai/features/sendTo/presentation/sendToOptionsScreen.dart';
 
 
@@ -237,28 +238,37 @@ class _HomeScreenState extends State<HomeScreen> {
                                   height: 4,
                                 ),
                                 const Text(
-                                  "add a/c",
+                                  "Add bank",
                                   style: TextStyle(
                                       fontSize: 11, color: Colors.black),
                                 ),
                               ],
                             ),
                           ),
-                          SizedBox(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                SvgPicture.asset(
-                                    "assets/images/savingGoals.svg"),
-                                const SizedBox(
-                                  height: 4,
-                                ),
-                                const Text(
-                                  "Saving Goals",
-                                  style: TextStyle(
-                                      fontSize: 11, color: Colors.black),
-                                ),
-                              ],
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const SavingGoalsScreen()));
+                            },
+                            child: SizedBox(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  SvgPicture.asset(
+                                      "assets/images/savingGoals.svg"),
+                                  const SizedBox(
+                                    height: 4,
+                                  ),
+                                  const Text(
+                                    "Saving Goals",
+                                    style: TextStyle(
+                                        fontSize: 11, color: Colors.black),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                           SizedBox(
