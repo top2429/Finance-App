@@ -1,5 +1,7 @@
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:tai/mockTesting/lineChart.dart';
+import 'package:tai/mockTesting/linearProgressIndicator.dart';
 import 'package:tai/mockTesting/pieChart.dart';
 
 import 'package:tai/utils/custom_theme.dart';
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
             debugShowCheckedModeBanner: false,
 
-      home: PieChartTest(),
+      home: LinearProgressWidget(),
     );
   }
 }

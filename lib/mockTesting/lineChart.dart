@@ -14,8 +14,8 @@ class _AnalyticsTestState extends State<AnalyticsTest> {
     return Scaffold(
       body: Center(
         child: SizedBox(
-          height: 400,
-          width: 600,
+          height: 200,
+          width: 290,
           child: LineChart(
             LineChartData(
               titlesData: FlTitlesData(
