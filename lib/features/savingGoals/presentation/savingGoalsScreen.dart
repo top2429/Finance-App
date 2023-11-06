@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tai/features/savingGoals/presentation/createSavingGoal.dart';
 import 'package:tai/features/savingGoals/presentation/goalCard.dart';
+import 'package:tai/features/savingGoals/presentation/goalDetailsBottomSheetContainer.dart';
 
 class SavingGoalsScreen extends StatefulWidget {
   const SavingGoalsScreen({super.key});
@@ -13,6 +14,7 @@ class _SavingGoalsScreenState extends State<SavingGoalsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
@@ -49,19 +51,72 @@ class _SavingGoalsScreenState extends State<SavingGoalsScreen> {
               SizedBox(
                 height: 15,
               ),
-              GoalCard(),
+              GoalCard(
+                onTap: () {
+                  showModalBottomSheet(
+                    backgroundColor: Color.fromARGB(255, 240, 240, 240),
+                    isScrollControlled: true,
+                    enableDrag: true,
+                    context: context,
+                    builder: (context) {
+                      return StatefulBuilder(
+                        builder: (context, setState) {
+                          return Padding(
+                            padding: const EdgeInsets.all(20),
+                            child: SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.4,
+                              child: Column(
+                                children: [
+                                  Row(children: [
+                                    InkWell(
+                                        onTap: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: const Icon(Icons.close)),
+                                    const Expanded(
+                                        child: Center(
+                                            child: Padding(
+                                      padding: EdgeInsets.only(right: 30),
+                                      child: Text(
+                                        "Goal Details",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16),
+                                      ),
+                                    )))
+                                  ]),
+                                  const SizedBox(
+                                    height: 40,
+                                  ),
+                                  GoalDetailsBottomSheetContainer()
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    },
+                  );
+                },
+              ),
               SizedBox(
                 height: 15,
               ),
-              GoalCard(),
+              GoalCard(
+                onTap: () {},
+              ),
               SizedBox(
                 height: 15,
               ),
-              GoalCard(),
+              GoalCard(
+                onTap: () {},
+              ),
               SizedBox(
                 height: 15,
               ),
-              GoalCard(),
+              GoalCard(
+                onTap: () {},
+              ),
             ],
           ),
         ),

@@ -238,7 +238,8 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                                 height: MediaQuery.of(context).size.height * 0.7,
                                 child: Column(
                                   children: [
-                                    Row(children: [
+                                    Row(
+                                      children: [
                                       InkWell(
                                           onTap: () {
                                             Navigator.pop(context);
