@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tai/features/bottomNavBar/presentation/navBar.dart';
+import 'package:tai/mockTesting/analyticsTesting.dart';
 
 import 'package:tai/utils/custom_theme.dart';
 
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
             debugShowCheckedModeBanner: false,
 
-      home: const NavBar(),
+      home: AnalyticsTest(),
     );
   }
 }
