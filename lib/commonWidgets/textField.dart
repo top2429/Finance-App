@@ -13,7 +13,7 @@ class TextFieldWidget extends StatefulWidget {
   const TextFieldWidget(
       {super.key,
       required this.controller,
-      this.textcolor = Colors.white,
+      this.textcolor = Colors.black,
       this.borderSideColor = Colors.black,
       required this.label,
       this.labelColor = Colors.black,

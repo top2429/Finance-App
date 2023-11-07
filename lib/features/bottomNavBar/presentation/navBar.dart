@@ -69,13 +69,13 @@ class _NavBarState extends State<NavBar> {
                     child: BarIcon(
                         name: 'Analytics', active: nowIndex == 1 ? true : false),
                   )),
-              BottomNavigationBarItem(
-                  label: "Budget",
-                  icon: Padding(
-                    padding: const EdgeInsets.only(top: 7),
-                    child: BarIcon(
-                        name: 'Budget', active: nowIndex == 2 ? true : false),
-                  )),
+              // BottomNavigationBarItem(
+              //     label: "Budget",
+              //     icon: Padding(
+              //       padding: const EdgeInsets.only(top: 7),
+              //       child: BarIcon(
+              //           name: 'Budget', active: nowIndex == 2 ? true : false),
+              //     )),
               BottomNavigationBarItem(
                   label: "History",
                   icon: Padding(
@@ -84,11 +84,11 @@ class _NavBarState extends State<NavBar> {
                         name: 'History', active: nowIndex == 3 ? true : false),
                   )),
               BottomNavigationBarItem(
-                  label: "Chat",
+                  label: "Requests",
                   icon: Padding(
                     padding: const EdgeInsets.only(top: 7),
                     child: BarIcon(
-                        name: 'Chat', active: nowIndex == 4 ? true : false),
+                        name: 'Requests', active: nowIndex == 4 ? true : false),
                   )),
             ]),
       ),

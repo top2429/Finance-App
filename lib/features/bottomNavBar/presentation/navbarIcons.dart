@@ -53,7 +53,7 @@ class _BarIconState extends State<BarIcon> {
               ? Colors.black
               : const Color(0xFFA9A8AA),
         );
-      case 'Chat':
+      case 'Requests':
         return SvgPicture.asset(
           'assets/images/chat.svg',
           height: 25,

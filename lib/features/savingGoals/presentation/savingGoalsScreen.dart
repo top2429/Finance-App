@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tai/features/savingGoals/presentation/createSavingGoal.dart';
+import 'package:tai/features/savingGoals/presentation/createNewGoalScreen.dart';
+import 'package:tai/features/savingGoals/presentation/createSavingGoalDotted.dart';
 import 'package:tai/features/savingGoals/presentation/goalCard.dart';
 import 'package:tai/features/savingGoals/presentation/goalDetailsBottomSheetContainer.dart';
 
@@ -14,7 +15,6 @@ class _SavingGoalsScreenState extends State<SavingGoalsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
@@ -36,7 +36,14 @@ class _SavingGoalsScreenState extends State<SavingGoalsScreen> {
               SizedBox(
                 height: 20,
               ),
-              CreateSavingGoalDotted(),
+              InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CreateNewGoalScreen()));
+                  },
+                  child: CreateSavingGoalDotted()),
               SizedBox(
                 height: 60,
               ),
@@ -64,7 +71,7 @@ class _SavingGoalsScreenState extends State<SavingGoalsScreen> {
                           return Padding(
                             padding: const EdgeInsets.all(20),
                             child: SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.4,
+                              height: MediaQuery.of(context).size.height * 0.45,
                               child: Column(
                                 children: [
                                   Row(children: [

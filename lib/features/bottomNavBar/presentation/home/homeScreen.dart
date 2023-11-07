@@ -187,14 +187,14 @@ class _HomeScreenState extends State<HomeScreen> {
                               Column(
                                 children: [
                                   IconCircle(
-                                    image: "assets/images/loans.svg",
+                                    image: "assets/images/cards.svg",
                                     onTap: () {},
                                   ),
                                   const SizedBox(
                                     height: 4,
                                   ),
                                   const Text(
-                                    "Loans",
+                                    "Cards",
                                     style: TextStyle(
                                         fontSize: 12, color: Colors.white),
                                   )
@@ -240,9 +240,38 @@ class _HomeScreenState extends State<HomeScreen> {
                                 const Text(
                                   "Add bank",
                                   style: TextStyle(
-                                      fontSize: 11, color: Colors.black),
+                                      fontSize: 12, color: Colors.black),
                                 ),
                               ],
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              // Navigator.push(
+                              //             context,
+                              //             MaterialPageRoute(
+                              //                 builder: (context) =>
+                              //                     const SavingGoalsScreen()));
+                            },
+                            child: SizedBox(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  SvgPicture.asset(
+                                    
+                                      "assets/images/loaning.svg",
+                                      
+                                      height: 24,width: 24,),
+                                  const SizedBox(
+                                    height: 4,
+                                  ),
+                                  const Text(
+                                    "Loans",
+                                    style: TextStyle(
+                                        fontSize: 12, color: Colors.black),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                           InkWell(
@@ -258,66 +287,49 @@ class _HomeScreenState extends State<HomeScreen> {
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   SvgPicture.asset(
-                                      "assets/images/savingGoals.svg"),
+                                      "assets/images/groupSaving.svg",color: Color.fromARGB(255, 49, 112, 163)),
                                   const SizedBox(
                                     height: 4,
                                   ),
                                   const Text(
                                     "Saving Goals",
                                     style: TextStyle(
-                                        fontSize: 11, color: Colors.black),
+                                        fontSize: 12, color: Colors.black),
                                   ),
                                 ],
                               ),
                             ),
                           ),
-                          SizedBox(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                SvgPicture.asset(
-                                    "assets/images/groupSaving.svg"),
-                                const SizedBox(
-                                  height: 4,
-                                ),
-                                const Text(
-                                  "Group Saving",
-                                  style: TextStyle(
-                                      fontSize: 11, color: Colors.black),
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                SvgPicture.asset("assets/images/cards.svg"),
-                                const SizedBox(
-                                  height: 4,
-                                ),
-                                const Text(
-                                  "Cards",
-                                  style: TextStyle(
-                                      fontSize: 11, color: Colors.black),
-                                ),
-                              ],
-                            ),
-                          ),
+                          // SizedBox(
+                          //   child: Column(
+                          //     mainAxisAlignment: MainAxisAlignment.end,
+                          //     children: [
+                          //       SvgPicture.asset("assets/images/cards.svg"),
+                          //       const SizedBox(
+                          //         height: 4,
+                          //       ),
+                          //       const Text(
+                          //         "Cards",
+                          //         style: TextStyle(
+                          //             fontSize: 11, color: Colors.black),
+                          //       ),
+                          //     ],
+                          //   ),
+                          // ),
                           Padding(
                             padding: const EdgeInsets.only(left: 3),
                             child: SizedBox(
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  SvgPicture.asset("assets/images/more.svg"),
+                                  SvgPicture.asset("assets/images/bills.svg",height: 24,width: 24,color: Color.fromARGB(255, 49, 112, 163),),
                                   const SizedBox(
                                     height: 4,
                                   ),
                                   const Text(
-                                    "More",
+                                    "Pay bills",
                                     style: TextStyle(
-                                        fontSize: 11, color: Colors.black),
+                                        fontSize: 12, color: Colors.black),
                                   ),
                                 ],
                               ),

@@ -4,8 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 class Constants {
   Constants._();
 
-  static TextStyle appFontlight =
-      const TextStyle(fontFamily: 'Ubuntu', color: Color.fromARGB(255, 0, 0, 0));
+  static TextStyle appFontlight = const TextStyle(
+      fontFamily: 'Ubuntu', color: Color.fromARGB(255, 0, 0, 0));
   static TextStyle appFontdark =
       GoogleFonts.roboto().copyWith(color: const Color(0xFFFFFFFF));
 
@@ -22,7 +22,12 @@ class Constants {
 
   static Color bottomNavBarColor = const Color.fromARGB(255, 240, 240, 240);
 
-  static Color homePageBigCardColor = const Color(0xFF262329) ;
-
-  
+  static Color homePageBigCardColor = const Color(0xFF262329);
 }
+
+
+/* Navigation code [ Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              const SavingGoalsScreen())); ] */

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tai/commonWidgets/keyboard.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField.dart';
-import 'package:tai/commonWidgets/textField_arrowDown.dart';
+import 'package:tai/commonWidgets/textField_PlusSign.dart';
 
 
 class PaymentDetails extends StatefulWidget {
