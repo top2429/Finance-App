@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tai/features/bottomNavBar/presentation/analytics/analyticsScreen.dart';
-import 'package:tai/features/bottomNavBar/presentation/budget/budgetScreen.dart';
-import 'package:tai/features/bottomNavBar/presentation/chat/chatScreen.dart';
-import 'package:tai/features/bottomNavBar/presentation/history/historyScreen.dart';
+import 'package:tai/features/bottomNavBar/presentation/Requests/requestsScreen.dart';
+import 'package:tai/features/bottomNavBar/presentation/Transactions/transactionsScreen.dart';
 import 'package:tai/features/bottomNavBar/presentation/home/homeScreen.dart';
 import 'package:tai/features/bottomNavBar/presentation/navbarIcons.dart';
 
@@ -28,9 +27,8 @@ class _NavBarState extends State<NavBar> {
     List pages = [
       const HomeScreen(),
       const AnalyticsScreen(),
-      const BudgetScreen(),
-      const HistoryScreen(),
-      const ChatScreen()
+      const TransactionsScreen(),
+      const RequestsScreen()
     ];
     return Scaffold(
       body: pages[nowIndex],
@@ -69,26 +67,20 @@ class _NavBarState extends State<NavBar> {
                     child: BarIcon(
                         name: 'Analytics', active: nowIndex == 1 ? true : false),
                   )),
-              // BottomNavigationBarItem(
-              //     label: "Budget",
-              //     icon: Padding(
-              //       padding: const EdgeInsets.only(top: 7),
-              //       child: BarIcon(
-              //           name: 'Budget', active: nowIndex == 2 ? true : false),
-              //     )),
+             
               BottomNavigationBarItem(
-                  label: "History",
+                  label: "Transactions",
                   icon: Padding(
                     padding: const EdgeInsets.only(top: 7),
                     child: BarIcon(
-                        name: 'History', active: nowIndex == 3 ? true : false),
+                        name: 'Transactions', active: nowIndex == 2 ? true : false),
                   )),
               BottomNavigationBarItem(
                   label: "Requests",
                   icon: Padding(
                     padding: const EdgeInsets.only(top: 7),
                     child: BarIcon(
-                        name: 'Requests', active: nowIndex == 4 ? true : false),
+                        name: 'Requests', active: nowIndex == 3 ? true : false),
                   )),
             ]),
       ),

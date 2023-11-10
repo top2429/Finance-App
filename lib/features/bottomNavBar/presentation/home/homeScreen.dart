@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tai/commonWidgets/iconInCircle.dart';
+import 'package:tai/features/bottomNavBar/presentation/Transactions/transactionsScreen.dart';
 import 'package:tai/features/deposit/presentation/depositLocationsScreen.dart';
 import 'package:tai/features/profile/presentation/profileScreen.dart';
 import 'package:tai/features/request/presentation/chooseCustomOrSplitRequestScreen.dart';
 import 'package:tai/features/savingGoals/presentation/savingGoalsScreen.dart';
 import 'package:tai/features/sendTo/presentation/sendToOptionsScreen.dart';
-
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -35,7 +35,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const ProfileScreen()));
+                                    builder: (context) =>
+                                        const ProfileScreen()));
                           },
                           child: const CircleAvatar(
                             radius: 24,
@@ -129,11 +130,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                     },
                                   ),
                                   const SizedBox(
-                                  
                                     height: 4,
                                   ),
                                   const Text(
-                                    
                                     "Send to",
                                     style: TextStyle(
                                         fontSize: 12, color: Colors.white),
@@ -258,10 +257,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   SvgPicture.asset(
-                                    
-                                      "assets/images/loaning.svg",
-                                      
-                                      height: 24,width: 24,),
+                                    "assets/images/loaning.svg",
+                                    height: 24,
+                                    width: 24,
+                                  ),
                                   const SizedBox(
                                     height: 4,
                                   ),
@@ -277,17 +276,18 @@ class _HomeScreenState extends State<HomeScreen> {
                           InkWell(
                             onTap: () {
                               Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  const SavingGoalsScreen()));
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const SavingGoalsScreen()));
                             },
                             child: SizedBox(
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   SvgPicture.asset(
-                                      "assets/images/groupSaving.svg",color: Color.fromARGB(255, 49, 112, 163)),
+                                      "assets/images/groupSaving.svg",
+                                      color: Color.fromARGB(255, 49, 112, 163)),
                                   const SizedBox(
                                     height: 4,
                                   ),
@@ -322,7 +322,12 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  SvgPicture.asset("assets/images/bills.svg",height: 24,width: 24,color: Color.fromARGB(255, 49, 112, 163),),
+                                  SvgPicture.asset(
+                                    "assets/images/bills.svg",
+                                    height: 24,
+                                    width: 24,
+                                    color: Color.fromARGB(255, 49, 112, 163),
+                                  ),
                                   const SizedBox(
                                     height: 4,
                                   ),
@@ -343,7 +348,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(
                   height: 20,
                 ),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
@@ -363,10 +368,29 @@ class _HomeScreenState extends State<HomeScreen> {
                         )
                       ],
                     ),
-                    Icon(
-                      Icons.search,
-                      size: 28,
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              fullscreenDialog: true,
+                                builder: (context) =>
+                                    const TransactionsScreen()));
+                      },
+                      child: Row(children: [
+                        Text(
+                          "More",
+                          style:
+                              TextStyle(fontSize: 16, color: Color(0xFF466AE7)),
+                        ),
+                        Icon(
+                          Icons.arrow_forward,
+                          size: 22,
+                          color: Color(0xFF466AE7),
+                        )
+                      ]),
                     )
+                    
                   ],
                 ),
                 const SizedBox(
@@ -375,7 +399,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ListView.builder(
                     shrinkWrap: true,
                     primary: false,
-                    itemCount: 6,
+                    itemCount: 5,
                     itemBuilder: (_, index) {
                       return Padding(
                         padding: const EdgeInsets.only(bottom: 10),

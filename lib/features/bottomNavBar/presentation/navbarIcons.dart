@@ -34,19 +34,19 @@ class _BarIconState extends State<BarIcon> {
               : const Color(0xFFA9A8AA),
         );
 
-      case 'Budget':
-        return SvgPicture.asset(
-          'assets/images/budget.svg',
-          height: 23,
-          width: 23,
-          color: widget.active
-              ? Colors.black
-              : const Color(0xFFA9A8AA),
-        );
+      // case 'Budget':
+      //   return SvgPicture.asset(
+      //     'assets/images/budget.svg',
+      //     height: 23,
+      //     width: 23,
+      //     color: widget.active
+      //         ? Colors.black
+      //         : const Color(0xFFA9A8AA),
+      //   );
 
-      case 'History':
+      case 'Transactions':
         return SvgPicture.asset(
-          'assets/images/history.svg',
+          'assets/images/transactions.svg',
           height: 25,
           width: 25,
           color: widget.active
