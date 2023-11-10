@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tai/features/bottomNavBar/presentation/analytics/analyticsScreen.dart';
-import 'package:tai/features/bottomNavBar/presentation/Requests/requestsScreen.dart';
+import 'package:tai/features/bottomNavBar/presentation/Requests/presentation/requestsScreen.dart';
 import 'package:tai/features/bottomNavBar/presentation/Transactions/transactionsScreen.dart';
 import 'package:tai/features/bottomNavBar/presentation/home/homeScreen.dart';
 import 'package:tai/features/bottomNavBar/presentation/navbarIcons.dart';

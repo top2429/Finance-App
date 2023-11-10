@@ -53,7 +53,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text("Sent to MUhammad Putin",
+                                    Text("Sent to Muhammad",
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 15)),

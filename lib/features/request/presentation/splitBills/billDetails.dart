@@ -4,7 +4,7 @@ import 'package:tai/commonWidgets/mainButton.dart';
 
 import 'package:tai/features/request/presentation/splitBills/circleOfFriends.dart';
 import 'package:tai/features/request/presentation/splitBills/splitDetailsFriendsCard.dart';
-import 'package:tai/features/request/presentation/splitBills/splitRequestDetailsCard.dart';
+import 'package:tai/features/bottomNavBar/presentation/Requests/presentation/paymentRequestDetailsCard.dart';
 
 class BillDetails extends StatefulWidget {
   const BillDetails({super.key});
@@ -97,10 +97,10 @@ class _BillDetailsState extends State<BillDetails> {
               MainButton(
                   text: "Continue",
                   onpressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SplitRequestedDetails()));
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (context) => const SplitRequestedDetails()));
                   })
             ],
           ),

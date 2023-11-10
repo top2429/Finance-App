@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
+import 'package:tai/features/bottomNavBar/presentation/Requests/presentation/chooseRequestPaymentMethod.dart';
 
-class SplitRequestedDetails extends StatefulWidget {
-  const SplitRequestedDetails({super.key});
+class PaymentRequestedDetails extends StatefulWidget {
+  const PaymentRequestedDetails({super.key});
 
   @override
-  State<SplitRequestedDetails> createState() => _SplitRequestedDetailsState();
+  State<PaymentRequestedDetails> createState() => _PaymentRequestedDetailsState();
 }
 
-class _SplitRequestedDetailsState extends State<SplitRequestedDetails> {
+class _PaymentRequestedDetailsState extends State<PaymentRequestedDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
-          "Split Request",
+          "Payment Request Details",
           style: TextStyle(fontSize: 20),
         ),
         elevation: 0,
@@ -63,7 +64,13 @@ class _SplitRequestedDetailsState extends State<SplitRequestedDetails> {
                               style:
                                   TextStyle(fontSize: 14, color: Colors.grey))),
                       const SizedBox(height: 40),
-                      MainButton(text: "PAY", onpressed: (){})
+                      MainButton(text: "PAY", onpressed: (){
+                        Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const ChooseRequestPaymentMethod()));
+                      })
                     ]),
               ),
             )

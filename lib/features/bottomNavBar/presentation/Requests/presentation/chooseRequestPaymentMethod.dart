@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:tai/commonWidgets/arrowButton.dart';
 
-class DepositLocations extends StatefulWidget {
-  const DepositLocations({super.key});
+class ChooseRequestPaymentMethod extends StatefulWidget {
+  const ChooseRequestPaymentMethod({super.key});
 
   @override
-  State<DepositLocations> createState() => _DepositocationsState();
+  State<ChooseRequestPaymentMethod> createState() => _ChooseRequestPaymentMethodState();
 }
 
-class _DepositocationsState extends State<DepositLocations> {
+class _ChooseRequestPaymentMethodState extends State<ChooseRequestPaymentMethod> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
-          "Deposit",
+          "PAY",
           style: TextStyle(fontSize: 20),
         ),
         elevation: 0,
@@ -32,7 +32,7 @@ class _DepositocationsState extends State<DepositLocations> {
           child: Column(
             children: [
               const Text(
-                "Select where to deposit",
+                "Select payment method",
                 style: TextStyle(fontSize: 20),
               ),
               const SizedBox(
