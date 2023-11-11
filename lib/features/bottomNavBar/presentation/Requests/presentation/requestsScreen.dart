@@ -24,7 +24,7 @@ class _RequestsScreenState extends State<RequestsScreen> {
               children: [
                 Text(
                   "Payment requests",
-                  style: TextStyle(color: Colors.grey),
+                  style: TextStyle(color: Colors.black),
                 )
               ],
             ),
