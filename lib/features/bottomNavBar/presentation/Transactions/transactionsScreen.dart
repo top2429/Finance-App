@@ -11,14 +11,10 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CustomScrollView(
-        physics:BouncingScrollPhysics(),
-        slivers: [
-          
+      body: CustomScrollView(physics: const BouncingScrollPhysics(), slivers: [
         SliverAppBar(
           automaticallyImplyLeading: false,
-          flexibleSpace: FlexibleSpaceBar(
-            
+          flexibleSpace: const FlexibleSpaceBar(
             // centerTitle: true,
             stretchModes: [
               StretchMode.fadeTitle,
@@ -32,26 +28,30 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
             // ),
             title: Text(
               "Transactions history",
-              style: TextStyle(fontSize: 20,color: Colors.black),
+              style: TextStyle(fontSize: 20, color: Colors.black),
             ),
           ),
           // backgroundColor: const Color.fromARGB(255, 136, 201, 253),
           // expandedHeight: 200,
           pinned: true,
-        stretch: true,
+          stretch: true,
           onStretchTrigger: () async {
             print("done stretch");
           },
           // floating: true,
           // snap: true,
           // centerTitle: true,
-          
         ),
+        /* NOTE */
+        /// THIS IS THE WIDGET THAT LETS YOU ADD SPACE BTN THE DIFFERENT KINDS OF SLIVERS 
+        /// WITHIN THE SAME CUSTOMSCROLLVIEW
+        SliverToBoxAdapter(),
         SliverList(
           delegate:
               SliverChildBuilderDelegate(childCount: 20, (context, index) {
             return Padding(
-              padding: const EdgeInsets.only(bottom: 5, left: 20, right: 20, top: 5),
+              padding:
+                  const EdgeInsets.only(bottom: 5, left: 20, right: 20, top: 5),
               child: Container(
                 decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 240, 240, 240),
