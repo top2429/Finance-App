@@ -11,11 +11,11 @@ class AnalyticsTest extends StatefulWidget {
 class _AnalyticsTestState extends State<AnalyticsTest> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
+    return 
+       Center(
         child: SizedBox(
           height: 200,
-          width: 290,
+          // width: 290,
           child: LineChart(
             LineChartData(
               titlesData: FlTitlesData(
@@ -38,7 +38,7 @@ class _AnalyticsTestState extends State<AnalyticsTest> {
                         getTitlesWidget: bottomTitleWidgets,
                         showTitles: true)),
               ),
-              backgroundColor: Color.fromARGB(255, 6, 42, 70),
+              backgroundColor: Color.fromARGB(255, 255, 255, 255),
               // read about it in the LineChartData section
               gridData: FlGridData(
                 show: true,
@@ -47,20 +47,22 @@ class _AnalyticsTestState extends State<AnalyticsTest> {
                 verticalInterval: 1,
                 getDrawingHorizontalLine: (value) {
                   return const FlLine(
-                    color: Color.fromARGB(255, 255, 255, 255),
+                    color: Colors.grey,
                     strokeWidth: 0.2,
                   );
                 },
                 getDrawingVerticalLine: (value) {
                   return const FlLine(
-                    color: Color.fromARGB(255, 255, 255, 255),
+                    color: Colors.grey,
                     strokeWidth: 0.2,
                   );
                 },
               ),
               borderData: FlBorderData(
                 show: true,
-                border: Border.all(color: const Color(0xff37434d)),
+                border: Border(
+                  left: BorderSide(color: Colors.grey),
+                  bottom: BorderSide(color: Colors.grey)),
               ),
               minX: 0,
               maxX: 11,
@@ -81,19 +83,19 @@ class _AnalyticsTestState extends State<AnalyticsTest> {
                   gradient: LinearGradient(
                     colors: [Colors.cyan, Colors.blue],
                   ),
-                  barWidth: 5,
+                  barWidth: 3,
                   isStrokeCapRound: true,
                   dotData: const FlDotData(
                     show: false,
                   ),
-                  belowBarData: BarAreaData(
-                    show: true,
-                    gradient: LinearGradient(
-                      colors: [Colors.cyan, Colors.blue]
-                          .map((color) => color.withOpacity(0.3))
-                          .toList(),
-                    ),
-                  ),
+                  // belowBarData: BarAreaData(
+                  //   show: true,
+                  //   gradient: LinearGradient(
+                  //     colors: [Colors.cyan, Colors.blue]
+                  //         .map((color) => color.withOpacity(0.3))
+                  //         .toList(),
+                  //   ),
+                  // ),
                 ),
               ],
             ),
@@ -101,14 +103,14 @@ class _AnalyticsTestState extends State<AnalyticsTest> {
             curve: Curves.linear, // Optional
           ),
         ),
-      ),
-    );
+      );
+    
   }
 
   Widget bottomTitleWidgets(double value, TitleMeta meta) {
     const style = TextStyle(
-      fontWeight: FontWeight.bold,
-      fontSize: 16,
+      // fontWeight: FontWeight.bold,
+      fontSize: 14,
     );
     Widget text;
     switch (value.toInt()) {
@@ -134,8 +136,8 @@ class _AnalyticsTestState extends State<AnalyticsTest> {
 
   Widget leftTitleWidgets(double value, TitleMeta meta) {
     const style = TextStyle(
-      fontWeight: FontWeight.bold,
-      fontSize: 15,
+      // fontWeight: FontWeight.bold,
+      fontSize: 12,
     );
     String text;
     switch (value.toInt()) {

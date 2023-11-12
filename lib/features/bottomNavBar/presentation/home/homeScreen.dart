@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tai/commonWidgets/iconInCircle.dart';
 import 'package:tai/features/bottomNavBar/presentation/Transactions/transactionsScreen.dart';
+import 'package:tai/features/cards/presentation/cardsListScreen.dart';
 import 'package:tai/features/deposit/presentation/depositLocationsScreen.dart';
 import 'package:tai/features/profile/presentation/profileScreen.dart';
 import 'package:tai/features/request/presentation/chooseCustomOrSplitRequestScreen.dart';
@@ -187,7 +188,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                 children: [
                                   IconCircle(
                                     image: "assets/images/cards.svg",
-                                    onTap: () {},
+                                    onTap: () {
+                                      Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              fullscreenDialog: true,
+                                builder: (context) =>
+                                    const CardsListScreen()));
+                                    },
                                   ),
                                   const SizedBox(
                                     height: 4,
