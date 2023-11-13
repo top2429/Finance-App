@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:tai/features/authentication/presentation/signUp/signUpScreen.dart';
 import 'package:tai/features/bottomNavBar/presentation/navBar.dart';
 import 'package:tai/mockTesting/lineChart.dart';
 import 'package:tai/mockTesting/linearProgressIndicator.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
             debugShowCheckedModeBanner: false,
 
-      home: NavBar(),
+      home: SignUpScreen(),
     );
   }
 }

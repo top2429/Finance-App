@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TextFieldWidget extends StatefulWidget {
+  final bool authText;
   final TextEditingController controller;
   final Color textcolor;
   final Color borderSideColor;
@@ -12,6 +13,7 @@ class TextFieldWidget extends StatefulWidget {
 
   const TextFieldWidget(
       {super.key,
+      this.authText = false,
       required this.controller,
       this.textcolor = Colors.black,
       this.borderSideColor = Colors.black,
@@ -41,11 +43,11 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
       onChanged: widget.onChanged,
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return '';
+          return 'This field cannot be empty';
         }
         return null;
       },
-      style: TextStyle(color: widget.textcolor, fontSize: 17),
+      style: TextStyle(color:widget.authText?Colors.white: widget.textcolor, fontSize: 17),
       controller: widget.controller,
       decoration: InputDecoration(
           contentPadding: const EdgeInsets.only(top: 15, bottom: 15, left: 13),

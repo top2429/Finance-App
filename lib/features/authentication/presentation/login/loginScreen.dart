@@ -101,39 +101,24 @@ class _LoginScreenState extends State<LoginScreen> {
                                   const SizedBox(
                                     height: 5,
                                   ),
-                                  Row(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Container(
-                                        decoration: BoxDecoration(
-                                            color:
-                                                const Color.fromARGB(255, 80, 80, 80),
-                                            borderRadius:
-                                                BorderRadius.circular(10)),
-                                        width: 110,
-                                        height: 56,
-                                      ),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      Expanded(
-                                        child: Form(
-                                          key: _formKeyNumber,
-                                          child: TextFieldWidget(
-                                            onChanged: (p0) {
-                                              
-                                            },
-                                            controller: mobileNumber,
-                                            label: "Mobile Number",
-                                            labelColor: Colors.white,
-                                            backgroundColor:
-                                                const Color.fromARGB(255, 80, 80, 80),
-                                            borderSideColor: Colors.transparent,
-                                            keyBoardType: TextInputType.number,
-                                          ),
-                                        ),
-                                      )
-                                    ],
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  Form(
+                                    key: _formKeyNumber,
+                                    child: TextFieldWidget(
+                                      authText: true,
+                                      onChanged: (p0) {
+                                        
+                                      },
+                                      controller: mobileNumber,
+                                      label: "Mobile Number",
+                                      labelColor: Colors.white,
+                                      backgroundColor:
+                                          const Color.fromARGB(255, 80, 80, 80),
+                                      borderSideColor: Colors.transparent,
+                                      keyBoardType: TextInputType.number,
+                                    ),
                                   ),
                                   const SizedBox(
                                     height: 15,
@@ -183,6 +168,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   Form(
                                     key: _formKeyEmail,
                                     child: TextFieldWidget(
+                                      authText: true,
                                       onChanged: (p0) {
                                         
                                       },
