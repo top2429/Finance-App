@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tai/commonWidgets/iconInCircle.dart';
-import 'package:tai/mockTesting/linearProgressIndicator.dart';
 
 class GoalCard extends StatefulWidget {
   final VoidCallback onTap;

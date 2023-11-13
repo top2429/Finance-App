@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField.dart';
 import 'package:tai/features/authentication/presentation/login/loginScreen.dart';
-import 'package:tai/features/authentication/presentation/signUp/OTPinputScreen.dart';
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
 
@@ -116,10 +115,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   "Already have an account? Log in",
                   style: TextStyle(fontSize: 12, color: Color(0xFF466AE7)),
                 ),
-                SizedBox(height: 350,),
+                SizedBox(height: 360,),
                 // const Spacer(),
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 20),
+                  padding: const EdgeInsets.only(bottom: 10),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
