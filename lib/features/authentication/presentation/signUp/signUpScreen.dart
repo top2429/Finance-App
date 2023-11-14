@@ -111,9 +111,26 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ),
                 const SizedBox(height: 10),
-                const Text(
-                  "Already have an account? Log in",
-                  style: TextStyle(fontSize: 12, color: Color(0xFF466AE7)),
+                Row(
+                  children: [
+                    const Text(
+                      "Already have an account?",
+                      style: TextStyle(fontSize: 12, color:Colors.white),
+                    ),
+                    SizedBox(width: 5,),
+                    InkWell(
+                      onTap: (){
+                        Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const LoginScreen ()));
+                      },
+                      child: Text(
+                        "Log in",
+                        style: TextStyle(fontSize: 12, color: Color(0xFF466AE7)),
+                      ),
+                    ),
+                  ],
                 ),
                 SizedBox(height: 360,),
                 // const Spacer(),

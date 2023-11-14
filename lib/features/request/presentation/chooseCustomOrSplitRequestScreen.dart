@@ -38,23 +38,23 @@ class _ChooseMethodState extends State<ChooseMethod> {
                 style: TextStyle(fontSize: 20),
               ),
               const SizedBox(
-                height: 100,
+                height: 50,
               ),
               Column(
                 children: [
-                  ArrowButton(
-                      label: "Split bill",
-                      image: "splitBill.svg",
-                      innerContainerColor: const Color(0xFFFFE8A4),
-                      onTap: () {
-                        Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const SelectBillAmount ()));
-                      }),
-                  const SizedBox(
-                    height: 30,
-                  ),
+                  // ArrowButton(
+                  //     label: "Split bill",
+                  //     image: "splitBill.svg",
+                  //     innerContainerColor: const Color(0xFFFFE8A4),
+                  //     onTap: () {
+                  //       Navigator.push(
+                  //               context,
+                  //               MaterialPageRoute(
+                  //                   builder: (context) => const SelectBillAmount ()));
+                  //     }),
+                  // const SizedBox(
+                  //   height: 30,
+                  // ),
                   ArrowButton(
                       label: "Custom request",
                       image: "customRequest.svg",

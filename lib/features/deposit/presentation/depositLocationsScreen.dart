@@ -66,16 +66,16 @@ class _DepositocationsState extends State<DepositLocations> {
                       const SizedBox(
                     height: 30,
                   ),
-                      ArrowButton(
-                      label: "Bank Transfer",
-                      image: "bankTransfer.svg",
-                      innerContainerColor: const Color(0xFFC4F1CD),
-                      onTap: () {
-                        // Navigator.push(
-                        //         context,
-                        //         MaterialPageRoute(
-                        //             builder: (context) => const SelectRecipient ()));
-                      }),
+                      // ArrowButton(
+                      // label: "Bank Transfer",
+                      // image: "bankTransfer.svg",
+                      // innerContainerColor: const Color(0xFFC4F1CD),
+                      // onTap: () {
+                      //   // Navigator.push(
+                      //   //         context,
+                      //   //         MaterialPageRoute(
+                      //   //             builder: (context) => const SelectRecipient ()));
+                      // }),
                 ],
               )
             ],
