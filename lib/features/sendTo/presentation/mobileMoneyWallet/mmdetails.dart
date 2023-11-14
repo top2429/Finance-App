@@ -420,35 +420,15 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                   key: _formKey,
                   child: Column(
                     children: [
-                      IntrinsicHeight(
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.black),
-                                  color:
-                                      const Color.fromARGB(255, 240, 240, 240),
-                                  borderRadius: BorderRadius.circular(10)),
-                              width: 110,
-                              height: 56,
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            Expanded(
-                              child: TextFieldWidget(
-                                backgroundColor:
-                                    const Color.fromARGB(255, 240, 240, 240),
-                                textcolor: Colors.black,
-                                onChanged: (p0) {},
-                                controller: amount,
-                                label: "Amount",
-                                keyBoardType: TextInputType.number,
-                              ),
-                            )
-                          ],
-                        ),
+                      
+                      TextFieldWidget(
+                        backgroundColor:
+                            const Color.fromARGB(255, 240, 240, 240),
+                        textcolor: Colors.black,
+                        onChanged: (p0) {},
+                        controller: amount,
+                        label: "Amount",
+                        keyBoardType: TextInputType.number,
                       ),
                       const SizedBox(
                         height: 20,

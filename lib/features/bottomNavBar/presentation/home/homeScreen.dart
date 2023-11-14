@@ -6,8 +6,7 @@ import 'package:tai/features/cards/presentation/cardsListScreen.dart';
 import 'package:tai/features/deposit/presentation/depositLocationsScreen.dart';
 import 'package:tai/features/profile/presentation/profileScreen.dart';
 import 'package:tai/features/request/presentation/chooseCustomOrSplitRequestScreen.dart';
-import 'package:tai/features/savingGoals/presentation/savingGoalsScreen.dart';
-import 'package:tai/features/sendTo/presentation/sendToOptionsScreen.dart';
+import 'package:tai/features/sendTo/presentation/mobileMoneyWallet/mmdetails.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -127,7 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  const SendToOptions()));
+                                                  const MobileMoneyDetails()));
                                     },
                                   ),
                                   const SizedBox(
@@ -215,144 +214,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(
                   height: 25,
                 ),
-                const Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Quick Links",
-                      style: TextStyle(
-                          fontSize: 15,
-                          color: Color.fromARGB(255, 136, 136, 136)),
-                    )),
-                const SizedBox(
-                  height: 13,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: const Color(0xFFFDFF96)),
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 14, bottom: 14),
-                    child: IntrinsicHeight(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          SizedBox(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                SvgPicture.asset("assets/images/add.svg"),
-                                const SizedBox(
-                                  height: 4,
-                                ),
-                                const Text(
-                                  "Add bank",
-                                  style: TextStyle(
-                                      fontSize: 12, color: Colors.black),
-                                ),
-                              ],
-                            ),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              // Navigator.push(
-                              //             context,
-                              //             MaterialPageRoute(
-                              //                 builder: (context) =>
-                              //                     const SavingGoalsScreen()));
-                            },
-                            child: SizedBox(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  SvgPicture.asset(
-                                    "assets/images/loaning.svg",
-                                    height: 24,
-                                    width: 24,
-                                  ),
-                                  const SizedBox(
-                                    height: 4,
-                                  ),
-                                  const Text(
-                                    "Loans",
-                                    style: TextStyle(
-                                        fontSize: 12, color: Colors.black),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const SavingGoalsScreen()));
-                            },
-                            child: SizedBox(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  SvgPicture.asset(
-                                      "assets/images/groupSaving.svg",
-                                      color: Color.fromARGB(255, 49, 112, 163)),
-                                  const SizedBox(
-                                    height: 4,
-                                  ),
-                                  const Text(
-                                    "Saving Goals",
-                                    style: TextStyle(
-                                        fontSize: 12, color: Colors.black),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          // SizedBox(
-                          //   child: Column(
-                          //     mainAxisAlignment: MainAxisAlignment.end,
-                          //     children: [
-                          //       SvgPicture.asset("assets/images/cards.svg"),
-                          //       const SizedBox(
-                          //         height: 4,
-                          //       ),
-                          //       const Text(
-                          //         "Cards",
-                          //         style: TextStyle(
-                          //             fontSize: 11, color: Colors.black),
-                          //       ),
-                          //     ],
-                          //   ),
-                          // ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 3),
-                            child: SizedBox(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  SvgPicture.asset(
-                                    "assets/images/bills.svg",
-                                    height: 24,
-                                    width: 24,
-                                    color: Color.fromARGB(255, 49, 112, 163),
-                                  ),
-                                  const SizedBox(
-                                    height: 4,
-                                  ),
-                                  const Text(
-                                    "Pay bills",
-                                    style: TextStyle(
-                                        fontSize: 12, color: Colors.black),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
+                
                 const SizedBox(
                   height: 20,
                 ),
@@ -407,7 +269,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ListView.builder(
                     shrinkWrap: true,
                     primary: false,
-                    itemCount: 5,
+                    itemCount: 4,
                     itemBuilder: (_, index) {
                       return Padding(
                         padding: const EdgeInsets.only(bottom: 10),
