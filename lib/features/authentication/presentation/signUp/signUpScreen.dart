@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField.dart';
 import 'package:tai/features/authentication/presentation/login/loginScreen.dart';
+import 'package:tai/mockTesting/simCardData.dart';
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
 
@@ -182,7 +183,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => const LoginScreen ()));
+                                      builder: (context) => const USSDTesting ()));
                             }
                           })
                     ],

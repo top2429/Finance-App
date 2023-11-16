@@ -22,6 +22,8 @@ dependencies:
   fl_chart: ^0.64.0
   pin_plus_keyboard: ^2.0.6
   intl: ^0.18.1
+  sim_data: ^0.0.2
+  ussd_service: ^0.1.1
 
   
 dev_dependencies:
