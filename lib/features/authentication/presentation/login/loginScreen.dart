@@ -1,9 +1,13 @@
+import 'dart:html';
+import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField.dart';
 
 import 'package:tai/features/authentication/presentation/signUp/enterPasscode_keyboard.dart';
+import 'package:tai/features/bottomNavBar/presentation/navBar.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -13,8 +17,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final TextEditingController email = TextEditingController();
-  final TextEditingController mobileNumber = TextEditingController();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
 
   //  global key for the form on this screen
   final _formKeyNumber = GlobalKey<FormState>();
@@ -22,11 +26,37 @@ class _LoginScreenState extends State<LoginScreen> {
   //  global key for the form on this screen
   final _formKeyEmail = GlobalKey<FormState>();
 
+  void signin() {
+    FirebaseAuth.instance
+        .signInWithEmailAndPassword(
+            email: emailController.text, password: passwordController.text)
+        .then((value) {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => const NavBar()));
+    }).onError(
+      (error, stackTrace) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            behavior: SnackBarBehavior.floating,
+            content: Container(
+              padding: const EdgeInsets.all(16.0),
+              height: 80.0,
+              decoration: const BoxDecoration(
+                  color: Color(0xFFC72C41),
+                  borderRadius: BorderRadius.all(Radius.circular(30))),
+              child: const Text("Wrong Credentials !"),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color(0xFF000000),
+        backgroundColor: const Color.fromARGB(154, 255, 255, 255),
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.black,
@@ -59,7 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         // Customize the appearance and behavior of the tab bar
                         backgroundColor: Colors.white,
                         unselectedBackgroundColor:
-                            const Color.fromARGB(255, 80, 80, 80),
+                            const Color.fromRGBO(0, 0, 255, 0),
                         borderWidth: 1,
                         borderColor: Colors.black,
                         labelStyle: const TextStyle(
@@ -77,7 +107,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             width: 150,
                             child: Center(
                                 child: Text(
-                              "Phone Number",
+                              "Password",
                             )),
                           )),
                           Tab(
@@ -104,21 +134,33 @@ class _LoginScreenState extends State<LoginScreen> {
                                   const SizedBox(
                                     width: 10,
                                   ),
-                                  Form(
+                                  /* Form(
                                     key: _formKeyNumber,
-                                    child: TextFieldWidget(
-                                      authText: true,
+                                    child: TextFieldWidget(                                     authText: true,
                                       onChanged: (p0) {
                                         
                                       },
-                                      controller: mobileNumber,
-                                      label: "Mobile Number",
+                                      controller: passwordController,
+                                      label: "Password",
                                       labelColor: Colors.white,
                                       backgroundColor:
                                           const Color.fromARGB(255, 80, 80, 80),
                                       borderSideColor: Colors.transparent,
-                                      keyBoardType: TextInputType.number,
+                                      keyBoardType: TextInputType.visiblePassword,
                                     ),
+                                  ), */
+                                  TextField(
+                                    obscureText: true,
+                                    controller: passwordController,
+                                    decoration: InputDecoration(
+                                        hintText: "Password",
+                                        prefixIcon: const Icon(
+                                          Icons.lock,
+                                          color: Colors.white,
+                                        ),
+                                        border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(30.0))),
                                   ),
                                   const SizedBox(
                                     height: 15,
@@ -165,14 +207,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                   const SizedBox(
                                     height: 5,
                                   ),
-                                  Form(
+                                  /* Form(
                                     key: _formKeyEmail,
                                     child: TextFieldWidget(
                                       authText: true,
                                       onChanged: (p0) {
                                         
                                       },
-                                      controller: email,
+                                      controller: emailController,
                                       label: "Email",
                                       labelColor: Colors.white,
                                       backgroundColor:
@@ -180,6 +222,20 @@ class _LoginScreenState extends State<LoginScreen> {
                                       borderSideColor: Colors.transparent,
                                       keyBoardType: TextInputType.emailAddress,
                                     ),
+                                  ), */
+
+                                  TextField(
+                                    controller: emailController,
+                                    decoration: InputDecoration(
+                                        fillColor: Colors.white,
+                                        hintText: "Your Email",
+                                        prefixIcon: const Icon(
+                                          Icons.email,
+                                          color: Colors.white,
+                                        ),
+                                        border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(30.0))),
                                   ),
                                   const SizedBox(
                                     height: 15,
@@ -198,7 +254,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                       lightBlue: true,
                                       text: "Continue",
                                       onpressed: () {
-                                        if (_formKeyEmail.currentState!
+                                        signin();
+                                      }
+                                      /* if (_formKeyEmail.currentState!
                                             .validate()) {
                                           // If the form is valid, display a snackbar. In the real world,
                                           // you'd often call a server or save the information in a database.
@@ -213,9 +271,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      const EnterCode()));
+                                                      const NavBar()));
                                         }
-                                      })
+                                      } */
+                                      )
                                 ],
                               ),
                             ),

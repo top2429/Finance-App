@@ -1,13 +1,15 @@
-import 'package:fl_chart/fl_chart.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:tai/features/authentication/presentation/signUp/signUpScreen.dart';
-import 'package:tai/features/bottomNavBar/presentation/navBar.dart';
+import 'package:tai/firebase_options.dart';
 
 
 import 'package:tai/utils/custom_theme.dart';
 
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
             debugShowCheckedModeBanner: false,
 
-      home: SignUpScreen(),
+      home: const SignUpScreen(),
     );
   }
 }

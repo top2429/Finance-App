@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField.dart';
 import 'package:tai/features/authentication/presentation/login/loginScreen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
 
@@ -10,19 +12,41 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  final TextEditingController email = TextEditingController();
-  final TextEditingController mobileNumber = TextEditingController();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
 
   //  global key for the form on this screen
   final _formKey = GlobalKey<FormState>();
 
   bool buttonIsDisabled = true;
 
+  void register() {
+    FirebaseAuth.instance
+        .createUserWithEmailAndPassword(
+            email: emailController.text, password: passwordController.text)
+        .then((value) {
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const LoginScreen()));
+    }).onError((error, stackTrace) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        behavior: SnackBarBehavior.floating,
+        content: Container(
+          padding: const EdgeInsets.all(16.0),
+          height: 80.0,
+          decoration: const BoxDecoration(
+              color: Color(0xFFC72C41),
+              borderRadius: BorderRadius.all(Radius.circular(30))),
+          child: const Text("Wrong Credentials !"),
+        ),
+      ));
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color(0xFF000000),
+        backgroundColor: const Color.fromARGB(154, 255, 255, 255),
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.black,
@@ -48,13 +72,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   height: 7,
                 ),
                 const Text(
-                  "Enter your phone number, We will send you a code.",
+                  "Enter your Email, We will send you a code.",
                   style: TextStyle(fontSize: 10, color: Colors.white),
                 ),
                 const SizedBox(
                   height: 40,
                 ),
-                Form(
+                /* Form(
                   key: _formKey,
                   child: Column(
                     children: [
@@ -73,7 +97,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             });
                           }
                         },
-                        controller: email,
+                        controller: emailController,
                         label: "Email",
                         labelColor: Colors.white,
                         backgroundColor: const Color.fromARGB(255, 80, 80, 80),
@@ -99,40 +123,74 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       });
                       }
                         },
-                        controller: mobileNumber,
-                        label: "Mobile Number",
+                        controller: passwordController,
+                        label: "Password",
                         labelColor: Colors.white,
                         backgroundColor:
                             const Color.fromARGB(255, 80, 80, 80),
                         borderSideColor: Colors.transparent,
-                        keyBoardType: TextInputType.number,
+                        keyBoardType: TextInputType.visiblePassword,
                       ),
                     ],
                   ),
+                ), */
+                TextField(
+                  controller: emailController,
+                  decoration: InputDecoration(
+                      fillColor: Colors.white,
+                      hintText: "Your Email",
+                      prefixIcon: const Icon(
+                        Icons.email,
+                        color: Colors.white,
+                      ),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30.0))),
                 ),
+                const SizedBox(
+                  height: 20,
+                ),
+                TextField(
+                  obscureText: true,
+                  controller: passwordController,
+                  decoration: InputDecoration(
+                      hintText: "Password",
+                      prefixIcon: const Icon(
+                        Icons.lock,
+                        color: Colors.white,
+                      ),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30.0))),
+                ),
+
                 const SizedBox(height: 10),
                 Row(
                   children: [
                     const Text(
                       "Already have an account?",
-                      style: TextStyle(fontSize: 12, color:Colors.white),
+                      style: TextStyle(fontSize: 15, color: Colors.blue),
                     ),
-                    SizedBox(width: 5,),
+                    const SizedBox(
+                      width: 5,
+                    ),
                     InkWell(
-                      onTap: (){
+                      onTap: () {
                         Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const LoginScreen ()));
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const LoginScreen()));
                       },
-                      child: Text(
+                      child: const Text(
                         "Log in",
-                        style: TextStyle(fontSize: 12, color: Color(0xFF466AE7)),
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Color.fromARGB(255, 231, 70, 167)),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 360,),
+                const SizedBox(
+                  height: 100,
+                ),
                 // const Spacer(),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10),
@@ -144,12 +202,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         children: [
                           Text(
                             "By clicking 'sign up' you agree to the",
-                            style: TextStyle(fontSize: 10, color: Colors.white),
+                            style: TextStyle(fontSize: 10, color: Colors.blue),
                           ),
                           Text(
                             " privacy policy ",
-                            style:
-                                TextStyle(fontSize: 10, color: Color(0xFF466AE7)),
+                            style: TextStyle(
+                                fontSize: 10, color: Color(0xFF466AE7)),
                           ),
                           Text(
                             "and",
@@ -168,10 +226,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         height: 14,
                       ),
                       MainButton(
-                        disabled: buttonIsDisabled,
-                          lightBlue: true,
-                          text: "Sign Up",
-                          onpressed: () {
+                        //disabled: buttonIsDisabled,
+                        lightBlue: true,
+                        text: "Sign Up",
+                        /* onpressed: () {
                             if (_formKey.currentState!.validate()) {
                               // If the form is valid, display a snackbar. In the real world,
                               // you'd often call a server or save the information in a database.
@@ -184,11 +242,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   MaterialPageRoute(
                                       builder: (context) => const LoginScreen ()));
                             }
-                          })
+                          } */
+                        onpressed: () {
+                          register();
+                        },
+                      )
                     ],
                   ),
                 ),
-                
               ],
             ),
           ),

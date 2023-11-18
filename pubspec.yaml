@@ -13,7 +13,9 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
-  google_fonts: ^4.0.4
+  firebase_auth: ^4.14.0
+  firebase_core: ^2.22.0
+  google_fonts: ^6.1.0
   dropdown_search: ^5.0.6     #not used
   country_picker: ^2.0.21     # not used
   flutter_otp_text_field: ^1.1.1
@@ -27,7 +29,9 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+
+  
+  flutter_lints: ^3.0.1
 
 
 flutter:
