@@ -31,6 +31,8 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+pubspec.lock
+
 
 # Symbolication related
 app.*.symbols
@@ -48,4 +50,3 @@ app.*.map.json
 /lib/mockTesting
 /lib/firebase_options.dart
 
-pubspec.lock
