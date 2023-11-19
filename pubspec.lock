@@ -182,6 +182,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_inappwebview:
+    dependency: transitive
+    description:
+      name: flutter_inappwebview
+      sha256: d198297060d116b94048301ee6749cd2e7d03c1f2689783f52d210a6b7aba350
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.8.0"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -216,6 +224,22 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  fluttertoast:
+    dependency: transitive
+    description:
+      name: fluttertoast
+      sha256: dfdde255317af381bfc1c486ed968d5a43a2ded9c931e87cbecd88767d6a71c1
+      url: "https://pub.dev"
+    source: hosted
+    version: "8.2.4"
+  flutterwave_standard:
+    dependency: "direct main"
+    description:
+      name: flutterwave_standard
+      sha256: "3026462b08b7782dad1aeece1ef0601897ae6bf2a5555e7e8d8d02ba0ece9f60"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.8"
   google_fonts:
     dependency: "direct main"
     description:
@@ -225,7 +249,7 @@ packages:
     source: hosted
     version: "6.1.0"
   http:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: http
       sha256: "759d1a329847dd0f39226c688d3e06a6b8679668e350e2891a6474f8b4bb8525"
@@ -383,7 +407,15 @@ packages:
       sha256: f4f88d4a900933e7267e2b353594774fc0d07fb072b47eedcd5b54e1ea3269f8
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.7"
+    version: "2.1.6"
+  sim_data:
+    dependency: "direct main"
+    description:
+      name: sim_data
+      sha256: e84c58ed871ac6b543d82d929a4a4a62cfc24c4d03671fe30dfb39e7abe52335
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.2"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -453,6 +485,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.2"
+  ussd_service:
+    dependency: "direct main"
+    description:
+      name: ussd_service
+      sha256: "2eb389b5ac8efa33722939837ef342627d7846a6e1786cae3518f994645168d1"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.1"
   vector_graphics:
     dependency: transitive
     description:
@@ -518,5 +558,5 @@ packages:
     source: hosted
     version: "6.4.2"
 sdks:
-  dart: ">=3.2.0-194.0.dev <4.0.0"
+  dart: ">=3.1.3 <3.5.0"
   flutter: ">=3.7.0"
