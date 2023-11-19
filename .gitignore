@@ -31,7 +31,6 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
-pubspec.lock
 
 
 # Symbolication related
@@ -48,5 +47,4 @@ app.*.map.json
 /lib/filesFromDHIwise
 /lib/customTesting
 /lib/mockTesting
-/lib/firebase_options.dart
 
