@@ -55,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color.fromARGB(154, 255, 255, 255),
+        backgroundColor: Color.fromARGB(154, 0, 0, 0),
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.black,
@@ -88,7 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         // Customize the appearance and behavior of the tab bar
                         backgroundColor: Colors.white,
                         unselectedBackgroundColor:
-                            const Color.fromRGBO(0, 0, 255, 0),
+                            const Color.fromARGB(255, 114, 114, 114),
                         borderWidth: 1,
                         borderColor: Colors.black,
                         labelStyle: const TextStyle(
@@ -106,13 +106,13 @@ class _LoginScreenState extends State<LoginScreen> {
                             width: 150,
                             child: Center(
                                 child: Text(
-                              "Password",
+                              "Email",
                             )),
                           )),
                           Tab(
                               child: SizedBox(
                             width: 150,
-                            child: Center(child: Text("Email")),
+                            child: Center(child: Text("Password")),
                           )),
                         ],
                       ),
@@ -133,33 +133,20 @@ class _LoginScreenState extends State<LoginScreen> {
                                   const SizedBox(
                                     width: 10,
                                   ),
-                                  /* Form(
+                                  Form(
                                     key: _formKeyNumber,
-                                    child: TextFieldWidget(                                     authText: true,
-                                      onChanged: (p0) {
-                                        
-                                      },
-                                      controller: passwordController,
-                                      label: "Password",
+                                    child: TextFieldWidget(
+                                      authText: true,
+                                      onChanged: (p0) {},
+                                      controller: emailController,
+                                      label: "Email",
                                       labelColor: Colors.white,
                                       backgroundColor:
                                           const Color.fromARGB(255, 80, 80, 80),
                                       borderSideColor: Colors.transparent,
-                                      keyBoardType: TextInputType.visiblePassword,
+                                      keyBoardType:
+                                          TextInputType.visiblePassword,
                                     ),
-                                  ), */
-                                  TextField(
-                                    obscureText: true,
-                                    controller: passwordController,
-                                    decoration: InputDecoration(
-                                        hintText: "Password",
-                                        prefixIcon: const Icon(
-                                          Icons.lock,
-                                          color: Colors.white,
-                                        ),
-                                        border: OutlineInputBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(30.0))),
                                   ),
                                   const SizedBox(
                                     height: 15,
@@ -174,28 +161,28 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                   ),
                                   const Spacer(),
-                                  MainButton(
-                                      lightBlue: true,
-                                      text: "Continue",
-                                      onpressed: () {
-                                        if (_formKeyNumber.currentState!
-                                            .validate()) {
-                                          // If the form is valid, display a snackbar. In the real world,
-                                          // you'd often call a server or save the information in a database.
+                                  // MainButton(
+                                  //     lightBlue: true,
+                                  //     text: "Continue",
+                                  //     onpressed: () {
+                                  //       if (_formKeyNumber.currentState!
+                                  //           .validate()) {
+                                  //         // If the form is valid, display a snackbar. In the real world,
+                                  //         // you'd often call a server or save the information in a database.
 
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(
-                                            const SnackBar(
-                                                content:
-                                                    Text('Processing Data')),
-                                          );
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      const EnterCode()));
-                                        }
-                                      })
+                                  //         ScaffoldMessenger.of(context)
+                                  //             .showSnackBar(
+                                  //           const SnackBar(
+                                  //               content:
+                                  //                   Text('Processing Data')),
+                                  //         );
+                                  //         // Navigator.push(
+                                  //         //     context,
+                                  //         //     MaterialPageRoute(
+                                  //         //         builder: (context) =>
+                                  //         //             const EnterCode()));
+                                  //       }
+                                  //     })
                                 ],
                               ),
                             ),
@@ -206,35 +193,19 @@ class _LoginScreenState extends State<LoginScreen> {
                                   const SizedBox(
                                     height: 5,
                                   ),
-                                  /* Form(
+                                  Form(
                                     key: _formKeyEmail,
                                     child: TextFieldWidget(
                                       authText: true,
-                                      onChanged: (p0) {
-                                        
-                                      },
-                                      controller: emailController,
-                                      label: "Email",
+                                      onChanged: (p0) {},
+                                      controller: passwordController,
+                                      label: "Password",
                                       labelColor: Colors.white,
                                       backgroundColor:
                                           const Color.fromARGB(255, 80, 80, 80),
                                       borderSideColor: Colors.transparent,
                                       keyBoardType: TextInputType.emailAddress,
                                     ),
-                                  ), */
-
-                                  TextField(
-                                    controller: emailController,
-                                    decoration: InputDecoration(
-                                        fillColor: Colors.white,
-                                        hintText: "Your Email",
-                                        prefixIcon: const Icon(
-                                          Icons.email,
-                                          color: Colors.white,
-                                        ),
-                                        border: OutlineInputBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(30.0))),
                                   ),
                                   const SizedBox(
                                     height: 15,
@@ -254,8 +225,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                       text: "Continue",
                                       onpressed: () {
                                         signin();
-                                      }
-                                      /* if (_formKeyEmail.currentState!
+
+                                        if (_formKeyEmail.currentState!
                                             .validate()) {
                                           // If the form is valid, display a snackbar. In the real world,
                                           // you'd often call a server or save the information in a database.
@@ -266,14 +237,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 content:
                                                     Text('Processing Data')),
                                           );
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      const NavBar()));
                                         }
-                                      } */
-                                      )
+                                      })
                                 ],
                               ),
                             ),

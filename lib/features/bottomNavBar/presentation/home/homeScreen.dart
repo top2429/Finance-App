@@ -183,29 +183,29 @@ class _HomeScreenState extends State<HomeScreen> {
                                   )
                                 ],
                               ),
-                              Column(
-                                children: [
-                                  IconCircle(
-                                    image: "assets/images/cards.svg",
-                                    onTap: () {
-                                      Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              fullscreenDialog: true,
-                                builder: (context) =>
-                                    const CardsListScreen()));
-                                    },
-                                  ),
-                                  const SizedBox(
-                                    height: 4,
-                                  ),
-                                  const Text(
-                                    "Cards",
-                                    style: TextStyle(
-                                        fontSize: 12, color: Colors.white),
-                                  )
-                                ],
-                              ),
+                              // Column(
+                              //   children: [
+                              //     IconCircle(
+                              //       image: "assets/images/cards.svg",
+                              //       onTap: () {
+                              //         Navigator.push(
+                              //             context,
+                              //             MaterialPageRoute(
+                              //                 fullscreenDialog: true,
+                              //                 builder: (context) =>
+                              //                     const CardsListScreen()));
+                              //       },
+                              //     ),
+                              //     const SizedBox(
+                              //       height: 4,
+                              //     ),
+                              //     const Text(
+                              //       "Cards",
+                              //       style: TextStyle(
+                              //           fontSize: 12, color: Colors.white),
+                              //     )
+                              //   ],
+                              // ),
                             ],
                           )
                         ],
@@ -214,7 +214,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(
                   height: 25,
                 ),
-                
                 const SizedBox(
                   height: 20,
                 ),
@@ -243,7 +242,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              fullscreenDialog: true,
+                                fullscreenDialog: true,
                                 builder: (context) =>
                                     const TransactionsScreen()));
                       },
@@ -260,7 +259,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         )
                       ]),
                     )
-                    
                   ],
                 ),
                 const SizedBox(

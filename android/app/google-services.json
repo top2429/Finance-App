@@ -1,43 +1,26 @@
 {
   "project_info": {
-    "project_number": "267240529254",
-    "project_id": "salon-app-b4afc",
-    "storage_bucket": "salon-app-b4afc.appspot.com"
+    "project_number": "562333502674",
+    "project_id": "mobilepaymenttool",
+    "storage_bucket": "mobilepaymenttool.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:267240529254:android:be95c984b5d57864323ca7",
+        "mobilesdk_app_id": "1:562333502674:android:88dafd795668ee7850710b",
         "android_client_info": {
           "package_name": "com.example.tai"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "267240529254-nd1g2t7vb0o8ado9ms77qd2lcem2dva1.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyByM96HtY6VTk2y8KJ6twaP6Lf3OGhS-xQ"
+          "current_key": "AIzaSyA3J6Tmcz-JAHhrL_Fn9l8ZB8XF-xjxCNg"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "267240529254-nd1g2t7vb0o8ado9ms77qd2lcem2dva1.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "267240529254-k1i6ntc8tioba13247qencqv3o1i58mc.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.salonAppFinal"
-              }
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

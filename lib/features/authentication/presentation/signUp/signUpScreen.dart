@@ -46,7 +46,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color.fromARGB(154, 255, 255, 255),
+        backgroundColor: Color.fromARGB(154, 0, 0, 0),
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.black,
@@ -78,7 +78,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 const SizedBox(
                   height: 40,
                 ),
-                /* Form(
+                Form(
                   key: _formKey,
                   child: Column(
                     children: [
@@ -91,7 +91,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             setState(() {
                               buttonIsDisabled = false;
                             });
-                          }else{
+                          } else {
                             setState(() {
                               buttonIsDisabled = true;
                             });
@@ -111,55 +111,27 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         authText: true,
                         onChanged: (p0) {
                           if (_formKey.currentState!.validate()) {
-                      // If the form is valid, display a snackbar. In the real world,
-                      // you'd often call a server or save the information in a database.
-                  
-                      setState(() {
-                      buttonIsDisabled = false;
-                      });
-                      }else{
-                      setState(() {
-                      buttonIsDisabled = true;
-                      });
-                      }
+                            // If the form is valid, display a snackbar. In the real world,
+                            // you'd often call a server or save the information in a database.
+
+                            setState(() {
+                              buttonIsDisabled = false;
+                            });
+                          } else {
+                            setState(() {
+                              buttonIsDisabled = true;
+                            });
+                          }
                         },
                         controller: passwordController,
                         label: "Password",
                         labelColor: Colors.white,
-                        backgroundColor:
-                            const Color.fromARGB(255, 80, 80, 80),
+                        backgroundColor: const Color.fromARGB(255, 80, 80, 80),
                         borderSideColor: Colors.transparent,
                         keyBoardType: TextInputType.visiblePassword,
                       ),
                     ],
                   ),
-                ), */
-                TextField(
-                  controller: emailController,
-                  decoration: InputDecoration(
-                      fillColor: Colors.white,
-                      hintText: "Your Email",
-                      prefixIcon: const Icon(
-                        Icons.email,
-                        color: Colors.white,
-                      ),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30.0))),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                TextField(
-                  obscureText: true,
-                  controller: passwordController,
-                  decoration: InputDecoration(
-                      hintText: "Password",
-                      prefixIcon: const Icon(
-                        Icons.lock,
-                        color: Colors.white,
-                      ),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30.0))),
                 ),
 
                 const SizedBox(height: 10),
@@ -182,14 +154,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       child: const Text(
                         "Log in",
                         style: TextStyle(
-                            fontSize: 20,
-                            color: Color.fromARGB(255, 231, 70, 167)),
+                            fontSize: 14,
+                            color: Color.fromARGB(255, 255, 255, 255)),
                       ),
                     ),
                   ],
                 ),
                 const SizedBox(
-                  height: 100,
+                  height: 30,
                 ),
                 // const Spacer(),
                 Padding(
@@ -197,56 +169,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "By clicking 'sign up' you agree to the",
-                            style: TextStyle(fontSize: 10, color: Colors.blue),
-                          ),
-                          Text(
-                            " privacy policy ",
-                            style: TextStyle(
-                                fontSize: 10, color: Color(0xFF466AE7)),
-                          ),
-                          Text(
-                            "and",
-                            style: TextStyle(fontSize: 10, color: Colors.white),
-                          ),
-                          Text(
-                            " terms and conditions",
-                            style: TextStyle(
-                                fontSize: 10,
-                                color: Color(0xFF4B5EFC),
-                                overflow: TextOverflow.ellipsis),
-                          ),
-                        ],
-                      ),
                       const SizedBox(
                         height: 14,
                       ),
                       MainButton(
-                        //disabled: buttonIsDisabled,
-                        lightBlue: true,
-                        text: "Sign Up",
-                        /* onpressed: () {
+                          //disabled: buttonIsDisabled,
+                          lightBlue: true,
+                          text: "Sign Up",
+                          onpressed: () {
                             if (_formKey.currentState!.validate()) {
                               // If the form is valid, display a snackbar. In the real world,
                               // you'd often call a server or save the information in a database.
-                    
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(content: Text('Processing Data')),
-                              );
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const USSDTesting ()));
+                              register();
                             }
-                          } */
-                        onpressed: () {
-                          register();
-                        },
-                      )
+                          })
                     ],
                   ),
                 ),

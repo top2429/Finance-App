@@ -23,9 +23,15 @@ class DefaultFirebaseOptions {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -44,37 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBg6LWM-XD8QmYKkMGsnvWNEy5KwKbPD8s',
-    appId: '1:267240529254:web:4b54fae0f0f99f44323ca7',
-    messagingSenderId: '267240529254',
-    projectId: 'salon-app-b4afc',
-    authDomain: 'salon-app-b4afc.firebaseapp.com',
-    storageBucket: 'salon-app-b4afc.appspot.com',
+    apiKey: 'AIzaSyBoE8s4Jsy2-E94zniFkGGlt7ersdm4eJo',
+    appId: '1:562333502674:web:17f9824e71935dcc50710b',
+    messagingSenderId: '562333502674',
+    projectId: 'mobilepaymenttool',
+    authDomain: 'mobilepaymenttool.firebaseapp.com',
+    storageBucket: 'mobilepaymenttool.appspot.com',
+    measurementId: 'G-JKG2VXJ64W',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyByM96HtY6VTk2y8KJ6twaP6Lf3OGhS-xQ',
-    appId: '1:267240529254:android:be95c984b5d57864323ca7',
-    messagingSenderId: '267240529254',
-    projectId: 'salon-app-b4afc',
-    storageBucket: 'salon-app-b4afc.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyB1q4IfJwrltNeiwWBRsIN62FIgBHEKMaM',
-    appId: '1:267240529254:ios:c5ae3318bf8709ab323ca7',
-    messagingSenderId: '267240529254',
-    projectId: 'salon-app-b4afc',
-    storageBucket: 'salon-app-b4afc.appspot.com',
-    iosBundleId: 'com.example.tai',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyB1q4IfJwrltNeiwWBRsIN62FIgBHEKMaM',
-    appId: '1:267240529254:ios:c0126b5e6269d2f1323ca7',
-    messagingSenderId: '267240529254',
-    projectId: 'salon-app-b4afc',
-    storageBucket: 'salon-app-b4afc.appspot.com',
-    iosBundleId: 'com.example.tai.RunnerTests',
+    apiKey: 'AIzaSyA3J6Tmcz-JAHhrL_Fn9l8ZB8XF-xjxCNg',
+    appId: '1:562333502674:android:88dafd795668ee7850710b',
+    messagingSenderId: '562333502674',
+    projectId: 'mobilepaymenttool',
+    storageBucket: 'mobilepaymenttool.appspot.com',
   );
 }
