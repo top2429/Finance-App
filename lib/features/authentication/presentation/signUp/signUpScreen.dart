@@ -16,6 +16,7 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final userNameController = TextEditingController();
 
   //  global key for the form on this screen
   final _formKey = GlobalKey<FormState>();
@@ -25,12 +26,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
   void register() async {
     FirebaseAuth.instance
         .createUserWithEmailAndPassword(
-            email: emailController.text, password: passwordController.text)
+            email: emailController.text.trim(),
+            password: passwordController.text.trim())
         .then((value) async {
       User? user = value.user;
       await FirebaseFirestore.instance
           .collection('users')
-          .add(UserModel(user!.uid, "", user.email, "",0.0).toJson());
+          .add(UserModel(user!.uid, userNameController.text.trim(), user.email, "", 0.0).toJson());
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => const LoginScreen()));
     }).onError((error, stackTrace) {
@@ -88,6 +90,31 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   key: _formKey,
                   child: Column(
                     children: [
+                      TextFieldWidget(
+                        authText: true,
+                        onChanged: (p0) {
+                          if (_formKey.currentState!.validate()) {
+                            // If the form is valid, display a snackbar. In the real world,
+                            // you'd often call a server or save the information in a database.
+                            setState(() {
+                              buttonIsDisabled = false;
+                            });
+                          } else {
+                            setState(() {
+                              buttonIsDisabled = true;
+                            });
+                          }
+                        },
+                        controller: userNameController,
+                        label: "username",
+                        labelColor: Colors.white,
+                        backgroundColor: const Color.fromARGB(255, 80, 80, 80),
+                        borderSideColor: Colors.transparent,
+                        keyBoardType: TextInputType.emailAddress,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
                       TextFieldWidget(
                         authText: true,
                         onChanged: (p0) {
@@ -187,6 +214,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               // If the form is valid, display a snackbar. In the real world,
                               // you'd often call a server or save the information in a database.
                               register();
+
+                              ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            const SnackBar(
+                                                content:
+                                                    Text('Processing Data')),
+                                          );
                             }
                           })
                     ],

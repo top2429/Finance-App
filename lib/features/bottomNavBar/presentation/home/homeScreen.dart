@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 import 'package:tai/commonWidgets/iconInCircle.dart';
+import 'package:tai/features/authentication/domain/userNotifier.dart';
 import 'package:tai/features/bottomNavBar/presentation/Transactions/transactionsScreen.dart';
 import 'package:tai/features/cards/presentation/cardsListScreen.dart';
 import 'package:tai/features/deposit/presentation/depositLocationsScreen.dart';
@@ -18,6 +20,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    var userNotifier =  Provider.of<UserNotifier>(context, listen: true);
+
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -45,11 +49,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         const SizedBox(
                           height: 8,
                         ),
-                        const Text("Hi user")
+                         Text("Hi ${userNotifier.user.username}")
                       ],
                     ),
                     const Spacer(),
-                    const Row(
+                    Row(
                       children: [
                         Icon(
                           Icons.notifications_outlined,
@@ -58,9 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         SizedBox(
                           width: 10,
                         ),
-                        CircleAvatar(
-                          radius: 16,
-                        )
+                        SvgPicture.asset("assets/images/uganda.svg",width: 30,height: 30,)
                       ],
                     )
                   ],
@@ -183,29 +185,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   )
                                 ],
                               ),
-                              // Column(
-                              //   children: [
-                              //     IconCircle(
-                              //       image: "assets/images/cards.svg",
-                              //       onTap: () {
-                              //         Navigator.push(
-                              //             context,
-                              //             MaterialPageRoute(
-                              //                 fullscreenDialog: true,
-                              //                 builder: (context) =>
-                              //                     const CardsListScreen()));
-                              //       },
-                              //     ),
-                              //     const SizedBox(
-                              //       height: 4,
-                              //     ),
-                              //     const Text(
-                              //       "Cards",
-                              //       style: TextStyle(
-                              //           fontSize: 12, color: Colors.white),
-                              //     )
-                              //   ],
-                              // ),
+                              
                             ],
                           )
                         ],

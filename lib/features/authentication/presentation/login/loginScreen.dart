@@ -2,8 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField.dart';
+import 'package:tai/features/authentication/data/getUserInfo.dart';
+import 'package:tai/features/authentication/domain/userNotifier.dart';
 
 import 'package:tai/features/authentication/presentation/signUp/enterPasscode_keyboard.dart';
 import 'package:tai/features/bottomNavBar/presentation/navBar.dart';
@@ -30,6 +33,8 @@ class _LoginScreenState extends State<LoginScreen> {
         .signInWithEmailAndPassword(
             email: emailController.text, password: passwordController.text)
         .then((value) {
+        final user =  Provider.of<UserNotifier>(context, listen: false); 
+        getUser(user);
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => const NavBar()));
     }).onError(
@@ -161,28 +166,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                   ),
                                   const Spacer(),
-                                  // MainButton(
-                                  //     lightBlue: true,
-                                  //     text: "Continue",
-                                  //     onpressed: () {
-                                  //       if (_formKeyNumber.currentState!
-                                  //           .validate()) {
-                                  //         // If the form is valid, display a snackbar. In the real world,
-                                  //         // you'd often call a server or save the information in a database.
-
-                                  //         ScaffoldMessenger.of(context)
-                                  //             .showSnackBar(
-                                  //           const SnackBar(
-                                  //               content:
-                                  //                   Text('Processing Data')),
-                                  //         );
-                                  //         // Navigator.push(
-                                  //         //     context,
-                                  //         //     MaterialPageRoute(
-                                  //         //         builder: (context) =>
-                                  //         //             const EnterCode()));
-                                  //       }
-                                  //     })
+                                  
                                 ],
                               ),
                             ),
@@ -224,12 +208,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                       lightBlue: true,
                                       text: "Continue",
                                       onpressed: () {
-                                        signin();
 
                                         if (_formKeyEmail.currentState!
                                             .validate()) {
                                           // If the form is valid, display a snackbar. In the real world,
                                           // you'd often call a server or save the information in a database.
+                                                                                  signin();
 
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
