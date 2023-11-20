@@ -84,21 +84,21 @@ class _HomeScreenState extends State<HomeScreen> {
                             style: TextStyle(fontSize: 14, color: Colors.white),
                           ),
                           const SizedBox(
-                            height: 1,
+                            height: 10,
                           ),
-                          const Row(
+                          Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Text(
-                                "RWF",
+                                "UGX",
                                 style: TextStyle(
                                     fontSize: 22,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white),
                               ),
                               Text(
-                                " 2,430.00",
+                                " ${userNotifier.user.totalBalance}",
                                 style: TextStyle(
                                     fontSize: 36,
                                     fontWeight: FontWeight.bold,
@@ -106,14 +106,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ],
                           ),
+                          
                           const SizedBox(
-                            height: 1,
-                          ),
-                          const Text("ACC No. ****5678",
-                              style:
-                                  TextStyle(fontSize: 14, color: Colors.white)),
-                          const SizedBox(
-                            height: 25,
+                          height: 25,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

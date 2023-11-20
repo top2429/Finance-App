@@ -8,7 +8,7 @@ class UserModel {
   UserModel(this.userId, this.username, this.email, this.phoneNumber,this.totalBalance);
 
   UserModel.fromMap(Map<dynamic,dynamic> data) {
-    userId = data["userID"];
+    userId = data["userId"];
     username = data['username'];
     email = data['email'];
     phoneNumber = data["phoneNumber"];

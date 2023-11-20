@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tai/commonWidgets/arrowButton.dart';
+import 'package:tai/features/deposit/presentation/depositDetails.dart';
 
 class DepositLocations extends StatefulWidget {
   const DepositLocations({super.key});
@@ -32,7 +33,7 @@ class _DepositocationsState extends State<DepositLocations> {
           child: Column(
             children: [
               const Text(
-                "Select where to deposit",
+                "Select deposit method",
                 style: TextStyle(fontSize: 20),
               ),
               const SizedBox(
@@ -40,42 +41,21 @@ class _DepositocationsState extends State<DepositLocations> {
               ),
               Column(
                 children: [
-                  ArrowButton(
-                      label: "Card",
-                      image: "card.svg",
-                      innerContainerColor: const Color(0xFFFFE8A4),
-                      onTap: () {
-                        // Navigator.push(
-                        //         context,
-                        //         MaterialPageRoute(
-                        //             builder: (context) => const SelectBillAmount ()));
-                      }),
-                  const SizedBox(
-                    height: 30,
-                  ),
+                  
                   ArrowButton(
                       label: "Mobile Money Wallet",
                       image: "mmWallet.svg",
                       innerContainerColor: const Color(0xFFC4F1CD),
                       onTap: () {
-                        // Navigator.push(
-                        //         context,
-                        //         MaterialPageRoute(
-                        //             builder: (context) => const SelectRecipient ()));
+                        Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const DepositDetails ()));
                       }),
                       const SizedBox(
                     height: 30,
                   ),
-                      // ArrowButton(
-                      // label: "Bank Transfer",
-                      // image: "bankTransfer.svg",
-                      // innerContainerColor: const Color(0xFFC4F1CD),
-                      // onTap: () {
-                      //   // Navigator.push(
-                      //   //         context,
-                      //   //         MaterialPageRoute(
-                      //   //             builder: (context) => const SelectRecipient ()));
-                      // }),
+                      
                 ],
               )
             ],

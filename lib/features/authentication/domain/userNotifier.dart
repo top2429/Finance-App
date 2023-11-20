@@ -11,5 +11,10 @@ class UserNotifier with ChangeNotifier {
     _user = user;
     notifyListeners();
   }
+
+  void updatePrice(double amount){
+      _user.totalBalance = amount;
+      notifyListeners();
+  }
  
 }

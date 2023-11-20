@@ -201,7 +201,6 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                                                     sendFrom.text =
                                                         character.toString();
 
-                                                    print(character);
                                                   });
                                                 })
                                           ],
