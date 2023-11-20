@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField.dart';
+import 'package:tai/features/authentication/domain/userModel.dart';
 import 'package:tai/features/authentication/presentation/login/loginScreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -20,11 +22,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   bool buttonIsDisabled = true;
 
-  void register() {
+  void register() async {
     FirebaseAuth.instance
         .createUserWithEmailAndPassword(
             email: emailController.text, password: passwordController.text)
-        .then((value) {
+        .then((value) async {
+      User? user = value.user;
+      await FirebaseFirestore.instance
+          .collection('users')
+          .add(UserModel(user!.uid, "", user.email, "",0.0).toJson());
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => const LoginScreen()));
     }).onError((error, stackTrace) {
