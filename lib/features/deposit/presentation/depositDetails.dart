@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterwave_standard/core/flutterwave.dart';
 import 'package:flutterwave_standard/models/requests/customer.dart';
