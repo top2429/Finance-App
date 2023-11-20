@@ -45,7 +45,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
         /* NOTE */
         /// THIS IS THE WIDGET THAT LETS YOU ADD SPACE BTN THE DIFFERENT KINDS OF SLIVERS 
         /// WITHIN THE SAME CUSTOMSCROLLVIEW
-        SliverToBoxAdapter(),
+        const SliverToBoxAdapter(),
         SliverList(
           delegate:
               SliverChildBuilderDelegate(childCount: 20, (context, index) {

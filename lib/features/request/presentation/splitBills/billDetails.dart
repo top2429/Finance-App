@@ -4,7 +4,6 @@ import 'package:tai/commonWidgets/mainButton.dart';
 
 import 'package:tai/features/request/presentation/splitBills/circleOfFriends.dart';
 import 'package:tai/features/request/presentation/splitBills/splitDetailsFriendsCard.dart';
-import 'package:tai/features/bottomNavBar/presentation/Requests/presentation/paymentRequestDetailsCard.dart';
 
 class BillDetails extends StatefulWidget {
   const BillDetails({super.key});

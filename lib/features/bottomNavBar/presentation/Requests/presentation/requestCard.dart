@@ -20,26 +20,26 @@ class _RequestCardState extends State<RequestCard> {
           color: const Color.fromARGB(255, 240, 240, 240),
           borderRadius: BorderRadius.circular(24)),
       child: Padding(
-        padding: EdgeInsets.all(12),
+        padding: const EdgeInsets.all(12),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Row(
               children: [
-                CircleAvatar(),
-                SizedBox(
+                const CircleAvatar(),
+                const SizedBox(
                   width: 14,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(widget.senderName,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 15)),
-                    SizedBox(
+                    const SizedBox(
                       height: 4,
                     ),
-                    Text(widget.natureOfRequest, style: TextStyle(color: Colors.grey),)
+                    Text(widget.natureOfRequest, style: const TextStyle(color: Colors.grey),)
                   ],
                 )
               ],

@@ -20,7 +20,6 @@ class CircularProfileImageList extends StatelessWidget {
               child: Center(
                child:
                Container(
-                child: Center(child: Text(amount)),
                 width: 180,
                 height: 180,
                 decoration: BoxDecoration(
@@ -30,6 +29,7 @@ class CircularProfileImageList extends StatelessWidget {
                     color: Colors.blue
                   )
                 ),
+                child: Center(child: Text(amount)),
                )
               ),
             ),

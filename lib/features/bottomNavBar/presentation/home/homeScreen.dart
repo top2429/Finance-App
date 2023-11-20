@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:tai/commonWidgets/iconInCircle.dart';
 import 'package:tai/features/authentication/domain/userNotifier.dart';
 import 'package:tai/features/bottomNavBar/presentation/Transactions/transactionsScreen.dart';
-import 'package:tai/features/cards/presentation/cardsListScreen.dart';
 import 'package:tai/features/deposit/presentation/depositLocationsScreen.dart';
 import 'package:tai/features/profile/presentation/profileScreen.dart';
 import 'package:tai/features/request/presentation/chooseCustomOrSplitRequestScreen.dart';
@@ -55,11 +54,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     const Spacer(),
                     Row(
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.notifications_outlined,
                           size: 32,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         SvgPicture.asset("assets/images/uganda.svg",width: 30,height: 30,)
@@ -200,7 +199,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
+                    const Row(
                       children: [
                         Icon(
                           Icons.calendar_month_outlined,
@@ -226,7 +225,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 builder: (context) =>
                                     const TransactionsScreen()));
                       },
-                      child: Row(children: [
+                      child: const Row(children: [
                         Text(
                           "More",
                           style:

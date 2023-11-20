@@ -8,7 +8,6 @@ import 'package:tai/commonWidgets/textField.dart';
 import 'package:tai/features/authentication/data/getUserInfo.dart';
 import 'package:tai/features/authentication/domain/userNotifier.dart';
 
-import 'package:tai/features/authentication/presentation/signUp/enterPasscode_keyboard.dart';
 import 'package:tai/features/bottomNavBar/presentation/navBar.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -60,7 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color.fromARGB(154, 0, 0, 0),
+        backgroundColor: const Color.fromARGB(154, 0, 0, 0),
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.black,

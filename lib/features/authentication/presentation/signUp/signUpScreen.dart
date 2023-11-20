@@ -54,7 +54,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color.fromARGB(154, 0, 0, 0),
+        backgroundColor: const Color.fromARGB(154, 0, 0, 0),
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.black,

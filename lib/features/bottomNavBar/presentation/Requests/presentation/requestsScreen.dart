@@ -17,10 +17,10 @@ class _RequestsScreenState extends State<RequestsScreen> {
         padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
-            Row(
+            const Row(
               children: [
                 Text(
                   "Payment requests",
@@ -28,7 +28,7 @@ class _RequestsScreenState extends State<RequestsScreen> {
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Expanded(
@@ -52,7 +52,7 @@ class _RequestsScreenState extends State<RequestsScreen> {
                 },
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             // Row(
