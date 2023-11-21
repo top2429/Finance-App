@@ -2,10 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tai/features/authentication/domain/userNotifier.dart';
+import 'package:tai/features/bottomNavBar/presentation/Transactions/addToTransactions.dart';
 
 var db = FirebaseFirestore.instance;
 
-Future<String> sendMoneyToUser(String senderId, String receiverId,
+Future<String> sendMoneyToUser(String senderId, String senderName ,String receiverId,
     double amount, BuildContext context) async {
   double senderBalance = await checkSenderBalance(senderId);
 
@@ -17,6 +18,7 @@ Future<String> sendMoneyToUser(String senderId, String receiverId,
       print("the deduction was successful and now its time to increase at the other side 2222222222222222222222222222222222222222222222222222222222222222222");
       String response = await increaseReceiverBalance(amount, receiverId);
       if (response == "success") {
+        addToTransactions(senderId, senderName,receiverId, amount);
         return "money sent successfully";
       } else {
         return "error sending 1";
@@ -82,7 +84,7 @@ Future<String> deductSenderBalance(
     return "success";
   }, onError: (e) => e.toString());
 
-  return "failed";
+  return "success";
 }
 
 Future<double> checkReceiverBalance(String receiverId) async {

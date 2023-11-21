@@ -225,6 +225,7 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                               // sendMoneyToUser();
                               sendMoneyToUser(
                                   userNotifier.user.userId!,
+                                  userNotifier.user.username!,
                                   receiverId,
                                   double.parse(amountController.text),context);
                               ScaffoldMessenger.of(context).showSnackBar(
