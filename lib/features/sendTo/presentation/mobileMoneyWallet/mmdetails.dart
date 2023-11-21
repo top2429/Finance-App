@@ -38,6 +38,8 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
     FocusScope.of(context).requestFocus(_focusNode);
   }
 
+  String receiverId = "";
+
   final controller = SearchController();
 
   final _formKey = GlobalKey<FormState>();
@@ -124,6 +126,10 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                                                     data["username"];
                                                 controller.closeView(
                                                     data["username"]);
+
+                                                    setState(() {
+                                                      receiverId = data["userId"];
+                                                    });
                                               },
                                               child: InkWell(
                                                 onTap: () {
@@ -131,6 +137,10 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                                                       data["username"];
                                                   controller.closeView(
                                                       data["username"]);
+
+                                                       setState(() {
+                                                      receiverId = data["userId"];
+                                                    });
                                                 },
                                                 child: ListTile(
                                                   leading: CircleAvatar(
@@ -215,7 +225,7 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                               // sendMoneyToUser();
                               sendMoneyToUser(
                                   userNotifier.user.userId!,
-                                  controller.text,
+                                  receiverId,
                                   double.parse(amountController.text),context);
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(content: Text('Sending money')),

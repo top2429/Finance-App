@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tai/features/authentication/domain/userNotifier.dart';
@@ -15,6 +14,7 @@ Future<String> sendMoneyToUser(String senderId, String receiverId,
         await deductSenderBalance(senderId, amount, senderBalance, context);
 
     if (deductStatus == "success") {
+      print("the deduction was successful and now its time to increase at the other side 2222222222222222222222222222222222222222222222222222222222222222222");
       String response = await increaseReceiverBalance(amount, receiverId);
       if (response == "success") {
         return "money sent successfully";
@@ -58,12 +58,13 @@ Future<String> deductSenderBalance(
     print(
         "successfully updated the price in the database after sending to user");
     return "success";
-  }, onError: (e) => e.toString());
+  }, onError: (e) { return "false";});
 
-  return "failed";
+  return "success";
 }
 
  Future<String> increaseReceiverBalance(double amount, String receiverId) async {
+  print("this is where the code stops executing");
   double receiverBalance = await checkReceiverBalance(receiverId);
 
   var db = FirebaseFirestore.instance;
