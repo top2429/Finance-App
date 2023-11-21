@@ -1,10 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tai/commonWidgets/arrowButton.dart';
 import 'package:tai/commonWidgets/keyboard.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField.dart';
 import 'package:tai/commonWidgets/textField_PlusSign.dart';
+import 'package:tai/features/authentication/domain/userNotifier.dart';
+import 'package:tai/features/sendTo/data/sendMoneyToUser.dart';
 
 class MobileMoneyDetails extends StatefulWidget {
   const MobileMoneyDetails({super.key});
@@ -39,16 +42,14 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
 
   final _formKey = GlobalKey<FormState>();
 
-  Accounts? character = Accounts.account_1;
-  Operator? service = Operator.mtn;
-
   final sendTo = TextEditingController();
-  final amount = TextEditingController();
-  final reason = TextEditingController();
+  final amountController = TextEditingController();
+  final reasonController = TextEditingController();
 
-  final phoneNumber = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    var userNotifier = Provider.of<UserNotifier>(context, listen: true);
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -152,13 +153,12 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                                                   .toLowerCase())) {
                                             return ListTile(
                                               leading: CircleAvatar(
-                                                    radius: 22,
-                                                    backgroundImage:
-                                                        Image.asset(
-                                                      "assets/images/${data['image']}",
-                                                      fit: BoxFit.cover,
-                                                    ).image,
-                                                  ),
+                                                radius: 22,
+                                                backgroundImage: Image.asset(
+                                                  "assets/images/${data['image']}",
+                                                  fit: BoxFit.cover,
+                                                ).image,
+                                              ),
                                               title: Text(data["username"]),
                                               subtitle: Text(data['email']),
                                             );
@@ -187,7 +187,7 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                             const Color.fromARGB(255, 240, 240, 240),
                         textcolor: Colors.black,
                         onChanged: (p0) {},
-                        controller: amount,
+                        controller: amountController,
                         label: "Amount",
                         keyBoardType: TextInputType.number,
                       ),
@@ -196,7 +196,7 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                       ),
                       TextFieldWidget(
                         onChanged: (p0) {},
-                        controller: reason,
+                        controller: reasonController,
                         textcolor: Colors.black,
                         label: "Payment reason",
                         backgroundColor:
@@ -209,10 +209,18 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                       MainButton(
                           text: "Send money",
                           onpressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const KeyBoard()));
+                            if (_formKey.currentState!.validate()) {
+                              // If the form is valid, display a snackbar. In the real world,
+                              // you'd often call a server or save the information in a database.
+                              // sendMoneyToUser();
+                              sendMoneyToUser(
+                                  userNotifier.user.userId!,
+                                  controller.text,
+                                  double.parse(amountController.text),context);
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(content: Text('Sending money')),
+                              );
+                            }
                           })
                     ],
                   ),
