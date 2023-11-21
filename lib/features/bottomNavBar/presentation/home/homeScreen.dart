@@ -19,8 +19,9 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    var userNotifier =  Provider.of<UserNotifier>(context, listen: true);
-
+    var userNotifier = Provider.of<UserNotifier>(context, listen: true);
+    print("444444444444444444444444444444444444444444444444444444444444444444444444444444");
+    print(userNotifier.user.image);
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -41,14 +42,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                     builder: (context) =>
                                         const ProfileScreen()));
                           },
-                          child: const CircleAvatar(
-                            radius: 24,
+                          child: CircleAvatar(
+                           radius: 30,
+                            backgroundImage: Image.asset(  
+                              "assets/images/${userNotifier.user.image}",
+                             
+                              fit: BoxFit.cover,
+                            ).image,
                           ),
                         ),
                         const SizedBox(
                           height: 8,
                         ),
-                         Text("Hi ${userNotifier.user.username}")
+                        Text("Hi ${userNotifier.user.username}")
                       ],
                     ),
                     const Spacer(),
@@ -61,7 +67,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         const SizedBox(
                           width: 10,
                         ),
-                        SvgPicture.asset("assets/images/uganda.svg",width: 30,height: 30,)
+                        SvgPicture.asset(
+                          "assets/images/uganda.svg",
+                          width: 30,
+                          height: 30,
+                        )
                       ],
                     )
                   ],
@@ -106,9 +116,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ],
                           ),
-                          
                           const SizedBox(
-                          height: 25,
+                            height: 25,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -179,7 +188,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                   )
                                 ],
                               ),
-                              
                             ],
                           )
                         ],

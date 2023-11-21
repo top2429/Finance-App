@@ -4,8 +4,9 @@ class UserModel {
   String? email;
   String? phoneNumber;
   double? totalBalance;
+  String? image;
 
-  UserModel(this.userId, this.username, this.email, this.phoneNumber,this.totalBalance);
+  UserModel(this.userId, this.username, this.email, this.phoneNumber,this.totalBalance, this.image);
 
   UserModel.fromMap(Map<dynamic,dynamic> data) {
     userId = data["userId"];
@@ -13,6 +14,7 @@ class UserModel {
     email = data['email'];
     phoneNumber = data["phoneNumber"];
     totalBalance = data['totalBalance'];
+    image = data['image'];
   }
 
   Map<String, dynamic> toJson(){
@@ -21,7 +23,8 @@ class UserModel {
       "username": username ?? "",
       "email": email ?? "",
       "phoneNumber": phoneNumber ?? "",
-      "totalBalance": totalBalance ?? 0.0
+      "totalBalance": totalBalance ?? 0.0,
+      "image": image
     };
 
     return user;

@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:tai/features/authentication/domain/userModel.dart';
 import 'package:tai/features/authentication/domain/userNotifier.dart';
 
-getUser(UserNotifier userNotifier)async{
+Future<bool> getUser(UserNotifier userNotifier)async{
 
   var db = FirebaseFirestore.instance;
   var user = FirebaseAuth.instance.currentUser;
@@ -16,6 +16,8 @@ getUser(UserNotifier userNotifier)async{
 
   final data = query.docs;
   UserModel userObject = UserModel.fromMap(data[0].data());
-
+  print(userObject.toJson());
   userNotifier.setUser(userObject);
+
+  return true;
 }

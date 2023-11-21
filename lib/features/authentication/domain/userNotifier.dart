@@ -3,7 +3,7 @@ import 'package:tai/features/authentication/domain/userModel.dart';
 
 
 class UserNotifier with ChangeNotifier {
-  UserModel _user  = UserModel("","","","",0);
+  UserModel _user  = UserModel("","","","",0,"");
 
   UserModel get user => _user;
 

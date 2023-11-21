@@ -27,15 +27,17 @@ class _LoginScreenState extends State<LoginScreen> {
   //  global key for the form on this screen
   final _formKeyEmail = GlobalKey<FormState>();
 
-  void signin() {
+  void signin() async {
     FirebaseAuth.instance
         .signInWithEmailAndPassword(
             email: emailController.text, password: passwordController.text)
-        .then((value) {
+        .then((value) async {
         final user =  Provider.of<UserNotifier>(context, listen: false); 
-        getUser(user);
-      Navigator.push(
+      bool doneGettingUser = await getUser(user);
+      if (doneGettingUser){
+        Navigator.push(
           context, MaterialPageRoute(builder: (context) => const NavBar()));
+      }
     }).onError(
       (error, stackTrace) {
         ScaffoldMessenger.of(context).showSnackBar(
