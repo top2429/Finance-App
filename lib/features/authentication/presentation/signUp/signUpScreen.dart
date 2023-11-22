@@ -82,7 +82,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   height: 7,
                 ),
                 const Text(
-                  "Enter your Email, We will send you a code.",
+                  "Create a short username(max 10 characters)",
                   style: TextStyle(fontSize: 10, color: Colors.white),
                 ),
                 const SizedBox(

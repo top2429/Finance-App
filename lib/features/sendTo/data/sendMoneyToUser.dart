@@ -6,7 +6,7 @@ import 'package:tai/features/bottomNavBar/presentation/Transactions/addToTransac
 
 var db = FirebaseFirestore.instance;
 
-Future<String> sendMoneyToUser(String senderId, String senderName ,String receiverId,
+Future<String> sendMoneyToUser(String senderId, String senderName, String senderImage,String receiverId, String receiverName,String receiverImage,
     double amount, BuildContext context) async {
   double senderBalance = await checkSenderBalance(senderId);
 
@@ -18,7 +18,8 @@ Future<String> sendMoneyToUser(String senderId, String senderName ,String receiv
       print("the deduction was successful and now its time to increase at the other side 2222222222222222222222222222222222222222222222222222222222222222222");
       String response = await increaseReceiverBalance(amount, receiverId);
       if (response == "success") {
-        addToTransactions(senderId, senderName,receiverId, amount);
+        TimeOfDay timeNow = TimeOfDay.now();
+        addToTransactions(senderId, senderName,senderImage,receiverId, receiverName,receiverImage,amount, timeNow.format(context));
         return "money sent successfully";
       } else {
         return "error sending 1";

@@ -1,9 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:tai/commonWidgets/iconInCircle.dart';
 import 'package:tai/features/authentication/domain/userNotifier.dart';
 import 'package:tai/features/bottomNavBar/presentation/Transactions/transactionsScreen.dart';
+import 'package:tai/features/bottomNavBar/presentation/Transactions/transactionsStreamBuilder.dart';
 import 'package:tai/features/deposit/presentation/depositLocationsScreen.dart';
 import 'package:tai/features/profile/presentation/profileScreen.dart';
 import 'package:tai/features/request/presentation/chooseCustomOrSplitRequestScreen.dart';
@@ -20,7 +22,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     var userNotifier = Provider.of<UserNotifier>(context, listen: true);
-    print("444444444444444444444444444444444444444444444444444444444444444444444444444444");
+    print(
+        "444444444444444444444444444444444444444444444444444444444444444444444444444444");
     print(userNotifier.user.image);
     return Scaffold(
       body: SafeArea(
@@ -43,10 +46,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                         const ProfileScreen()));
                           },
                           child: CircleAvatar(
-                           radius: 30,
-                            backgroundImage: Image.asset(  
+                            radius: 30,
+                            backgroundImage: Image.asset(
                               "assets/images/${userNotifier.user.image}",
-                             
                               fit: BoxFit.cover,
                             ).image,
                           ),
@@ -219,84 +221,34 @@ class _HomeScreenState extends State<HomeScreen> {
                         )
                       ],
                     ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                fullscreenDialog: true,
-                                builder: (context) =>
-                                    const TransactionsScreen()));
-                      },
-                      child: const Row(children: [
-                        Text(
-                          "More",
-                          style:
-                              TextStyle(fontSize: 16, color: Color(0xFF466AE7)),
-                        ),
-                        Icon(
-                          Icons.arrow_forward,
-                          size: 22,
-                          color: Color(0xFF466AE7),
-                        )
-                      ]),
-                    )
+                    // InkWell(
+                    //   onTap: () {
+                    //     Navigator.push(
+                    //         context,
+                    //         MaterialPageRoute(
+                    //             fullscreenDialog: true,
+                    //             builder: (context) =>
+                    //                 const TransactionsScreen()));
+                    //   },
+                    //   child: const Row(children: [
+                    //     Text(
+                    //       "More",
+                    //       style:
+                    //           TextStyle(fontSize: 16, color: Color(0xFF466AE7)),
+                    //     ),
+                    //     Icon(
+                    //       Icons.arrow_forward,
+                    //       size: 22,
+                    //       color: Color(0xFF466AE7),
+                    //     )
+                    //   ]),
+                    // )
                   ],
                 ),
                 const SizedBox(
                   height: 15,
                 ),
-                ListView.builder(
-                    shrinkWrap: true,
-                    primary: false,
-                    itemCount: 4,
-                    itemBuilder: (_, index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(bottom: 10),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: const Color.fromARGB(255, 240, 240, 240),
-                              borderRadius: BorderRadius.circular(24)),
-                          child: const Padding(
-                            padding: EdgeInsets.all(12),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    CircleAvatar(),
-                                    SizedBox(
-                                      width: 14,
-                                    ),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text("Sent to MUhammad Putin",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 15)),
-                                        SizedBox(
-                                          height: 4,
-                                        ),
-                                        Text("14:30 PM")
-                                      ],
-                                    )
-                                  ],
-                                ),
-                                Text(
-                                  "\$434.43",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.red,
-                                      fontSize: 16),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                      );
-                    })
+                TransactionsStreamBuilder()
               ],
             ),
           ),

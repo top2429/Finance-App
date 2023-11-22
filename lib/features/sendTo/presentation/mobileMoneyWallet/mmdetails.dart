@@ -39,6 +39,8 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
   }
 
   String receiverId = "";
+  String receiverName = "";
+  String receiverImage = "";
 
   final controller = SearchController();
 
@@ -127,9 +129,12 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                                                 controller.closeView(
                                                     data["username"]);
 
-                                                    setState(() {
-                                                      receiverId = data["userId"];
-                                                    });
+                                                setState(() {
+                                                  receiverId = data["userId"];
+                                                  receiverName =
+                                                      data['username'];
+                                                  receiverImage = data['image'];
+                                                });
                                               },
                                               child: InkWell(
                                                 onTap: () {
@@ -138,9 +143,13 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                                                   controller.closeView(
                                                       data["username"]);
 
-                                                       setState(() {
-                                                      receiverId = data["userId"];
-                                                    });
+                                                  setState(() {
+                                                    receiverId = data["userId"];
+                                                    receiverName =
+                                                        data['username'];
+                                                    receiverImage =
+                                                        data['image'];
+                                                  });
                                                 },
                                                 child: ListTile(
                                                   leading: CircleAvatar(
@@ -226,8 +235,12 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                               sendMoneyToUser(
                                   userNotifier.user.userId!,
                                   userNotifier.user.username!,
+                                  userNotifier.user.image!,
                                   receiverId,
-                                  double.parse(amountController.text),context);
+                                  receiverName,
+                                  receiverImage,
+                                  double.parse(amountController.text),
+                                  context);
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(content: Text('Sending money')),
                               );

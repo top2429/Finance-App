@@ -30,7 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
   void signin() async {
     FirebaseAuth.instance
         .signInWithEmailAndPassword(
-            email: emailController.text, password: passwordController.text)
+            email: emailController.text.trim(), password: passwordController.text.trim())
         .then((value) async {
         final user =  Provider.of<UserNotifier>(context, listen: false); 
       bool doneGettingUser = await getUser(user);

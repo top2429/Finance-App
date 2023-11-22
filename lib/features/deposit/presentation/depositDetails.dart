@@ -13,6 +13,7 @@ import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField.dart';
 import 'package:tai/commonWidgets/textField_PlusSign.dart';
 import 'package:tai/features/authentication/domain/userNotifier.dart';
+import 'package:tai/features/sendTo/data/sendMoneyToUser.dart';
 
 class DepositDetails extends StatefulWidget {
   const DepositDetails({super.key});
@@ -72,16 +73,16 @@ class _DepositDetailsState extends State<DepositDetails> {
   /// Funtion to update the amount in the database to reflect your balance in the app
   updateTotalBalanceAmount(String userId, String amount) async {
     var db = FirebaseFirestore.instance;
-
+    double remainingBalance = await checkSenderBalance(userId);
     var query =
         await db.collection("users").where("userId", isEqualTo: userId).get();
 
     final dataQuery = query.docs;
 
-    dataQuery[0].reference.update({"totalBalance": double.parse(amount)}).then(
+    dataQuery[0].reference.update({"totalBalance": double.parse(amount)+remainingBalance}).then(
         (value){
         var userNotifier =  Provider.of<UserNotifier>(context, listen:false);
-          userNotifier.updatePrice(double.parse(amount));
+          userNotifier.updatePrice(double.parse(amount)+remainingBalance);
           print("successfully updated the price in the database");},
         onError: (e) => print("refused to update the price in the database"));
   }
@@ -379,7 +380,7 @@ class _DepositDetailsState extends State<DepositDetails> {
                       MainButton(
                           text: "Continue",
                           onpressed: () {
-                            if (_formKey.currentState!.validate() ||
+                            if (_formKey.currentState!.validate() &&
                                 _formKeyAmount.currentState!.validate()) {
                               // If the form is valid, display a snackbar. In the real world,
                               // you'd often call a server or save the information in a database.
