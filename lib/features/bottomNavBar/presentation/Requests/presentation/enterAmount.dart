@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField.dart';
-import 'package:tai/features/request/presentation/customRequest/enterAmount.dart';
+import 'package:tai/features/bottomNavBar/presentation/Requests/presentation/confirmDetails.dart';
 
-class SelectRecipient extends StatefulWidget {
-  const SelectRecipient({super.key});
+
+class EnterAmount extends StatefulWidget {
+  const EnterAmount({super.key});
 
   @override
-  State<SelectRecipient> createState() => _SelectRecipientState();
+  State<EnterAmount> createState() => _EnterAmountState();
 }
 
-class _SelectRecipientState extends State<SelectRecipient> {
-  final TextEditingController recipientName = TextEditingController();
-  final TextEditingController reason = TextEditingController();
+class _EnterAmountState extends State<EnterAmount> {
+  final TextEditingController amount = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
 
@@ -45,7 +45,7 @@ class _SelectRecipientState extends State<SelectRecipient> {
                 const SizedBox(
                   width: 5,
                 ),
-                SvgPicture.asset("assets/images/lightLine.svg"),
+                SvgPicture.asset("assets/images/darkLine.svg"),
                 const SizedBox(
                   width: 5,
                 ),
@@ -56,7 +56,7 @@ class _SelectRecipientState extends State<SelectRecipient> {
               height: 40,
             ),
             const Text(
-              "Select a recipient",
+              "How much do you request",
               style: TextStyle(fontSize: 20),
             ),
             const SizedBox(
@@ -69,22 +69,14 @@ class _SelectRecipientState extends State<SelectRecipient> {
                     Card(
                       elevation: 2,
                       child: TextFieldWidget(
-                        controller: recipientName,
-                        label: "Recipient's name",
+                        controller: amount,
+                        label: "Enter Amount",
                         onChanged: (value) {},
                         backgroundColor: const Color.fromARGB(255, 240, 240, 240),
                       ),
                     ),
                     const SizedBox(height: 20,),
-                    Card(
-                      elevation: 2,
-                      child: TextFieldWidget(
-                        controller: reason,
-                        label: "Reason",
-                        onChanged: (value) {},
-                        backgroundColor: const Color.fromARGB(255, 240, 240, 240),
-                      ),
-                    ),
+                    
                   ],
                 )),
                 const Spacer(),
@@ -92,7 +84,7 @@ class _SelectRecipientState extends State<SelectRecipient> {
                   Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const EnterAmount()));
+                                    builder: (context) => const ConfirmDetails()));
                 })
           ],
         ),

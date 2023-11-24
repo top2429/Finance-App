@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tai/commonWidgets/arrowButton.dart';
-import 'package:tai/features/request/presentation/customRequest/selectRecipient.dart';
+import 'package:tai/features/bottomNavBar/presentation/Requests/presentation/selectRecipient.dart';
 
 class ChooseMethod extends StatefulWidget {
   const ChooseMethod({super.key});
