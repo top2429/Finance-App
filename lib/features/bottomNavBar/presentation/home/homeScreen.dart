@@ -22,8 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     var userNotifier = Provider.of<UserNotifier>(context, listen: true);
-    print(
-        "444444444444444444444444444444444444444444444444444444444444444444444444444444");
+    
     print(userNotifier.user.image);
     return Scaffold(
       body: SafeArea(

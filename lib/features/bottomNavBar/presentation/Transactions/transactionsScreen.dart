@@ -42,71 +42,14 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
           // floating: true,
           // snap: true,
           // centerTitle: true,
-        ),
-        /* NOTE */
-        /// THIS IS THE WIDGET THAT LETS YOU ADD SPACE BTN THE DIFFERENT KINDS OF SLIVERS 
-        /// WITHIN THE SAME CUSTOMSCROLLVIEW
+        ),       
         const SliverToBoxAdapter(
           child: Padding(
             padding: EdgeInsets.only(left: 20, right: 20),
             child: TransactionsStreamBuilder(),
           ),
         ),
-        // SliverList(
-        //   delegate:
-        //       SliverChildBuilderDelegate(childCount: 20, (context, index) {
-        //     return Padding(
-        //       padding:
-        //           const EdgeInsets.only(bottom: 5, left: 20, right: 20, top: 5),
-        //       child: Container(
-        //         decoration: BoxDecoration(
-        //             color: const Color.fromARGB(255, 240, 240, 240),
-        //             borderRadius: BorderRadius.circular(24)),
-        //         child: const Padding(
-        //           padding: EdgeInsets.all(12),
-        //           child: Row(
-        //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        //             children: [
-        //               Row(
-        //                 children: [
-        //                   CircleAvatar(),
-        //                   SizedBox(
-        //                     width: 14,
-        //                   ),
-        //                   Column(
-        //                     crossAxisAlignment: CrossAxisAlignment.start,
-        //                     children: [
-        //                       SizedBox(
-        //                         width: 150,
-        //                         height: 20,
-        //                         child: Text("Sent to Muhammad",
-        //                         overflow: TextOverflow.ellipsis,
-        //                             style: TextStyle(
-        //                                 fontWeight: FontWeight.bold,
-        //                                 fontSize: 15)),
-        //                       ),
-        //                       SizedBox(
-        //                         height: 4,
-        //                       ),
-        //                       Text("14:30 PM")
-        //                     ],
-        //                   )
-        //                 ],
-        //               ),
-        //               Text(
-        //                 "\$434.43",
-        //                 style: TextStyle(
-        //                     fontWeight: FontWeight.bold,
-        //                     color: Colors.red,
-        //                     fontSize: 16),
-        //               )
-        //             ],
-        //           ),
-        //         ),
-        //       ),
-        //     );
-        //   }),
-        // ),
+        
       ]),
     );
   }
