@@ -4,11 +4,11 @@ import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:tai/commonWidgets/iconInCircle.dart';
 import 'package:tai/features/authentication/domain/userNotifier.dart';
+import 'package:tai/features/bottomNavBar/presentation/Requests/presentation/chooseRequestMethod.dart';
 import 'package:tai/features/bottomNavBar/presentation/Transactions/transactionsScreen.dart';
 import 'package:tai/features/bottomNavBar/presentation/Transactions/transactionsStreamBuilder.dart';
 import 'package:tai/features/deposit/presentation/depositLocationsScreen.dart';
 import 'package:tai/features/profile/presentation/profileScreen.dart';
-import 'package:tai/features/request/presentation/chooseCustomOrSplitRequestScreen.dart';
 import 'package:tai/features/sendTo/presentation/mobileMoneyWallet/mmdetails.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -154,7 +154,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  const ChooseMethod()));
+                                                  const ChooseRequestMethod()));
                                     },
                                   ),
                                   const SizedBox(

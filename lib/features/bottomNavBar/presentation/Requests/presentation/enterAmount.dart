@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField.dart';
-import 'package:tai/features/bottomNavBar/presentation/Requests/presentation/confirmDetails.dart';
 
 
 class EnterAmount extends StatefulWidget {
@@ -81,10 +80,10 @@ class _EnterAmountState extends State<EnterAmount> {
                 )),
                 const Spacer(),
                 MainButton(text: "Continue", onpressed: (){
-                  Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const ConfirmDetails()));
+                  // Navigator.push(
+                  //               context,
+                  //               MaterialPageRoute(
+                  //                   builder: (context) => const ConfirmDetails()));
                 })
           ],
         ),

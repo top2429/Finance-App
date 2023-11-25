@@ -16,28 +16,7 @@ class MobileMoneyDetails extends StatefulWidget {
   State<MobileMoneyDetails> createState() => _MobileMoneyDetailsState();
 }
 
-enum Accounts { account_1, account_2 }
-
-enum Operator { mtn, airtel }
-
 class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _focusNode.dispose();
-    super.dispose();
-  }
-
-  FocusNode _focusNode = FocusNode();
-
-  void _showKeyboard() {
-    FocusScope.of(context).requestFocus(_focusNode);
-  }
-
   String receiverId = "";
   String receiverName = "";
   String receiverImage = "";

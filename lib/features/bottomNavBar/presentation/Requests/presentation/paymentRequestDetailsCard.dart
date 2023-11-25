@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
-import 'package:tai/features/bottomNavBar/presentation/Requests/presentation/chooseRequestPaymentMethod.dart';
+import 'package:tai/features/bottomNavBar/presentation/Requests/presentation/chooseRequestMethod.dart';
 
 class PaymentRequestedDetails extends StatefulWidget {
   const PaymentRequestedDetails({super.key});
@@ -65,11 +65,11 @@ class _PaymentRequestedDetailsState extends State<PaymentRequestedDetails> {
                                   TextStyle(fontSize: 14, color: Colors.grey))),
                       const SizedBox(height: 40),
                       MainButton(text: "PAY", onpressed: (){
-                        Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const ChooseRequestPaymentMethod()));
+                        // Navigator.push(
+                        //       context,
+                        //       MaterialPageRoute(
+                        //           builder: (context) =>
+                        //               const ChooseRequestPaymentMethod()));
                       })
                     ]),
               ),

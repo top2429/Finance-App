@@ -2,21 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:tai/commonWidgets/arrowButton.dart';
 import 'package:tai/features/bottomNavBar/presentation/Requests/presentation/selectRecipient.dart';
 
-class ChooseMethod extends StatefulWidget {
-  const ChooseMethod({super.key});
+class ChooseRequestMethod extends StatefulWidget {
+  const ChooseRequestMethod({super.key});
 
   @override
-  State<ChooseMethod> createState() => _ChooseMethodState();
+  State<ChooseRequestMethod> createState() =>
+      _ChooseRequestPaymentMethodState();
 }
 
-class _ChooseMethodState extends State<ChooseMethod> {
+class _ChooseRequestPaymentMethodState extends State<ChooseRequestMethod> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
-          "New Request",
+          "Request",
           style: TextStyle(fontSize: 20),
         ),
         elevation: 0,
@@ -33,7 +34,7 @@ class _ChooseMethodState extends State<ChooseMethod> {
           child: Column(
             children: [
               const Text(
-                "Select how to receive payment",
+                "Select request method",
                 style: TextStyle(fontSize: 20),
               ),
               const SizedBox(
@@ -41,29 +42,16 @@ class _ChooseMethodState extends State<ChooseMethod> {
               ),
               Column(
                 children: [
-                  // ArrowButton(
-                  //     label: "Split bill",
-                  //     image: "splitBill.svg",
-                  //     innerContainerColor: const Color(0xFFFFE8A4),
-                  //     onTap: () {
-                  //       Navigator.push(
-                  //               context,
-                  //               MaterialPageRoute(
-                  //                   builder: (context) => const SelectBillAmount ()));
-                  //     }),
-                  // const SizedBox(
-                  //   height: 30,
-                  // ),
                   ArrowButton(
-                      label: "Custom request",
-                      image: "customRequest.svg",
+                      label: "Custom",
+                      image: "bankTransfer.svg",
                       innerContainerColor: const Color(0xFFC4F1CD),
                       onTap: () {
                         Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => const SelectRecipient ()));
-                      })
+                      }),
                 ],
               )
             ],
