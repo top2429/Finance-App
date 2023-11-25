@@ -7,8 +7,6 @@ import 'package:flutterwave_standard/models/requests/customer.dart';
 import 'package:flutterwave_standard/models/requests/customizations.dart';
 import 'package:flutterwave_standard/models/responses/charge_response.dart';
 import 'package:provider/provider.dart';
-import 'package:tai/commonWidgets/arrowButton.dart';
-import 'package:tai/commonWidgets/keyboard.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField.dart';
 import 'package:tai/commonWidgets/textField_PlusSign.dart';

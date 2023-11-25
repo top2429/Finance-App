@@ -1,11 +1,9 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:tai/commonWidgets/iconInCircle.dart';
 import 'package:tai/features/authentication/domain/userNotifier.dart';
 import 'package:tai/features/bottomNavBar/presentation/Requests/presentation/chooseRequestMethod.dart';
-import 'package:tai/features/bottomNavBar/presentation/Transactions/transactionsScreen.dart';
 import 'package:tai/features/bottomNavBar/presentation/Transactions/transactionsStreamBuilder.dart';
 import 'package:tai/features/deposit/presentation/depositLocationsScreen.dart';
 import 'package:tai/features/profile/presentation/profileScreen.dart';
@@ -101,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Text(
+                              const Text(
                                 "UGX",
                                 style: TextStyle(
                                     fontSize: 22,
@@ -110,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               Text(
                                 " ${userNotifier.user.totalBalance}",
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 36,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white),
@@ -200,10 +198,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(
                   height: 20,
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Row(
+                    Row(
                       children: [
                         Icon(
                           Icons.calendar_month_outlined,
@@ -247,7 +245,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(
                   height: 15,
                 ),
-                TransactionsStreamBuilder()
+                const TransactionsStreamBuilder()
               ],
             ),
           ),

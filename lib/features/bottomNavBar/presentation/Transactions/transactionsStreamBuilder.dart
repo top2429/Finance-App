@@ -27,7 +27,7 @@ class _TransactionsStreamBuilderState extends State<TransactionsStreamBuilder> {
         stream: myStream,
         builder: (context, snapshots) {
           return (snapshots.connectionState == ConnectionState.waiting)
-              ? Center(
+              ? const Center(
                   child: CircularProgressIndicator(),
                 )
               : ListView.builder(
@@ -37,7 +37,7 @@ class _TransactionsStreamBuilderState extends State<TransactionsStreamBuilder> {
                   itemBuilder: (_, index) {
                     var data = snapshots.data!.docs[index].data();
                     if (data.isEmpty) {
-                      return Center(
+                      return const Center(
                         child: Text("You have no transactions"),
                       );
                     }
@@ -61,7 +61,7 @@ class _TransactionsStreamBuilderState extends State<TransactionsStreamBuilder> {
                               color: const Color.fromARGB(255, 240, 240, 240),
                               borderRadius: BorderRadius.circular(24)),
                           child: Padding(
-                            padding: EdgeInsets.all(12),
+                            padding: const EdgeInsets.all(12),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -74,7 +74,7 @@ class _TransactionsStreamBuilderState extends State<TransactionsStreamBuilder> {
                                         fit: BoxFit.cover,
                                       ).image,
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 14,
                                     ),
                                     Column(
@@ -86,11 +86,11 @@ class _TransactionsStreamBuilderState extends State<TransactionsStreamBuilder> {
                                           width: 150,
                                           child: Text("Sent to $receiverName",
                                               overflow: TextOverflow.ellipsis,
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                   fontWeight: FontWeight.bold,
                                                   fontSize: 15)),
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           height: 4,
                                         ),
                                         Text("${data['time']}")
@@ -99,7 +99,7 @@ class _TransactionsStreamBuilderState extends State<TransactionsStreamBuilder> {
                                   ],
                                 ),
                                 Text("UGX ${data['amount']}",
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.red,
                                       // fontSize: 16),
@@ -120,7 +120,7 @@ class _TransactionsStreamBuilderState extends State<TransactionsStreamBuilder> {
                               color: const Color.fromARGB(255, 240, 240, 240),
                               borderRadius: BorderRadius.circular(24)),
                           child: Padding(
-                            padding: EdgeInsets.all(12),
+                            padding: const EdgeInsets.all(12),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -133,7 +133,7 @@ class _TransactionsStreamBuilderState extends State<TransactionsStreamBuilder> {
                                         fit: BoxFit.cover,
                                       ).image,
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 14,
                                     ),
                                     Column(
@@ -145,11 +145,11 @@ class _TransactionsStreamBuilderState extends State<TransactionsStreamBuilder> {
                                           width: 150,
                                           child: Text("Sent from $senderName",
                                               overflow: TextOverflow.ellipsis,
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                   fontWeight: FontWeight.bold,
                                                   fontSize: 15)),
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           height: 4,
                                         ),
                                         Text("${data['time']}")
@@ -159,7 +159,7 @@ class _TransactionsStreamBuilderState extends State<TransactionsStreamBuilder> {
                                 ),
                                 Text(
                                   "UGX ${data['amount']}",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.green,
                                       fontSize: 16),

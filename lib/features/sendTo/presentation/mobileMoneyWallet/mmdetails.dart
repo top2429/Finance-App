@@ -1,11 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tai/commonWidgets/arrowButton.dart';
-import 'package:tai/commonWidgets/keyboard.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField.dart';
-import 'package:tai/commonWidgets/textField_PlusSign.dart';
 import 'package:tai/features/authentication/domain/userNotifier.dart';
 import 'package:tai/features/sendTo/data/sendMoneyToUser.dart';
 
@@ -63,23 +60,23 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                 ),
                 SearchAnchor.bar(
                     viewHeaderHintStyle:
-                        TextStyle(color: Colors.black, fontSize: 17),
+                        const TextStyle(color: Colors.black, fontSize: 17),
                     viewHeaderTextStyle:
-                        TextStyle(color: Colors.black, fontSize: 17),
+                        const TextStyle(color: Colors.black, fontSize: 17),
                     barHintStyle: MaterialStateProperty.resolveWith(
-                      (states) => TextStyle(color: Colors.black, fontSize: 17),
+                      (states) => const TextStyle(color: Colors.black, fontSize: 17),
                     ),
                     barTextStyle: MaterialStateProperty.resolveWith(
-                      (states) => TextStyle(color: Colors.black, fontSize: 17),
+                      (states) => const TextStyle(color: Colors.black, fontSize: 17),
                     ),
                     searchController: controller,
                     isFullScreen: false,
                     barSide: MaterialStateBorderSide.resolveWith(
-                        (states) => BorderSide(color: Colors.black)),
+                        (states) => const BorderSide(color: Colors.black)),
                     barElevation:
                         MaterialStateProperty.resolveWith((states) => 1),
                     barBackgroundColor: MaterialStateColor.resolveWith(
-                        (states) => Color.fromARGB(255, 255, 255, 255)),
+                        (states) => const Color.fromARGB(255, 255, 255, 255)),
                     barHintText: "Search user",
                     suggestionsBuilder: (context, controller) {
                       return [
@@ -92,7 +89,7 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                               builder: (context, snapshots) {
                                 return (snapshots.connectionState ==
                                         ConnectionState.waiting)
-                                    ? Center(
+                                    ? const Center(
                                         child: CircularProgressIndicator(),
                                       )
                                     : ListView.builder(
@@ -170,10 +167,10 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                 const SizedBox(
                   height: 40,
                 ),
-                Align(
+                const Align(
                     alignment: Alignment.centerLeft,
                     child: Text("More details")),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Form(
