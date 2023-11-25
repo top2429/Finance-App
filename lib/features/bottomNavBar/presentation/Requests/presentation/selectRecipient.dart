@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField.dart';
 import 'package:tai/features/authentication/domain/userNotifier.dart';
+import 'package:tai/features/bottomNavBar/presentation/Requests/data/sendRequest.dart';
 
 class SelectRecipient extends StatefulWidget {
   const SelectRecipient({super.key});
@@ -63,10 +64,12 @@ class _SelectRecipientState extends State<SelectRecipient> {
                     viewHeaderTextStyle:
                         const TextStyle(color: Colors.black, fontSize: 17),
                     barHintStyle: MaterialStateProperty.resolveWith(
-                      (states) => const TextStyle(color: Colors.black, fontSize: 17),
+                      (states) =>
+                          const TextStyle(color: Colors.black, fontSize: 17),
                     ),
                     barTextStyle: MaterialStateProperty.resolveWith(
-                      (states) => const TextStyle(color: Colors.black, fontSize: 17),
+                      (states) =>
+                          const TextStyle(color: Colors.black, fontSize: 17),
                     ),
                     searchController: controller,
                     isFullScreen: false,
@@ -111,33 +114,17 @@ class _SelectRecipientState extends State<SelectRecipient> {
                                                   receiverImage = data['image'];
                                                 });
                                               },
-                                              child: InkWell(
-                                                onTap: () {
-                                                  controller.text =
-                                                      data["username"];
-                                                  controller.closeView(
-                                                      data["username"]);
-
-                                                  setState(() {
-                                                    receiverId = data["userId"];
-                                                    receiverName =
-                                                        data['username'];
-                                                    receiverImage =
-                                                        data['image'];
-                                                  });
-                                                },
-                                                child: ListTile(
-                                                  leading: CircleAvatar(
-                                                    radius: 22,
-                                                    backgroundImage:
-                                                        Image.asset(
-                                                      "assets/images/${data['image']}",
-                                                      fit: BoxFit.cover,
-                                                    ).image,
-                                                  ),
-                                                  title: Text(data["username"]),
-                                                  subtitle: Text(data['email']),
+                                              child: ListTile(
+                                                leading: CircleAvatar(
+                                                  radius: 22,
+                                                  backgroundImage:
+                                                      Image.asset(
+                                                    "assets/images/${data['image']}",
+                                                    fit: BoxFit.cover,
+                                                  ).image,
                                                 ),
+                                                title: Text(data["username"]),
+                                                subtitle: Text(data['email']),
                                               ),
                                             );
                                           }
@@ -145,16 +132,32 @@ class _SelectRecipientState extends State<SelectRecipient> {
                                               .toString()
                                               .startsWith(controller.text
                                                   .toLowerCase())) {
-                                            return ListTile(
-                                              leading: CircleAvatar(
-                                                radius: 22,
-                                                backgroundImage: Image.asset(
-                                                  "assets/images/${data['image']}",
-                                                  fit: BoxFit.cover,
-                                                ).image,
+                                            return InkWell(
+                                               onTap: () {
+                                                controller.text =
+                                                    data["username"];
+                                                controller.closeView(
+                                                    data["username"]);
+
+                                                setState(() {
+                                                  receiverId = data["userId"];
+                                                  receiverName =
+                                                      data['username'];
+                                                  receiverImage =
+                                                      data['image'];
+                                                });
+                                              },
+                                              child: ListTile(
+                                                leading: CircleAvatar(
+                                                  radius: 22,
+                                                  backgroundImage: Image.asset(
+                                                    "assets/images/${data['image']}",
+                                                    fit: BoxFit.cover,
+                                                  ).image,
+                                                ),
+                                                title: Text(data["username"]),
+                                                subtitle: Text(data['email']),
                                               ),
-                                              title: Text(data["username"]),
-                                              subtitle: Text(data['email']),
                                             );
                                           }
                                           return Container();
@@ -203,22 +206,25 @@ class _SelectRecipientState extends State<SelectRecipient> {
                       MainButton(
                           text: "Request money",
                           onpressed: () {
+                            TimeOfDay timeNow = TimeOfDay.now();
+
                             if (_formKey.currentState!.validate()) {
                               // If the form is valid, display a snackbar. In the real world,
                               // you'd often call a server or save the information in a database.
                               // sendMoneyToUser();
-                              // sendMoneyToUser(
-                              //     userNotifier.user.userId!,
-                              //     userNotifier.user.username!,
-                              //     userNotifier.user.image!,
-                              //     receiverId,
-                              //     receiverName,
-                              //     receiverImage,
-                              //     double.parse(amountController.text),
-                              //     context);
-                              // ScaffoldMessenger.of(context).showSnackBar(
-                              //   const SnackBar(content: Text('Requesting money')),
-                              // );
+                              sendRequest(
+                                  userNotifier.user.userId!,
+                                  userNotifier.user.username!,
+                                  userNotifier.user.image!,
+                                  receiverId,
+                                  receiverName,
+                                  receiverImage,
+                                  double.parse(amountController.text),
+                                  timeNow.format(context),
+                                  reasonController.text);
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(content: Text('Requesting money')),
+                              );
                             }
                           })
                     ],

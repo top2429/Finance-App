@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
+import 'package:tai/features/sendTo/presentation/mobileMoneyWallet/mmdetails.dart';
 
 class PaymentRequestedDetails extends StatefulWidget {
-  const PaymentRequestedDetails({super.key});
+  final String  senderName;
+  final double amount;
+  final String reason;
+  final String time;
+  const PaymentRequestedDetails({super.key, required this.senderName, required this.amount, required this.reason, required this.time});
 
   @override
   State<PaymentRequestedDetails> createState() => _PaymentRequestedDetailsState();
@@ -44,31 +49,31 @@ class _PaymentRequestedDetailsState extends State<PaymentRequestedDetails> {
                       const SizedBox(
                         height: 30,
                       ),
-                      const Center(
-                          child: Text("Split payment requested",
+                       Center(
+                          child: Text("Payment requested from ${widget.senderName}",
                               style: TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.bold))),
-                      const Center(
+                       Center(
                           child: Text(
-                              "Pay for drinks   15th June 2023    15:00pm",
+                              "29th 11 2023    ${widget.time}",
                               style:
                                   TextStyle(fontSize: 14, color: Colors.grey))),
                       const SizedBox(height: 40),
-                      const Center(
-                          child: Text("10,000 RWF",
+                      Center(
+                          child: Text("UGX ${widget.amount}",
                               style: TextStyle(
                                   fontSize: 35, fontWeight: FontWeight.bold))),
-                      const Center(
-                          child: Text("Divided among 4 people",
+                      Center(
+                          child: Text("${widget.reason}",
                               style:
                                   TextStyle(fontSize: 14, color: Colors.grey))),
                       const SizedBox(height: 40),
                       MainButton(text: "PAY", onpressed: (){
-                        // Navigator.push(
-                        //       context,
-                        //       MaterialPageRoute(
-                        //           builder: (context) =>
-                        //               const ChooseRequestPaymentMethod()));
+                        Navigator.push(
+                                context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const MobileMoneyDetails()));
                       })
                     ]),
               ),

@@ -3,10 +3,15 @@ import 'package:tai/commonWidgets/mainButton.dart';
 
 class RequestCard extends StatefulWidget {
   final String senderName;
+  final String senderImage;
   final String natureOfRequest;
   final VoidCallback onTap;
   const RequestCard(
-      {super.key, required this.natureOfRequest, required this.senderName, required this.onTap});
+      {super.key,
+      required this.natureOfRequest,
+      required this.senderImage,
+      required this.senderName,
+      required this.onTap});
 
   @override
   State<RequestCard> createState() => _RequestCardState();
@@ -26,7 +31,13 @@ class _RequestCardState extends State<RequestCard> {
           children: [
             Row(
               children: [
-                const CircleAvatar(),
+                CircleAvatar(
+                  radius: 23,
+                  backgroundImage: Image.asset(
+                    "assets/images/${widget.senderImage}",
+                    fit: BoxFit.cover,
+                  ).image,
+                ),
                 const SizedBox(
                   width: 14,
                 ),
@@ -39,14 +50,21 @@ class _RequestCardState extends State<RequestCard> {
                     const SizedBox(
                       height: 4,
                     ),
-                    Text(widget.natureOfRequest, style: const TextStyle(color: Colors.grey),)
+                    SizedBox(
+                      height: 20,
+                      width: 150,
+                      child: Text(
+                        widget.natureOfRequest,
+                        style: const TextStyle(color: Colors.grey, overflow: TextOverflow.ellipsis),
+                      ),
+                    )
                   ],
                 )
               ],
             ),
             SizedBox(
-              width: 110,
-              child: MainButton(text: "Pay", onpressed: widget.onTap))
+                width: 110,
+                child: MainButton(text: "Pay", onpressed: widget.onTap))
           ],
         ),
       ),

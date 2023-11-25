@@ -97,6 +97,8 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                                         itemBuilder: (context, index) {
                                           var data = snapshots.data!.docs[index]
                                               .data() as Map<String, dynamic>;
+
+                                         
                                           if (controller.text.isEmpty) {
                                             return InkWell(
                                               onTap: () {
@@ -109,36 +111,21 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                                                   receiverId = data["userId"];
                                                   receiverName =
                                                       data['username'];
-                                                  receiverImage = data['image'];
+                                                  receiverImage =
+                                                      data['image'];
                                                 });
                                               },
-                                              child: InkWell(
-                                                onTap: () {
-                                                  controller.text =
-                                                      data["username"];
-                                                  controller.closeView(
-                                                      data["username"]);
-
-                                                  setState(() {
-                                                    receiverId = data["userId"];
-                                                    receiverName =
-                                                        data['username'];
-                                                    receiverImage =
-                                                        data['image'];
-                                                  });
-                                                },
-                                                child: ListTile(
-                                                  leading: CircleAvatar(
-                                                    radius: 22,
-                                                    backgroundImage:
-                                                        Image.asset(
-                                                      "assets/images/${data['image']}",
-                                                      fit: BoxFit.cover,
-                                                    ).image,
-                                                  ),
-                                                  title: Text(data["username"]),
-                                                  subtitle: Text(data['email']),
+                                              child: ListTile(
+                                                leading: CircleAvatar(
+                                                  radius: 22,
+                                                  backgroundImage:
+                                                      Image.asset(
+                                                    "assets/images/${data['image']}",
+                                                    fit: BoxFit.cover,
+                                                  ).image,
                                                 ),
+                                                title: Text(data["username"]),
+                                                subtitle: Text(data['email']),
                                               ),
                                             );
                                           }
@@ -146,16 +133,32 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                                               .toString()
                                               .startsWith(controller.text
                                                   .toLowerCase())) {
-                                            return ListTile(
-                                              leading: CircleAvatar(
-                                                radius: 22,
-                                                backgroundImage: Image.asset(
-                                                  "assets/images/${data['image']}",
-                                                  fit: BoxFit.cover,
-                                                ).image,
+                                            return InkWell(
+                                               onTap: () {
+                                                controller.text =
+                                                    data["username"];
+                                                controller.closeView(
+                                                    data["username"]);
+
+                                                setState(() {
+                                                  receiverId = data["userId"];
+                                                  receiverName =
+                                                      data['username'];
+                                                  receiverImage =
+                                                      data['image'];
+                                                });
+                                              },
+                                              child: ListTile(
+                                                leading: CircleAvatar(
+                                                  radius: 22,
+                                                  backgroundImage: Image.asset(
+                                                    "assets/images/${data['image']}",
+                                                    fit: BoxFit.cover,
+                                                  ).image,
+                                                ),
+                                                title: Text(data["username"]),
+                                                subtitle: Text(data['email']),
                                               ),
-                                              title: Text(data["username"]),
-                                              subtitle: Text(data['email']),
                                             );
                                           }
                                           return Container();
