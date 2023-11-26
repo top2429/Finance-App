@@ -1,10 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tai/commonWidgets/customSnackBar.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField.dart';
 import 'package:tai/features/authentication/domain/userNotifier.dart';
 import 'package:tai/features/bottomNavBar/presentation/Requests/data/sendRequest.dart';
+import 'package:tai/features/bottomNavBar/presentation/navBar.dart';
 
 class SelectRecipient extends StatefulWidget {
   const SelectRecipient({super.key});
@@ -205,14 +207,14 @@ class _SelectRecipientState extends State<SelectRecipient> {
                       ),
                       MainButton(
                           text: "Request money",
-                          onpressed: () {
+                          onpressed: () async {
                             TimeOfDay timeNow = TimeOfDay.now();
 
                             if (_formKey.currentState!.validate()) {
                               // If the form is valid, display a snackbar. In the real world,
                               // you'd often call a server or save the information in a database.
                               // sendMoneyToUser();
-                              sendRequest(
+                             bool response = await sendRequest(
                                   userNotifier.user.userId!,
                                   userNotifier.user.username!,
                                   userNotifier.user.image!,
@@ -222,9 +224,16 @@ class _SelectRecipientState extends State<SelectRecipient> {
                                   double.parse(amountController.text),
                                   timeNow.format(context),
                                   reasonController.text);
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(content: Text('Requesting money')),
-                              );
+
+
+                                if(response){
+                                   CustomSnackBar.show(context,"Request sent", false);
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const NavBar()));
+                                }
+                             
                             }
                           })
                     ],
