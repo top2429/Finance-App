@@ -7,10 +7,12 @@ import 'package:flutterwave_standard/models/requests/customer.dart';
 import 'package:flutterwave_standard/models/requests/customizations.dart';
 import 'package:flutterwave_standard/models/responses/charge_response.dart';
 import 'package:provider/provider.dart';
+import 'package:tai/commonWidgets/customSnackBar.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField.dart';
 import 'package:tai/commonWidgets/textField_PlusSign.dart';
 import 'package:tai/features/authentication/domain/userNotifier.dart';
+import 'package:tai/features/bottomNavBar/presentation/navBar.dart';
 import 'package:tai/features/sendTo/data/sendMoneyToUser.dart';
 
 class DepositDetails extends StatefulWidget {
@@ -64,12 +66,21 @@ class _DepositDetailsState extends State<DepositDetails> {
     print(response);
 
     if (response.toJson()["status"] == "successful") {
-      updateTotalBalanceAmount(userId, amount);
+      bool value = await updateTotalBalanceAmount(userId, amount);
+      if (value) {
+        CustomSnackBar.show(context, "Deposit successful", false);
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => const NavBar()));
+      } else {
+        CustomSnackBar.show(context, "Error with deposit", true);
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => const NavBar()));
+      }
     }
   }
 
   /// Funtion to update the amount in the database to reflect your balance in the app
-  updateTotalBalanceAmount(String userId, String amount) async {
+  Future<bool> updateTotalBalanceAmount(String userId, String amount) async {
     var db = FirebaseFirestore.instance;
     double remainingBalance = await checkSenderBalance(userId);
     var query =
@@ -77,12 +88,19 @@ class _DepositDetailsState extends State<DepositDetails> {
 
     final dataQuery = query.docs;
 
-    dataQuery[0].reference.update({"totalBalance": double.parse(amount)+remainingBalance}).then(
-        (value){
-        var userNotifier =  Provider.of<UserNotifier>(context, listen:false);
-          userNotifier.updatePrice(double.parse(amount)+remainingBalance);
-          print("successfully updated the price in the database");},
-        onError: (e) => print("refused to update the price in the database"));
+    dataQuery[0]
+        .reference
+        .update({"totalBalance": double.parse(amount) + remainingBalance}).then(
+            (value) {
+      var userNotifier = Provider.of<UserNotifier>(context, listen: false);
+      userNotifier.updatePrice(double.parse(amount) + remainingBalance);
+      return true;
+      // CustomSnackBar.show(context, "Deposit successful", false);
+    }, onError: (e) {
+      return false;
+      // CustomSnackBar.show(context, "Error with deposit", true);
+    });
+    return true;
   }
 
   /// global keys for the forms on this screen

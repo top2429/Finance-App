@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tai/commonWidgets/customSnackBar.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField.dart';
 import 'package:tai/features/authentication/domain/userNotifier.dart';
+import 'package:tai/features/bottomNavBar/presentation/navBar.dart';
 import 'package:tai/features/sendTo/data/sendMoneyToUser.dart';
 
 class MobileMoneyDetails extends StatefulWidget {
@@ -64,10 +66,12 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                     viewHeaderTextStyle:
                         const TextStyle(color: Colors.black, fontSize: 17),
                     barHintStyle: MaterialStateProperty.resolveWith(
-                      (states) => const TextStyle(color: Colors.black, fontSize: 17),
+                      (states) =>
+                          const TextStyle(color: Colors.black, fontSize: 17),
                     ),
                     barTextStyle: MaterialStateProperty.resolveWith(
-                      (states) => const TextStyle(color: Colors.black, fontSize: 17),
+                      (states) =>
+                          const TextStyle(color: Colors.black, fontSize: 17),
                     ),
                     searchController: controller,
                     isFullScreen: false,
@@ -98,7 +102,6 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                                           var data = snapshots.data!.docs[index]
                                               .data() as Map<String, dynamic>;
 
-                                         
                                           if (controller.text.isEmpty) {
                                             return InkWell(
                                               onTap: () {
@@ -111,15 +114,13 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                                                   receiverId = data["userId"];
                                                   receiverName =
                                                       data['username'];
-                                                  receiverImage =
-                                                      data['image'];
+                                                  receiverImage = data['image'];
                                                 });
                                               },
                                               child: ListTile(
                                                 leading: CircleAvatar(
                                                   radius: 22,
-                                                  backgroundImage:
-                                                      Image.asset(
+                                                  backgroundImage: Image.asset(
                                                     "assets/images/${data['image']}",
                                                     fit: BoxFit.cover,
                                                   ).image,
@@ -134,7 +135,7 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                                               .startsWith(controller.text
                                                   .toLowerCase())) {
                                             return InkWell(
-                                               onTap: () {
+                                              onTap: () {
                                                 controller.text =
                                                     data["username"];
                                                 controller.closeView(
@@ -144,8 +145,7 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                                                   receiverId = data["userId"];
                                                   receiverName =
                                                       data['username'];
-                                                  receiverImage =
-                                                      data['image'];
+                                                  receiverImage = data['image'];
                                                 });
                                               },
                                               child: ListTile(
@@ -206,12 +206,12 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                       ),
                       MainButton(
                           text: "Send money",
-                          onpressed: () {
+                          onpressed: () async {
                             if (_formKey.currentState!.validate()) {
                               // If the form is valid, display a snackbar. In the real world,
                               // you'd often call a server or save the information in a database.
                               // sendMoneyToUser();
-                              sendMoneyToUser(
+                              String response = await sendMoneyToUser(
                                   userNotifier.user.userId!,
                                   userNotifier.user.username!,
                                   userNotifier.user.image!,
@@ -220,9 +220,16 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                                   receiverImage,
                                   double.parse(amountController.text),
                                   context);
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(content: Text('Sending money')),
-                              );
+
+                              if (response == "Money sent successfully") {
+                                CustomSnackBar.show(context, response, false);
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const NavBar()));
+                              } else {
+                                CustomSnackBar.show(context, response, true);
+                              }
                             }
                           })
                     ],

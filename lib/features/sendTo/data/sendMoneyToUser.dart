@@ -20,12 +20,12 @@ Future<String> sendMoneyToUser(String senderId, String senderName, String sender
       if (response == "success") {
         TimeOfDay timeNow = TimeOfDay.now();
         addToTransactions(senderId, senderName,senderImage,receiverId, receiverName,receiverImage,amount, timeNow.format(context));
-        return "money sent successfully";
+        return "Money sent successfully";
       } else {
-        return "error sending 1";
+        return "error sending";
       }
     } else {
-      return "error sending 2";
+      return "error sending";
     }
   } else {
     return "You have insufficient balance to make this transaction";
@@ -33,6 +33,7 @@ Future<String> sendMoneyToUser(String senderId, String senderName, String sender
 }
 
 Future<double> checkSenderBalance(String senderId) async {
+  
   var query =
       await db.collection("users").where("userId", isEqualTo: senderId).get();
 
