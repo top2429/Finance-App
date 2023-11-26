@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:tai/commonWidgets/customSnackBar.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField.dart';
 import 'package:tai/features/authentication/data/profilePictureGenerate.dart';
@@ -27,40 +28,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
   void register() async {
     String image = chooseRandomPicture();
     try {
-     final userCredential = await FirebaseAuth.instance
+      final userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(
               email: emailController.text.trim(),
               password: passwordController.text.trim());
-        User? user = userCredential.user;
-        await FirebaseFirestore.instance.collection('users').add(UserModel(
-                user!.uid,
-                userNameController.text.trim(),
-                user.email,
-                "",
-                0.0,
-                image)
-            .toJson());
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const LoginScreen()));
-      
+      User? user = userCredential.user;
+      await FirebaseFirestore.instance.collection('users').add(UserModel(
+              user!.uid,
+              userNameController.text.trim(),
+              user.email,
+              "",
+              0.0,
+              image)
+          .toJson());
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const LoginScreen()));
     } on FirebaseAuthException catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          behavior: SnackBarBehavior.floating,
-          content: Row(
-            children: [
-              Icon(
-                Icons.cancel,
-                color: Colors.red,
-              ),
-              SizedBox(
-                width: 20,
-              ),
-              Text(e.code),
-            ],
-          ),
-        ),
-      );
+      CustomSnackBar.show(context, e.code, true);
     }
   }
 

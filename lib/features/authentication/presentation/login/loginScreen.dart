@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tai/commonWidgets/customSnackBar.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField.dart';
 import 'package:tai/features/authentication/data/getUserInfo.dart';
@@ -41,18 +42,19 @@ class _LoginScreenState extends State<LoginScreen> {
       }
       
     } on FirebaseAuthException catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          behavior: SnackBarBehavior.floating,
-          content: Row(
-            children: [
-              Icon(Icons.cancel, color: Colors.red,),
-              SizedBox(width: 20,),
-              Text(e.code),
-            ],
-          ),
-        ),
-      );
+      CustomSnackBar.show(context, e.code, true);
+      // ScaffoldMessenger.of(context).showSnackBar(
+      //   SnackBar(
+      //     behavior: SnackBarBehavior.floating,
+      //     content: Row(
+      //       children: [
+      //         Icon(Icons.cancel, color: Colors.red,),
+      //         SizedBox(width: 20,),
+      //         Text(e.code),
+      //       ],
+      //     ),
+      //   ),
+      // );
     }
   }
 
