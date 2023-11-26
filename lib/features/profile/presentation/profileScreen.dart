@@ -1,24 +1,40 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField_icon.dart';
+import 'package:tai/features/authentication/presentation/signUp/signUpScreen.dart';
 import 'package:tai/features/profile/presentation/editProfileScreen.dart';
 
+import '../../authentication/domain/userNotifier.dart';
 
 class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({super.key});
+  final String username;
+  final String email;
+  final String image;
+  const ProfileScreen(
+      {super.key,
+      required this.username,
+      required this.email,
+      required this.image});
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  final TextEditingController username =
-      TextEditingController(text: "Jerry Syre");
-  final TextEditingController email =
-      TextEditingController(text: "jerrysyre@gmail.com");
-  final TextEditingController phoneNumber =
-      TextEditingController(text: "05674556454");
+  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController phoneNumberController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    usernameController.text = widget.username;
+    emailController.text = widget.email;
+    phoneNumberController.text = "--";
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,13 +67,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         body: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20,bottom: 70),
+            padding: const EdgeInsets.only(left: 20, right: 20, bottom: 70),
             child: Column(
               children: [
                 const SizedBox(
                   height: 30,
                 ),
-                const CircleAvatar(radius: 50,),
+                CircleAvatar(
+                  radius: 50,
+                  backgroundImage: Image.asset(
+                    "assets/images/${widget.image}",
+                    fit: BoxFit.cover,
+                  ).image,
+                ),
                 const SizedBox(
                   height: 10,
                 ),
@@ -73,7 +95,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         },
                         enabled: false,
                         hasICon: false,
-                        controller: username,
+                        controller: usernameController,
                         label: "Username",
                       ),
                       const SizedBox(
@@ -83,7 +105,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         onChanged: (value) {},
                         enabled: false,
                         hasICon: false,
-                        controller: email,
+                        controller: emailController,
                         label: "Email",
                       ),
                       const SizedBox(
@@ -96,7 +118,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         onChanged: (value) {},
                         enabled: false,
                         hasICon: false,
-                        controller: phoneNumber,
+                        controller: phoneNumberController,
                         label: "Mobile Number",
                         borderSideColor: Colors.transparent,
                         keyBoardType: TextInputType.number,
@@ -104,16 +126,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ],
                   )),
                 ),
-                const SizedBox(height: 110,),
-              MainButton(text: "Logout", onpressed: (){
+                const SizedBox(
+                  height: 110,
+                ),
+                MainButton(
+                    text: "Logout",
+                    onpressed: () async {
+                      await FirebaseAuth.instance.signOut();
 
-              }),
-              const SizedBox(height: 30,),
-              MainButton(
-                red: true,
-                text: "Delete account", onpressed: (){
-
-              }),
+                      Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute(builder: (context) => SignUpScreen()),
+                        (Route<dynamic> route) =>
+                            false, // Remove all routes from the stack
+                      );
+                    }),
+                const SizedBox(
+                  height: 30,
+                ),
+                MainButton(red: true, text: "Delete account", onpressed: () {}),
               ],
             ),
           ),

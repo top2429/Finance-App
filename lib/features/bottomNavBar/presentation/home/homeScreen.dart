@@ -40,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        const ProfileScreen()));
+                                         ProfileScreen(username: userNotifier.user.username!,email: userNotifier.user.email!,image: userNotifier.user.image!,)));
                           },
                           child: CircleAvatar(
                             radius: 30,
