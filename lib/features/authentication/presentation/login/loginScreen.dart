@@ -28,33 +28,32 @@ class _LoginScreenState extends State<LoginScreen> {
   final _formKeyEmail = GlobalKey<FormState>();
 
   void signin() async {
-    FirebaseAuth.instance
-        .signInWithEmailAndPassword(
-            email: emailController.text.trim(), password: passwordController.text.trim())
-        .then((value) async {
-        final user =  Provider.of<UserNotifier>(context, listen: false); 
+    try {
+    final userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailController.text.trim(),
+          password: passwordController.text.trim());
+
+      final user = Provider.of<UserNotifier>(context, listen: false);
       bool doneGettingUser = await getUser(user);
-      if (doneGettingUser){
+      if (doneGettingUser) {
         Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const NavBar()));
+            context, MaterialPageRoute(builder: (context) => const NavBar()));
       }
-    }).onError(
-      (error, stackTrace) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            behavior: SnackBarBehavior.floating,
-            content: Container(
-              padding: const EdgeInsets.all(16.0),
-              height: 80.0,
-              decoration: const BoxDecoration(
-                  color: Color(0xFFC72C41),
-                  borderRadius: BorderRadius.all(Radius.circular(30))),
-              child: const Text("Wrong Credentials !"),
-            ),
+      
+    } on FirebaseAuthException catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
+          content: Row(
+            children: [
+              Icon(Icons.cancel, color: Colors.red,),
+              SizedBox(width: 20,),
+              Text(e.code),
+            ],
           ),
-        );
-      },
-    );
+        ),
+      );
+    }
   }
 
   @override
@@ -167,7 +166,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                   ),
                                   const Spacer(),
-                                  
                                 ],
                               ),
                             ),
@@ -209,12 +207,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                       lightBlue: true,
                                       text: "Continue",
                                       onpressed: () {
-
                                         if (_formKeyEmail.currentState!
                                             .validate()) {
                                           // If the form is valid, display a snackbar. In the real world,
                                           // you'd often call a server or save the information in a database.
-                                                                                  signin();
+                                          signin();
 
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(

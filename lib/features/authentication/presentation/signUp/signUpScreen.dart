@@ -26,30 +26,42 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   void register() async {
     String image = chooseRandomPicture();
-    FirebaseAuth.instance
-        .createUserWithEmailAndPassword(
-            email: emailController.text.trim(),
-            password: passwordController.text.trim())
-        .then((value) async {
-      User? user = value.user;
-      await FirebaseFirestore.instance
-          .collection('users')
-          .add(UserModel(user!.uid, userNameController.text.trim(), user.email, "", 0.0, image).toJson());
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const LoginScreen()));
-    }).onError((error, stackTrace) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        behavior: SnackBarBehavior.floating,
-        content: Container(
-          padding: const EdgeInsets.all(16.0),
-          height: 80.0,
-          decoration: const BoxDecoration(
-              color: Color(0xFFC72C41),
-              borderRadius: BorderRadius.all(Radius.circular(30))),
-          child: const Text("Wrong Credentials !"),
+    try {
+     final userCredential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+              email: emailController.text.trim(),
+              password: passwordController.text.trim());
+        User? user = userCredential.user;
+        await FirebaseFirestore.instance.collection('users').add(UserModel(
+                user!.uid,
+                userNameController.text.trim(),
+                user.email,
+                "",
+                0.0,
+                image)
+            .toJson());
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const LoginScreen()));
+      
+    } on FirebaseAuthException catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
+          content: Row(
+            children: [
+              Icon(
+                Icons.cancel,
+                color: Colors.red,
+              ),
+              SizedBox(
+                width: 20,
+              ),
+              Text(e.code),
+            ],
+          ),
         ),
-      ));
-    });
+      );
+    }
   }
 
   @override
@@ -217,12 +229,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               // you'd often call a server or save the information in a database.
                               register();
 
-                              ScaffoldMessenger.of(context)
-                                              .showSnackBar(
-                                            const SnackBar(
-                                                content:
-                                                    Text('Processing Data')),
-                                          );
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                    content: Text('Processing Data')),
+                              );
                             }
                           })
                     ],
