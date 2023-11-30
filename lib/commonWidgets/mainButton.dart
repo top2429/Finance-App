@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MainButton extends StatefulWidget {
@@ -6,9 +7,11 @@ class MainButton extends StatefulWidget {
   final bool disabled;
   final bool lightBlue;
   final bool red;
+  final bool indicator;
   const MainButton(
       {super.key,
       required this.text,
+      this.indicator = false,
       required this.onpressed,
       this.disabled = false,
       this.lightBlue = false,
@@ -31,17 +34,27 @@ class _MainButtonState extends State<MainButton> {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
                 color: widget.disabled
-                    ? theme.disabledColor
+                    ? Colors.black
                     : widget.lightBlue
                         ? const Color.fromARGB(255, 7, 14, 39)
-                        : widget.red?const Color.fromARGB(255, 252, 82, 70): theme.primaryColor),
+                        : widget.red
+                            ? const Color.fromARGB(255, 252, 82, 70)
+                            : theme.primaryColor),
             width: 343,
             height: 45,
-            child: Center(
-                child: Text(
-              widget.text,
-              style: theme.textTheme.labelLarge,
-            ))),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Center(
+                  child: widget.indicator
+                      ? const CupertinoActivityIndicator(
+                        // strokeWidth: 3,
+                        color: Colors.white,
+                      )
+                      : Text(
+                          widget.text,
+                          style: theme.textTheme.labelLarge,
+                        )),
+            )),
       ),
     );
   }
