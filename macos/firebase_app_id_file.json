@@ -1,7 +1,7 @@
 {
   "file_generated_by": "FlutterFire CLI",
   "purpose": "FirebaseAppID & ProjectID for this Firebase app in this directory",
-  "GOOGLE_APP_ID": "1:267240529254:ios:c0126b5e6269d2f1323ca7",
-  "FIREBASE_PROJECT_ID": "salon-app-b4afc",
-  "GCM_SENDER_ID": "267240529254"
+  "GOOGLE_APP_ID": "1:562333502674:ios:cbc99ad6f25933af50710b",
+  "FIREBASE_PROJECT_ID": "mobilepaymenttool",
+  "GCM_SENDER_ID": "562333502674"
 }
