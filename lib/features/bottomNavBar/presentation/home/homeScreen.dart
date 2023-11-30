@@ -193,11 +193,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     )),
                 const SizedBox(
-                  height: 25,
+                  height: 30,
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+               
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

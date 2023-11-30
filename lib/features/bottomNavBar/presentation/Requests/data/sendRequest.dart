@@ -15,6 +15,10 @@ Future<bool> sendRequest(
 
   RequestsModel requestsModel = RequestsModel(senderId, senderName, senderImage,
       receiverId, receiverName, receiverImage, amount, time, reason);
-  await db.collection("requests").add(requestsModel.toJson());
-  return true;
+  try {
+    await db.collection("requests").add(requestsModel.toJson());
+    return true;
+  } catch (e) {
+    return false;
+  }
 }

@@ -26,7 +26,7 @@ class _MainButtonState extends State<MainButton> {
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     return InkWell(
-      onTap: widget.onpressed,
+      onTap: widget.disabled ? null : widget.onpressed,
       child: Material(
         borderRadius: BorderRadius.circular(30),
         elevation: 0,
@@ -47,9 +47,9 @@ class _MainButtonState extends State<MainButton> {
               child: Center(
                   child: widget.indicator
                       ? const CupertinoActivityIndicator(
-                        // strokeWidth: 3,
-                        color: Colors.white,
-                      )
+                          // strokeWidth: 3,
+                          color: Colors.white,
+                        )
                       : Text(
                           widget.text,
                           style: theme.textTheme.labelLarge,

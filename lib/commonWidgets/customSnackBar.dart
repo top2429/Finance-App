@@ -19,7 +19,9 @@ class CustomSnackBar {
             children: [
              error? Icon(Icons.cancel, color: Colors.red,):Icon(Icons.done, color: Colors.green),
               SizedBox(width: 20,),
-              Text(message),
+              SizedBox(
+                width: 240,
+                child: Text(message, style: TextStyle(overflow: TextOverflow.ellipsis),)),
             ],
           ),
        

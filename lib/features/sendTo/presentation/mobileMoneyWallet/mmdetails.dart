@@ -50,6 +50,9 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                 // If the form is valid, display a snackbar. In the real world,
                 // you'd often call a server or save the information in a database.
                 // sendMoneyToUser();
+                 if (receiverId.isEmpty) {
+                  CustomSnackBar.show(context, "Select recipient", true);
+                } else {
                 setState(() {
                   buttonActive = false;
                 });
@@ -69,8 +72,11 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                       MaterialPageRoute(builder: (context) => const NavBar()));
                 } else {
                   CustomSnackBar.show(context, response, true);
+                  setState(() {
+                    buttonActive = true;
+                  });
                 }
-              }
+              }}
             }),
       ),
       appBar: AppBar(
@@ -105,7 +111,7 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                         left: 10, right: 10, bottom: 10, top: 10),
                     child: Column(
                       children: [
-                        Text("There is a 1% charge for every transaction"),
+                        Text("There is a 1% charge for every transaction", style: TextStyle(overflow: TextOverflow.ellipsis)),
                         SizedBox(
                           height: 30,
                         ),
@@ -132,7 +138,7 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                             barBackgroundColor: MaterialStateColor.resolveWith(
                                 (states) =>
                                     const Color.fromARGB(255, 255, 255, 255)),
-                            barHintText: "Search user",
+                            barHintText: "Search for recipient",
                             suggestionsBuilder: (context, controller) {
                               return [
                                 SizedBox(
