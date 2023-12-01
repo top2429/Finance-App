@@ -50,33 +50,36 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                 // If the form is valid, display a snackbar. In the real world,
                 // you'd often call a server or save the information in a database.
                 // sendMoneyToUser();
-                 if (receiverId.isEmpty) {
+                if (receiverId.isEmpty) {
                   CustomSnackBar.show(context, "Select recipient", true);
                 } else {
-                setState(() {
-                  buttonActive = false;
-                });
-                String response = await sendMoneyToUser(
-                    userNotifier.user.userId!,
-                    userNotifier.user.username!,
-                    userNotifier.user.image!,
-                    receiverId,
-                    receiverName,
-                    receiverImage,
-                    double.parse(amountController.text),
-                    context);
-
-                if (response == "Money sent successfully") {
-                  CustomSnackBar.show(context, response, false);
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const NavBar()));
-                } else {
-                  CustomSnackBar.show(context, response, true);
                   setState(() {
-                    buttonActive = true;
+                    buttonActive = false;
                   });
+                  String response = await sendMoneyToUser(
+                      userNotifier.user.userId!,
+                      userNotifier.user.username!,
+                      userNotifier.user.image!,
+                      receiverId,
+                      receiverName,
+                      receiverImage,
+                      double.parse(amountController.text),
+                      context);
+
+                  if (response == "Money sent successfully") {
+                    CustomSnackBar.show(context, response, false);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const NavBar()));
+                  } else {
+                    CustomSnackBar.show(context, response, true);
+                    setState(() {
+                      buttonActive = true;
+                    });
+                  }
                 }
-              }}
+              }
             }),
       ),
       appBar: AppBar(
@@ -111,7 +114,8 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                         left: 10, right: 10, bottom: 10, top: 10),
                     child: Column(
                       children: [
-                        Text("There is a 1% charge for every transaction", style: TextStyle(overflow: TextOverflow.ellipsis)),
+                        Text("There is a 1% charge for every transaction",
+                            style: TextStyle(overflow: TextOverflow.ellipsis)),
                         SizedBox(
                           height: 30,
                         ),
@@ -280,39 +284,6 @@ class _MobileMoneyDetailsState extends State<MobileMoneyDetails> {
                       const SizedBox(
                         height: 300,
                       ),
-                      // MainButton(
-                      //     indicator: buttonActive ? false : true,
-                      //     disabled: buttonActive ? false : true,
-                      //     text: "Send money",
-                      //     onpressed: () async {
-                      //       if (_formKey.currentState!.validate()) {
-                      //         // If the form is valid, display a snackbar. In the real world,
-                      //         // you'd often call a server or save the information in a database.
-                      //         // sendMoneyToUser();
-                      //         setState(() {
-                      //           buttonActive = false;
-                      //         });
-                      //         String response = await sendMoneyToUser(
-                      //             userNotifier.user.userId!,
-                      //             userNotifier.user.username!,
-                      //             userNotifier.user.image!,
-                      //             receiverId,
-                      //             receiverName,
-                      //             receiverImage,
-                      //             double.parse(amountController.text),
-                      //             context);
-
-                      //         if (response == "Money sent successfully") {
-                      //           CustomSnackBar.show(context, response, false);
-                      //           Navigator.push(
-                      //               context,
-                      //               MaterialPageRoute(
-                      //                   builder: (context) => const NavBar()));
-                      //         } else {
-                      //           CustomSnackBar.show(context, response, true);
-                      //         }
-                      //       }
-                      //     })
                     ],
                   ),
                 ),

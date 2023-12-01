@@ -288,36 +288,7 @@ class _SelectRecipientState extends State<SelectRecipient> {
                       const SizedBox(
                         height: 300,
                       ),
-                      // MainButton(
-                      //     text: "Request money",
-                      //     onpressed: () async {
-                      //       TimeOfDay timeNow = TimeOfDay.now();
-
-                      //       if (_formKey.currentState!.validate()) {
-                      //         // If the form is valid, display a snackbar. In the real world,
-                      //         // you'd often call a server or save the information in a database.
-                      //         // sendMoneyToUser();
-                      //        bool response = await sendRequest(
-                      //             userNotifier.user.userId!,
-                      //             userNotifier.user.username!,
-                      //             userNotifier.user.image!,
-                      //             receiverId,
-                      //             receiverName,
-                      //             receiverImage,
-                      //             double.parse(amountController.text),
-                      //             timeNow.format(context),
-                      //             reasonController.text);
-
-                      //           if(response){
-                      //              CustomSnackBar.show(context,"Request sent", false);
-                      //           Navigator.push(
-                      //               context,
-                      //               MaterialPageRoute(
-                      //                   builder: (context) => const NavBar()));
-                      //           }
-
-                      //       }
-                      //     })
+                     
                     ],
                   ),
                 ),

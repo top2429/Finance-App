@@ -62,7 +62,6 @@ class _DepositDetailsState extends State<DepositDetails> {
         isTestMode: true);
 
     ChargeResponse response = await flutterwave.charge();
-    print("yeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
     print(response);
 
     if (response.toJson()["status"] == "successful") {
@@ -82,25 +81,32 @@ class _DepositDetailsState extends State<DepositDetails> {
   /// Funtion to update the amount in the database to reflect your balance in the app
   Future<bool> updateTotalBalanceAmount(String userId, String amount) async {
     var db = FirebaseFirestore.instance;
-    double remainingBalance = await checkSenderBalance(userId);
-    var query =
-        await db.collection("users").where("userId", isEqualTo: userId).get();
 
-    final dataQuery = query.docs;
+    try {
+      double remainingBalance = await checkSenderBalance(userId);
+      var query =
+          await db.collection("users").where("userId", isEqualTo: userId).get();
 
-    dataQuery[0]
-        .reference
-        .update({"totalBalance": double.parse(amount) + remainingBalance}).then(
-            (value) {
-      var userNotifier = Provider.of<UserNotifier>(context, listen: false);
-      userNotifier.updatePrice(double.parse(amount) + remainingBalance);
-      return true;
-      // CustomSnackBar.show(context, "Deposit successful", false);
-    }, onError: (e) {
+      final dataQuery = query.docs;
+
+      bool result = await dataQuery[0].reference.update({
+        "totalBalance": double.parse(amount) + remainingBalance
+      }).then((value) {
+        var userNotifier = Provider.of<UserNotifier>(context, listen: false);
+        userNotifier.updatePrice(double.parse(amount) + remainingBalance);
+        return true; //this return is for the result variable
+      }, onError: (e) {
+        return false;//this return is for the result variable
+      });
+
+      if(result){
+        return true; // just a test
+      }else{
+        return false;
+      }
+    } catch (e) {
       return false;
-      // CustomSnackBar.show(context, "Error with deposit", true);
-    });
-    return true;
+    }
   }
 
   /// global keys for the forms on this screen
@@ -115,10 +121,37 @@ class _DepositDetailsState extends State<DepositDetails> {
   final reason = TextEditingController();
   final phoneNumber = TextEditingController();
 
+  bool buttonActive = true;
+
   @override
   Widget build(BuildContext context) {
     UserNotifier userInfo = Provider.of<UserNotifier>(context, listen: true);
     return Scaffold(
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(right: 20, bottom: 20, left: 20),
+        child: MainButton(
+            indicator: buttonActive ? false : true,
+            disabled: buttonActive ? false : true,
+            text: "Continue",
+            onpressed: () {
+              if (_formKey.currentState!.validate() &&
+                  _formKeyAmount.currentState!.validate()) {
+                // If the form is valid, display a snackbar. In the real world,
+                // you'd often call a server or save the information in a database.
+                setState(() {
+                  buttonActive = false;
+                });
+                String txRef = generateRandomString();
+                handlePaymentInitialization(
+                    userInfo.user.userId!,
+                    userInfo.user.username!,
+                    phoneNumber.text,
+                    userInfo.user.email!,
+                    amount.text,
+                    txRef);
+              }
+            }),
+      ),
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
@@ -393,24 +426,24 @@ class _DepositDetailsState extends State<DepositDetails> {
                       const SizedBox(
                         height: 350,
                       ),
-                      MainButton(
-                          text: "Continue",
-                          onpressed: () {
-                            if (_formKey.currentState!.validate() &&
-                                _formKeyAmount.currentState!.validate()) {
-                              // If the form is valid, display a snackbar. In the real world,
-                              // you'd often call a server or save the information in a database.
+                      // MainButton(
+                      //     text: "Continue",
+                      //     onpressed: () {
+                      //       if (_formKey.currentState!.validate() &&
+                      //           _formKeyAmount.currentState!.validate()) {
+                      //         // If the form is valid, display a snackbar. In the real world,
+                      //         // you'd often call a server or save the information in a database.
 
-                              String txRef = generateRandomString();
-                              handlePaymentInitialization(
-                                  userInfo.user.userId!,
-                                  userInfo.user.username!,
-                                  phoneNumber.text,
-                                  userInfo.user.email!,
-                                  amount.text,
-                                  txRef);
-                            }
-                          })
+                      //         String txRef = generateRandomString();
+                      //         handlePaymentInitialization(
+                      //             userInfo.user.userId!,
+                      //             userInfo.user.username!,
+                      //             phoneNumber.text,
+                      //             userInfo.user.email!,
+                      //             amount.text,
+                      //             txRef);
+                      //       }
+                      //     })
                     ],
                   ),
                 ),

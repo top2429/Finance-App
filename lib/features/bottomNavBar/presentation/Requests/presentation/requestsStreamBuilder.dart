@@ -41,26 +41,26 @@ class _RequestsStreamBuilderState extends State<RequestsStreamBuilder> {
                     /* here you can create the transactions object with .fromMap
                     and access the properties below from the object */
                     String receiverId = data['receiverId'];
-                    String senderId = data['senderId'];
                     String senderName = data['senderName'];
                     String reason = data['reason'];
                     String senderImage = data['senderImage'];
-                    String receiverName = data['receiverName'];
-                    String receiverImage = data['receiverImage'];
                     print(data);
 
                     if (userNotifier.user.userId == receiverId) {
                       print("i am the receiver and i am getting this 77777777");
-                      return RequestCard(
-                          natureOfRequest: reason,
-                          senderImage: senderImage,
-                          senderName: senderName,
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => PaymentRequestedDetails(senderName: senderName,amount: data['amount'],reason: reason,time: data['time'],)));
-                          });
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 10),
+                        child: RequestCard(
+                            natureOfRequest: reason,
+                            senderImage: senderImage,
+                            senderName: senderName,
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => PaymentRequestedDetails(senderName: senderName,amount: data['amount'],reason: reason,time: data['time'],)));
+                            }),
+                      );
                     }
                     print("i am reaching here and no one is seeing me 8888888");
 
