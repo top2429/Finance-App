@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tai/features/authentication/domain/userNotifier.dart';
+import 'package:tai/features/authentication/presentation/login/loginScreen.dart';
 import 'package:tai/features/authentication/presentation/signUp/signUpScreen.dart';
 import 'package:tai/firebase_options.dart';
 
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
             debugShowCheckedModeBanner: false,
 
-      home: const SignUpScreen(),
+      home: const LoginScreen(),
     );
   }
 }

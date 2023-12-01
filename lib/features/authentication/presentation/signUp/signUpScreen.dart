@@ -19,6 +19,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final userNameController = TextEditingController();
+  final phoneNumberController = TextEditingController();
+
+  bool buttonActive = true;
 
   //  global key for the form on this screen
   final _formKey = GlobalKey<FormState>();
@@ -37,7 +40,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               user!.uid,
               userNameController.text.trim(),
               user.email,
-              "",
+              phoneNumberController.text.trim(),
               0.0,
               image)
           .toJson());
@@ -45,6 +48,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
           MaterialPageRoute(builder: (context) => const LoginScreen()));
     } on FirebaseAuthException catch (e) {
       CustomSnackBar.show(context, e.code, true);
+      setState(() {
+        buttonActive = true;
+      });
     }
   }
 
@@ -52,21 +58,39 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color.fromARGB(154, 0, 0, 0),
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.black,
-          leading: IconButton(
-              color: Colors.white,
-              onPressed: () => Navigator.pop(context),
-              icon: const Icon(Icons.arrow_back)),
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.only(bottom: 20, left: 20, right: 20),
+          child: MainButton(
+             indicator: buttonActive ? false : true,
+            disabled: buttonActive ? false : true,
+              //disabled: buttonIsDisabled,
+              lightBlue: true,
+              text: "Sign Up",
+              onpressed: () {
+                if (_formKey.currentState!.validate()) {
+                  // If the form is valid, display a snackbar. In the real world,
+                  // you'd often call a server or save the information in a database.
+
+                  setState(() {
+                    buttonActive = false;
+                  });
+                  register();
+
+                  
+                }
+              }),
         ),
+        backgroundColor: const Color.fromARGB(154, 0, 0, 0),
         body: Padding(
           padding: const EdgeInsets.only(left: 20, right: 20),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                SizedBox(
+                  height: 30,
+                ),
+
                 const Text(
                   "Let's get started!",
                   style: TextStyle(
@@ -79,7 +103,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 const Text(
                   "Create a short username(max 10 characters)",
-                  style: TextStyle(fontSize: 10, color: Colors.white),
+                  style: TextStyle(fontSize: 12, color: Colors.white),
                 ),
                 const SizedBox(
                   height: 40,
@@ -144,6 +168,32 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           if (_formKey.currentState!.validate()) {
                             // If the form is valid, display a snackbar. In the real world,
                             // you'd often call a server or save the information in a database.
+                            setState(() {
+                              buttonIsDisabled = false;
+                            });
+                          } else {
+                            setState(() {
+                              buttonIsDisabled = true;
+                            });
+                          }
+                        },
+                        controller: phoneNumberController,
+                        label: "Phone number",
+                        labelColor: Colors.white,
+                        backgroundColor: const Color.fromARGB(255, 80, 80, 80),
+                        borderSideColor: Colors.transparent,
+                        keyBoardType: TextInputType.number,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      TextFieldWidget(
+                        obscureText: true,
+                        authText: true,
+                        onChanged: (p0) {
+                          if (_formKey.currentState!.validate()) {
+                            // If the form is valid, display a snackbar. In the real world,
+                            // you'd often call a server or save the information in a database.
 
                             setState(() {
                               buttonIsDisabled = false;
@@ -170,7 +220,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   children: [
                     const Text(
                       "Already have an account?",
-                      style: TextStyle(fontSize: 15, color: Colors.blue),
+                      style: TextStyle(
+                          fontSize: 15,
+                          color: Color.fromARGB(255, 23, 109, 179)),
                     ),
                     const SizedBox(
                       width: 5,
@@ -203,22 +255,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       const SizedBox(
                         height: 14,
                       ),
-                      MainButton(
-                          //disabled: buttonIsDisabled,
-                          lightBlue: true,
-                          text: "Sign Up",
-                          onpressed: () {
-                            if (_formKey.currentState!.validate()) {
-                              // If the form is valid, display a snackbar. In the real world,
-                              // you'd often call a server or save the information in a database.
-                              register();
+                      // MainButton(
+                      //     //disabled: buttonIsDisabled,
+                      //     lightBlue: true,
+                      //     text: "Sign Up",
+                      //     onpressed: () {
+                      //       if (_formKey.currentState!.validate()) {
+                      //         // If the form is valid, display a snackbar. In the real world,
+                      //         // you'd often call a server or save the information in a database.
+                      //         register();
 
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                    content: Text('Processing Data')),
-                              );
-                            }
-                          })
+                      //         ScaffoldMessenger.of(context).showSnackBar(
+                      //           const SnackBar(
+                      //               content: Text('Processing Data')),
+                      //         );
+                      //       }
+                      //     })
                     ],
                   ),
                 ),
