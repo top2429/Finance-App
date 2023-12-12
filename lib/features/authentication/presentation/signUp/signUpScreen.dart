@@ -1,21 +1,23 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:provider/provider.dart';
 import 'package:tai/commonWidgets/customSnackBar.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField.dart';
-import 'package:tai/features/authentication/data/profilePictureGenerate.dart';
+import 'package:tai/features/authentication/data/auth_repository.dart';
 import 'package:tai/features/authentication/domain/userModel.dart';
 import 'package:tai/features/authentication/presentation/login/loginScreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class SignUpScreen extends StatefulWidget {
+class SignUpScreen extends ConsumerStatefulWidget {
   const SignUpScreen({super.key});
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  ConsumerState<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class _SignUpScreenState extends ConsumerState<SignUpScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final userNameController = TextEditingController();
@@ -28,45 +30,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   bool buttonIsDisabled = true;
 
-  void register() async {
-    String image = chooseRandomPicture();
-    try {
-      final userCredential = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(
-              email: emailController.text.trim(),
-              password: passwordController.text.trim());
-      User? user = userCredential.user;
-      await FirebaseFirestore.instance.collection('users').add(UserModel(
-              user!.uid,
-              userNameController.text.trim(),
-              user.email,
-              phoneNumberController.text.trim(),
-              0.0,
-              image)
-          .toJson());
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const LoginScreen()));
-    } on FirebaseAuthException catch (e) {
-      CustomSnackBar.show(context, e.code, true);
-      setState(() {
-        buttonActive = true;
-      });
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
+    final value = ref.read(authRepositoryProvider);
     return SafeArea(
       child: Scaffold(
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.only(bottom: 20, left: 20, right: 20),
           child: MainButton(
-             indicator: buttonActive ? false : true,
-            disabled: buttonActive ? false : true,
+              indicator: buttonActive ? false : true,
+              disabled: buttonActive ? false : true,
               //disabled: buttonIsDisabled,
               lightBlue: true,
               text: "Sign Up",
-              onpressed: () {
+              onpressed: () async {
                 if (_formKey.currentState!.validate()) {
                   // If the form is valid, display a snackbar. In the real world,
                   // you'd often call a server or save the information in a database.
@@ -74,9 +51,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   setState(() {
                     buttonActive = false;
                   });
-                  register();
-
-                  
+                  String response = await value.register(
+                      emailController.text,
+                      passwordController.text,
+                      userNameController.text,
+                      phoneNumberController.text);
+                  if (response == "success") {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginScreen()));
+                  } else {
+                    CustomSnackBar.show(context, response, true);
+                    setState(() {
+                      buttonActive = true;
+                    });
+                  }
                 }
               }),
         ),
@@ -255,22 +245,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       const SizedBox(
                         height: 14,
                       ),
-                      // MainButton(
-                      //     //disabled: buttonIsDisabled,
-                      //     lightBlue: true,
-                      //     text: "Sign Up",
-                      //     onpressed: () {
-                      //       if (_formKey.currentState!.validate()) {
-                      //         // If the form is valid, display a snackbar. In the real world,
-                      //         // you'd often call a server or save the information in a database.
-                      //         register();
-
-                      //         ScaffoldMessenger.of(context).showSnackBar(
-                      //           const SnackBar(
-                      //               content: Text('Processing Data')),
-                      //         );
-                      //       }
-                      //     })
                     ],
                   ),
                 ),
