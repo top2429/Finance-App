@@ -49,7 +49,6 @@ class _TransactionsStreamBuilderState extends State<TransactionsStreamBuilder> {
                     String senderImage = data['senderImage'];
                     String receiverName = data['receiverName'];
                     String receiverImage = data['receiverImage'];
-                    // print(snapshots.data!.docs.length);
                     if (userNotifier.user.userId == senderId) {
 
                       return Padding(

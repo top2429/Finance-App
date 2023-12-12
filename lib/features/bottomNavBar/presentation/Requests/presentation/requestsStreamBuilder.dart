@@ -44,10 +44,8 @@ class _RequestsStreamBuilderState extends State<RequestsStreamBuilder> {
                     String senderName = data['senderName'];
                     String reason = data['reason'];
                     String senderImage = data['senderImage'];
-                    print(data);
 
                     if (userNotifier.user.userId == receiverId) {
-                      print("i am the receiver and i am getting this 77777777");
                       return Padding(
                         padding: const EdgeInsets.only(bottom: 10),
                         child: RequestCard(
@@ -62,7 +60,6 @@ class _RequestsStreamBuilderState extends State<RequestsStreamBuilder> {
                             }),
                       );
                     }
-                    print("i am reaching here and no one is seeing me 8888888");
 
                     /// this return of container should not be return null
                     /// returning null breaks the loop and the builder doesnt iterate through all

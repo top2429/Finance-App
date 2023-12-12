@@ -15,7 +15,6 @@ Future<String> sendMoneyToUser(String senderId, String senderName, String sender
         await deductSenderBalance(senderId, amount, senderBalance, context);
 
     if (deductStatus == "success") {
-      print("the deduction was successful and now its time to increase at the other side 2222222222222222222222222222222222222222222222222222222222222222222");
       String response = await increaseReceiverBalance(amount, receiverId);
       if (response == "success") {
         TimeOfDay timeNow = TimeOfDay.now();
@@ -59,8 +58,7 @@ Future<String> deductSenderBalance(
       (value) {
     var userNotifier = Provider.of<UserNotifier>(context, listen: false);
     userNotifier.updatePrice(senderBalance - amount);
-    print(
-        "successfully updated the price in the database after sending to user");
+
     return "success";
   }, onError: (e) { return "false";});
 
@@ -68,7 +66,6 @@ Future<String> deductSenderBalance(
 }
 
  Future<String> increaseReceiverBalance(double amount, String receiverId) async {
-  print("this is where the code stops executing");
   double receiverBalance = await checkReceiverBalance(receiverId);
 
   var db = FirebaseFirestore.instance;
@@ -81,8 +78,7 @@ Future<String> deductSenderBalance(
   dataQuery[0]
       .reference
       .update({"totalBalance": amount + receiverBalance}).then((value) {
-    print(
-        "successfully updated the price in the database after receiving from sender");
+
     return "success";
   }, onError: (e) => e.toString());
 

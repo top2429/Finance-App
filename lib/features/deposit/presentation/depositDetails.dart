@@ -62,7 +62,6 @@ class _DepositDetailsState extends State<DepositDetails> {
         isTestMode: true);
 
     ChargeResponse response = await flutterwave.charge();
-    print(response);
 
     if (response.toJson()["status"] == "successful") {
       bool value = await updateTotalBalanceAmount(userId, amount);

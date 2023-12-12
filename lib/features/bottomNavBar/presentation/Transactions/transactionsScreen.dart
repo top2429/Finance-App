@@ -37,7 +37,6 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
           pinned: true,
           stretch: true,
           onStretchTrigger: () async {
-            print("done stretch");
           },
           // floating: true,
           // snap: true,

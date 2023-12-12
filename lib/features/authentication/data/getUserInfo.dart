@@ -16,7 +16,6 @@ Future<bool> getUser(UserNotifier userNotifier)async{
 
   final data = query.docs;
   UserModel userObject = UserModel.fromMap(data[0].data());
-  print(userObject.toJson());
   userNotifier.setUser(userObject);
 
   return true;

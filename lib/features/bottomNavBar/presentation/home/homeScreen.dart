@@ -22,7 +22,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     var userNotifier = Provider.of<UserNotifier>(context, listen: true);
     
-    print(userNotifier.user.image);
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
