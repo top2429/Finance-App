@@ -49,10 +49,8 @@ class _TransactionsStreamBuilderState extends State<TransactionsStreamBuilder> {
                     String senderImage = data['senderImage'];
                     String receiverName = data['receiverName'];
                     String receiverImage = data['receiverImage'];
-                    print(data);
                     // print(snapshots.data!.docs.length);
                     if (userNotifier.user.userId == senderId) {
-                      print("i am the sender and i am getting this 666666");
 
                       return Padding(
                         padding: const EdgeInsets.only(bottom: 10),
@@ -112,7 +110,6 @@ class _TransactionsStreamBuilderState extends State<TransactionsStreamBuilder> {
                     }
 
                     if (userNotifier.user.userId == receiverId) {
-                      print("i am the receiver and i am getting this 77777777");
                       return Padding(
                         padding: const EdgeInsets.only(bottom: 10),
                         child: Container(
@@ -170,7 +167,6 @@ class _TransactionsStreamBuilderState extends State<TransactionsStreamBuilder> {
                         ),
                       );
                     }
-                    print("i am reaching here and no one is seeing me 8888888");
 
                     /// this return of container should not be return null
                     /// returning null breaks the loop and the builder doesnt iterate through all

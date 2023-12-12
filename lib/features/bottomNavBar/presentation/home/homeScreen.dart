@@ -5,6 +5,7 @@ import 'package:tai/commonWidgets/iconInCircle.dart';
 import 'package:tai/features/authentication/domain/userNotifier.dart';
 import 'package:tai/features/bottomNavBar/presentation/Requests/presentation/chooseRequestMethod.dart';
 import 'package:tai/features/bottomNavBar/presentation/Transactions/transactionsStreamBuilder.dart';
+import 'package:tai/features/bottomNavBar/presentation/home/notifications_page.dart';
 import 'package:tai/features/deposit/presentation/depositLocationsScreen.dart';
 import 'package:tai/features/profile/presentation/profileScreen.dart';
 import 'package:tai/features/sendTo/presentation/mobileMoneyWallet/mmdetails.dart';
@@ -59,9 +60,18 @@ class _HomeScreenState extends State<HomeScreen> {
                     const Spacer(),
                     Row(
                       children: [
-                        const Icon(
-                          Icons.notifications_outlined,
-                          size: 32,
+                        InkWell(
+                          onTap: () {
+                            // Navigator.push(
+                            //               context,
+                            //               MaterialPageRoute(
+                            //                   builder: (context) =>
+                            //                       const Notifications()));
+                          },
+                          child: const Icon(
+                            Icons.notifications_outlined,
+                            size: 32,
+                          ),
                         ),
                         const SizedBox(
                           width: 10,
@@ -216,28 +226,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         )
                       ],
                     ),
-                    // InkWell(
-                    //   onTap: () {
-                    //     Navigator.push(
-                    //         context,
-                    //         MaterialPageRoute(
-                    //             fullscreenDialog: true,
-                    //             builder: (context) =>
-                    //                 const TransactionsScreen()));
-                    //   },
-                    //   child: const Row(children: [
-                    //     Text(
-                    //       "More",
-                    //       style:
-                    //           TextStyle(fontSize: 16, color: Color(0xFF466AE7)),
-                    //     ),
-                    //     Icon(
-                    //       Icons.arrow_forward,
-                    //       size: 22,
-                    //       color: Color(0xFF466AE7),
-                    //     )
-                    //   ]),
-                    // )
+                   
                   ],
                 ),
                 const SizedBox(
