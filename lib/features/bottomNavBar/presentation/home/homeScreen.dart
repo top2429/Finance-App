@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:tai/commonWidgets/iconInCircle.dart';
 import 'package:tai/features/authentication/domain/userNotifier.dart';
+import 'package:tai/features/authentication/presentation/current_user_controller.dart';
 import 'package:tai/features/bottomNavBar/presentation/Requests/presentation/chooseRequestMethod.dart';
 import 'package:tai/features/bottomNavBar/presentation/Transactions/transactionsStreamBuilder.dart';
 import 'package:tai/features/bottomNavBar/presentation/home/notifications_page.dart';
@@ -10,18 +12,19 @@ import 'package:tai/features/deposit/presentation/depositLocationsScreen.dart';
 import 'package:tai/features/profile/presentation/profileScreen.dart';
 import 'package:tai/features/sendTo/presentation/mobileMoneyWallet/mmdetails.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  ConsumerState<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  @override
+class _HomeScreenState extends ConsumerState<HomeScreen> {
+  // @override
   Widget build(BuildContext context) {
-    var userNotifier = Provider.of<UserNotifier>(context, listen: true);
-    
+    // var userNotifier = Provider.of<UserNotifier>(context, listen: true);
+    var value =  ref.watch(currentUserControllerProvider
+    );
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -36,24 +39,24 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         InkWell(
                           onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                         ProfileScreen(username: userNotifier.user.username!,email: userNotifier.user.email!,image: userNotifier.user.image!,)));
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (context) =>
+                            //              ProfileScreen(username: userNotifier.user.username!,email: userNotifier.user.email!,image: userNotifier.user.image!,)));
                           },
                           child: CircleAvatar(
                             radius: 30,
-                            backgroundImage: Image.asset(
-                              "assets/images/${userNotifier.user.image}",
-                              fit: BoxFit.cover,
-                            ).image,
+                            // backgroundImage: Image.asset(
+                            //   "assets/images/${userNotifier.user.image}",
+                            //   fit: BoxFit.cover,
+                            // ).image,
                           ),
                         ),
                         const SizedBox(
                           height: 8,
                         ),
-                        Text("Hi ${userNotifier.user.username}")
+                        Text("Hi ${value.username}")
                       ],
                     ),
                     const Spacer(),
@@ -116,7 +119,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     color: Colors.white),
                               ),
                               Text(
-                                " ${userNotifier.user.totalBalance}",
+                                " ${200000}",
                                 style: const TextStyle(
                                     fontSize: 36,
                                     fontWeight: FontWeight.bold,
@@ -135,11 +138,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                   IconCircle(
                                     image: "assets/images/sendTo.svg",
                                     onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  const MobileMoneyDetails()));
+                                      // Navigator.push(
+                                      //     context,
+                                      //     MaterialPageRoute(
+                                      //         builder: (context) =>
+                                      //             const MobileMoneyDetails()));
                                     },
                                   ),
                                   const SizedBox(
@@ -179,11 +182,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                   IconCircle(
                                     image: "assets/images/deposit.svg",
                                     onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  const DepositLocations()));
+                                      // Navigator.push(
+                                      //     context,
+                                      //     MaterialPageRoute(
+                                      //         builder: (context) =>
+                                      //             const DepositLocations()));
                                     },
                                   ),
                                   const SizedBox(
@@ -231,7 +234,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(
                   height: 15,
                 ),
-                const TransactionsStreamBuilder()
+                // const TransactionsStreamBuilder()
               ],
             ),
           ),

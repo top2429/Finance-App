@@ -2,25 +2,25 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:provider/provider.dart';
 import 'package:tai/commonWidgets/customSnackBar.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField.dart';
-import 'package:tai/features/authentication/data/getUserInfo.dart';
-import 'package:tai/features/authentication/domain/userNotifier.dart';
+import 'package:tai/features/authentication/data/auth_repository.dart';
 import 'package:tai/features/authentication/presentation/login/OTPinputScreen.dart';
 import 'package:tai/features/authentication/presentation/signUp/signUpScreen.dart';
 
 import 'package:tai/features/bottomNavBar/presentation/navBar.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  ConsumerState<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends ConsumerState<LoginScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final phoneNumberController = TextEditingController();
@@ -33,28 +33,9 @@ class _LoginScreenState extends State<LoginScreen> {
   //  global key for the form on this screen
   final _formKeyEmail = GlobalKey<FormState>();
 
-  void signin() async {
-    try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: emailController.text.trim(),
-          password: passwordController.text.trim());
-
-      final user = Provider.of<UserNotifier>(context, listen: false);
-      bool doneGettingUser = await getUser(user);
-      if (doneGettingUser) {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const NavBar()));
-      }
-    } on FirebaseAuthException catch (e) {
-      CustomSnackBar.show(context, e.code, true);
-      setState(() {
-        buttonActive = true;
-      });
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
+    final value = ref.watch(authRepositoryProvider);
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -222,7 +203,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                           disabled: buttonActive ? false : true,
                                           lightBlue: true,
                                           text: "Submit",
-                                          onpressed: () {
+                                          onpressed: () async {
                                             if (_formKeyEmail.currentState!
                                                 .validate()) {
                                               // If the form is valid, display a snackbar. In the real world,
@@ -230,7 +211,25 @@ class _LoginScreenState extends State<LoginScreen> {
                                               setState(() {
                                                 buttonActive = false;
                                               });
-                                              signin();
+                                              String response =
+                                                  await value.signIn(
+                                                      emailController.text,
+                                                      passwordController.text,
+                                                      ref);
+
+                                              if (response == "success") {
+                                                Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            const NavBar()));
+                                              } else {
+                                                CustomSnackBar.show(
+                                                    context, response, true);
+                                                setState(() {
+                                                  buttonActive = true;
+                                                });
+                                              }
                                             }
                                           })
                                     ],

@@ -69,11 +69,11 @@ class _PaymentRequestedDetailsState extends State<PaymentRequestedDetails> {
                                   TextStyle(fontSize: 14, color: Colors.grey))),
                       const SizedBox(height: 40),
                       MainButton(text: "PAY", onpressed: (){
-                        Navigator.push(
-                                context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const MobileMoneyDetails()));
+                        // Navigator.push(
+                        //         context,
+                        //       MaterialPageRoute(
+                        //           builder: (context) =>
+                        //               const MobileMoneyDetails()));
                       })
                     ]),
               ),

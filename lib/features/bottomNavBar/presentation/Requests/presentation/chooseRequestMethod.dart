@@ -47,10 +47,10 @@ class _ChooseRequestPaymentMethodState extends State<ChooseRequestMethod> {
                       image: "bankTransfer.svg",
                       innerContainerColor: const Color(0xFFC4F1CD),
                       onTap: () {
-                        Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const SelectRecipient ()));
+                        // Navigator.push(
+                        //         context,
+                        //         MaterialPageRoute(
+                        //             builder: (context) => const SelectRecipient ()));
                       }),
                 ],
               )

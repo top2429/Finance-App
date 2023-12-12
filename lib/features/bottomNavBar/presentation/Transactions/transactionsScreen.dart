@@ -42,12 +42,12 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
           // snap: true,
           // centerTitle: true,
         ),       
-        const SliverToBoxAdapter(
-          child: Padding(
-            padding: EdgeInsets.only(left: 20, right: 20),
-            child: TransactionsStreamBuilder(),
-          ),
-        ),
+        // const SliverToBoxAdapter(
+        //   child: Padding(
+        //     padding: EdgeInsets.only(left: 20, right: 20),
+        //     child: TransactionsStreamBuilder(),
+        //   ),
+        // ),
         
       ]),
     );
