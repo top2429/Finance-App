@@ -216,11 +216,11 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                                                       ref);
 
                                               if (response == "success") {
-                                                Navigator.push(
+                                                Navigator.pushAndRemoveUntil(
                                                     context,
                                                     MaterialPageRoute(
                                                         builder: (context) =>
-                                                            const NavBar()));
+                                                            const NavBar()),(route)=>false);
                                               } else {
                                                 CustomSnackBar.show(
                                                     context, response, true);

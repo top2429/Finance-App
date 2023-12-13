@@ -20,7 +20,7 @@ class _TransactionsHistoryWidgetState extends State<TransactionsHistoryWidget> {
             return ListView.builder(
                 shrinkWrap: true,
                 primary: false,
-                itemCount: widget.forHomeScreen? 5:transactions.length,
+                itemCount: widget.forHomeScreen? transactions.length.clamp(0,5):transactions.length,
                 itemBuilder: (_, index) {
                   TransactionsModel data = transactions[index];
                   if (transactions.isEmpty) {

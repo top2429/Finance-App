@@ -6,7 +6,9 @@ import 'package:tai/features/authentication/presentation/current_user_controller
 import 'package:tai/features/bottomNavBar/presentation/Requests/presentation/chooseRequestMethod.dart';
 import 'package:tai/features/bottomNavBar/presentation/Transactions/data/transactions_repository.dart';
 import 'package:tai/features/bottomNavBar/presentation/Transactions/presentation/transactions_history_widget.dart';
+import 'package:tai/features/deposit/presentation/depositLocationsScreen.dart';
 import 'package:tai/features/profile/presentation/profileScreen.dart';
+import 'package:tai/features/sendTo/presentation/mobileMoneyWallet/mmdetails.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -62,11 +64,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       children: [
                         InkWell(
                           onTap: () {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (context) =>
-                            //             const TransactionsStream()));
+                            
                           },
                           child: const Icon(
                             Icons.notifications_outlined,
@@ -136,11 +134,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                   IconCircle(
                                     image: "assets/images/sendTo.svg",
                                     onTap: () {
-                                      // Navigator.push(
-                                      //     context,
-                                      //     MaterialPageRoute(
-                                      //         builder: (context) =>
-                                      //             const MobileMoneyDetails()));
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const MobileMoneyDetails()));
                                     },
                                   ),
                                   const SizedBox(
@@ -180,11 +178,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                   IconCircle(
                                     image: "assets/images/deposit.svg",
                                     onTap: () {
-                                      // Navigator.push(
-                                      //     context,
-                                      //     MaterialPageRoute(
-                                      //         builder: (context) =>
-                                      //             const DepositLocations()));
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const DepositLocations()));
                                     },
                                   ),
                                   const SizedBox(
@@ -232,7 +230,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   height: 15,
                 ),
                 TransactionsHistoryWidget(userId: value.userId!, value: asyncValue, forHomeScreen: true,)
-                // const TransactionsStreamBuilder()
               ],
             ),
           ),

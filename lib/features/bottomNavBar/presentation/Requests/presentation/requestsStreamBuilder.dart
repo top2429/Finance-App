@@ -1,18 +1,11 @@
 // import 'package:cloud_firestore/cloud_firestore.dart';
 // import 'package:flutter/material.dart';
-// import 'package:provider/provider.dart';
-// import 'package:tai/features/authentication/domain/userNotifier.dart';
 // import 'package:tai/features/bottomNavBar/presentation/Requests/presentation/paymentRequestDetailsCard.dart';
 // import 'package:tai/features/bottomNavBar/presentation/Requests/presentation/requestCard.dart';
 
-// class RequestsStreamBuilder extends StatefulWidget {
+// class RequestsStreamBuilder extends StatelessWidget {
 //   const RequestsStreamBuilder({super.key});
 
-//   @override
-//   State<RequestsStreamBuilder> createState() => _RequestsStreamBuilderState();
-// }
-
-// class _RequestsStreamBuilderState extends State<RequestsStreamBuilder> {
 //   @override
 //   Widget build(BuildContext context) {
 //     // var userNotifier = Provider.of<UserNotifier>(context, listen: true);

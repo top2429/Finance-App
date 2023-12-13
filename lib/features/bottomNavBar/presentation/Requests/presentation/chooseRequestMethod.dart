@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tai/commonWidgets/arrowButton.dart';
+import 'package:tai/features/bottomNavBar/presentation/Requests/presentation/selectRecipient.dart';
 
 class ChooseRequestMethod extends StatefulWidget {
   const ChooseRequestMethod({super.key});
@@ -46,10 +47,10 @@ class _ChooseRequestPaymentMethodState extends State<ChooseRequestMethod> {
                       image: "bankTransfer.svg",
                       innerContainerColor: const Color(0xFFC4F1CD),
                       onTap: () {
-                        // Navigator.push(
-                        //         context,
-                        //         MaterialPageRoute(
-                        //             builder: (context) => const SelectRecipient ()));
+                        Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const SelectRecipient ()));
                       }),
                 ],
               )
