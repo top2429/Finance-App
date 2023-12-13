@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
-import 'package:tai/features/sendTo/presentation/mobileMoneyWallet/mmdetails.dart';
 
 class PaymentRequestedDetails extends StatefulWidget {
   final String  senderName;
@@ -51,22 +50,22 @@ class _PaymentRequestedDetailsState extends State<PaymentRequestedDetails> {
                       ),
                        Center(
                           child: Text("Payment requested from ${widget.senderName}",
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.bold))),
                        Center(
                           child: Text(
                               "29th 11 2023    ${widget.time}",
                               style:
-                                  TextStyle(fontSize: 14, color: Colors.grey))),
+                                  const TextStyle(fontSize: 14, color: Colors.grey))),
                       const SizedBox(height: 40),
                       Center(
                           child: Text("UGX ${widget.amount}",
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 35, fontWeight: FontWeight.bold))),
                       Center(
-                          child: Text("${widget.reason}",
+                          child: Text(widget.reason,
                               style:
-                                  TextStyle(fontSize: 14, color: Colors.grey))),
+                                  const TextStyle(fontSize: 14, color: Colors.grey))),
                       const SizedBox(height: 40),
                       MainButton(text: "PAY", onpressed: (){
                         // Navigator.push(

@@ -1,9 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:provider/provider.dart';
 import 'package:tai/commonWidgets/customSnackBar.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField.dart';

@@ -17,16 +17,16 @@ class CustomSnackBar {
         behavior: SnackBarBehavior.floating,
         content: Row(
             children: [
-             error? Icon(Icons.cancel, color: Colors.red,):Icon(Icons.done, color: Colors.green),
-              SizedBox(width: 20,),
+             error? const Icon(Icons.cancel, color: Colors.red,):const Icon(Icons.done, color: Colors.green),
+              const SizedBox(width: 20,),
               SizedBox(
                 width: 240,
-                child: Text(message, style: TextStyle(overflow: TextOverflow.ellipsis),)),
+                child: Text(message, style: const TextStyle(overflow: TextOverflow.ellipsis),)),
             ],
           ),
        
         action: SnackBarAction(
-          textColor: Color(0xFFFAF2FB),
+          textColor: const Color(0xFFFAF2FB),
           label: 'ok',
           onPressed: () {},
         ),

@@ -9,6 +9,8 @@ import 'package:tai/features/authentication/presentation/current_user_controller
 class AuthRepository {
   /* The following are the local varables for the auth repository */
 
+  
+
   String chooseRandomPicture() {
     var myStrings = [
       "one.png",

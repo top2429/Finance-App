@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/notImplemented.dart';
-import 'package:tai/features/authentication/presentation/login/loginScreen.dart';
 
 
 class OTPinputScreen extends StatefulWidget {
@@ -110,7 +109,7 @@ class _OTPinputScreenState extends State<OTPinputScreen> {
                   child: MainButton(
                       lightBlue: true, text: "Continue", onpressed: () {
                         Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => NotImplemented()));
+                        MaterialPageRoute(builder: (context) => const NotImplemented()));
                   
                       }),
                 ),

@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:provider/provider.dart';
 import 'package:tai/commonWidgets/iconInCircle.dart';
-import 'package:tai/features/authentication/domain/userNotifier.dart';
 import 'package:tai/features/authentication/presentation/current_user_controller.dart';
 import 'package:tai/features/bottomNavBar/presentation/Requests/presentation/chooseRequestMethod.dart';
-import 'package:tai/features/bottomNavBar/presentation/Transactions/transactionsStreamBuilder.dart';
-import 'package:tai/features/bottomNavBar/presentation/home/notifications_page.dart';
-import 'package:tai/features/deposit/presentation/depositLocationsScreen.dart';
+import 'package:tai/features/bottomNavBar/presentation/Transactions/data/transactions_repository.dart';
+import 'package:tai/features/bottomNavBar/presentation/Transactions/presentation/transactions_history_widget.dart';
 import 'package:tai/features/profile/presentation/profileScreen.dart';
-import 'package:tai/features/sendTo/presentation/mobileMoneyWallet/mmdetails.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -20,11 +16,10 @@ class HomeScreen extends ConsumerStatefulWidget {
 }
 
 class _HomeScreenState extends ConsumerState<HomeScreen> {
-  // @override
+  @override
   Widget build(BuildContext context) {
-    // var userNotifier = Provider.of<UserNotifier>(context, listen: true);
-    var value =  ref.watch(currentUserControllerProvider
-    );
+    var value = ref.watch(currentUserControllerProvider);
+    var asyncValue = ref.watch(transactionsListStreamProvider(value.userId!));
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -39,18 +34,21 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       children: [
                         InkWell(
                           onTap: () {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (context) =>
-                            //              ProfileScreen(username: userNotifier.user.username!,email: userNotifier.user.email!,image: userNotifier.user.image!,)));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ProfileScreen(
+                                          username: value.username!,
+                                          email: value.email!,
+                                          image: value.image!,
+                                        )));
                           },
                           child: CircleAvatar(
                             radius: 30,
-                            // backgroundImage: Image.asset(
-                            //   "assets/images/${userNotifier.user.image}",
-                            //   fit: BoxFit.cover,
-                            // ).image,
+                            backgroundImage: Image.asset(
+                              "assets/images/${value.image}",
+                              fit: BoxFit.cover,
+                            ).image,
                           ),
                         ),
                         const SizedBox(
@@ -65,10 +63,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                         InkWell(
                           onTap: () {
                             // Navigator.push(
-                            //               context,
-                            //               MaterialPageRoute(
-                            //                   builder: (context) =>
-                            //                       const Notifications()));
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (context) =>
+                            //             const TransactionsStream()));
                           },
                           child: const Icon(
                             Icons.notifications_outlined,
@@ -119,7 +117,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                     color: Colors.white),
                               ),
                               Text(
-                                " ${200000}",
+                                " ${value.totalBalance}",
                                 style: const TextStyle(
                                     fontSize: 36,
                                     fontWeight: FontWeight.bold,
@@ -207,7 +205,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 const SizedBox(
                   height: 30,
                 ),
-               
+
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -228,12 +226,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                         )
                       ],
                     ),
-                   
                   ],
                 ),
                 const SizedBox(
                   height: 15,
                 ),
+                TransactionsHistoryWidget(userId: value.userId!, value: asyncValue, forHomeScreen: true,)
                 // const TransactionsStreamBuilder()
               ],
             ),

@@ -1,14 +1,10 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:provider/provider.dart';
 import 'package:tai/commonWidgets/customSnackBar.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField.dart';
 import 'package:tai/features/authentication/data/auth_repository.dart';
-import 'package:tai/features/authentication/domain/userModel.dart';
 import 'package:tai/features/authentication/presentation/login/loginScreen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class SignUpScreen extends ConsumerStatefulWidget {
   const SignUpScreen({super.key});
@@ -77,7 +73,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
 
@@ -237,12 +233,12 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                   height: 30,
                 ),
                 // const Spacer(),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 10),
+                const Padding(
+                  padding: EdgeInsets.only(bottom: 10),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const SizedBox(
+                      SizedBox(
                         height: 14,
                       ),
                     ],

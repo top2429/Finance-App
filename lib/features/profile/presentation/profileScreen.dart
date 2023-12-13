@@ -1,13 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:provider/provider.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField_icon.dart';
 import 'package:tai/features/authentication/presentation/signUp/signUpScreen.dart';
 import 'package:tai/features/profile/presentation/editProfileScreen.dart';
 
-import '../../authentication/domain/userNotifier.dart';
 
 class ProfileScreen extends StatefulWidget {
   final String username;
@@ -136,7 +134,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       await FirebaseAuth.instance.signOut();
 
                       Navigator.of(context).pushAndRemoveUntil(
-                        MaterialPageRoute(builder: (context) => SignUpScreen()),
+                        MaterialPageRoute(builder: (context) => const SignUpScreen()),
                         (Route<dynamic> route) =>
                             false, // Remove all routes from the stack
                       );
