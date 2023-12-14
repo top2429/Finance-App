@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
+import 'package:tai/features/sendTo/presentation/mobileMoneyWallet/mmdetails.dart';
 
 class PaymentRequestedDetails extends StatefulWidget {
   final String  senderName;
@@ -68,11 +69,11 @@ class _PaymentRequestedDetailsState extends State<PaymentRequestedDetails> {
                                   const TextStyle(fontSize: 14, color: Colors.grey))),
                       const SizedBox(height: 40),
                       MainButton(text: "PAY", onpressed: (){
-                        // Navigator.push(
-                        //         context,
-                        //       MaterialPageRoute(
-                        //           builder: (context) =>
-                        //               const MobileMoneyDetails()));
+                        Navigator.push(
+                                context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const MobileMoneyDetails()));
                       })
                     ]),
               ),

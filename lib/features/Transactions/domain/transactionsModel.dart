@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class TransactionsModel {
   String? senderId;
   String? senderName;
@@ -7,8 +9,9 @@ class TransactionsModel {
   String? receiverImage;
   double? amount;
   String? time;
+  Timestamp? timestamp;
 
-  TransactionsModel(this.senderId, this.senderName, this.senderImage,this.receiverId, this.receiverName,this.receiverImage,this.amount, this.time);
+  TransactionsModel(this.senderId, this.senderName, this.senderImage,this.receiverId, this.receiverName,this.receiverImage,this.amount, this.time, this.timestamp);
 
   TransactionsModel.fromMap(Map<String, dynamic> data) {
     senderId = data['senderId'];
@@ -19,6 +22,7 @@ class TransactionsModel {
     receiverImage = data['receiverImage'];
     amount = data['amount'];
     time = data['time'];
+    timestamp = data['timestamp'];
   }
 
   Map<String, dynamic> toJson() {
@@ -30,7 +34,8 @@ class TransactionsModel {
       "receiverName": receiverName,
       "receiverImage":receiverImage,
       "amount": amount,
-      "time":time
+      "time":time,
+      "timestamp":timestamp
     };
 
     return transactionsModel;

@@ -14,9 +14,14 @@ class TransactionsRepository {
               ));
 
       /// see the documentation of the first .map [transaforms Stream<Querysnapshot> into Stream<List<Transactions>>]
-      return query.snapshots().map((snapshot) => snapshot.docs
-          .map((doc) => TransactionsModel.fromMap(doc.data()))
-          .toList());
+      return query.snapshots().map((snapshot) {
+        List<TransactionsModel> transactionsList = snapshot.docs
+            .map((doc) => TransactionsModel.fromMap(doc.data()))
+            .toList();
+
+        transactionsList.sort(((a, b) => b.timestamp!.compareTo(a.timestamp!)));
+        return transactionsList;
+      });
     } catch (e) {
       print("There is an error: $e");
       // Handle the error or return an error stream
@@ -31,13 +36,12 @@ final transactionsRepositoryProvider = Provider<TransactionsRepository>((ref) {
 
 final transactionsListStreamProvider = StreamProvider.autoDispose
     .family<List<TransactionsModel>, String>((ref, userId) {
-    /* caching method to keep the provider and stream
+  /* caching method to keep the provider and stream
     alive for some time before disposing it */
-    final link =  ref.keepAlive();
-    Timer(const Duration(seconds: 20 ), () {
-      link.close();
-     });
+  final link = ref.keepAlive();
+  Timer(const Duration(seconds: 20), () {
+    link.close();
+  });
   final transactionsRepo = ref.watch(transactionsRepositoryProvider);
   return transactionsRepo.watchTransactions(userId);
 });
-

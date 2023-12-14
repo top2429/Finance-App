@@ -8,7 +8,6 @@ import 'package:tai/features/Requests/data/requests_repository.dart';
 import 'package:tai/features/authentication/presentation/current_user_controller.dart';
 import 'package:tai/features/navBar/navBar.dart';
 
-
 class SelectRecipient extends ConsumerStatefulWidget {
   const SelectRecipient({super.key});
 
@@ -34,7 +33,7 @@ class _SelectRecipientState extends ConsumerState<SelectRecipient> {
   @override
   Widget build(BuildContext context) {
     final currentUser = ref.read(currentUserControllerProvider);
-   /* chose not to use the provider here due to the many aurguments required
+    /* chose not to use the provider here due to the many aurguments required
     so i just created a raw instance of the requests repository */
     final requestProvider = RequestsRepository();
     return Scaffold(
@@ -209,9 +208,8 @@ class _SelectRecipientState extends ConsumerState<SelectRecipient> {
                                                   }
                                                   if (data['username']
                                                       .toString()
-                                                      .startsWith(controller
-                                                          .text
-                                                          .toLowerCase())) {
+                                                      .contains(
+                                                          controller.text)) {
                                                     return InkWell(
                                                       onTap: () {
                                                         controller.text =
