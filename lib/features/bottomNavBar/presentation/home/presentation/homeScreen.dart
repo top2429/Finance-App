@@ -6,6 +6,7 @@ import 'package:tai/features/authentication/presentation/current_user_controller
 import 'package:tai/features/bottomNavBar/presentation/Requests/presentation/chooseRequestMethod.dart';
 import 'package:tai/features/bottomNavBar/presentation/Transactions/data/transactions_repository.dart';
 import 'package:tai/features/bottomNavBar/presentation/Transactions/presentation/transactions_history_widget.dart';
+import 'package:tai/features/bottomNavBar/presentation/home/data/home_repository.dart';
 import 'package:tai/features/deposit/presentation/depositLocationsScreen.dart';
 import 'package:tai/features/profile/presentation/profileScreen.dart';
 import 'package:tai/features/sendTo/presentation/mobileMoneyWallet/mmdetails.dart';
@@ -114,12 +115,22 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white),
                               ),
-                              Text(
-                                " ${value.totalBalance}",
-                                style: const TextStyle(
-                                    fontSize: 36,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white),
+                              Consumer(
+                                builder: (context,ref,_){
+                                 final asyncNewUserModel =  ref.watch(userModelStreamProvider(value.userId!));
+                                 return asyncNewUserModel.when(
+                                  data: (value)=> Text(
+                                  " ${value.totalBalance}",
+                                  style: const TextStyle(
+                                      fontSize: 36,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
+                                ), 
+                                  error:(e,st)=> Text(e.toString()), 
+                                  loading: ()=>SizedBox(
+                                    width: 100,
+                                    height: 20,
+                                    child: LinearProgressIndicator()));},
                               ),
                             ],
                           ),

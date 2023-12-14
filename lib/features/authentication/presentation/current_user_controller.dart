@@ -4,7 +4,7 @@ import 'package:tai/features/authentication/domain/userModel.dart';
 class CurrentUserController extends StateNotifier<UserModel> {
   CurrentUserController() : super(UserModel("", "", "", "", 0.0, ""));
 
-  void updateCurrentUser(Map<dynamic, dynamic> userMap) {
+  void updateCurrentUser(Map<String, dynamic> userMap) {
     state = UserModel.fromMap(userMap);
   }
 }
