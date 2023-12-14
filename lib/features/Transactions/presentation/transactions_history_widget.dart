@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:tai/features/bottomNavBar/presentation/Transactions/domain/transactionsModel.dart';
+import 'package:tai/features/Transactions/domain/transactionsModel.dart';
 
 class TransactionsHistoryWidget<T> extends StatefulWidget {
   const TransactionsHistoryWidget({super.key, required this.userId, required this.value,this.forHomeScreen= false });

@@ -5,7 +5,7 @@ import 'package:tai/commonWidgets/customSnackBar.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField.dart';
 import 'package:tai/features/authentication/presentation/current_user_controller.dart';
-import 'package:tai/features/bottomNavBar/presentation/navBar.dart';
+import 'package:tai/features/navBar/navBar.dart';
 import 'package:tai/features/sendTo/data/sendMoneyToUser.dart';
 
 class MobileMoneyDetails extends ConsumerStatefulWidget {

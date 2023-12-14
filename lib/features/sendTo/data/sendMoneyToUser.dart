@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:tai/features/bottomNavBar/presentation/Transactions/addToTransactions.dart';
+import 'package:tai/features/Transactions/data/addToTransactions.dart';
 
 var db = FirebaseFirestore.instance;
 

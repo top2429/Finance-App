@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tai/features/bottomNavBar/presentation/Requests/presentation/requestsScreen.dart';
-import 'package:tai/features/bottomNavBar/presentation/Transactions/presentation/transactions_screen.dart';
-import 'package:tai/features/bottomNavBar/presentation/home/presentation/homeScreen.dart';
-import 'package:tai/features/bottomNavBar/presentation/navbarIcons.dart';
+import 'package:tai/features/Requests/presentation/requestsScreen.dart';
+import 'package:tai/features/Transactions/presentation/transactions_screen.dart';
+import 'package:tai/features/home/presentation/homeScreen.dart';
+
+import 'package:tai/features/navBar/navbarIcons.dart';
 
 
 class NavBar extends StatefulWidget {

@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:tai/features/bottomNavBar/presentation/Requests/domain/requests_model.dart';
+import 'package:tai/features/Requests/domain/requests_model.dart';
 
 class RequestsRepository{
   Future<bool> sendRequest(

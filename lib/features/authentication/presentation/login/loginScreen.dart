@@ -8,8 +8,8 @@ import 'package:tai/commonWidgets/textField.dart';
 import 'package:tai/features/authentication/data/auth_repository.dart';
 import 'package:tai/features/authentication/presentation/login/OTPinputScreen.dart';
 import 'package:tai/features/authentication/presentation/signUp/signUpScreen.dart';
+import 'package:tai/features/navBar/navBar.dart';
 
-import 'package:tai/features/bottomNavBar/presentation/navBar.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});

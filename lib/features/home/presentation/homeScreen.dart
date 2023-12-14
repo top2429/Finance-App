@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tai/commonWidgets/iconInCircle.dart';
+import 'package:tai/features/Requests/presentation/chooseRequestMethod.dart';
+import 'package:tai/features/Transactions/data/transactions_repository.dart';
+import 'package:tai/features/Transactions/presentation/transactions_history_widget.dart';
 import 'package:tai/features/authentication/presentation/current_user_controller.dart';
-import 'package:tai/features/bottomNavBar/presentation/Requests/presentation/chooseRequestMethod.dart';
-import 'package:tai/features/bottomNavBar/presentation/Transactions/data/transactions_repository.dart';
-import 'package:tai/features/bottomNavBar/presentation/Transactions/presentation/transactions_history_widget.dart';
-import 'package:tai/features/bottomNavBar/presentation/home/data/home_repository.dart';
+
 import 'package:tai/features/deposit/presentation/depositLocationsScreen.dart';
+import 'package:tai/features/home/data/home_repository.dart';
 import 'package:tai/features/profile/presentation/profileScreen.dart';
 import 'package:tai/features/sendTo/presentation/mobileMoneyWallet/mmdetails.dart';
 
@@ -127,7 +128,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                       color: Colors.white),
                                 ), 
                                   error:(e,st)=> Text(e.toString()), 
-                                  loading: ()=>SizedBox(
+                                  loading: ()=>const SizedBox(
                                     width: 100,
                                     height: 20,
                                     child: LinearProgressIndicator()));},

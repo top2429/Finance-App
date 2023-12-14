@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:tai/features/bottomNavBar/presentation/Transactions/domain/transactionsModel.dart';
+import 'package:tai/features/Transactions/domain/transactionsModel.dart';
 
 class TransactionsRepository {
   Stream<List<TransactionsModel>> watchTransactions(String userId) {

@@ -4,9 +4,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tai/commonWidgets/customSnackBar.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField.dart';
+import 'package:tai/features/Requests/data/requests_repository.dart';
 import 'package:tai/features/authentication/presentation/current_user_controller.dart';
-import 'package:tai/features/bottomNavBar/presentation/Requests/data/requests_repository.dart';
-import 'package:tai/features/bottomNavBar/presentation/navBar.dart';
+import 'package:tai/features/navBar/navBar.dart';
+
 
 class SelectRecipient extends ConsumerStatefulWidget {
   const SelectRecipient({super.key});

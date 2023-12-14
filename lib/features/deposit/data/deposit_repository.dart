@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterwave_standard/flutterwave.dart';
 import 'package:tai/commonWidgets/customSnackBar.dart';
-import 'package:tai/features/bottomNavBar/presentation/navBar.dart';
+import 'package:tai/features/navBar/navBar.dart';
 import 'package:tai/features/sendTo/data/sendMoneyToUser.dart';
 
 /// Function to generate random string of characters to act as the transaction

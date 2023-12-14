@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tai/features/Transactions/data/transactions_repository.dart';
+import 'package:tai/features/Transactions/presentation/transactions_history_widget.dart';
 import 'package:tai/features/authentication/presentation/current_user_controller.dart';
-import 'package:tai/features/bottomNavBar/presentation/Transactions/data/transactions_repository.dart';
-import 'package:tai/features/bottomNavBar/presentation/Transactions/presentation/transactions_history_widget.dart';
 
 class TransactionsScreen extends ConsumerWidget {
   const TransactionsScreen({super.key});

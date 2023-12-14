@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pin_plus_keyboard/package/controllers/pin_input_controller.dart';
 import 'package:pin_plus_keyboard/package/pin_plus_keyboard_package.dart';
-import 'package:tai/features/bottomNavBar/presentation/navBar.dart';
+import 'package:tai/features/navBar/navBar.dart';
 
 class EnterCode extends StatefulWidget {
   const EnterCode({super.key});
