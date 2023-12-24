@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tai/mockTesting/lineChart.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:tai/features/analytics/presentation/line_graph.dart';
 
 class AnalyticsScreen extends StatefulWidget {
   const AnalyticsScreen({super.key});
@@ -12,61 +13,105 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text(
-          "Analytics",
-          style: TextStyle(fontSize: 20),
-        ),
-        elevation: 0,
-        backgroundColor: Colors.white,
-        // leading: IconButton(
-        //     color: Colors.black,
-        //     onPressed: () => Navigator.pop(context),
-        //     icon: const Icon(Icons.arrow_back)),
-      ),
       body: Padding(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(15),
         child: Column(
           children: [
-            SizedBox(
-              height: 20,
-            ),
-            AnalyticsTest(),
             SizedBox(
               height: 40,
             ),
             Container(
               decoration: BoxDecoration(
-                color: Colors.black54,
-                borderRadius: BorderRadius.circular(20)
-                ),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Column(
+                borderRadius: BorderRadius.circular(8),
+                color: Color.fromARGB(255, 240, 240, 240),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Total Expenditure",
-                          style: TextStyle(color: Colors.white, fontSize: 18),
+                          "Balance",
+                          style: TextStyle(
+                              color: const Color.fromARGB(255, 92, 92, 92),
+                              fontWeight: FontWeight.bold),
                         ),
                         Text(
-                          "230000 RWF",
+                          "UGX 2399000",
                           style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 21,
+                              color: Colors.green,
+                              fontSize: 19,
                               fontWeight: FontWeight.bold),
-                        )
+                        ),
                       ],
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: Row(
+                        children: [
+                          Container(
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.black12),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: SvgPicture.asset(
+                                  "assets/images/expenses.svg",
+                                  color: Colors.red,
+                                ),
+                              )),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Container(
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.black12),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: SvgPicture.asset(
+                                  "assets/images/income.svg",
+                                  color: Colors.green,
+                                ),
+                              ))
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
-            SizedBox(height: 55,),
-            Text("TO DO: Implement the cash ins and cashouts analytics etc")
+            SizedBox(
+              height: 20,
+            ),
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: Color.fromARGB(255, 255, 243, 243)),
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [Text("Expenditure", style: TextStyle(fontSize: 15, color: Color.fromARGB(255, 112, 112, 112)),), 
+                          SizedBox(height: 5,),
+                          Text("-UGX 239045", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: Colors.red),)],
+                        ),
+                      ),
+                      AnalyticsTest(),
+                    ],
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tai/features/Requests/presentation/requestsScreen.dart';
 import 'package:tai/features/Transactions/presentation/transactions_screen.dart';
+import 'package:tai/features/analytics/presentation/analytics_screen.dart';
 import 'package:tai/features/home/presentation/homeScreen.dart';
 
 import 'package:tai/features/navBar/navbarIcons.dart';
@@ -26,6 +27,7 @@ class _NavBarState extends State<NavBar> {
     var theme = Theme.of(context);
     List pages = [
       const HomeScreen(),
+      const AnalyticsScreen(),
       const TransactionsScreen(),
       const RequestsScreen()
     ];
@@ -60,19 +62,28 @@ class _NavBarState extends State<NavBar> {
                         name: 'Home', active: nowIndex == 0 ? true : false),
                   )),
 
+                  BottomNavigationBarItem(
+                  label: "Analytics",
+                  icon: Padding(
+                    padding: const EdgeInsets.only(top: 7),
+                    child: BarIcon(
+                        name: 'Analytics', active: nowIndex == 1 ? true : false),
+                  )),
+
+
               BottomNavigationBarItem(
                   label: "Transactions",
                   icon: Padding(
                     padding: const EdgeInsets.only(top: 7),
                     child: BarIcon(
-                        name: 'Transactions', active: nowIndex == 1 ? true : false),
+                        name: 'Transactions', active: nowIndex == 2 ? true : false),
                   )),
               BottomNavigationBarItem(
                   label: "Requests",
                   icon: Padding(
                     padding: const EdgeInsets.only(top: 7),
                     child: BarIcon(
-                        name: 'Requests', active: nowIndex == 2 ? true : false),
+                        name: 'Requests', active: nowIndex == 3 ? true : false),
                   )),
             ]),
       ),
