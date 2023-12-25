@@ -1,3 +1,4 @@
+import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tai/features/analytics/presentation/line_graph.dart';
@@ -101,9 +102,24 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                         alignment: Alignment.centerLeft,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [Text("Expenditure", style: TextStyle(fontSize: 15, color: Color.fromARGB(255, 112, 112, 112)),), 
-                          SizedBox(height: 5,),
-                          Text("-UGX 239045", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: Colors.red),)],
+                          children: [
+                            Text(
+                              "Expenditure",
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  color: Color.fromARGB(255, 112, 112, 112)),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              "-UGX 239045",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                  color: Colors.red),
+                            )
+                          ],
                         ),
                       ),
                       AnalyticsTest(),
