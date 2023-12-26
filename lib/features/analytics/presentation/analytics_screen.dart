@@ -1,18 +1,34 @@
 import 'package:buttons_tabbar/buttons_tabbar.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:tai/features/analytics/presentation/line_graph.dart';
+import 'package:tai/features/analytics/data/dummy_graph_values.dart';
+import 'package:tai/features/analytics/presentation/income_graph.dart';
+import 'package:tai/features/analytics/presentation/expenditure_graph.dart';
+import 'package:tai/features/authentication/presentation/current_user_controller.dart';
 
-class AnalyticsScreen extends StatefulWidget {
+class AnalyticsScreen extends ConsumerStatefulWidget {
   const AnalyticsScreen({super.key});
 
   @override
-  State<AnalyticsScreen> createState() => _AnalyticsScreenState();
+  ConsumerState<AnalyticsScreen> createState() => _AnalyticsScreenState();
 }
 
-class _AnalyticsScreenState extends State<AnalyticsScreen> {
+class _AnalyticsScreenState extends ConsumerState<AnalyticsScreen> {
+  List<FlSpot> expenditureSpots = [];
+  List<FlSpot> incomeSpots = [];
+
+  @override
+  void initState() {
+    super.initState();
+    expenditureSpots = getExpenditures();
+    incomeSpots = getIncome();
+  }
+
   @override
   Widget build(BuildContext context) {
+    var currentUser = ref.watch(currentUserControllerProvider);
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(15),
@@ -43,7 +59,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                                 fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            "UGX 2399000",
+                            "UGX ${currentUser.totalBalance}",
                             style: TextStyle(
                                 color: Colors.green,
                                 fontSize: 19,
@@ -53,42 +69,30 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(right: 8),
-                        child:
-                        
-                          ButtonsTabBar(
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle
-                            ),
+                        child: ButtonsTabBar(
+                            decoration: BoxDecoration(shape: BoxShape.circle),
                             tabs: [
-                            Tab(
-                              child: Container(
-                                  // decoration: BoxDecoration(
-                                  //     shape: BoxShape.circle,
-                                  //     color: Colors.black12),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: SvgPicture.asset(
-                                      "assets/images/expenses.svg",
-                                      color: Colors.red,
-                                    ),
-                                  )),
-                            ),
-                            
-                            Tab(
-                              child: Container(
-                                  // decoration: BoxDecoration(
-                                  //     shape: BoxShape.circle,
-                                  //     color: Colors.black12),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: SvgPicture.asset(
-                                      "assets/images/income.svg",
-                                      color: Colors.green,
-                                    ),
-                                  )),
-                            ),
-                          ]),
-                        
+                              Tab(
+                                child: Container(
+                                    child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: SvgPicture.asset(
+                                    "assets/images/expenses.svg",
+                                    color: Colors.red,
+                                  ),
+                                )),
+                              ),
+                              Tab(
+                                child: Container(
+                                    child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: SvgPicture.asset(
+                                    "assets/images/income.svg",
+                                    color: Colors.green,
+                                  ),
+                                )),
+                              ),
+                            ]),
                       )
                     ],
                   ),
@@ -98,45 +102,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                 height: 20,
               ),
               Expanded(
-                child: TabBarView(
-                  children:[ Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: Color.fromARGB(255, 255, 243, 243)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Expenditure",
-                                  style: TextStyle(
-                                      color: const Color.fromARGB(255, 92, 92, 92),
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Text(
-                                  "-UGX 239045",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20,
-                                      color: Colors.red),
-                                )
-                              ],
-                            ),
-                          ),
-                          AnalyticsTest(),
-                        ],
-                      ),
-                    ),
-                  ),
+                child: TabBarView(children: [
                   Container(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
@@ -154,14 +120,15 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                                 Text(
                                   "Expenditure",
                                   style: TextStyle(
-                                      color: const Color.fromARGB(255, 92, 92, 92),
+                                      color:
+                                          const Color.fromARGB(255, 92, 92, 92),
                                       fontWeight: FontWeight.bold),
                                 ),
                                 SizedBox(
                                   height: 5,
                                 ),
                                 Text(
-                                  "-UGX 239045",
+                                  "-UGX 4139889",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 20,
@@ -170,12 +137,55 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                               ],
                             ),
                           ),
-                          AnalyticsTest(),
+                          ExpenditureGraph(
+                            expenseSpots: expenditureSpots,
+                          ),
                         ],
                       ),
                     ),
                   ),
-            ]),
+                  Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: const Color.fromARGB(255, 243, 255, 243)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Income",
+                                  style: TextStyle(
+                                      color:
+                                          const Color.fromARGB(255, 92, 92, 92),
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Text(
+                                  "+UGX 4653519",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20,
+                                      color: Colors.green),
+                                )
+                              ],
+                            ),
+                          ),
+                          IncomeGraph(
+                            incomeSpots: incomeSpots,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ]),
               ),
             ],
           ),

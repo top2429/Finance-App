@@ -1,14 +1,15 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-class AnalyticsTest extends StatefulWidget {
-  const AnalyticsTest({super.key});
+class ExpenditureGraph extends StatefulWidget {
+  final List<FlSpot> expenseSpots;
+  const ExpenditureGraph({super.key, required this.expenseSpots});
 
   @override
-  State<AnalyticsTest> createState() => _AnalyticsTestState();
+  State<ExpenditureGraph> createState() => _AnalyticsTestState();
 }
 
-class _AnalyticsTestState extends State<AnalyticsTest> {
+class _AnalyticsTestState extends State<ExpenditureGraph> {
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -69,16 +70,8 @@ class _AnalyticsTestState extends State<AnalyticsTest> {
             maxY: 8,
             lineBarsData: [
               LineChartBarData(
-                spots: const [
-                  FlSpot(0, 3),
-                  FlSpot(2.6, 2),
-                  FlSpot(4.9, 5),
-                  FlSpot(6.8, 3.4),
-                  FlSpot(8, 4),
-                  FlSpot(9.5, 3),
-                  FlSpot(11, 4),
-                ],
-                isCurved: true,
+                spots: widget.expenseSpots,
+                isCurved: false,
                 gradient: LinearGradient(
                   colors: [const Color.fromARGB(255, 255, 220, 218),Colors.red, ],
                 ),
@@ -152,16 +145,16 @@ class _AnalyticsTestState extends State<AnalyticsTest> {
     String text;
     switch (value.toInt()) {
       case 1:
-        text = '50K';
+        text = '100K';
         break;
       case 3:
         text = '300k';
         break;
       case 5:
-        text = '900k';
+        text = '500k';
         break;
       case 7:
-        text = '2M';
+        text = '700k';
         break;
       
       default:
