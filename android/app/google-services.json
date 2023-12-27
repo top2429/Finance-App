@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "562333502674",
+    "project_id": "mobilepaymenttool",
+    "storage_bucket": "mobilepaymenttool.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:562333502674:android:88dafd795668ee7850710b",
+        "android_client_info": {
+          "package_name": "com.example.tai"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3J6Tmcz-JAHhrL_Fn9l8ZB8XF-xjxCNg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

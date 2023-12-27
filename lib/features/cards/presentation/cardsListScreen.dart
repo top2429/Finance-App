@@ -33,7 +33,7 @@ class _CardsListScreenState extends State<CardsListScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     "Card List",
                     style: TextStyle(fontSize: 19),
                   ),
@@ -41,29 +41,29 @@ class _CardsListScreenState extends State<CardsListScreen> {
                     onTap: () {},
                     child: Row(
                       children: [
-                        Text(
+                        const Text(
                           "Add new card",
                           style: TextStyle(color: Colors.blue),
                         ),
                         IconButton(
                             color: Colors.blue,
                             onPressed: () {},
-                            icon: Icon(Icons.add))
+                            icon: const Icon(Icons.add))
                       ],
                     ),
                   )
                 ],
               ),
-              SizedBox(height: 14,),
-              CardWidget(),
+              const SizedBox(height: 14,),
+              const CardWidget(),
         
-              SizedBox(height: 40,),
-              Row(
+              const SizedBox(height: 40,),
+              const Row(
                 children: [
                   Text("Card transactions", style: TextStyle(color: Colors.grey),)
                 ],
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
                ListView.builder(
                       shrinkWrap: true,
                       primary: false,

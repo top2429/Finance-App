@@ -1,34 +1,37 @@
 name: tai
 description: A new Flutter project.
 
-publish_to: 'none' 
+publish_to: "none"
 
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.1.3 <4.0.0'
+  sdk: ">=3.1.3 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
-  google_fonts: ^4.0.4
-  dropdown_search: ^5.0.6     #not used
-  country_picker: ^2.0.21     # not used
+  firebase_auth: ^4.14.0
+  firebase_core: ^2.22.0
+  cloud_firestore: ^4.13.1
+  google_fonts: ^6.1.0
   flutter_otp_text_field: ^1.1.1
   buttons_tabbar: ^1.3.8
   flutter_svg: ^2.0.7
   fl_chart: ^0.64.0
   pin_plus_keyboard: ^2.0.6
   intl: ^0.18.1
-
+  flutterwave_standard: ^1.0.8
+  http: ^1.1.0
+  flutter_riverpod: ^2.4.9
   
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
 
+  flutter_lints: ^3.0.1
 
 flutter:
   uses-material-design: true
@@ -42,5 +45,3 @@ flutter:
       fonts:
         - asset: assets/fonts/Ubuntu-Regular.ttf
         - asset: assets/fonts/Ubuntu-Bold.ttf
-        
-  

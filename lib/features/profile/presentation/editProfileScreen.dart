@@ -159,7 +159,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       text: "Update",
                       onpressed: () {
                         if (_formKey.currentState!.validate()) {
-                          print([phoneNumber.text, email.text, username.text]);
                         }
                       })
                 ],

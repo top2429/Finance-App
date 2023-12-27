@@ -45,7 +45,7 @@ class _TextFieldWidgetArrowDownState extends State<TextFieldWidgetArrowDown> {
       // onChanged: widget.onChanged,
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return '';
+          return 'This field cannot be empty';
         }
         return null;
       },

@@ -32,6 +32,7 @@ migrate_working_dir/
 .pub/
 /build/
 
+
 # Symbolication related
 app.*.symbols
 
@@ -45,3 +46,5 @@ app.*.map.json
 
 /lib/filesFromDHIwise
 /lib/customTesting
+/lib/mockTesting
+

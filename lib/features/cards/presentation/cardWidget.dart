@@ -28,21 +28,21 @@ class _CardWidgetState extends State<CardWidget> {
                   SvgPicture.asset(
                     "assets/images/visa.svg",
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Text(
                     "02/24",
                     style: TextStyle(
                       color: Colors.grey[700],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
-                  Text(
+                  const Text(
                     "victor nsengiyumva",
                     style: TextStyle(color: Colors.white),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   Row(
@@ -59,19 +59,19 @@ class _CardWidgetState extends State<CardWidget> {
                             });
                           }
                         },
-                        child: Icon(
+                        child: const Icon(
                           Icons.remove_red_eye,
                           color: Colors.white,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 8,
                       ),
                       Text(
                         isObscure
                             ? "**** **** **** ****"
                             : "5797 3945 8349 8758",
-                        style: TextStyle(color: Colors.white, fontSize: 18),
+                        style: const TextStyle(color: Colors.white, fontSize: 18),
                       )
                     ],
                   )

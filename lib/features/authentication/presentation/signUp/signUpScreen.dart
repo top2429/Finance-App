@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tai/commonWidgets/customSnackBar.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField.dart';
-import 'package:tai/features/authentication/presentation/signUp/OTPinputScreen.dart';
-class SignUpScreen extends StatefulWidget {
+import 'package:tai/features/authentication/data/auth_repository.dart';
+import 'package:tai/features/authentication/presentation/login/loginScreen.dart';
+
+class SignUpScreen extends ConsumerStatefulWidget {
   const SignUpScreen({super.key});
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  ConsumerState<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
-  final TextEditingController email = TextEditingController();
-  final TextEditingController mobileNumber = TextEditingController();
+class _SignUpScreenState extends ConsumerState<SignUpScreen> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final userNameController = TextEditingController();
+  final phoneNumberController = TextEditingController();
+
+  bool buttonActive = true;
 
   //  global key for the form on this screen
   final _formKey = GlobalKey<FormState>();
@@ -20,24 +28,55 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final value = ref.read(authRepositoryProvider);
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color(0xFF000000),
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.black,
-          leading: IconButton(
-              color: Colors.white,
-              onPressed: () => Navigator.pop(context),
-              icon: const Icon(Icons.arrow_back)),
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.only(bottom: 20, left: 20, right: 20),
+          child: MainButton(
+              indicator: buttonActive ? false : true,
+              disabled: buttonActive ? false : true,
+              //disabled: buttonIsDisabled,
+              lightBlue: true,
+              text: "Sign Up",
+              onpressed: () async {
+                if (_formKey.currentState!.validate()) {
+                  // If the form is valid, display a snackbar. In the real world,
+                  // you'd often call a server or save the information in a database.
+
+                  setState(() {
+                    buttonActive = false;
+                  });
+                  String response = await value.register(
+                      emailController.text,
+                      passwordController.text,
+                      userNameController.text,
+                      phoneNumberController.text);
+                  if (response == "success") {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginScreen()));
+                  } else {
+                    CustomSnackBar.show(context, response, true);
+                    setState(() {
+                      buttonActive = true;
+                    });
+                  }
+                }
+              }),
         ),
+        backgroundColor: const Color.fromARGB(154, 0, 0, 0),
         body: Padding(
           padding: const EdgeInsets.only(left: 20, right: 20),
-          child: Padding(
-            padding: const EdgeInsets.only(bottom: 36),
+          child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const SizedBox(
+                  height: 30,
+                ),
+
                 const Text(
                   "Let's get started!",
                   style: TextStyle(
@@ -49,8 +88,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   height: 7,
                 ),
                 const Text(
-                  "Enter your phone number, We will send you a code.",
-                  style: TextStyle(fontSize: 10, color: Colors.white),
+                  "Create a short username(max 10 characters)",
+                  style: TextStyle(fontSize: 12, color: Colors.white),
                 ),
                 const SizedBox(
                   height: 40,
@@ -60,6 +99,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   child: Column(
                     children: [
                       TextFieldWidget(
+                        authText: true,
                         onChanged: (p0) {
                           if (_formKey.currentState!.validate()) {
                             // If the form is valid, display a snackbar. In the real world,
@@ -67,13 +107,38 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             setState(() {
                               buttonIsDisabled = false;
                             });
-                          }else{
+                          } else {
                             setState(() {
                               buttonIsDisabled = true;
                             });
                           }
                         },
-                        controller: email,
+                        controller: userNameController,
+                        label: "username",
+                        labelColor: Colors.white,
+                        backgroundColor: const Color.fromARGB(255, 80, 80, 80),
+                        borderSideColor: Colors.transparent,
+                        keyBoardType: TextInputType.emailAddress,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      TextFieldWidget(
+                        authText: true,
+                        onChanged: (p0) {
+                          if (_formKey.currentState!.validate()) {
+                            // If the form is valid, display a snackbar. In the real world,
+                            // you'd often call a server or save the information in a database.
+                            setState(() {
+                              buttonIsDisabled = false;
+                            });
+                          } else {
+                            setState(() {
+                              buttonIsDisabled = true;
+                            });
+                          }
+                        },
+                        controller: emailController,
                         label: "Email",
                         labelColor: Colors.white,
                         backgroundColor: const Color.fromARGB(255, 80, 80, 80),
@@ -83,109 +148,102 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       const SizedBox(
                         height: 20,
                       ),
-                      IntrinsicHeight(
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: const Color.fromARGB(255, 80, 80, 80),
-                                  borderRadius: BorderRadius.circular(10)),
-                              width: 110,
-                              height: 56,
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            Expanded(
-                              child: TextFieldWidget(
-                                onChanged: (p0) {
-                                  if (_formKey.currentState!.validate()) {
+                      TextFieldWidget(
+                        authText: true,
+                        onChanged: (p0) {
+                          if (_formKey.currentState!.validate()) {
+                            // If the form is valid, display a snackbar. In the real world,
+                            // you'd often call a server or save the information in a database.
+                            setState(() {
+                              buttonIsDisabled = false;
+                            });
+                          } else {
+                            setState(() {
+                              buttonIsDisabled = true;
+                            });
+                          }
+                        },
+                        controller: phoneNumberController,
+                        label: "Phone number",
+                        labelColor: Colors.white,
+                        backgroundColor: const Color.fromARGB(255, 80, 80, 80),
+                        borderSideColor: Colors.transparent,
+                        keyBoardType: TextInputType.number,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      TextFieldWidget(
+                        obscureText: true,
+                        authText: true,
+                        onChanged: (p0) {
+                          if (_formKey.currentState!.validate()) {
                             // If the form is valid, display a snackbar. In the real world,
                             // you'd often call a server or save the information in a database.
 
                             setState(() {
                               buttonIsDisabled = false;
                             });
-                          }else{
+                          } else {
                             setState(() {
                               buttonIsDisabled = true;
                             });
                           }
-                                },
-                                controller: mobileNumber,
-                                label: "Mobile Number",
-                                labelColor: Colors.white,
-                                backgroundColor:
-                                    const Color.fromARGB(255, 80, 80, 80),
-                                borderSideColor: Colors.transparent,
-                                keyBoardType: TextInputType.number,
-                              ),
-                            )
-                          ],
-                        ),
+                        },
+                        controller: passwordController,
+                        label: "Password",
+                        labelColor: Colors.white,
+                        backgroundColor: const Color.fromARGB(255, 80, 80, 80),
+                        borderSideColor: Colors.transparent,
+                        keyBoardType: TextInputType.visiblePassword,
                       ),
                     ],
                   ),
                 ),
+
                 const SizedBox(height: 10),
-                const Text(
-                  "Already have an account? Log in",
-                  style: TextStyle(fontSize: 12, color: Color(0xFF466AE7)),
-                ),
-                const Spacer(),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                Row(
                   children: [
-                    const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "By clicking 'sign up' you agree to the",
-                          style: TextStyle(fontSize: 10, color: Colors.white),
-                        ),
-                        Text(
-                          " privacy policy ",
-                          style:
-                              TextStyle(fontSize: 10, color: Color(0xFF466AE7)),
-                        ),
-                        Text(
-                          "and",
-                          style: TextStyle(fontSize: 10, color: Colors.white),
-                        ),
-                        Text(
-                          " terms and conditions",
-                          style: TextStyle(
-                              fontSize: 10,
-                              color: Color(0xFF4B5EFC),
-                              overflow: TextOverflow.ellipsis),
-                        ),
-                      ],
+                    const Text(
+                      "Already have an account?",
+                      style: TextStyle(
+                          fontSize: 15,
+                          color: Color.fromARGB(255, 23, 109, 179)),
                     ),
                     const SizedBox(
-                      height: 14,
+                      width: 5,
                     ),
-                    MainButton(
-                      disabled: buttonIsDisabled,
-                        lightBlue: true,
-                        text: "Sign Up",
-                        onpressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            // If the form is valid, display a snackbar. In the real world,
-                            // you'd often call a server or save the information in a database.
-
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(content: Text('Processing Data')),
-                            );
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const OTPinputScreen ()));
-                          }
-                        })
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const LoginScreen()));
+                      },
+                      child: const Text(
+                        "Log in",
+                        style: TextStyle(
+                            fontSize: 14,
+                            color: Color.fromARGB(255, 255, 255, 255)),
+                      ),
+                    ),
                   ],
                 ),
-                
+                const SizedBox(
+                  height: 30,
+                ),
+                // const Spacer(),
+                const Padding(
+                  padding: EdgeInsets.only(bottom: 10),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: 14,
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
