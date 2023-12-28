@@ -1,20 +1,29 @@
+
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tai/commonWidgets/customSnackBar.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField.dart';
+import 'package:tai/features/authentication/data/auth_repository.dart';
+import 'package:tai/features/authentication/presentation/login/OTPinputScreen.dart';
+import 'package:tai/features/authentication/presentation/signUp/signUpScreen.dart';
+import 'package:tai/features/navBar/navBar.dart';
 
-import 'package:tai/features/authentication/presentation/signUp/enterPasscode_keyboard.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  ConsumerState<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  final TextEditingController email = TextEditingController();
-  final TextEditingController mobileNumber = TextEditingController();
+class _LoginScreenState extends ConsumerState<LoginScreen> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final phoneNumberController = TextEditingController();
+
+  bool buttonActive = true;
 
   //  global key for the form on this screen
   final _formKeyNumber = GlobalKey<FormState>();
@@ -24,28 +33,32 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final value = ref.watch(authRepositoryProvider);
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color(0xFF000000),
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.black,
-          leading: IconButton(
-              color: Colors.white,
-              onPressed: () => Navigator.pop(context),
-              icon: const Icon(Icons.arrow_back)),
-        ),
+        resizeToAvoidBottomInset: false,
+        backgroundColor: const Color.fromARGB(154, 0, 0, 0),
         body: Padding(
           padding: const EdgeInsets.only(left: 20, right: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const SizedBox(
+                height: 30,
+              ),
               const Text(
                 "Log in to tai",
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 25,
                     color: Colors.white),
+              ),
+              const SizedBox(
+                height: 7,
+              ),
+              const Text(
+                "Login with Email or Phone number",
+                style: TextStyle(fontSize: 12, color: Colors.white),
               ),
               const SizedBox(
                 height: 40,
@@ -59,7 +72,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         // Customize the appearance and behavior of the tab bar
                         backgroundColor: Colors.white,
                         unselectedBackgroundColor:
-                            const Color.fromARGB(255, 80, 80, 80),
+                            const Color.fromARGB(255, 114, 114, 114),
                         borderWidth: 1,
                         borderColor: Colors.black,
                         labelStyle: const TextStyle(
@@ -77,13 +90,13 @@ class _LoginScreenState extends State<LoginScreen> {
                             width: 150,
                             child: Center(
                                 child: Text(
-                              "Phone Number",
+                              "Email",
                             )),
                           )),
                           Tab(
                               child: SizedBox(
                             width: 150,
-                            child: Center(child: Text("Email")),
+                            child: Center(child: Text("Phone number")),
                           )),
                         ],
                       ),
@@ -91,165 +104,198 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: 60,
                       ),
                       Expanded(
-                        child: TabBarView(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 30),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  const SizedBox(
-                                    height: 5,
-                                  ),
-                                  Row(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                        child: CustomScrollView(slivers: [
+                          SliverFillRemaining(
+                            child: TabBarView(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 30),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: [
-                                      Container(
-                                        decoration: BoxDecoration(
-                                            color:
-                                                const Color.fromARGB(255, 80, 80, 80),
-                                            borderRadius:
-                                                BorderRadius.circular(10)),
-                                        width: 110,
-                                        height: 56,
+                                      const SizedBox(
+                                        height: 5,
                                       ),
                                       const SizedBox(
                                         width: 10,
                                       ),
-                                      Expanded(
-                                        child: Form(
-                                          key: _formKeyNumber,
-                                          child: TextFieldWidget(
-                                            onChanged: (p0) {
-                                              
-                                            },
-                                            controller: mobileNumber,
-                                            label: "Mobile Number",
-                                            labelColor: Colors.white,
-                                            backgroundColor:
-                                                const Color.fromARGB(255, 80, 80, 80),
-                                            borderSideColor: Colors.transparent,
-                                            keyBoardType: TextInputType.number,
+                                      Form(
+                                        key: _formKeyEmail,
+                                        child: Column(
+                                          children: [
+                                            TextFieldWidget(
+                                              authText: true,
+                                              onChanged: (p0) {},
+                                              controller: emailController,
+                                              label: "Email",
+                                              labelColor: Colors.white,
+                                              backgroundColor:
+                                                  const Color.fromARGB(
+                                                      255, 80, 80, 80),
+                                              borderSideColor:
+                                                  Colors.transparent,
+                                              keyBoardType:
+                                                  TextInputType.visiblePassword,
+                                            ),
+                                            const SizedBox(
+                                              height: 20,
+                                            ),
+                                            TextFieldWidget(
+                                              obscureText: true,
+                                              authText: true,
+                                              onChanged: (p0) {},
+                                              controller: passwordController,
+                                              label: "Password",
+                                              labelColor: Colors.white,
+                                              backgroundColor:
+                                                  const Color.fromARGB(
+                                                      255, 80, 80, 80),
+                                              borderSideColor:
+                                                  Colors.transparent,
+                                              keyBoardType:
+                                                  TextInputType.visiblePassword,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 15,
+                                      ),
+                                      InkWell(
+                                        onTap: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      const SignUpScreen()));
+                                        },
+                                        child: const Align(
+                                          alignment: Alignment.centerLeft,
+                                          child: Text(
+                                            "Dont have an account.",
+                                            style: TextStyle(
+                                                fontSize: 14,
+                                                color: Color.fromARGB(
+                                                    255, 23, 109, 179)),
                                           ),
                                         ),
-                                      )
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      const Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: Text(
+                                          "Forgot password?",
+                                          style: TextStyle(
+                                              fontSize: 14,
+                                              color: Color.fromARGB(
+                                                  255, 23, 109, 179)),
+                                        ),
+                                      ),
+                                      const Spacer(),
+                                      MainButton(
+                                          indicator:
+                                              buttonActive ? false : true,
+                                          disabled: buttonActive ? false : true,
+                                          lightBlue: true,
+                                          text: "Submit",
+                                          onpressed: () async {
+                                            if (_formKeyEmail.currentState!
+                                                .validate()) {
+                                              // If the form is valid, display a snackbar. In the real world,
+                                              // you'd often call a server or save the information in a database.
+                                              setState(() {
+                                                buttonActive = false;
+                                              });
+                                              String response =
+                                                  await value.signIn(
+                                                      emailController.text,
+                                                      passwordController.text,
+                                                      ref);
+
+                                              if (response == "success") {
+                                                Navigator.pushAndRemoveUntil(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            const NavBar()),(route)=>false);
+                                              } else {
+                                                CustomSnackBar.show(
+                                                    context, response, true);
+                                                setState(() {
+                                                  buttonActive = true;
+                                                });
+                                              }
+                                            }
+                                          })
                                     ],
                                   ),
-                                  const SizedBox(
-                                    height: 15,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 30),
+                                  child: Column(
+                                    children: [
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
+                                      Form(
+                                        key: _formKeyNumber,
+                                        child: TextFieldWidget(
+                                          authText: true,
+                                          onChanged: (p0) {},
+                                          controller: phoneNumberController,
+                                          label: "Phone number",
+                                          labelColor: Colors.white,
+                                          backgroundColor: const Color.fromARGB(
+                                              255, 80, 80, 80),
+                                          borderSideColor: Colors.transparent,
+                                          keyBoardType:
+                                              TextInputType.emailAddress,
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 15,
+                                      ),
+                                      const Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: Text(
+                                          " Lost access to my number",
+                                          style: TextStyle(
+                                              fontSize: 14,
+                                              color: Color.fromARGB(
+                                                  255, 23, 109, 179)),
+                                        ),
+                                      ),
+                                      const Spacer(),
+                                      MainButton(
+                                          lightBlue: true,
+                                          text: "Submit",
+                                          onpressed: () {
+                                            if (_formKeyNumber.currentState!
+                                                .validate()) {
+                                              // If the form is valid, display a snackbar. In the real world,
+                                              // you'd often call a server or save the information in a database.
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          const OTPinputScreen()));
+                                            }
+                                          })
+                                    ],
                                   ),
-                                  const Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: Text(
-                                      " Lost access to my phone number",
-                                      style: TextStyle(
-                                          fontSize: 12,
-                                          color: Color(0xFF466AE7)),
-                                    ),
-                                  ),
-                                  const Spacer(),
-                                  MainButton(
-                                      lightBlue: true,
-                                      text: "Continue",
-                                      onpressed: () {
-                                        if (_formKeyNumber.currentState!
-                                            .validate()) {
-                                          // If the form is valid, display a snackbar. In the real world,
-                                          // you'd often call a server or save the information in a database.
-
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(
-                                            const SnackBar(
-                                                content:
-                                                    Text('Processing Data')),
-                                          );
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      const EnterCode()));
-                                        }
-                                      })
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 30),
-                              child: Column(
-                                children: [
-                                  const SizedBox(
-                                    height: 5,
-                                  ),
-                                  Form(
-                                    key: _formKeyEmail,
-                                    child: TextFieldWidget(
-                                      onChanged: (p0) {
-                                        
-                                      },
-                                      controller: email,
-                                      label: "Email",
-                                      labelColor: Colors.white,
-                                      backgroundColor:
-                                          const Color.fromARGB(255, 80, 80, 80),
-                                      borderSideColor: Colors.transparent,
-                                      keyBoardType: TextInputType.emailAddress,
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: 15,
-                                  ),
-                                  const Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: Text(
-                                      " Lost access to my email",
-                                      style: TextStyle(
-                                          fontSize: 12,
-                                          color: Color(0xFF466AE7)),
-                                    ),
-                                  ),
-                                  const Spacer(),
-                                  MainButton(
-                                      lightBlue: true,
-                                      text: "Continue",
-                                      onpressed: () {
-                                        if (_formKeyEmail.currentState!
-                                            .validate()) {
-                                          // If the form is valid, display a snackbar. In the real world,
-                                          // you'd often call a server or save the information in a database.
-
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(
-                                            const SnackBar(
-                                                content:
-                                                    Text('Processing Data')),
-                                          );
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      const EnterCode()));
-                                        }
-                                      })
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ]),
                       ),
                     ],
                   ),
                 ),
               ),
-
-              // Spacer(),
-              // Align(
-              //   alignment: Alignment.center,
-              //   child: MainButton(lightBlue: true,text: "Sign Up", onpressed: (){
-              //     Navigator.push(context,
-              //       MaterialPageRoute(builder: (context) => OTPinputScreen()));
-
-              //   }),
-              // ),
             ],
           ),
         ),
