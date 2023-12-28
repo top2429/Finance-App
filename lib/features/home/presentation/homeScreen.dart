@@ -10,6 +10,7 @@ import 'package:tai/features/authentication/presentation/current_user_controller
 import 'package:tai/features/deposit/presentation/depositLocationsScreen.dart';
 import 'package:tai/features/home/data/home_repository.dart';
 import 'package:tai/features/profile/presentation/profileScreen.dart';
+import 'package:tai/features/savingGoals/presentation/saving_goals_screen.dart';
 import 'package:tai/features/sendTo/presentation/mobileMoneyWallet/mmdetails.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
@@ -202,6 +203,28 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                   ),
                                   const Text(
                                     "Deposit",
+                                    style: TextStyle(
+                                        fontSize: 12, color: Colors.white),
+                                  )
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  IconCircle(
+                                    image: "assets/images/cards.svg",
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const SavingGoalsScreen()));
+                                    },
+                                  ),
+                                  const SizedBox(
+                                    height: 4,
+                                  ),
+                                  const Text(
+                                    "Goals",
                                     style: TextStyle(
                                         fontSize: 12, color: Colors.white),
                                   )
