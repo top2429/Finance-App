@@ -47,4 +47,5 @@ app.*.map.json
 /lib/filesFromDHIwise
 /lib/customTesting
 /lib/mockTesting
-
+/coverage
+/coverage/lcov.info
