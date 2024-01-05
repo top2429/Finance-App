@@ -201,9 +201,8 @@ class _MobileMoneyDetailsState extends ConsumerState<MobileMoneyDetails> {
                                                   }
                                                   if (data['username']
                                                       .toString()
-                                                      .contains(controller
-                                                          .text
-                                              )) {
+                                                      .contains(
+                                                          controller.text)) {
                                                     return InkWell(
                                                       onTap: () {
                                                         controller.text =
