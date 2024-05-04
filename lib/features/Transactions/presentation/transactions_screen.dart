@@ -12,15 +12,20 @@ class TransactionsScreen extends ConsumerWidget {
     String userId = ref.read(currentUserControllerProvider).userId!;
     var value = ref.watch(transactionsListStreamProvider(userId));
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Transactions history",
-          style: TextStyle(fontSize: 18),
+        appBar: AppBar(
+          scrolledUnderElevation: 0,
+          title: const Text(
+            "Transactions history",
+            style: TextStyle(fontSize: 19),
+          ),
+          automaticallyImplyLeading: false,
         ),
-        automaticallyImplyLeading: false,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 10, right: 10),
-        child: TransactionsHistoryWidget(userId: userId, value: value),
-      )
-  );}}
+        body: Padding(
+          padding: const EdgeInsets.only(left: 10, right: 10),
+          child: Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: TransactionsHistoryWidget(userId: userId, value: value),
+          ),
+        ));
+  }
+}

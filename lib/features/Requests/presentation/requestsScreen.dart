@@ -5,7 +5,6 @@ import 'package:tai/features/Requests/presentation/paymentRequestDetailsCard.dar
 import 'package:tai/features/Requests/presentation/requestCard.dart';
 import 'package:tai/features/authentication/presentation/current_user_controller.dart';
 
-
 class RequestsScreen extends ConsumerWidget {
   const RequestsScreen({super.key});
 
@@ -17,7 +16,7 @@ class RequestsScreen extends ConsumerWidget {
         data: (requests) => Scaffold(
               body: SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
                   child: Column(
                     children: [
                       const SizedBox(
@@ -30,7 +29,7 @@ class RequestsScreen extends ConsumerWidget {
                             style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 18),
+                                fontSize: 19),
                           )
                         ],
                       ),
