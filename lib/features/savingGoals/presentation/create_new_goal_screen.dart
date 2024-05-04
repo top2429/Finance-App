@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:tai/commonWidgets/customSnackBar.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField.dart';
 import 'package:tai/commonWidgets/textField_PlusSign.dart';
-
 
 class CreateNewGoalScreen extends StatefulWidget {
   const CreateNewGoalScreen({super.key});
@@ -23,7 +23,7 @@ class _CreateNewGoalScreenState extends State<CreateNewGoalScreen> {
 
   // ignore: unused_field
   String _selectedVal = "Daily";
-  
+
   List _cycleList = [
     "Daily",
     "Weekly",
@@ -88,7 +88,6 @@ class _CreateNewGoalScreenState extends State<CreateNewGoalScreen> {
                     ],
                   ),
                 ),
-                
                 const SizedBox(
                   height: 20,
                 ),
@@ -116,7 +115,6 @@ class _CreateNewGoalScreenState extends State<CreateNewGoalScreen> {
                   height: 20,
                 ),
                 DropdownButtonFormField(
-                  
                   dropdownColor: Color.fromARGB(255, 240, 240, 240),
                   decoration: InputDecoration(
                       contentPadding:
@@ -137,7 +135,15 @@ class _CreateNewGoalScreenState extends State<CreateNewGoalScreen> {
 
                       ),
                   items: _cycleList
-                      .map((e) => DropdownMenuItem(value: e, child: Text(e, style: TextStyle(color: Colors.black, fontSize: 17, fontWeight: FontWeight.bold),)))
+                      .map((e) => DropdownMenuItem(
+                          value: e,
+                          child: Text(
+                            e,
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold),
+                          )))
                       .toList(),
                   onChanged: (val) {
                     setState(() {
@@ -155,10 +161,7 @@ class _CreateNewGoalScreenState extends State<CreateNewGoalScreen> {
                 MainButton(
                     text: "Save",
                     onpressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) => const Note()));
+                      CustomSnackBar.show(context, "Not Implemented", true);
                     }),
               ],
             ),

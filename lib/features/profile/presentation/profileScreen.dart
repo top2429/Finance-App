@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:tai/commonWidgets/customSnackBar.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField_icon.dart';
 import 'package:tai/features/authentication/presentation/signUp/signUpScreen.dart';
 import 'package:tai/features/profile/presentation/editProfileScreen.dart';
-
 
 class ProfileScreen extends StatefulWidget {
   final String username;
@@ -37,7 +37,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           actions: [
             Padding(
@@ -134,7 +134,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       await FirebaseAuth.instance.signOut();
 
                       Navigator.of(context).pushAndRemoveUntil(
-                        MaterialPageRoute(builder: (context) => const SignUpScreen()),
+                        MaterialPageRoute(
+                            builder: (context) => const SignUpScreen()),
                         (Route<dynamic> route) =>
                             false, // Remove all routes from the stack
                       );
@@ -142,7 +143,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 const SizedBox(
                   height: 30,
                 ),
-                MainButton(red: true, text: "Delete account", onpressed: () {}),
+                MainButton(
+                    red: true,
+                    text: "Delete account",
+                    onpressed: () {
+                      CustomSnackBar.show(context, "Not Implemented", true);
+                    }),
               ],
             ),
           ),

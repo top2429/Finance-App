@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tai/commonWidgets/customSnackBar.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/textField_icon.dart';
-
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
@@ -128,7 +128,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                   Container(
                                     decoration: BoxDecoration(
                                         color: Colors.white,
-                                        borderRadius: BorderRadius.circular(10)),
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
                                     width: 110,
                                     height: 56,
                                   ),
@@ -159,6 +160,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       text: "Update",
                       onpressed: () {
                         if (_formKey.currentState!.validate()) {
+                          CustomSnackBar.show(context, "Not Implemented", true);
                         }
                       })
                 ],

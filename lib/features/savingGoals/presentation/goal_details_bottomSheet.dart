@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tai/commonWidgets/customSnackBar.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 
 class GoalDetailsBottomSheetContainer extends StatefulWidget {
@@ -180,7 +181,9 @@ class _GoalDetailsBottomSheetContainerState
                 padding: const EdgeInsets.all(8.0),
                 child: MainButton(
                   text: "Edit",
-                  onpressed: () {},
+                  onpressed: () {
+                    CustomSnackBar.show(context, "Not Implemented", true);
+                  },
                 ),
               )),
               Expanded(
@@ -188,7 +191,9 @@ class _GoalDetailsBottomSheetContainerState
                 padding: const EdgeInsets.all(8.0),
                 child: MainButton(
                   text: "Pause",
-                  onpressed: () {},
+                  onpressed: () {
+                    CustomSnackBar.show(context, "Not Implemented", true);
+                  },
                 ),
               ))
             ],

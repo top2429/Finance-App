@@ -113,21 +113,7 @@ class _SavingGoalsScreenState extends State<SavingGoalsScreen> {
               SizedBox(
                 height: 15,
               ),
-              // GoalCard(
-              //   onTap: () {},
-              // ),
-              // SizedBox(
-              //   height: 15,
-              // ),
-              // GoalCard(
-              //   onTap: () {},
-              // ),
-              // SizedBox(
-              //   height: 15,
-              // ),
-              // GoalCard(
-              //   onTap: () {},
-              // ),
+       
             ],
           ),
         ),

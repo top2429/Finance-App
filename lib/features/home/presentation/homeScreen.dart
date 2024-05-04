@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:tai/commonWidgets/customSnackBar.dart';
 import 'package:tai/commonWidgets/iconInCircle.dart';
 import 'package:tai/features/Requests/presentation/chooseRequestMethod.dart';
 import 'package:tai/features/Transactions/data/transactions_repository.dart';
@@ -67,7 +68,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       children: [
                         InkWell(
                           onTap: () {
-                            
+                            CustomSnackBar.show(
+                                context, "Not Implemented", true);
                           },
                           child: const Icon(
                             Icons.notifications_outlined,
@@ -118,21 +120,23 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                     color: Colors.white),
                               ),
                               Consumer(
-                                builder: (context,ref,_){
-                                 final asyncNewUserModel =  ref.watch(userModelStreamProvider(value.userId!));
-                                 return asyncNewUserModel.when(
-                                  data: (value)=> Text(
-                                  " ${value.totalBalance}",
-                                  style: const TextStyle(
-                                      fontSize: 36,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
-                                ), 
-                                  error:(e,st)=> Text(e.toString()), 
-                                  loading: ()=>const SizedBox(
-                                    width: 100,
-                                    height: 20,
-                                    child: LinearProgressIndicator()));},
+                                builder: (context, ref, _) {
+                                  final asyncNewUserModel = ref.watch(
+                                      userModelStreamProvider(value.userId!));
+                                  return asyncNewUserModel.when(
+                                      data: (value) => Text(
+                                            " ${value.totalBalance}",
+                                            style: const TextStyle(
+                                                fontSize: 36,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white),
+                                          ),
+                                      error: (e, st) => Text(e.toString()),
+                                      loading: () => const SizedBox(
+                                          width: 100,
+                                          height: 20,
+                                          child: LinearProgressIndicator()));
+                                },
                               ),
                             ],
                           ),
@@ -238,7 +242,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 const SizedBox(
                   height: 30,
                 ),
-
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -264,7 +267,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 const SizedBox(
                   height: 15,
                 ),
-                TransactionsHistoryWidget(userId: value.userId!, value: asyncValue, forHomeScreen: true,)
+                TransactionsHistoryWidget(
+                  userId: value.userId!,
+                  value: asyncValue,
+                  forHomeScreen: true,
+                )
               ],
             ),
           ),

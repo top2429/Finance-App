@@ -6,7 +6,7 @@ class CustomSnackBar {
       SnackBar(
         showCloseIcon: true,
         behavior: SnackBarBehavior.floating,
-        margin: EdgeInsets.only(bottom: 100, left: 10, right: 10),
+        margin: EdgeInsets.only(bottom: 15, left: 10, right: 10),
         content: Row(
           children: [
             error
@@ -26,8 +26,6 @@ class CustomSnackBar {
                 )),
           ],
         ),
-
-      
       ),
     );
   }
