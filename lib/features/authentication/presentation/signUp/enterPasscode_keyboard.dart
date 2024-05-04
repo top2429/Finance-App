@@ -38,7 +38,7 @@ class _EnterCode2State extends State<EnterCode> {
               pinInputController: pinInputController,
               onSubmit: () {
                 /// ignore: avoid_print
-                print("Text is : ${pinInputController.text}");
+      
                 Navigator.push(context,
                         MaterialPageRoute(builder: (context) => const NavBar()));
               },

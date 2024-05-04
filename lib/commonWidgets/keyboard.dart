@@ -37,7 +37,7 @@ class _KeyBoard2State extends State<KeyBoard> {
               pinInputController: pinInputController,
               onSubmit: () {
                 /// ignore: avoid_print
-                print("Text is : ${pinInputController.text}");
+               
               },
               keyboardFontFamily: 'Ubuntu',
             ),

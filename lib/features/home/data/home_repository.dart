@@ -19,7 +19,7 @@ class HomeRepository {
 
       return response;
     } catch (e) {
-      print("There is an error: $e");
+     
       // Handle the error or return an error stream
       return Stream.error(e);
     }
