@@ -116,7 +116,7 @@ class _MobileMoneyDetailsState extends ConsumerState<MobileMoneyDetails> {
                         const Text("There is a 1% charge for every transaction",
                             style: TextStyle(overflow: TextOverflow.ellipsis)),
                         const SizedBox(
-                          height: 30,
+                          height: 15,
                         ),
                         SearchAnchor.bar(
                             viewHeaderHintStyle: const TextStyle(

@@ -124,7 +124,7 @@ class _SelectRecipientState extends ConsumerState<SelectRecipient> {
                           style: TextStyle(overflow: TextOverflow.ellipsis),
                         ),
                         const SizedBox(
-                          height: 30,
+                          height: 15,
                         ),
                         SearchAnchor.bar(
                             viewHeaderHintStyle: const TextStyle(

@@ -83,7 +83,7 @@ class _GoalDetailsBottomSheetContainerState
                         height: 4,
                       ),
                       Text(
-                        "3500000",
+                        "500000",
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 16),
                       )
