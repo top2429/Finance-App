@@ -3,7 +3,7 @@
 
 ![Static Badge](https://img.shields.io/badge/Made%20with%20-%20Flutter%20-blue?style=for-the-badge)
 
-Zai is a fintech mobile application where you deposit, send, request, and budget for money that which encourages saving and enables financial transactions like payment for goods 
+Zai is a fintech application where you deposit, send, request, save and budget for money. For use in financial transactions
 
 ## :sparkles: App Features
 
