@@ -1,5 +1,5 @@
 
-# Zai Finance App - Made with Flutter
+# Zai Finance App
 
 ![Static Badge](https://img.shields.io/badge/Made%20with%20-%20Flutter%20-blue?style=for-the-badge)
 
