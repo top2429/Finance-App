@@ -156,8 +156,6 @@ class _DepositDetailsState extends ConsumerState<DepositDetails> {
                                               if (_formKeyPhoneNumber
                                                   .currentState!
                                                   .validate()) {
-                                                // If the form is valid, display a snackbar. In the real world,
-                                                // you'd often call a server or save the information in a database.
                                               } else {}
                                             },
                                             validator: (value) {
