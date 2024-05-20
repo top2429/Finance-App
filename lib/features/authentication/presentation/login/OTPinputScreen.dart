@@ -1,8 +1,9 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/commonWidgets/notImplemented.dart';
-
 
 class OTPinputScreen extends StatefulWidget {
   const OTPinputScreen({super.key});
@@ -64,9 +65,7 @@ class _OTPinputScreenState extends State<OTPinputScreen> {
                   numberOfFields: 6,
                   borderColor: const Color(0xFF512DA8),
                   showFieldAsBox: true,
-                  onCodeChanged: (String code) {
-                  },
-                  //runs when every textfield is filled
+                  onCodeChanged: (String code) {},
                   onSubmit: (String verificationCode) {
                     showDialog(
                         context: context,
@@ -76,24 +75,23 @@ class _OTPinputScreenState extends State<OTPinputScreen> {
                             content: Text('Code entered is $verificationCode'),
                           );
                         });
-                  }, // end onSubmit
+                  },
                 ),
-                const SizedBox(height: 30,),
+                const SizedBox(
+                  height: 30,
+                ),
                 const Row(
-                      children: [
-                        Text(
-                          "Didn't receive SMS?",
-                          style:
-                              TextStyle(fontSize: 12, color: Colors.white),
-                        ),
-                        Text(
-                          " Resend SMS",
-                          style:
-                              TextStyle(fontSize: 12, color: Color(0xFF466AE7)),
-                        ),
-                        
-                      ],
+                  children: [
+                    Text(
+                      "Didn't receive SMS?",
+                      style: TextStyle(fontSize: 12, color: Colors.white),
                     ),
+                    Text(
+                      " Resend SMS",
+                      style: TextStyle(fontSize: 12, color: Color(0xFF466AE7)),
+                    ),
+                  ],
+                ),
                 const Spacer(),
                 const SizedBox(
                   height: 10,
@@ -101,10 +99,13 @@ class _OTPinputScreenState extends State<OTPinputScreen> {
                 Align(
                   alignment: Alignment.center,
                   child: MainButton(
-                      lightBlue: true, text: "Continue", onpressed: () {
-                        Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const NotImplemented()));
-                  
+                      lightBlue: true,
+                      text: "Continue",
+                      onpressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const NotImplemented()));
                       }),
                 ),
               ],
