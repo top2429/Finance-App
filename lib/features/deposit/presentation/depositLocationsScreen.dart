@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:tai/commonWidgets/arrowButton.dart';
 import 'package:tai/features/deposit/presentation/depositDetails.dart';
@@ -41,21 +43,19 @@ class _DepositocationsState extends State<DepositLocations> {
               ),
               Column(
                 children: [
-                  
                   ArrowButton(
                       label: "Mobile Money Wallet",
                       image: "mmWallet.svg",
                       innerContainerColor: const Color(0xFFC4F1CD),
                       onTap: () {
                         Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const DepositDetails ()));
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const DepositDetails()));
                       }),
-                      const SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
-                      
                 ],
               )
             ],
