@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 class UserModel {
   String? userId;
   String? username;
@@ -6,9 +8,10 @@ class UserModel {
   double? totalBalance;
   String? image;
 
-  UserModel(this.userId, this.username, this.email, this.phoneNumber,this.totalBalance, this.image);
+  UserModel(this.userId, this.username, this.email, this.phoneNumber,
+      this.totalBalance, this.image);
 
-  UserModel.fromMap(Map<String,dynamic> data) {
+  UserModel.fromMap(Map<String, dynamic> data) {
     userId = data["userId"];
     username = data['username'];
     email = data['email'];
@@ -17,7 +20,7 @@ class UserModel {
     image = data['image'];
   }
 
-  Map<String, dynamic> toJson(){
+  Map<String, dynamic> toJson() {
     final user = {
       "userId": userId ?? "",
       "username": username ?? "",
