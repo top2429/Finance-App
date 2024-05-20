@@ -90,7 +90,6 @@ class _AnalyticsTestState extends State<ExpenditureGraph> {
 
   Widget bottomTitleWidgets(double value, TitleMeta meta) {
     const style = TextStyle(
-        // fontWeight: FontWeight.bold,
         fontSize: 12,
         color: Color.fromARGB(255, 112, 112, 112));
     Widget text;
@@ -126,7 +125,6 @@ class _AnalyticsTestState extends State<ExpenditureGraph> {
 
   Widget leftTitleWidgets(double value, TitleMeta meta) {
     const style = TextStyle(
-        // fontWeight: FontWeight.bold,
         fontSize: 12,
         color: Color.fromARGB(255, 112, 112, 112));
     String text;
