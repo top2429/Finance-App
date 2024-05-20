@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:tai/commonWidgets/arrowButton.dart';
 import 'package:tai/features/Requests/presentation/selectRecipient.dart';
@@ -48,9 +50,9 @@ class _ChooseRequestPaymentMethodState extends State<ChooseRequestMethod> {
                       innerContainerColor: const Color(0xFFC4F1CD),
                       onTap: () {
                         Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const SelectRecipient ()));
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SelectRecipient()));
                       }),
                 ],
               )
