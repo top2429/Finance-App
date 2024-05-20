@@ -24,11 +24,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   final phoneNumberController = TextEditingController();
 
   bool buttonActive = true;
-
-  //  global key for the form on this screen
   final _formKeyNumber = GlobalKey<FormState>();
-
-  //  global key for the form on this screen
   final _formKeyEmail = GlobalKey<FormState>();
 
   @override
@@ -69,7 +65,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   child: Column(
                     children: <Widget>[
                       ButtonsTabBar(
-                        // Customize the appearance and behavior of the tab bar
                         backgroundColor: Colors.white,
                         unselectedBackgroundColor:
                             const Color.fromARGB(255, 114, 114, 114),
@@ -83,7 +78,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                           color: Colors.grey,
                           fontWeight: FontWeight.bold,
                         ),
-                        // Add your tabs here
                         tabs: const [
                           Tab(
                               child: SizedBox(
@@ -204,8 +198,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                                           onpressed: () async {
                                             if (_formKeyEmail.currentState!
                                                 .validate()) {
-                                              // If the form is valid, display a snackbar. In the real world,
-                                              // you'd often call a server or save the information in a database.
                                               setState(() {
                                                 buttonActive = false;
                                               });
