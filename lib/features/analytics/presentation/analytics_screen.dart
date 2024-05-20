@@ -44,7 +44,7 @@ class _AnalyticsScreenState extends ConsumerState<AnalyticsScreen> {
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
-                  color: Color.fromARGB(255, 240, 240, 240),
+                  color: const Color.fromARGB(255, 240, 240, 240),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(12.0),
