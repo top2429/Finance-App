@@ -19,8 +19,9 @@ class _AnalyticsTestState extends State<IncomeGraph> {
           LineChartData(
             titlesData: FlTitlesData(
               rightTitles:
-                  AxisTitles(sideTitles: SideTitles(showTitles: false)),
-              topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                  const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+              topTitles:
+                  const AxisTitles(sideTitles: SideTitles(showTitles: false)),
               leftTitles: AxisTitles(
                   sideTitles: SideTitles(
                       getTitlesWidget: leftTitleWidgets,
@@ -34,7 +35,7 @@ class _AnalyticsTestState extends State<IncomeGraph> {
                       getTitlesWidget: bottomTitleWidgets,
                       showTitles: true)),
             ),
-            backgroundColor: Color.fromARGB(255, 255, 255, 255),
+            backgroundColor: const Color.fromARGB(255, 255, 255, 255),
             gridData: FlGridData(
               show: true,
               drawVerticalLine: true,
@@ -55,7 +56,7 @@ class _AnalyticsTestState extends State<IncomeGraph> {
             ),
             borderData: FlBorderData(
               show: false,
-              border: Border(
+              border: const Border(
                   left: BorderSide(color: Colors.grey),
                   bottom: BorderSide(color: Colors.grey)),
             ),
@@ -67,7 +68,7 @@ class _AnalyticsTestState extends State<IncomeGraph> {
               LineChartBarData(
                 spots: widget.incomeSpots,
                 isCurved: false,
-                gradient: LinearGradient(
+                gradient: const LinearGradient(
                   colors: [
                     Color.fromARGB(255, 222, 255, 223),
                     Colors.green,
@@ -82,16 +83,15 @@ class _AnalyticsTestState extends State<IncomeGraph> {
             ],
           ),
           duration: const Duration(milliseconds: 150),
-          curve: Curves.linear, // Optional
+          curve: Curves.linear,
         ),
       ),
     );
   }
 
   Widget bottomTitleWidgets(double value, TitleMeta meta) {
-    const style = TextStyle(
-        fontSize: 12,
-        color: Color.fromARGB(255, 112, 112, 112));
+    const style =
+        TextStyle(fontSize: 12, color: Color.fromARGB(255, 112, 112, 112));
     Widget text;
     switch (value.toInt()) {
       case 0:
@@ -124,9 +124,8 @@ class _AnalyticsTestState extends State<IncomeGraph> {
   }
 
   Widget leftTitleWidgets(double value, TitleMeta meta) {
-    const style = TextStyle(
-        fontSize: 12,
-        color: Color.fromARGB(255, 112, 112, 112));
+    const style =
+        TextStyle(fontSize: 12, color: Color.fromARGB(255, 112, 112, 112));
     String text;
     switch (value.toInt()) {
       case 1:
