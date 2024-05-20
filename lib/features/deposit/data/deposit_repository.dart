@@ -7,8 +7,6 @@ import 'package:tai/commonWidgets/customSnackBar.dart';
 import 'package:tai/features/navBar/navBar.dart';
 import 'package:tai/features/sendTo/data/sendMoneyToUser.dart';
 
-/// Function to generate random string of characters to act as the transaction
-  /// reference(txRef) for the flutterwave API
   String generateRandomString() {
     const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
     Random random = Random();
@@ -21,8 +19,6 @@ import 'package:tai/features/sendTo/data/sendMoneyToUser.dart';
     return randomString;
   }
 
-  /// Function that directs you to the flutterwave payment portal
-  /// and consequently update your wallet in the app
   handlePaymentInitialization(String userId, String username,
       String? phoneNumber, String email, String amount, String txRef,BuildContext context) async {
     final Customer customer =
