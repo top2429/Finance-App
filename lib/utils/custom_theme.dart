@@ -1,3 +1,5 @@
+// ignore_for_file: use_full_hex_values_for_flutter_colors
+
 import 'package:flutter/material.dart';
 
 import 'constants.dart';
@@ -24,7 +26,7 @@ ThemeData lightThemeData(BuildContext context) {
     primaryColorLight: const Color(0xFFFFFFFF),
     disabledColor: const Color(0xfff4d4c4c),
     useMaterial3: true,
-    dialogBackgroundColor:const Color(0xFFECEAEA),
+    dialogBackgroundColor: const Color(0xFFECEAEA),
     cardColor: const Color(0xFFFFFFFF),
     fontFamily: Constants.appFontlight.fontFamily,
     scaffoldBackgroundColor: lightThemeColors(context).background,
@@ -50,9 +52,13 @@ TextTheme textThemelight(context) {
     labelMedium: Constants.appFontlight.copyWith(
         fontWeight: FontWeight.normal, fontSize: 13, color: Colors.white),
     labelSmall: Constants.appFontlight.copyWith(
-        fontWeight: FontWeight.normal, fontSize: 13, color: const Color(0xFF4D4C4C)),
+        fontWeight: FontWeight.normal,
+        fontSize: 13,
+        color: const Color(0xFF4D4C4C)),
     displaySmall: Constants.appFontdark.copyWith(
-        fontWeight: FontWeight.normal, fontSize: 14, color: const Color(0xFF4D4C4C)),
+        fontWeight: FontWeight.normal,
+        fontSize: 14,
+        color: const Color(0xFF4D4C4C)),
   );
 }
 
