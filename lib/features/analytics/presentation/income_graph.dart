@@ -15,7 +15,6 @@ class _AnalyticsTestState extends State<IncomeGraph> {
     return Center(
       child: SizedBox(
         height: 300,
-        // width: 290,
         child: LineChart(
           LineChartData(
             titlesData: FlTitlesData(
@@ -23,14 +22,12 @@ class _AnalyticsTestState extends State<IncomeGraph> {
                   AxisTitles(sideTitles: SideTitles(showTitles: false)),
               topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
               leftTitles: AxisTitles(
-                  // axisNameWidget: Text("Expenditure"),
                   sideTitles: SideTitles(
                       getTitlesWidget: leftTitleWidgets,
                       reservedSize: 30,
                       interval: 1,
                       showTitles: true)),
               bottomTitles: AxisTitles(
-                  // axisNameWidget: Text("Months"),
                   sideTitles: SideTitles(
                       reservedSize: 30,
                       interval: 1,
@@ -38,7 +35,6 @@ class _AnalyticsTestState extends State<IncomeGraph> {
                       showTitles: true)),
             ),
             backgroundColor: Color.fromARGB(255, 255, 255, 255),
-            // read about it in the LineChartData section
             gridData: FlGridData(
               show: true,
               drawVerticalLine: true,
@@ -58,8 +54,7 @@ class _AnalyticsTestState extends State<IncomeGraph> {
               },
             ),
             borderData: FlBorderData(
-              show: false
-              ,
+              show: false,
               border: Border(
                   left: BorderSide(color: Colors.grey),
                   bottom: BorderSide(color: Colors.grey)),
@@ -70,10 +65,13 @@ class _AnalyticsTestState extends State<IncomeGraph> {
             maxY: 8,
             lineBarsData: [
               LineChartBarData(
-                spots:widget.incomeSpots,
+                spots: widget.incomeSpots,
                 isCurved: false,
                 gradient: LinearGradient(
-                  colors: [ Color.fromARGB(255, 222, 255, 223),Colors.green, ],
+                  colors: [
+                    Color.fromARGB(255, 222, 255, 223),
+                    Colors.green,
+                  ],
                 ),
                 barWidth: 3,
                 isStrokeCapRound: true,
@@ -100,10 +98,9 @@ class _AnalyticsTestState extends State<IncomeGraph> {
 
   Widget bottomTitleWidgets(double value, TitleMeta meta) {
     const style = TextStyle(
-      // fontWeight: FontWeight.bold,
-      fontSize: 12,
-      color: Color.fromARGB(255, 112, 112, 112)
-    );
+        // fontWeight: FontWeight.bold,
+        fontSize: 12,
+        color: Color.fromARGB(255, 112, 112, 112));
     Widget text;
     switch (value.toInt()) {
       case 0:
@@ -137,11 +134,9 @@ class _AnalyticsTestState extends State<IncomeGraph> {
 
   Widget leftTitleWidgets(double value, TitleMeta meta) {
     const style = TextStyle(
-      // fontWeight: FontWeight.bold,
-      fontSize: 12,
-            color: Color.fromARGB(255, 112, 112, 112)
-
-    );
+        // fontWeight: FontWeight.bold,
+        fontSize: 12,
+        color: Color.fromARGB(255, 112, 112, 112));
     String text;
     switch (value.toInt()) {
       case 1:
@@ -156,7 +151,7 @@ class _AnalyticsTestState extends State<IncomeGraph> {
       case 7:
         text = '700k';
         break;
-      
+
       default:
         return Container();
     }
