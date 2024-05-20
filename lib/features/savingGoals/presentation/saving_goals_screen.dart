@@ -85,7 +85,6 @@ class _SavingGoalsScreenState extends State<SavingGoalsScreen> {
                                           child: Center(
                                               child: Padding(
                                         padding: EdgeInsets.only(right: 30),
-                                        // TODO: add the name of the goal from the list
                                         child: Text(
                                           "Buy a car",
                                           style: TextStyle(
@@ -93,7 +92,7 @@ class _SavingGoalsScreenState extends State<SavingGoalsScreen> {
                                               fontSize: 18),
                                         ),
                                       ))),
-                                      Icon(
+                                      const Icon(
                                         Icons.delete,
                                         size: 28,
                                         color: Colors.red,
@@ -102,7 +101,7 @@ class _SavingGoalsScreenState extends State<SavingGoalsScreen> {
                                     const SizedBox(
                                       height: 50,
                                     ),
-                                    GoalDetailsBottomSheetContainer()
+                                    const GoalDetailsBottomSheetContainer()
                                   ],
                                 ),
                               ),
@@ -114,7 +113,7 @@ class _SavingGoalsScreenState extends State<SavingGoalsScreen> {
                   );
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
             ],
