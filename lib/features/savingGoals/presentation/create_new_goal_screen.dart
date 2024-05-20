@@ -126,15 +126,15 @@ class _CreateNewGoalScreenState extends State<CreateNewGoalScreen> {
                           borderSide: const BorderSide(color: Colors.black)),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(color: Colors.black)),
-                      label: Text("Select your saving cycle"),
-                      labelStyle: TextStyle(color: Colors.black)),
+                          borderSide: const BorderSide(color: Colors.black)),
+                      label: const Text("Select your saving cycle"),
+                      labelStyle: const TextStyle(color: Colors.black)),
                   items: _cycleList
                       .map((e) => DropdownMenuItem(
                           value: e,
                           child: Text(
                             e,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 17,
                                 fontWeight: FontWeight.bold),
@@ -145,8 +145,8 @@ class _CreateNewGoalScreenState extends State<CreateNewGoalScreen> {
                       _selectedVal = val as String;
                     });
                   },
-                  icon: Padding(
-                    padding: const EdgeInsets.only(right: 10),
+                  icon: const Padding(
+                    padding: EdgeInsets.only(right: 10),
                     child: Icon(Icons.add),
                   ),
                 ),
