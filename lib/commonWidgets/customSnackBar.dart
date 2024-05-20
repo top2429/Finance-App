@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 class CustomSnackBar {
@@ -6,7 +8,7 @@ class CustomSnackBar {
       SnackBar(
         showCloseIcon: true,
         behavior: SnackBarBehavior.floating,
-        margin: EdgeInsets.only(bottom: 15, left: 10, right: 10),
+        margin: const EdgeInsets.only(bottom: 15, left: 10, right: 10),
         content: Row(
           children: [
             error
