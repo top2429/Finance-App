@@ -28,7 +28,6 @@ import 'package:tai/features/sendTo/data/sendMoneyToUser.dart';
         publicKey: "FLWPUBK_TEST-9a87c713ef68a600a7869a05022ef2fa-X",
         currency: "UGX",
         redirectUrl: "add-your-redirect-url-here",
-        /* the page to display after the trensaction is successful */
         txRef: txRef,
         amount: amount,
         customer: customer,
