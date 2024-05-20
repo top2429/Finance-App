@@ -1,3 +1,5 @@
+// ignore_for_file: unused_field, prefer_final_fields
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:tai/commonWidgets/customSnackBar.dart';
@@ -109,26 +111,24 @@ class _CreateNewGoalScreenState extends State<CreateNewGoalScreen> {
                       }
                     },
                     label: "Target Date for your goal"),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 DropdownButtonFormField(
-                  dropdownColor: Color.fromARGB(255, 240, 240, 240),
+                  dropdownColor: const Color.fromARGB(255, 240, 240, 240),
                   decoration: InputDecoration(
                       contentPadding:
                           const EdgeInsets.only(top: 15, bottom: 15, left: 13),
                       filled: true,
-                      fillColor: Color.fromARGB(255, 240, 240, 240),
+                      fillColor: const Color.fromARGB(255, 240, 240, 240),
                       focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(color: Colors.black)),
+                          borderSide: const BorderSide(color: Colors.black)),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide: BorderSide(color: Colors.black)),
                       label: Text("Select your saving cycle"),
-                      labelStyle: TextStyle(color: Colors.black)
-
-                      ),
+                      labelStyle: TextStyle(color: Colors.black)),
                   items: _cycleList
                       .map((e) => DropdownMenuItem(
                           value: e,
