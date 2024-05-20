@@ -18,10 +18,8 @@ class _CreateNewGoalScreenState extends State<CreateNewGoalScreen> {
   final _goalName = TextEditingController();
   final _amountToSave = TextEditingController();
   final _endDate = TextEditingController();
-  // ignore: unused_field
   final _savingCycle = TextEditingController();
 
-  // ignore: unused_field
   String _selectedVal = "Daily";
 
   List _cycleList = [
@@ -121,8 +119,6 @@ class _CreateNewGoalScreenState extends State<CreateNewGoalScreen> {
                           const EdgeInsets.only(top: 15, bottom: 15, left: 13),
                       filled: true,
                       fillColor: Color.fromARGB(255, 240, 240, 240),
-                      // errorText:
-                      //     widget.controllerExist.isEmpty ? null : widget.controllerExist,
                       focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide: BorderSide(color: Colors.black)),
@@ -131,7 +127,6 @@ class _CreateNewGoalScreenState extends State<CreateNewGoalScreen> {
                           borderSide: BorderSide(color: Colors.black)),
                       label: Text("Select your saving cycle"),
                       labelStyle: TextStyle(color: Colors.black)
-                      //hintText: 'username',
 
                       ),
                   items: _cycleList
