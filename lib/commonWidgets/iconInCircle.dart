@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -17,7 +19,11 @@ class IconCircle extends StatelessWidget {
         ),
         child: Padding(
           padding: const EdgeInsets.all(10),
-          child: SvgPicture.asset(image,height: 39,width: 39,),
+          child: SvgPicture.asset(
+            image,
+            height: 39,
+            width: 39,
+          ),
         ),
       ),
     );
