@@ -1,3 +1,4 @@
+// ignore_for_file: file_names, use_build_context_synchronously
 
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,6 @@ import 'package:tai/features/authentication/data/auth_repository.dart';
 import 'package:tai/features/authentication/presentation/login/OTPinputScreen.dart';
 import 'package:tai/features/authentication/presentation/signUp/signUpScreen.dart';
 import 'package:tai/features/navBar/navBar.dart';
-
 
 class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
@@ -212,7 +212,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                                                     context,
                                                     MaterialPageRoute(
                                                         builder: (context) =>
-                                                            const NavBar()),(route)=>false);
+                                                            const NavBar()),
+                                                    (route) => false);
                                               } else {
                                                 CustomSnackBar.show(
                                                     context, response, true);
@@ -267,8 +268,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                                           onpressed: () {
                                             if (_formKeyNumber.currentState!
                                                 .validate()) {
-                                              // If the form is valid, display a snackbar. In the real world,
-                                              // you'd often call a server or save the information in a database.
                                               Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
