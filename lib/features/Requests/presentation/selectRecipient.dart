@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, use_build_context_synchronously
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -33,8 +35,6 @@ class _SelectRecipientState extends ConsumerState<SelectRecipient> {
   @override
   Widget build(BuildContext context) {
     final currentUser = ref.read(currentUserControllerProvider);
-    /* chose not to use the provider here due to the many aurguments required
-    so i just created a raw instance of the requests repository */
     final requestProvider = RequestsRepository();
     return Scaffold(
       bottomNavigationBar: Padding(
@@ -51,9 +51,6 @@ class _SelectRecipientState extends ConsumerState<SelectRecipient> {
               TimeOfDay timeNow = TimeOfDay.now();
 
               if (_formKey.currentState!.validate()) {
-                // If the form is valid, display a snackbar. In the real world,
-                // you'd often call a server or save the information in a database.
-                // sendMoneyToUser();
                 if (receiverId.isEmpty) {
                   CustomSnackBar.show(context, "Select recipient", true);
                 } else {
