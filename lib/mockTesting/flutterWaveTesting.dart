@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'dart:convert';
 import 'dart:io';
 
@@ -17,9 +19,6 @@ class FlutterWaveTesting extends StatefulWidget {
 }
 
 class _FlutterWaveTestingState extends State<FlutterWaveTesting> {
-  /// Verifying the transaction in the flutterwave flutter sdk is not catered for
-  /// when i tryed to implemnt it here, it required the secret key as well and the documentation
-  /// doesnt specify how the public and secret keys are concatinated. so its not implemeted
   Future verifyTransaction(String transId, String publicKey) async {
     const url =
         "https://ravesandboxapi.flutterwave.com/v3/transactions/transId/verify";
@@ -31,16 +30,12 @@ class _FlutterWaveTestingState extends State<FlutterWaveTesting> {
       final response = await client.get(
         uri,
         headers: {
-          HttpHeaders.authorizationHeader:
-              publicKey,
+          HttpHeaders.authorizationHeader: publicKey,
           HttpHeaders.contentTypeHeader: 'application/json'
         },
       );
 
-      final responseBody = json.decode(response.body);
-      print(
-          "this is the verified thingi, 00000000000000000000000000000000000000000");
-      print(responseBody);
+      json.decode(response.body);
     } catch (error) {
       rethrow;
     }
@@ -62,12 +57,6 @@ class _FlutterWaveTestingState extends State<FlutterWaveTesting> {
         paymentOptions: "ussd, card, barter, payattitude",
         customization: Customization(title: "My Payment"),
         isTestMode: true);
-
-    ChargeResponse response = await flutterwave.charge();
-    print("yeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-    print(response);
-
-    // verifyTransaction(response.transactionId!, "FLWPUBK_TEST-9a87c713ef68a600a7869a05022ef2fa-X");
   }
 
   @override
