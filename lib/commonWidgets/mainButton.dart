@@ -47,7 +47,6 @@ class _MainButtonState extends State<MainButton> {
               child: Center(
                   child: widget.indicator
                       ? const CupertinoActivityIndicator(
-                          // strokeWidth: 3,
                           color: Colors.white,
                         )
                       : Text(
