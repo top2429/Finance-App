@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 class TextFieldWidgetIcon extends StatefulWidget {
@@ -22,8 +24,7 @@ class TextFieldWidgetIcon extends StatefulWidget {
       this.backgroundColor = Colors.white,
       required this.hasICon,
       required this.enabled,
-      required this.onChanged
-      });
+      required this.onChanged});
 
   @override
   State<TextFieldWidgetIcon> createState() => _TextFieldWidgetIconState();
@@ -33,7 +34,6 @@ class _TextFieldWidgetIconState extends State<TextFieldWidgetIcon> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      
       enabled: widget.enabled,
       onChanged: widget.onChanged,
       validator: (value) {
@@ -45,11 +45,16 @@ class _TextFieldWidgetIconState extends State<TextFieldWidgetIcon> {
       style: TextStyle(color: widget.textcolor, fontSize: 17),
       controller: widget.controller,
       decoration: InputDecoration(
-        suffixIcon: widget.hasICon? const Icon(Icons.edit, color: Colors.black,size: 19,) :null,
+          suffixIcon: widget.hasICon
+              ? const Icon(
+                  Icons.edit,
+                  color: Colors.black,
+                  size: 19,
+                )
+              : null,
           contentPadding: const EdgeInsets.only(top: 15, bottom: 15, left: 0),
           filled: true,
           fillColor: widget.backgroundColor,
-          
           label: Text(widget.label),
           labelStyle: TextStyle(color: widget.labelColor)
           //hintText: 'username',
