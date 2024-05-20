@@ -17,7 +17,6 @@ class DepositDetails extends ConsumerStatefulWidget {
 enum Operator { mtn, airtel }
 
 class _DepositDetailsState extends ConsumerState<DepositDetails> {
-  /// global keys for the forms on this screen
   final _formKey = GlobalKey<FormState>();
   final _formKeyPhoneNumber = GlobalKey<FormState>();
   final _formKeyAmount = GlobalKey<FormState>();
@@ -44,8 +43,6 @@ class _DepositDetailsState extends ConsumerState<DepositDetails> {
             onpressed: () {
               if (_formKey.currentState!.validate() &&
                   _formKeyAmount.currentState!.validate()) {
-                // If the form is valid, display a snackbar. In the real world,
-                // you'd often call a server or save the information in a database.
                 setState(() {
                   buttonActive = false;
                 });
@@ -159,8 +156,6 @@ class _DepositDetailsState extends ConsumerState<DepositDetails> {
                                               if (_formKeyPhoneNumber
                                                   .currentState!
                                                   .validate()) {
-                                                // If the form is valid, display a snackbar. In the real world,
-                                                // you'd often call a server or save the information in a database.
                                               } else {}
                                             },
                                             validator: (value) {
