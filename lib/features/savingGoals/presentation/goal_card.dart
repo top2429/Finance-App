@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_final_fields
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -21,14 +23,14 @@ class _GoalCardState extends State<GoalCard> {
             color: const Color.fromARGB(255, 240, 240, 240),
             borderRadius: BorderRadius.circular(24)),
         child: Padding(
-          padding: EdgeInsets.all(12),
+          padding: const EdgeInsets.all(12),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
                 children: [
                   Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           color: Color(0xFFC4F1CD), shape: BoxShape.circle),
                       child: Padding(
                         padding: const EdgeInsets.all(12),
@@ -38,20 +40,20 @@ class _GoalCardState extends State<GoalCard> {
                           width: 19,
                         ),
                       )),
-                  SizedBox(
+                  const SizedBox(
                     width: 14,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Buy a car",
+                      const Text("Buy a car",
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 15)),
-                      SizedBox(
+                      const SizedBox(
                         height: 4,
                       ),
-                      Text("UGX 500000"),
-                      SizedBox(
+                      const Text("UGX 500000"),
+                      const SizedBox(
                         height: 7,
                       ),
                       SizedBox(
@@ -60,7 +62,7 @@ class _GoalCardState extends State<GoalCard> {
                           minHeight: 6,
                           borderRadius: BorderRadius.circular(5),
                           backgroundColor: Colors.grey,
-                          color: Color(0xFF466AE7),
+                          color: const Color(0xFF466AE7),
                           value:
                               _progressValue, // Set the value based on your data
                         ),
@@ -69,7 +71,7 @@ class _GoalCardState extends State<GoalCard> {
                   )
                 ],
               ),
-              Text(
+              const Text(
                 "25%",
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
