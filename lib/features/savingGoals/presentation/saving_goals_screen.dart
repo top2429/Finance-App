@@ -33,7 +33,7 @@ class _SavingGoalsScreenState extends State<SavingGoalsScreen> {
         child: Center(
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               InkWell(
@@ -43,11 +43,11 @@ class _SavingGoalsScreenState extends State<SavingGoalsScreen> {
                         MaterialPageRoute(
                             builder: (context) => const CreateNewGoalScreen()));
                   },
-                  child: CreateSavingGoalDotted()),
-              SizedBox(
+                  child: const CreateSavingGoalDotted()),
+              const SizedBox(
                 height: 60,
               ),
-              Row(
+              const Row(
                 children: [
                   Text(
                     "My saving goals",
@@ -55,13 +55,13 @@ class _SavingGoalsScreenState extends State<SavingGoalsScreen> {
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               GoalCard(
                 onTap: () {
                   showModalBottomSheet(
-                    backgroundColor: Color.fromARGB(255, 240, 240, 240),
+                    backgroundColor: const Color.fromARGB(255, 240, 240, 240),
                     isScrollControlled: true,
                     enableDrag: true,
                     context: context,
@@ -93,7 +93,11 @@ class _SavingGoalsScreenState extends State<SavingGoalsScreen> {
                                               fontSize: 18),
                                         ),
                                       ))),
-                                      Icon(Icons.delete, size: 28,color: Colors.red,)
+                                      Icon(
+                                        Icons.delete,
+                                        size: 28,
+                                        color: Colors.red,
+                                      )
                                     ]),
                                     const SizedBox(
                                       height: 50,
@@ -113,7 +117,6 @@ class _SavingGoalsScreenState extends State<SavingGoalsScreen> {
               SizedBox(
                 height: 15,
               ),
-       
             ],
           ),
         ),
