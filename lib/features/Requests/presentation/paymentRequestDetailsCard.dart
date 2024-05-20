@@ -1,17 +1,25 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 import 'package:tai/features/sendTo/presentation/mobileMoneyWallet/mmdetails.dart';
 
 class PaymentRequestedDetails extends StatefulWidget {
-  final String  senderName;
+  final String senderName;
   final double amount;
   final String reason;
   final String time;
-  const PaymentRequestedDetails({super.key, required this.senderName, required this.amount, required this.reason, required this.time});
+  const PaymentRequestedDetails(
+      {super.key,
+      required this.senderName,
+      required this.amount,
+      required this.reason,
+      required this.time});
 
   @override
-  State<PaymentRequestedDetails> createState() => _PaymentRequestedDetailsState();
+  State<PaymentRequestedDetails> createState() =>
+      _PaymentRequestedDetailsState();
 }
 
 class _PaymentRequestedDetailsState extends State<PaymentRequestedDetails> {
@@ -49,15 +57,15 @@ class _PaymentRequestedDetailsState extends State<PaymentRequestedDetails> {
                       const SizedBox(
                         height: 30,
                       ),
-                       Center(
-                          child: Text("Payment requested from ${widget.senderName}",
+                      Center(
+                          child: Text(
+                              "Payment requested from ${widget.senderName}",
                               style: const TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.bold))),
-                       Center(
-                          child: Text(
-                              "29th 11 2023    ${widget.time}",
-                              style:
-                                  const TextStyle(fontSize: 14, color: Colors.grey))),
+                      Center(
+                          child: Text("29th 11 2023    ${widget.time}",
+                              style: const TextStyle(
+                                  fontSize: 14, color: Colors.grey))),
                       const SizedBox(height: 40),
                       Center(
                           child: Text("UGX ${widget.amount}",
@@ -65,16 +73,18 @@ class _PaymentRequestedDetailsState extends State<PaymentRequestedDetails> {
                                   fontSize: 35, fontWeight: FontWeight.bold))),
                       Center(
                           child: Text(widget.reason,
-                              style:
-                                  const TextStyle(fontSize: 14, color: Colors.grey))),
+                              style: const TextStyle(
+                                  fontSize: 14, color: Colors.grey))),
                       const SizedBox(height: 40),
-                      MainButton(text: "PAY", onpressed: (){
-                        Navigator.push(
+                      MainButton(
+                          text: "PAY",
+                          onpressed: () {
+                            Navigator.push(
                                 context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const MobileMoneyDetails()));
-                      })
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const MobileMoneyDetails()));
+                          })
                     ]),
               ),
             )

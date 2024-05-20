@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 
@@ -55,7 +57,9 @@ class _RequestCardState extends State<RequestCard> {
                       width: 150,
                       child: Text(
                         widget.natureOfRequest,
-                        style: const TextStyle(color: Colors.grey, overflow: TextOverflow.ellipsis),
+                        style: const TextStyle(
+                            color: Colors.grey,
+                            overflow: TextOverflow.ellipsis),
                       ),
                     )
                   ],
