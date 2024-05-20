@@ -78,14 +78,6 @@ class _AnalyticsTestState extends State<IncomeGraph> {
                 dotData: const FlDotData(
                   show: false,
                 ),
-                // belowBarData: BarAreaData(
-                //   show: true,
-                //   gradient: LinearGradient(
-                //     colors: [Colors.cyan, Colors.blue]
-                //         .map((color) => color.withOpacity(0.3))
-                //         .toList(),
-                //   ),
-                // ),
               ),
             ],
           ),
@@ -98,7 +90,6 @@ class _AnalyticsTestState extends State<IncomeGraph> {
 
   Widget bottomTitleWidgets(double value, TitleMeta meta) {
     const style = TextStyle(
-        // fontWeight: FontWeight.bold,
         fontSize: 12,
         color: Color.fromARGB(255, 112, 112, 112));
     Widget text;
@@ -134,7 +125,6 @@ class _AnalyticsTestState extends State<IncomeGraph> {
 
   Widget leftTitleWidgets(double value, TitleMeta meta) {
     const style = TextStyle(
-        // fontWeight: FontWeight.bold,
         fontSize: 12,
         color: Color.fromARGB(255, 112, 112, 112));
     String text;
