@@ -13,7 +13,6 @@ class TransactionsRepository {
                 Filter('receiverId', isEqualTo: userId),
               ));
 
-      /// see the documentation of the first .map [transaforms Stream<Querysnapshot> into Stream<List<Transactions>>]
       return query.snapshots().map((snapshot) {
         List<TransactionsModel> transactionsList = snapshot.docs
             .map((doc) => TransactionsModel.fromMap(doc.data()))
@@ -23,8 +22,6 @@ class TransactionsRepository {
         return transactionsList;
       });
     } catch (e) {
-      
-      // Handle the error or return an error stream
       return Stream.error(e);
     }
   }
@@ -36,8 +33,6 @@ final transactionsRepositoryProvider = Provider<TransactionsRepository>((ref) {
 
 final transactionsListStreamProvider = StreamProvider.autoDispose
     .family<List<TransactionsModel>, String>((ref, userId) {
-  /* caching method to keep the provider and stream
-    alive for some time before disposing it */
   final link = ref.keepAlive();
   Timer(const Duration(seconds: 20), () {
     link.close();
