@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -19,9 +21,7 @@ class _BarIconState extends State<BarIcon> {
           'assets/images/home.svg',
           height: 25,
           width: 25,
-          color: widget.active
-              ? Colors.black
-              : const Color(0xFFA9A8AA),
+          color: widget.active ? Colors.black : const Color(0xFFA9A8AA),
         );
 
       case 'Analytics':
@@ -29,9 +29,7 @@ class _BarIconState extends State<BarIcon> {
           'assets/images/analytics.svg',
           height: 23,
           width: 23,
-          color: widget.active
-              ? Colors.black
-              : const Color(0xFFA9A8AA),
+          color: widget.active ? Colors.black : const Color(0xFFA9A8AA),
         );
 
       case 'Transactions':
@@ -39,18 +37,14 @@ class _BarIconState extends State<BarIcon> {
           'assets/images/transactions.svg',
           height: 25,
           width: 25,
-          color: widget.active
-              ? Colors.black
-              : const Color(0xFFA9A8AA),
+          color: widget.active ? Colors.black : const Color(0xFFA9A8AA),
         );
       case 'Requests':
         return SvgPicture.asset(
           'assets/images/chat.svg',
           height: 25,
           width: 25,
-          color: widget.active
-              ? Colors.black
-              : const Color(0xFFA9A8AA),
+          color: widget.active ? Colors.black : const Color(0xFFA9A8AA),
         );
     }
 
