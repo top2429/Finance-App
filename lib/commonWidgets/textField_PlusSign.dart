@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 class TextFieldWidgetArrowDown extends StatefulWidget {
@@ -9,23 +11,22 @@ class TextFieldWidgetArrowDown extends StatefulWidget {
   final TextInputType keyBoardType;
   final Color backgroundColor;
   final VoidCallback onTap;
-    // final void Function(String) onChanged;
 
-  const TextFieldWidgetArrowDown(
-      {super.key,
-      required this.controller,
-      required this.onTap,
-      this.textcolor = Colors.black,
-      this.borderSideColor = Colors.black,
-      required this.label,
-      this.labelColor = Colors.black,
-      this.keyBoardType = TextInputType.name,
-      this.backgroundColor = const Color.fromARGB(255, 240, 240, 240),
-            // required this.onChanged
-});
+  const TextFieldWidgetArrowDown({
+    super.key,
+    required this.controller,
+    required this.onTap,
+    this.textcolor = Colors.black,
+    this.borderSideColor = Colors.black,
+    required this.label,
+    this.labelColor = Colors.black,
+    this.keyBoardType = TextInputType.name,
+    this.backgroundColor = const Color.fromARGB(255, 240, 240, 240),
+  });
 
   @override
-  State<TextFieldWidgetArrowDown> createState() => _TextFieldWidgetArrowDownState();
+  State<TextFieldWidgetArrowDown> createState() =>
+      _TextFieldWidgetArrowDownState();
 }
 
 class _TextFieldWidgetArrowDownState extends State<TextFieldWidgetArrowDown> {
@@ -34,15 +35,7 @@ class _TextFieldWidgetArrowDownState extends State<TextFieldWidgetArrowDown> {
     return TextFormField(
       onTap: widget.onTap,
       readOnly: true,
-      onFieldSubmitted: (value) {
-        // this will  handle the checks when the field is submitted 
-        // but before the button to proceed is pressed
-      },
-
-      // this is used for search functionality where it returns 
-        // some of the results depending on the values that are 
-        // already in the field
-      // onChanged: widget.onChanged,
+      onFieldSubmitted: (value) {},
       validator: (value) {
         if (value == null || value.isEmpty) {
           return 'This field cannot be empty';
@@ -52,27 +45,19 @@ class _TextFieldWidgetArrowDownState extends State<TextFieldWidgetArrowDown> {
       style: TextStyle(color: widget.textcolor, fontSize: 17),
       controller: widget.controller,
       decoration: InputDecoration(
-        suffixIcon: const Icon(Icons.add),
+          suffixIcon: const Icon(Icons.add),
           contentPadding: const EdgeInsets.only(top: 15, bottom: 15, left: 13),
           filled: true,
           fillColor: widget.backgroundColor,
-          // errorText:
-          //     widget.controllerExist.isEmpty ? null : widget.controllerExist,
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(10),
               borderSide: BorderSide(color: widget.borderSideColor)),
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
               borderSide: BorderSide(color: widget.borderSideColor)),
-          
           label: Text(widget.label),
-          labelStyle: TextStyle(color: widget.labelColor)
-          //hintText: 'username',
-
-          ),
+          labelStyle: TextStyle(color: widget.labelColor)),
       keyboardType: TextInputType.name,
-
-      //  keyboardType: TextInputType.name,
     );
   }
 }
