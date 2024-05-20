@@ -11,16 +11,12 @@ class HomeRepository {
             'userId',
             isEqualTo: userId,
           );
-      // the .map on the querysnapshots helps to transaform the strean to a 
-      //preferred type from Stream<Querysnapshots> to Stream<T>
       final response = query.snapshots().map((snapshot) => snapshot.docs
           .map((doc) => UserModel.fromMap(doc.data()))
           .toList()[0]);
 
       return response;
     } catch (e) {
-     
-      // Handle the error or return an error stream
       return Stream.error(e);
     }
   }
@@ -32,8 +28,6 @@ final homeRepositoryProvider = Provider<HomeRepository>((ref) {
 
 final userModelStreamProvider =
     StreamProvider.autoDispose.family<UserModel, String>((ref, userId) {
-  /* caching method to keep the provider and stream
-    alive for some time before disposing it */
   final link = ref.keepAlive();
   Timer(const Duration(seconds: 20), () {
     link.close();
