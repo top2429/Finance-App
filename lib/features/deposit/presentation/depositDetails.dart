@@ -1,3 +1,4 @@
+// ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -142,14 +143,7 @@ class _DepositDetailsState extends ConsumerState<DepositDetails> {
                                         Form(
                                           key: _formKeyPhoneNumber,
                                           child: TextFormField(
-                                            onFieldSubmitted: (value) {
-                                              // this will  handle the checks when the field is submitted
-                                              // but before the button to proceed is pressed
-                                            },
-
-                                            // this is used for search functionality where it returns
-                                            // some of the results depending on the values that are
-                                            // already in the field
+                                            onFieldSubmitted: (value) {},
                                             onChanged: (value) {
                                               sendTo.text =
                                                   "${service!.name} - ${phoneNumber.text}";
