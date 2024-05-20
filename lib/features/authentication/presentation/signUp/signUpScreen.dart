@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tai/commonWidgets/customSnackBar.dart';
@@ -70,7 +72,6 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                 const SizedBox(
                   height: 30,
                 ),
-
                 const Text(
                   "Let's get started!",
                   style: TextStyle(
@@ -185,7 +186,6 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                     ],
                   ),
                 ),
-
                 const SizedBox(height: 10),
                 Row(
                   children: [
