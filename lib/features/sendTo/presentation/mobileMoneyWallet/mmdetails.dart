@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -46,9 +48,6 @@ class _MobileMoneyDetailsState extends ConsumerState<MobileMoneyDetails> {
             text: "Send money",
             onpressed: () async {
               if (_formKey.currentState!.validate()) {
-                // If the form is valid, display a snackbar. In the real world,
-                // you'd often call a server or save the information in a database.
-                // sendMoneyToUser();
                 if (receiverId.isEmpty) {
                   CustomSnackBar.show(context, "Select recipient", true);
                 } else {
