@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
@@ -78,20 +80,18 @@ class _AnalyticsScreenState extends ConsumerState<AnalyticsScreen> {
                                   padding: const EdgeInsets.all(8.0),
                                   child: SvgPicture.asset(
                                     "assets/images/expenses.svg",
-                                    // ignore: deprecated_member_use
                                     color: Colors.red,
                                   ),
                                 ),
                               ),
                               Tab(
-                                child: Container(
-                                    child: Padding(
+                                child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: SvgPicture.asset(
                                     "assets/images/income.svg",
                                     color: Colors.green,
                                   ),
-                                )),
+                                ),
                               ),
                             ]),
                       )
@@ -107,13 +107,13 @@ class _AnalyticsScreenState extends ConsumerState<AnalyticsScreen> {
                   Container(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
-                        color: Color.fromARGB(255, 255, 243, 243)),
+                        color: const Color.fromARGB(255, 255, 243, 243)),
                     child: Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Align(
+                          const Align(
                             alignment: Alignment.centerLeft,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -121,8 +121,7 @@ class _AnalyticsScreenState extends ConsumerState<AnalyticsScreen> {
                                 Text(
                                   "Expenditure",
                                   style: TextStyle(
-                                      color:
-                                          const Color.fromARGB(255, 92, 92, 92),
+                                      color: Color.fromARGB(255, 92, 92, 92),
                                       fontWeight: FontWeight.bold),
                                 ),
                                 SizedBox(
@@ -154,7 +153,7 @@ class _AnalyticsScreenState extends ConsumerState<AnalyticsScreen> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Align(
+                          const Align(
                             alignment: Alignment.centerLeft,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -162,8 +161,7 @@ class _AnalyticsScreenState extends ConsumerState<AnalyticsScreen> {
                                 Text(
                                   "Income",
                                   style: TextStyle(
-                                      color:
-                                          const Color.fromARGB(255, 92, 92, 92),
+                                      color: Color.fromARGB(255, 92, 92, 92),
                                       fontWeight: FontWeight.bold),
                                 ),
                                 SizedBox(
