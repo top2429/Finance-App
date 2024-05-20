@@ -24,29 +24,3 @@ class Constants {
 
   static Color homePageBigCardColor = const Color(0xFF262329);
 }
-
-
-/* Navigation code 
-[ Navigator.push(
-  context,
-  MaterialPageRoute(
-      builder: (context) =>
-          const SavingGoalsScreen())); ] */
-
-
-
-// the appbar code
-
-// appBar: AppBar(
-//         centerTitle: true,
-//         title: const Text(
-//           "New Request",
-//           style: TextStyle(fontSize: 20),
-//         ),
-//         elevation: 0,
-//         backgroundColor: Colors.white,
-//         leading: IconButton(
-//             color: Colors.black,
-//             onPressed: () => Navigator.pop(context),
-//             icon: const Icon(Icons.arrow_back)),
-//       ),
