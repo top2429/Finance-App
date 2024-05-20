@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class TransactionsModel {
@@ -11,7 +13,16 @@ class TransactionsModel {
   String? time;
   Timestamp? timestamp;
 
-  TransactionsModel(this.senderId, this.senderName, this.senderImage,this.receiverId, this.receiverName,this.receiverImage,this.amount, this.time, this.timestamp);
+  TransactionsModel(
+      this.senderId,
+      this.senderName,
+      this.senderImage,
+      this.receiverId,
+      this.receiverName,
+      this.receiverImage,
+      this.amount,
+      this.time,
+      this.timestamp);
 
   TransactionsModel.fromMap(Map<String, dynamic> data) {
     senderId = data['senderId'];
@@ -28,14 +39,14 @@ class TransactionsModel {
   Map<String, dynamic> toJson() {
     final transactionsModel = {
       "senderId": senderId,
-      "senderName":senderName,
-      "senderImage":senderImage,
+      "senderName": senderName,
+      "senderImage": senderImage,
       "receiverId": receiverId,
       "receiverName": receiverName,
-      "receiverImage":receiverImage,
+      "receiverImage": receiverImage,
       "amount": amount,
-      "time":time,
-      "timestamp":timestamp
+      "time": time,
+      "timestamp": timestamp
     };
 
     return transactionsModel;
