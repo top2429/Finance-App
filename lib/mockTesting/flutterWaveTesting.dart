@@ -4,10 +4,6 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutterwave_standard/core/flutterwave.dart';
-import 'package:flutterwave_standard/models/requests/customer.dart';
-import 'package:flutterwave_standard/models/requests/customizations.dart';
-import 'package:flutterwave_standard/models/responses/charge_response.dart';
 import 'package:http/http.dart';
 import 'package:tai/commonWidgets/mainButton.dart';
 
@@ -41,23 +37,7 @@ class _FlutterWaveTestingState extends State<FlutterWaveTesting> {
     }
   }
 
-  handlePaymentInitialization() async {
-    final Customer customer = Customer(
-        name: "Micheal Owen",
-        phoneNumber: "256775854708",
-        email: "jerrysyre@gmail.com");
-    final Flutterwave flutterwave = Flutterwave(
-        context: context,
-        publicKey: "FLWPUBK_TEST-9a87c713ef68a600a7869a05022ef2fa-X",
-        currency: "UGX",
-        redirectUrl: "add-your-redirect-url-here",
-        txRef: "98736984373",
-        amount: "30000",
-        customer: customer,
-        paymentOptions: "ussd, card, barter, payattitude",
-        customization: Customization(title: "My Payment"),
-        isTestMode: true);
-  }
+  handlePaymentInitialization() async {}
 
   @override
   Widget build(BuildContext context) {
