@@ -20,8 +20,6 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
   final phoneNumberController = TextEditingController();
 
   bool buttonActive = true;
-
-  //  global key for the form on this screen
   final _formKey = GlobalKey<FormState>();
 
   bool buttonIsDisabled = true;
@@ -36,14 +34,10 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
           child: MainButton(
               indicator: buttonActive ? false : true,
               disabled: buttonActive ? false : true,
-              //disabled: buttonIsDisabled,
               lightBlue: true,
               text: "Sign Up",
               onpressed: () async {
                 if (_formKey.currentState!.validate()) {
-                  // If the form is valid, display a snackbar. In the real world,
-                  // you'd often call a server or save the information in a database.
-
                   setState(() {
                     buttonActive = false;
                   });
@@ -102,8 +96,6 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                         authText: true,
                         onChanged: (p0) {
                           if (_formKey.currentState!.validate()) {
-                            // If the form is valid, display a snackbar. In the real world,
-                            // you'd often call a server or save the information in a database.
                             setState(() {
                               buttonIsDisabled = false;
                             });
@@ -127,8 +119,6 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                         authText: true,
                         onChanged: (p0) {
                           if (_formKey.currentState!.validate()) {
-                            // If the form is valid, display a snackbar. In the real world,
-                            // you'd often call a server or save the information in a database.
                             setState(() {
                               buttonIsDisabled = false;
                             });
@@ -152,8 +142,6 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                         authText: true,
                         onChanged: (p0) {
                           if (_formKey.currentState!.validate()) {
-                            // If the form is valid, display a snackbar. In the real world,
-                            // you'd often call a server or save the information in a database.
                             setState(() {
                               buttonIsDisabled = false;
                             });
@@ -178,9 +166,6 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                         authText: true,
                         onChanged: (p0) {
                           if (_formKey.currentState!.validate()) {
-                            // If the form is valid, display a snackbar. In the real world,
-                            // you'd often call a server or save the information in a database.
-
                             setState(() {
                               buttonIsDisabled = false;
                             });
@@ -232,7 +217,6 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                 const SizedBox(
                   height: 30,
                 ),
-                // const Spacer(),
                 const Padding(
                   padding: EdgeInsets.only(bottom: 10),
                   child: Column(
