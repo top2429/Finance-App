@@ -7,10 +7,6 @@ import 'package:tai/features/authentication/domain/userModel.dart';
 import 'package:tai/features/authentication/presentation/current_user_controller.dart';
 
 class AuthRepository {
-  /* The following are the local varables for the auth repository */
-
-  
-
   String chooseRandomPicture() {
     var myStrings = [
       "one.png",
