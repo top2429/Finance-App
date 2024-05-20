@@ -63,17 +63,11 @@ class _OTPinputScreenState extends State<OTPinputScreen> {
                   margin: const EdgeInsets.only(left: 6, right: 6),
                   numberOfFields: 6,
                   borderColor: const Color(0xFF512DA8),
-                  //set to true to show as box or false to show as dash
                   showFieldAsBox: true,
-                  //runs when a code is typed in
                   onCodeChanged: (String code) {
-                    //handle validation or checks here
-
-                    // The verification code that will be returned here is the one to use for OTP verification. The value is [code]
                   },
                   //runs when every textfield is filled
                   onSubmit: (String verificationCode) {
-                    // The verification code that will be returned here is the one to use for OTP verification. The value is [verification code]
                     showDialog(
                         context: context,
                         builder: (context) {
