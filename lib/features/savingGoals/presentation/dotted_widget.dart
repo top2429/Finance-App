@@ -50,15 +50,14 @@ class DottedRectPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
-      ..color = const Color.fromARGB(255, 87, 87, 87) // Border color
-      ..style = PaintingStyle.stroke // Border style
-      ..strokeWidth = 2.0; // Border width
+      ..color = const Color.fromARGB(255, 87, 87, 87)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 2.0;
 
-    const double dashWidth = 7; // Adjust the width of each dot
-    const double dashSpace = 3; // Adjust the space between dots
+    const double dashWidth = 7;
+    const double dashSpace = 3;
     double currentX = 0;
 
-    // Draw dotted lines on the top and bottom sides
     while (currentX < size.width) {
       canvas.drawLine(
         Offset(currentX, 0),
@@ -73,10 +72,8 @@ class DottedRectPainter extends CustomPainter {
       currentX += dashWidth + dashSpace;
     }
 
-    const double dashHeight = 5; // Adjust the height of each dot
+    const double dashHeight = 5;
     double currentY = 0;
-
-    // Draw dotted lines on the left and right sides, creating the corners
     while (currentY < size.height) {
       canvas.drawLine(
         Offset(0, currentY),
