@@ -81,7 +81,7 @@ class _AnalyticsTestState extends State<IncomeGraph> {
               ),
             ],
           ),
-          duration: const Duration(milliseconds: 150), // Optional
+          duration: const Duration(milliseconds: 150),
           curve: Curves.linear, // Optional
         ),
       ),
