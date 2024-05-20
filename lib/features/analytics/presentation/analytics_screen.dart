@@ -36,7 +36,7 @@ class _AnalyticsScreenState extends ConsumerState<AnalyticsScreen> {
           length: 2,
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               Container(
@@ -52,15 +52,15 @@ class _AnalyticsScreenState extends ConsumerState<AnalyticsScreen> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             "Balance",
                             style: TextStyle(
-                                color: const Color.fromARGB(255, 92, 92, 92),
+                                color: Color.fromARGB(255, 92, 92, 92),
                                 fontWeight: FontWeight.bold),
                           ),
                           Text(
                             "UGX ${currentUser.totalBalance}",
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: Colors.green,
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold),
@@ -70,17 +70,18 @@ class _AnalyticsScreenState extends ConsumerState<AnalyticsScreen> {
                       Padding(
                         padding: const EdgeInsets.only(right: 8),
                         child: ButtonsTabBar(
-                            decoration: BoxDecoration(shape: BoxShape.circle),
+                            decoration:
+                                const BoxDecoration(shape: BoxShape.circle),
                             tabs: [
                               Tab(
-                                child: Container(
-                                    child: Padding(
+                                child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: SvgPicture.asset(
                                     "assets/images/expenses.svg",
+                                    // ignore: deprecated_member_use
                                     color: Colors.red,
                                   ),
-                                )),
+                                ),
                               ),
                               Tab(
                                 child: Container(
@@ -98,7 +99,7 @@ class _AnalyticsScreenState extends ConsumerState<AnalyticsScreen> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Expanded(
