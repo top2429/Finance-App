@@ -63,8 +63,7 @@ class _GoalCardState extends State<GoalCard> {
                           borderRadius: BorderRadius.circular(5),
                           backgroundColor: Colors.grey,
                           color: const Color(0xFF466AE7),
-                          value:
-                              _progressValue, // Set the value based on your data
+                          value: _progressValue,
                         ),
                       ),
                     ],
