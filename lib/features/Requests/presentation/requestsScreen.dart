@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tai/features/Requests/data/requests_repository.dart';
@@ -62,10 +64,6 @@ class RequestsScreen extends ConsumerWidget {
                                     }),
                               );
                             }
-
-                            /// this return of container should not be return null
-                            /// returning null breaks the loop and the builder doesnt iterate through all
-                            /// the items in the list
                             return Container();
                           }),
                       const SizedBox(
