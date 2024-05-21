@@ -34,10 +34,6 @@ class _DepositocationsState extends State<DepositLocations> {
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              const Text(
-                "Select deposit method",
-                style: TextStyle(fontSize: 20),
-              ),
               const SizedBox(
                 height: 50,
               ),
