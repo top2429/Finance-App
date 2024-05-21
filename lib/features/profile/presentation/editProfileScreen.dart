@@ -50,10 +50,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               enableDrag: true,
                               context: context,
                               builder: (BuildContext context) {
-                                return Padding(
-                                  padding: const EdgeInsets.all(13),
+                                return const Padding(
+                                  padding: EdgeInsets.all(13),
                                   child: Column(children: [
-                                    const Padding(
+                                    Padding(
                                       padding: EdgeInsets.only(
                                           top: 8, bottom: 14, left: 5),
                                       child: Row(
@@ -66,20 +66,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                         ],
                                       ),
                                     ),
-                                    Expanded(
-                                        child: GridView.builder(
-                                      itemBuilder: (context, index) {
-                                        return const CircleAvatar();
-                                      },
-                                      itemCount: 20,
-                                      gridDelegate:
-                                          const SliverGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount: 5,
-                                        crossAxisSpacing: 10,
-                                        mainAxisSpacing: 14,
-                                        childAspectRatio: (1.0),
-                                      ),
-                                    ))
                                   ]),
                                 );
                               });
