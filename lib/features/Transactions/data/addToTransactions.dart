@@ -13,15 +13,7 @@ addToTransactions(
     double amount,
     String time) async {
   var db = FirebaseFirestore.instance;
-  TransactionsModel transactionsModel = TransactionsModel(
-      senderId,
-      senderName,
-      senderImage,
-      receiverId,
-      receiverName,
-      receiverImage,
-      amount,
-      time,
-      Timestamp.now());
+  TransactionsModel transactionsModel = TransactionsModel(senderId, senderName,
+      senderImage, receiverId, receiverName, receiverImage, Timestamp.now());
   await db.collection("transactions").add(transactionsModel.toJson());
 }
