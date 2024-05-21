@@ -12,18 +12,12 @@ class IconCircle extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      child: Container(
-        decoration: const BoxDecoration(
-          color: Color(0xFF3B363F),
-          shape: BoxShape.circle,
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: SvgPicture.asset(
-            image,
-            height: 39,
-            width: 39,
-          ),
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: SvgPicture.asset(
+          image,
+          height: 39,
+          width: 39,
         ),
       ),
     );
