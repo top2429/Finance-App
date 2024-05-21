@@ -52,7 +52,6 @@ class _TextFieldWidgetIconState extends State<TextFieldWidgetIcon> {
                   size: 19,
                 )
               : null,
-          contentPadding: const EdgeInsets.only(top: 15, bottom: 15, left: 0),
           filled: true,
           fillColor: widget.backgroundColor,
           label: Text(widget.label),
