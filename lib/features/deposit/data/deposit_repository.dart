@@ -45,7 +45,6 @@ handlePaymentInitialization(String userId, String username, String? phoneNumber,
   if (response.toJson()["status"] == "successful") {
     bool value = await updateTotalBalanceAmount(userId, amount);
     if (value) {
-      CustomSnackBar.show(context, "Deposit successful", false);
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => const NavBar()));
     } else {
