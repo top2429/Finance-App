@@ -52,7 +52,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                         )));
                           },
                           child: CircleAvatar(
-                            radius: 30,
                             backgroundImage: Image.asset(
                               "assets/images/${value.image}",
                               fit: BoxFit.cover,
