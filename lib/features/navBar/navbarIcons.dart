@@ -23,14 +23,6 @@ class _BarIconState extends State<BarIcon> {
           color: widget.active ? Colors.black : const Color(0xFFA9A8AA),
         );
 
-      case 'Analytics':
-        return SvgPicture.asset(
-          'assets/images/analytics.svg',
-          height: 23,
-          width: 23,
-          color: widget.active ? Colors.black : const Color(0xFFA9A8AA),
-        );
-
       case 'Transactions':
         return SvgPicture.asset(
           'assets/images/transactions.svg',
