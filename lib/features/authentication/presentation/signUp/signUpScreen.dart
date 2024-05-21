@@ -72,16 +72,6 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                 const SizedBox(
                   height: 30,
                 ),
-                const Text(
-                  "Let's get started!",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25,
-                      color: Colors.white),
-                ),
-                const SizedBox(
-                  height: 40,
-                ),
                 Form(
                   key: _formKey,
                   child: Column(
