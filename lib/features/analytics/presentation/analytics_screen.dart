@@ -54,12 +54,6 @@ class _AnalyticsScreenState extends ConsumerState<AnalyticsScreen> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
-                            "Balance",
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 92, 92, 92),
-                                fontWeight: FontWeight.bold),
-                          ),
                           Text(
                             "UGX ${currentUser.totalBalance}",
                             style: const TextStyle(
