@@ -1,6 +1,5 @@
 // ignore_for_file: file_names
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MainButton extends StatefulWidget {
@@ -33,29 +32,18 @@ class _MainButtonState extends State<MainButton> {
         borderRadius: BorderRadius.circular(30),
         elevation: 0,
         child: Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                color: widget.disabled
-                    ? Colors.black
-                    : widget.lightBlue
-                        ? const Color.fromARGB(255, 10, 49, 82)
-                        : widget.red
-                            ? const Color.fromARGB(255, 252, 82, 70)
-                            : theme.primaryColor),
-            width: 343,
-            height: 45,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Center(
-                  child: widget.indicator
-                      ? const CupertinoActivityIndicator(
-                          color: Colors.white,
-                        )
-                      : Text(
-                          widget.text,
-                          style: theme.textTheme.labelLarge,
-                        )),
-            )),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(30),
+              color: widget.disabled
+                  ? Colors.black
+                  : widget.lightBlue
+                      ? const Color.fromARGB(255, 10, 49, 82)
+                      : widget.red
+                          ? const Color.fromARGB(255, 252, 82, 70)
+                          : theme.primaryColor),
+          width: 343,
+          height: 45,
+        ),
       ),
     );
   }
