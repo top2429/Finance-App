@@ -17,9 +17,6 @@ class CustomSnackBar {
                     color: Colors.red,
                   )
                 : const Icon(Icons.done, color: Colors.green),
-            const SizedBox(
-              width: 20,
-            ),
             SizedBox(
                 width: 260,
                 child: Text(
