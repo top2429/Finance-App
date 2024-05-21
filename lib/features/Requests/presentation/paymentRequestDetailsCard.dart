@@ -28,12 +28,6 @@ class _PaymentRequestedDetailsState extends State<PaymentRequestedDetails> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text(
-          "Payment Request Details",
-          style: TextStyle(fontSize: 20),
-        ),
-        elevation: 0,
-        backgroundColor: Colors.white,
         leading: IconButton(
             color: Colors.black,
             onPressed: () => Navigator.pop(context),
