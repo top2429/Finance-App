@@ -46,7 +46,6 @@ class _TextFieldWidgetArrowDownState extends State<TextFieldWidgetArrowDown> {
       controller: widget.controller,
       decoration: InputDecoration(
           suffixIcon: const Icon(Icons.add),
-          contentPadding: const EdgeInsets.only(top: 15, bottom: 15, left: 13),
           filled: true,
           fillColor: widget.backgroundColor,
           focusedBorder: OutlineInputBorder(
