@@ -43,9 +43,6 @@ class _OTPinputScreenState extends State<OTPinputScreen> {
                       fontSize: 25,
                       color: Colors.white),
                 ),
-                const SizedBox(
-                  height: 7,
-                ),
                 const Text(
                   "Enter your phone number, We will send you a code.",
                   style: TextStyle(fontSize: 10, color: Colors.white),
