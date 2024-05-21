@@ -59,14 +59,6 @@ class _NavBarState extends State<NavBar> {
                         name: 'Home', active: nowIndex == 0 ? true : false),
                   )),
               BottomNavigationBarItem(
-                  label: "Analytics",
-                  icon: Padding(
-                    padding: const EdgeInsets.only(top: 7),
-                    child: BarIcon(
-                        name: 'Analytics',
-                        active: nowIndex == 1 ? true : false),
-                  )),
-              BottomNavigationBarItem(
                   label: "Transactions",
                   icon: Padding(
                     padding: const EdgeInsets.only(top: 7),
