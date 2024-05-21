@@ -35,11 +35,6 @@ class _EnterCode2State extends State<EnterCode> {
                 Icons.cancel,
                 color: Colors.white,
               ),
-              doneButton: const Icon(
-                Icons.done,
-                color: Color(0xFF466AE7),
-                size: 30,
-              ),
               inputTextColor: const Color(0xFF466AE7),
               btnTextColor: Colors.white,
               inputType: InputType.dash,
