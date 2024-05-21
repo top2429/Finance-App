@@ -55,13 +55,8 @@ class _TextFieldWidgetIconState extends State<TextFieldWidgetIcon> {
           filled: true,
           fillColor: widget.backgroundColor,
           label: Text(widget.label),
-          labelStyle: TextStyle(color: widget.labelColor)
-          //hintText: 'username',
-
-          ),
+          labelStyle: TextStyle(color: widget.labelColor)),
       keyboardType: TextInputType.name,
-
-      //  keyboardType: TextInputType.name,
     );
   }
 }
