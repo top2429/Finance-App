@@ -61,10 +61,6 @@ class _DepositDetailsState extends ConsumerState<DepositDetails> {
       ),
       appBar: AppBar(
         centerTitle: true,
-        title: const Text(
-          "Deposit",
-          style: TextStyle(fontSize: 20),
-        ),
         elevation: 0,
         backgroundColor: Colors.white,
         leading: IconButton(
