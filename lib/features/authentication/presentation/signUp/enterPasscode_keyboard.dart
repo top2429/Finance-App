@@ -36,8 +36,6 @@ class _EnterCode2State extends State<EnterCode> {
                 color: Colors.white,
               ),
               inputTextColor: const Color(0xFF466AE7),
-              btnTextColor: Colors.white,
-              inputType: InputType.dash,
               inputHasBorder: false,
               btnHasBorder: false,
               keyboardButtonShape: KeyboardButtonShape.circular,
