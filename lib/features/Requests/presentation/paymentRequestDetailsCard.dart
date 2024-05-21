@@ -52,11 +52,6 @@ class _PaymentRequestedDetailsState extends State<PaymentRequestedDetails> {
                         height: 30,
                       ),
                       Center(
-                          child: Text(
-                              "Payment requested from ${widget.senderName}",
-                              style: const TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold))),
-                      Center(
                           child: Text("29th 11 2023    ${widget.time}",
                               style: const TextStyle(
                                   fontSize: 14, color: Colors.grey))),
