@@ -26,10 +26,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: const Text(
-            "Edit Profile",
-            style: TextStyle(fontSize: 20),
-          ),
           elevation: 0,
           backgroundColor: Colors.white,
           leading: IconButton(
