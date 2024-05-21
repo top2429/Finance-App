@@ -80,13 +80,6 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                       color: Colors.white),
                 ),
                 const SizedBox(
-                  height: 7,
-                ),
-                const Text(
-                  "Create a short username(max 10 characters)",
-                  style: TextStyle(fontSize: 12, color: Colors.white),
-                ),
-                const SizedBox(
                   height: 40,
                 ),
                 Form(
