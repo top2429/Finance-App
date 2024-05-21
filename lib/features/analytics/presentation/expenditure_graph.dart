@@ -47,12 +47,6 @@ class _AnalyticsTestState extends State<ExpenditureGraph> {
                   strokeWidth: 0.2,
                 );
               },
-              getDrawingVerticalLine: (value) {
-                return const FlLine(
-                  color: Color.fromARGB(255, 230, 230, 230),
-                  strokeWidth: 0.2,
-                );
-              },
             ),
             borderData: FlBorderData(
               show: false,
