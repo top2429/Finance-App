@@ -18,10 +18,6 @@ class _ChooseRequestPaymentMethodState extends State<ChooseRequestMethod> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text(
-          "Request",
-          style: TextStyle(fontSize: 20),
-        ),
         elevation: 0,
         backgroundColor: Colors.white,
         leading: IconButton(
