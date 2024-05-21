@@ -55,10 +55,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
             )
           ],
           centerTitle: true,
-          title: const Text(
-            "My Profile",
-            style: TextStyle(fontSize: 20),
-          ),
           elevation: 0,
           backgroundColor: Colors.white,
           leading: IconButton(
