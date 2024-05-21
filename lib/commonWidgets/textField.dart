@@ -38,12 +38,6 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
       obscureText: widget.obscureText ? true : false,
       onFieldSubmitted: (value) {},
       onChanged: widget.onChanged,
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'This field cannot be empty';
-        }
-        return null;
-      },
       style: TextStyle(
           color: widget.authText ? Colors.white : widget.textcolor,
           fontSize: 17),
