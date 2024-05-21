@@ -49,9 +49,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     fontSize: 25,
                     color: Colors.white),
               ),
-              const SizedBox(
-                height: 7,
-              ),
               const Text(
                 "Login with Email or Phone number",
                 style: TextStyle(fontSize: 12, color: Colors.white),
