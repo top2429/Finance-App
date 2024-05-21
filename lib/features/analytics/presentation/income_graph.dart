@@ -18,8 +18,6 @@ class _AnalyticsTestState extends State<IncomeGraph> {
         child: LineChart(
           LineChartData(
             titlesData: FlTitlesData(
-              rightTitles:
-                  const AxisTitles(sideTitles: SideTitles(showTitles: false)),
               topTitles:
                   const AxisTitles(sideTitles: SideTitles(showTitles: false)),
               leftTitles: AxisTitles(
